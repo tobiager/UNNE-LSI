@@ -10,77 +10,73 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/LSI-UNNE-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Organizaci%C3%B3n-Por%20Materia-8A2BE2?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Planes-2009%20%7C%202023-4caf50?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Plan-2009-important?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Inicié-2023-yellow?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Año-3er%20año-green?style=for-the-badge"/>
 </p>
 
 # 🎓 LSI UNNE — Apuntes, prácticos y guías por materia
 
-Repositorio **no oficial** con material **propio** (resúmenes, prácticos resueltos, guías y plantillas) de la **Licenciatura en Sistemas de Información (FaCENA–UNNE)**.
+Hola! Soy **Tobias**, ingresé a la carrera en **2023** pero curso bajo el **plan 2009**. Actualmente estoy en **3er año** y decidí documentar mi recorrido para que sirva de guía, repaso y ayuda para quien venga detrás.
 
-Lo hice para:
-- **Estudiar mejor** y dejar el recorrido documentado.
-- **Ayudar** a quienes cursan con **planes distintos** (2009 y 2023).
-- Tener un **portafolio académico** ordenado y público.
-
-> Comparto contenido realizado por mí y enlaces públicos. Evito subir archivos con copyright de terceros o exámenes vigentes.
+Este repositorio *no oficial* reúne mis **resúmenes**, **prácticos**, **guías** y algún que otro **tip personal** de la **Licenciatura en Sistemas de Información (FaCENA–UNNE)**.
 
 ---
 
-## 🗂️ Estructura
+## 🗂️ ¿Qué vas a encontrar?
 
-```
-materias/
-  (una carpeta por materia)
+```text
+Materias/
+  ├── <Materia>/README.md   # apuntes, prácticas y consejos
+  ├── ...
 planes/
-  2009.md
-  2023.md
+  ├── 2009.md               # recorrido recomendado por plan 2009
+  └── 2023.md               # equivalencias para el plan 2023
 meta/
-  mapping-planes.yaml   # mapea materia → {año, cuatri} por plan
+  └── mapping-planes.yaml   # mapeo materia → {año, cuatri} por plan
 assets/
-  facena.png            # logo (placeholder)
+  └── facena.png            # logo e imágenes
 ```
 
-- Todo el contenido vive en `materias/`.
-- Los archivos de `planes/` solo **ordenan** y **enlazan** a las materias (sin duplicar).
-- `meta/mapping-planes.yaml` mantiene el mapeo para **2009** y **2023**.
+- **`Materias/`**: carpeta principal. Cada materia tiene su **README** con qué se cursó, apuntes útiles y consejos propios.
+- **`planes/`**: guías para ver el orden sugerido por cada plan.
+- **`meta/`**: archivos auxiliares para relacionar materias entre planes.
+- **`assets/`**: imágenes que usa el repo.
 
 ---
 
 ## 🚀 Cómo navegar
-- **Por materia:** entra a [`/materias`](./Materias) y elegí la carpeta correspondiente.
-- **Por plan:** abrí [`/planes/2023.md`](./planes/2023.md) o [`/planes/2009.md`](./planes/2009.md) para ver el orden sugerido y links directos.
+
+- **Por materia:** entrá a [`/Materias`](./Materias) y elegí la que necesites. Dentro de cada una hay un README con lo que hice, material y recomendaciones.
+- **Por plan:** abrí [`/planes/2009.md`](./planes/2009.md) o [`/planes/2023.md`](./planes/2023.md) para ver el orden cuatrimestral y links directos.
 
 ---
 
 ## 🧰 Buenas prácticas del repo
-- **Commits** con prefijo de materia (`bdd-i: agrega normalización v2`).
-- **Releases** por cuatrimestre (ej: `2025-Q2`).
-- **Archivos grandes:** subir como **Assets de Releases** o enlazar (Drive).
+
+- Commits con prefijo de materia (`poo: agrega guía de polimorfismo`).
+- Releases por cuatrimestre (`2025-Q2`).
+- Archivos grandes como assets de releases o enlaces externos.
 - `.gitignore` para evitar binarios innecesarios (`*.zip`, `build/`, etc.).
 
 ---
 
 ## 🔒 Uso responsable
-- No se publican **exámenes vigentes** ni **material cerrado** de cátedra.
-- Si sos docente y querés ajustar/quitar algo, abrí un **Issue**.
+
+- Nada de exámenes vigentes ni material cerrado de cátedra.
+- Si sos docente o encontrás algo para mejorar, abrí un **Issue**.
 
 ---
 
-## 🤝 Contribuir
-1. Abrí un **Issue** con el detalle del cambio.
-2. (Opcional) PR desde una rama `materia/<slug>-<cambio>`.
+## 🧱 Contribuir
 
-Convenciones de commit:
-```
-poo: añade guía de polimorfismo
-ing-soft-i: corrige ERS y añade casos de uso
-```
+1. Abrí un Issue describiendo el cambio.
+2. (Opcional) creá un PR desde una rama `materia/<slug>-<cambio>`.
 
 ---
 
 ## 📄 Licencia
+
 - **Apuntes/guías/soluciones propias:** CC BY-NC-SA 4.0  
 - **Código/plantillas reutilizables:** MIT
 
