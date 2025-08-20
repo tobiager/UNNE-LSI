@@ -1,0 +1,16 @@
+# Archivos y carpetas que no quiero subir al repo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+build/
+dist/
+node_modules/
+
+# Evitar subir paquetes y binarios pesados por error
+*.zip
+*.rar
+*.7z
+
+# Carpeta local para cosas que NO van al repo
+no-subir/
