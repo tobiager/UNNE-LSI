@@ -10,9 +10,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/LSI-UNNE-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Plan-2009-important?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Inicié-2023-yellow?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Año-3er%20año-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Organizaci%C3%B3n-Por%20Materia-8A2BE2?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Planes-2009%20%7C%202023-4caf50?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-orange?style=for-the-badge"/>
 </p>
 
 # 🎓 LSI UNNE — Apuntes, prácticos y guías por materia
