@@ -61,13 +61,6 @@ assets/
 
 ---
 
-## 🔒 Uso responsable
-
-- Nada de exámenes vigentes ni material cerrado de cátedra.
-- Si sos docente o encontrás algo para mejorar, abrí un **Issue**.
-
----
-
 ## 🧱 Contribuir
 
 1. Abrí un Issue describiendo el cambio.
