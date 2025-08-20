@@ -49,7 +49,7 @@ assets/
 ---
 
 ## 🚀 Cómo navegar
-- **Por materia:** entra a [`/materias`](./materias) y elegí la carpeta correspondiente.
+- **Por materia:** entra a [`/materias`](./Materias) y elegí la carpeta correspondiente.
 - **Por plan:** abrí [`/planes/2023.md`](./planes/2023.md) o [`/planes/2009.md`](./planes/2009.md) para ver el orden sugerido y links directos.
 
 ---
