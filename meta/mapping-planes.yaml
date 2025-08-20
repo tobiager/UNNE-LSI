@@ -1,58 +1,70 @@
 materias:
+  # --- MATERIAS COMUNES O PRESENTES EN 2023 Y/O 2009 ---
   - slug: algoritmos-estructuras-i
     nombre: "Algoritmos y Estructuras de Datos I"
     planes:
       - { plan: 2023, año: 1, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 1, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: algebra
     nombre: "Álgebra"
     planes:
       - { plan: 2023, año: 1, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 1, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: algoritmos-estructuras-ii
     nombre: "Algoritmos y Estructuras de Datos II"
     planes:
       - { plan: 2023, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: logica-matematica-computacional
     nombre: "Lógica y Matemática Computacional"
     planes:
       - { plan: 2023, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: sistemas-y-organizaciones
     nombre: "Sistemas y Organizaciones"
     planes:
       - { plan: 2023, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
+      - { plan: 2009, año: 1, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
 
   - slug: paradigmas-y-lenguajes
     nombre: "Paradigmas y Lenguajes"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: arquitectura-y-organizacion-de-computadoras
     nombre: "Arquitectura y Organización de Computadoras"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: calculo-diferencial-e-integral
     nombre: "Cálculo Diferencial e Integral"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 2, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: poo
     nombre: "Programación Orientada a Objetos"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: sistemas-operativos
     nombre: "Sistemas Operativos"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: base-de-datos-i
     nombre: "Bases de Datos I"
     planes:
       - { plan: 2023, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 3, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: programacion-web
     nombre: "Programación Web"
@@ -63,16 +75,19 @@ materias:
     nombre: "Comunicaciones de Datos"
     planes:
       - { plan: 2023, año: 3, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 3, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: ingenieria-de-software-i
     nombre: "Ingeniería de Software I"
     planes:
       - { plan: 2023, año: 3, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 3, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: probabilidad-y-estadistica
     nombre: "Probabilidad y Estadística"
     planes:
       - { plan: 2023, año: 3, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 3, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: programacion-avanzada
     nombre: "Programación Avanzada"
@@ -83,6 +98,7 @@ materias:
     nombre: "Ingeniería de Software II"
     planes:
       - { plan: 2023, año: 3, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 4, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: inteligencia-artificial
     nombre: "Inteligencia Artificial"
@@ -93,11 +109,13 @@ materias:
     nombre: "Teoría de la Computación"
     planes:
       - { plan: 2023, año: 4, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 96 }
+      - { plan: 2009, año: 4, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 96 }
 
   - slug: redes-de-datos
     nombre: "Redes de Datos"
     planes:
       - { plan: 2023, año: 4, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 4, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: ingenieria-de-software-iii
     nombre: "Ingeniería de Software III"
@@ -108,11 +126,13 @@ materias:
     nombre: "Bases de Datos II"
     planes:
       - { plan: 2023, año: 4, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+      - { plan: 2009, año: 4, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: metodos-computacionales
     nombre: "Métodos Computacionales"
     planes:
       - { plan: 2023, año: 4, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
+      - { plan: 2009, año: 4, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
 
   - slug: analisis-de-organizaciones-y-procesos
     nombre: "Análisis de Organizaciones y Procesos"
@@ -123,6 +143,7 @@ materias:
     nombre: "Auditoría y Seguridad Informática"
     planes:
       - { plan: 2023, año: 5, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 96 }
+      - { plan: 2009, año: 5, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 96 }
 
   - slug: emprendedorismo-y-modelos-de-negocios
     nombre: "Emprendedorismo y Modelos de Negocios"
@@ -133,6 +154,7 @@ materias:
     nombre: "Optativa I"
     planes:
       - { plan: 2023, año: 5, cuatrimestre: 1, regimen: "Bimestral", carga_horaria: 48 }
+      - { plan: 2009, año: 5, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 96 }
 
   - slug: introduccion-a-la-ciencia-de-datos
     nombre: "Introducción a la Ciencia de Datos"
@@ -148,8 +170,41 @@ materias:
     nombre: "Optativa II"
     planes:
       - { plan: 2023, año: 5, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 48 }
+      - { plan: 2009, año: 5, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
 
   - slug: proyecto-integrador-de-carrera
     nombre: "Proyecto Integrador de Carrera"
     planes:
       - { plan: 2023, año: 5, cuatrimestre: "anual", regimen: "Anual", carga_horaria: 128 }
+      - { plan: 2009, año: 5, cuatrimestre: "anual", regimen: "Anual", carga_horaria: 192 }
+
+  # --- MATERIAS EXCLUSIVAS/ESPECÍFICAS DEL 2009 ---
+  - slug: administracion-y-gestion-de-organizaciones
+    nombre: "Administración y Gestión de Organizaciones"
+    planes:
+      - { plan: 2009, año: 2, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
+
+  - slug: taller-de-programacion-i
+    nombre: "Taller de Programación I"
+    planes:
+      - { plan: 2009, año: 3, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+
+  - slug: taller-de-programacion-ii
+    nombre: "Taller de Programación II"
+    planes:
+      - { plan: 2009, año: 3, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 128 }
+
+  - slug: economia-aplicada
+    nombre: "Economía Aplicada"
+    planes:
+      - { plan: 2009, año: 4, cuatrimestre: 1, regimen: "Cuatrimestral", carga_horaria: 128 }
+
+  - slug: ingles-tecnico-informatico
+    nombre: "Inglés Técnico Informático (exigencia extracurricular para APU)"
+    planes:
+      - { plan: 2009, año: 3, cuatrimestre: "extracurricular", regimen: "Extracurricular" }
+
+  - slug: optativa-iii
+    nombre: "Optativa III"
+    planes:
+      - { plan: 2009, año: 5, cuatrimestre: 2, regimen: "Cuatrimestral", carga_horaria: 96 }
