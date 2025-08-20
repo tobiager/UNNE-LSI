@@ -1,0 +1,25 @@
+Clase del 17/03/23 
+Algoritmo                   Entorno Ludico---> Escenario
+Unidad 1 ------> Metodologia de Pensamiento computacional
+--------------------------------------------------------------
+Algoritmia basica pasos
+1)Entrada
+2)Proceso
+3)Salida
+--------------------------------------------------------------
+
+--------------------------------------------------------------
+Video de robots de china
+
+Entorno Ludico:  correo
+
+Sensor:Hasta el buzon correspondiente
+
+Primitivas:
+
+1)Un trabajador coloca el paquete arriba del robot
+2)el robot avanza hasta el buzon
+3)el robot suelta el paquete en el buzon
+4)el robot vuelve a por otro paquete
+
+----------------------------------

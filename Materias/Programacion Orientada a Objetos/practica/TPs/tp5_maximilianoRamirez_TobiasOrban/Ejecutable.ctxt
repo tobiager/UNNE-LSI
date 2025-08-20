@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Ejecutable
+comment0.text=\r\n\ La\ clase\ Ejecutable\ contiene\ el\ m\u00E9todo\ principal\ para\ ejecutar\ la\ aplicaci\u00F3n,\r\n\ donde\ se\ gestionan\ los\ pedidos\ y\ los\ renglones\ asociados\ a\ etiquetas.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ ejecuta\ la\ aplicaci\u00F3n.\r\n\ Crea\ renglones\ de\ diferentes\ tipos\ de\ etiquetas\ y\ los\ agrega\ a\ un\ pedido.\r\n\ Luego,\ muestra\ los\ detalles\ del\ pedido.\r\n\ \r\n\ @param\ args\ Argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ se\ utilizan).\r\n
+numComments=2

@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Hospital
+comment0.text=\r\n\ Ejercicio\ 8,\ clase\ Hospital.\r\n\ \r\n\ @author\ Olivarez\ Alexis\ E.\r\n
+comment1.params=pNombreHospital\ pNombreDirector
+comment1.target=Hospital(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Hospital.\r\n\ \r\n\ @param\ pNroCuenta\ El\ nombre\ completo\ del\ hospital.\r\n\ @param\ pTitular\ \ \ El\ nombre\ completo\ del\ director\ del\ hospital\r\n
+comment2.params=pNombreDirector
+comment2.target=void\ setNombreDirector(java.lang.String)
+comment2.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "nombreDirector"\ proporcionado\r\n\ del\ valor\ "pNombreDirector".\r\n\r\n\ @param\ pNombreDirector\ Es\ un\ String\ que\ representa\ el\ nuevo\ valor\ para\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ "nombreDirector".\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debe\ ser\ un\ String\ no\ nulo\ y\ no\ vac\u00EDo.\r\n
+comment3.params=pNombreHospital
+comment3.target=void\ setNombreHospital(java.lang.String)
+comment3.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "nombreHospital"\ proporcionado\r\n\ del\ valor\ "pNombreHospital".\r\n\r\n\ @param\ pNombreHospital\ Es\ un\ String\ que\ representa\ el\ nuevo\ valor\ para\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ "nombreHospital".\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debe\ ser\ un\ String\ no\ nulo\ y\ no\ vac\u00EDo.\r\n
+comment4.params=
+comment4.target=java.lang.String\ getNombreDirector()
+comment4.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "nombreDirector".\r\n
+comment5.params=
+comment5.target=java.lang.String\ getNombreHospital()
+comment5.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "nombreHospital".\r\n
+comment6.params=pPaciente
+comment6.target=void\ consultaDatosFiliatorios(Paciente)
+comment6.text=\r\n\ Muestra\ en\ pantalla\ los\ datos\ filiatorios\ de\ un\ paciente\ junto\ con\r\n\ informaci\u00F3n\ del\ hospital.\r\n\r\n\ @param\ pPaciente\ El\ objeto\ Paciente\ cuyos\ datos\ filiatorios\ se\ desean\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ consultar.\r\n
+numComments=7

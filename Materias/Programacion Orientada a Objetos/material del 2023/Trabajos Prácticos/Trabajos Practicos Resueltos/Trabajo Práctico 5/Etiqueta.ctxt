@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Etiqueta
+comment1.params=q
+comment1.target=double\ precio(int)
+comment2.params=
+comment2.target=java.lang.String\ tipo()
+comment3.params=p_costo
+comment3.target=Etiqueta(double)
+comment3.text=\r\n\ @param\ p_costo\ El\ precio\ de\ la\ etiqueta\ (int).\r\n
+comment4.params=p_costo
+comment4.target=void\ setCosto(double)
+comment4.text=\r\n\ Establece\ el\ precio\ de\ la\ etiqueta.\r\n\r\n\ @param\ p_costo\ El\ precio\ de\ la\ etiqueta\ (int).\r\n
+comment5.params=
+comment5.target=double\ getCosto()
+comment5.text=\r\n\ Obtiene\ el\ precio\ de\ la\ etiqueta.\r\n\r\n\ @return\ El\ precio\ de\ la\ etiqueta\ (int).\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ @return\ Una\ cadena\ de\ caracteres\ que\ contiene\ el\ tipo\ de\ etiqueta\ y\ costo\ por\r\n\ \ \ \ \ \ \ \ \ unidad\ (String).\r\n
+numComments=7

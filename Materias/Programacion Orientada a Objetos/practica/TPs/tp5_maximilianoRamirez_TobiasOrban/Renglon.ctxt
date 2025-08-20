@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Renglon
+comment0.text=\r\n\ La\ clase\ Renglon\ representa\ un\ rengl\u00F3n\ en\ una\ factura\ o\ un\r\n\ ticket,\ que\ incluye\ la\ cantidad\ de\ etiquetas\ y\ el\ importe\ total.\r\n
+comment1.params=p_cantidad\ p_ticket
+comment1.target=Renglon(int,\ Etiquetas)
+comment1.text=\r\n\ Constructor\ para\ crear\ un\ rengl\u00F3n\ con\ una\ cantidad\ y\ un\ ticket.\r\n\ \r\n\ @param\ p_cantidad\ La\ cantidad\ de\ etiquetas\ en\ el\ rengl\u00F3n.\r\n\ @param\ p_ticket\ La\ etiqueta\ asociada\ a\ este\ rengl\u00F3n.\r\n
+comment2.params=p_cantidad
+comment2.target=void\ setCantidad(int)
+comment2.text=\r\n\ Establece\ la\ cantidad\ de\ etiquetas\ en\ el\ rengl\u00F3n.\r\n\ \r\n\ @param\ p_cantidad\ La\ cantidad\ a\ establecer.\r\n
+comment3.params=
+comment3.target=int\ getCantidad()
+comment3.text=\r\n\ Obtiene\ la\ cantidad\ de\ etiquetas\ en\ el\ rengl\u00F3n.\r\n\ \r\n\ @return\ La\ cantidad\ de\ etiquetas.\r\n
+comment4.params=p_ticket
+comment4.target=void\ setTicket(Etiquetas)
+comment4.text=\r\n\ Establece\ la\ etiqueta\ asociada\ a\ este\ rengl\u00F3n.\r\n\ \r\n\ @param\ p_ticket\ La\ etiqueta\ a\ establecer.\r\n
+comment5.params=
+comment5.target=double\ getPrecio()
+comment5.text=\r\n\ Calcula\ y\ obtiene\ el\ precio\ total\ del\ rengl\u00F3n.\r\n\ \r\n\ @return\ El\ importe\ total\ del\ rengl\u00F3n.\r\n
+comment6.params=
+comment6.target=Etiquetas\ getTicket()
+comment6.text=\r\n\ Obtiene\ la\ etiqueta\ asociada\ a\ este\ rengl\u00F3n.\r\n\ \r\n\ @return\ La\ etiqueta\ del\ rengl\u00F3n.\r\n
+comment7.params=
+comment7.target=void\ mostrar()
+comment7.text=\r\n\ Muestra\ la\ informaci\u00F3n\ del\ rengl\u00F3n,\ incluyendo\ la\ cantidad\r\n\ y\ los\ detalles\ de\ la\ etiqueta.\r\n
+numComments=8

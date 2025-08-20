@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Advanced
+comment1.params=
+comment1.target=int\ getBarMuscleUps()
+comment2.params=p_barMuscleUps
+comment2.target=void\ setBarMuscleUps(int)
+comment3.params=p_identificador\ p_nombre\ p_kilos\ p_barMuscleUps
+comment3.target=Advanced(int,\ java.lang.String,\ double,\ int)
+comment4.params=
+comment4.target=java.lang.String\ imprimirTipo()
+comment5.params=
+comment5.target=java.lang.String\ mostrarDatos()
+numComments=6

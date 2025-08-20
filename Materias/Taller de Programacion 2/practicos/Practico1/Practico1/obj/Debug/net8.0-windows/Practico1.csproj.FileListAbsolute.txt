@@ -1,0 +1,17 @@
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\bin\Debug\net8.0-windows\Practico1.exe
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\bin\Debug\net8.0-windows\Practico1.deps.json
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\bin\Debug\net8.0-windows\Practico1.runtimeconfig.json
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\bin\Debug\net8.0-windows\Practico1.dll
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\bin\Debug\net8.0-windows\Practico1.pdb
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.Form1.resources
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.csproj.GenerateResource.cache
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.AssemblyInfoInputs.cache
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.AssemblyInfo.cs
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.sourcelink.json
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.dll
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\refint\Practico1.dll
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.pdb
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\Practico1.genruntimeconfig.cache
+C:\Users\Usuario\Documents\Tobias Orban\Unne LSI\Taller de Programacion 2\practicos\Practico1\Practico1\obj\Debug\net8.0-windows\ref\Practico1.dll

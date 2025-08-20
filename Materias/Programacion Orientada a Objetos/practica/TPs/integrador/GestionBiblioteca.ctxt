@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=GestionBiblioteca
+comment0.text=\r\n\ Programa\ ejecutable\ que\ administra\ una\r\n\ biblioteca,\ agregando\ socios,\ libros\ y\r\n\ creando\ prestamos\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

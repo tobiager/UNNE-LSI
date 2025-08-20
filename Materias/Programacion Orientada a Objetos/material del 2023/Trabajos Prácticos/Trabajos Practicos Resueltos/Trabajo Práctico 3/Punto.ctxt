@@ -1,0 +1,34 @@
+#BlueJ class context
+comment0.target=Punto
+comment0.text=\r\n\ Ejercicio\ 6,\ clase\ Punto.\r\n\ \r\n\ @author\ Olivarez\ Alexis\ E.\r\n
+comment1.params=pX\ pY
+comment1.target=Punto(double,\ double)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Punto.\r\n\ \r\n\ Asigna\ los\ valores\ de\ los\ par\u00E1metro\ a\ las\ variables\ de\r\n\ instancias\ mediante\ los\ setters.\r\n\ \r\n\ @param\ pX\ Inicializa\ la\ coordenadas\ "x"\r\n\ @param\ pY\ Inicializa\ la\ coordenadas\ "y"\r\n
+comment10.params=pPunto
+comment10.target=double\ distanciaA(Punto)
+comment10.text=\r\n\ Calcula\ la\ distancia\ entre\ este\ punto\ y\ otro\ punto\ dado.\r\n\ Distancia\ \=\ \u221A(x1\ -\ x2)\u00B2\ +\ (y1\ -\ y2)\u00B2\r\n\r\n\ @param\ pPunto\ El\ punto\ con\ el\ que\ se\ calcular\u00E1\ la\ distancia.\r\n\ @return\ Devuelve\ la\ distancia\ entre\ el\ punto\ actual\ y\ el\ punto\ pasado\ como\r\n\ \ \ \ \ \ \ \ \ par\u00E1metro.\r\n
+comment2.params=
+comment2.target=Punto()
+comment2.text=\r\n\ Constructor\ de\ la\ clase\ Punto.\r\n\ Inicializa\ las\ coordenadas\ "x"\ e\ "y"\ del\ punto\ en\ 0.\r\n
+comment3.params=pX
+comment3.target=void\ setX(double)
+comment3.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "x"\ proporcionado\ del\ valor\r\n\ "pX".\r\n\ \r\n\ @param\ pX\ Es\ un\ valor\ doble\ que\ representa\ el\ nuevo\ valor\ de\ la\ variable\ "x".\r\n
+comment4.params=pY
+comment4.target=void\ setY(double)
+comment4.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "y"\ proporcionado\ del\ valor\r\n\ "pY".\r\n\ \r\n\ @param\ pY\ Es\ un\ valor\ doble\ que\ representa\ el\ nuevo\ valor\ de\ la\ variable\ "y".\r\n
+comment5.params=
+comment5.target=double\ getX()
+comment5.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "x".\r\n
+comment6.params=
+comment6.target=double\ getY()
+comment6.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "y".\r\n
+comment7.params=pX\ pY
+comment7.target=void\ desplazar(double,\ double)
+comment7.text=\r\n\ El\ m\u00E9todo\ "desplazar"\ Actualiza\ las\ coordenadas\ de\ las\ variables\ "x"\ e\ "y"\r\n\ sumando\ los\ valores\ pasados\ como\ par\u00E1metros.\r\n\r\n\ @param\ pX\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ horizontalmente.\r\n\ @param\ pY\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ verticalmente.\r\n
+comment8.params=
+comment8.target=java.lang.String\ coordenadas()
+comment8.text=\r\n\ El\ m\u00E9todo\ "coordenadas"\ Devuelve\ una\ cadena\ de\ caracteres\ de\ las\ coordenadas\r\n\ (x,\ y).\r\n\r\n\ @return\ Devuelve\ una\ cadena\ de\ caracteres\ de\ las\ coordenadas\ en\ el\ formato\r\n\ \ \ \ \ \ \ \ \ "(x,\ y)".\r\n
+comment9.params=
+comment9.target=void\ mostrar()
+comment9.text=\r\n\ El\ m\u00E9todo\ "mostrar"\ Muestra\ las\ coordenadas\ "x"\ e\ "y"\ del\ punto.\r\n
+numComments=11

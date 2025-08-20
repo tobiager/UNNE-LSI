@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Cocina
+comment0.text=\r\n\ Clase\ que\ representa\ una\ cocina,\ que\ hereda\ de\ ArtefactoHogar.\r\n
+comment1.params=marca\ precio\ stock\ hornallas\ calorias\ dimensiones
+comment1.target=Cocina(java.lang.String,\ float,\ int,\ int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ de\ Cocina.\r\n\ @param\ marca\ la\ marca\ de\ la\ cocina\r\n\ @param\ precio\ el\ precio\ de\ la\ cocina\r\n\ @param\ stock\ la\ cantidad\ en\ stock\ de\ la\ cocina\r\n\ @param\ hornallas\ la\ cantidad\ de\ hornallas\ de\ la\ cocina\r\n\ @param\ calorias\ las\ calor\u00EDas\ de\ la\ cocina\r\n\ @param\ dimensiones\ las\ dimensiones\ de\ la\ cocina\r\n
+comment2.params=
+comment2.target=void\ imprimir()
+comment3.params=p_cuotas\ p_interes
+comment3.target=float\ creditoConAdicional(int,\ float)
+numComments=4

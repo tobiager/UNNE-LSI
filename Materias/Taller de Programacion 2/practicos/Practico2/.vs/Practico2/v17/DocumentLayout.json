@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|c:\\users\\usuario\\documents\\tobias orban\\unne lsi\\taller de programacion 2\\practicos\\practico2\\practico2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|solutionrelative:practico2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|c:\\users\\usuario\\documents\\tobias orban\\unne lsi\\taller de programacion 2\\practicos\\practico2\\practico2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|solutionrelative:practico2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|c:\\users\\usuario\\documents\\tobias orban\\unne lsi\\taller de programacion 2\\practicos\\practico2\\practico2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|solutionrelative:practico2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|c:\\users\\usuario\\documents\\tobias orban\\unne lsi\\taller de programacion 2\\practicos\\practico2\\practico2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7361C32-EBCA-4D07-8896-8A1151B6610D}|Practico2\\Practico2.csproj|solutionrelative:practico2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.cs",
+              "RelativeDocumentMoniker": "Practico2\\Form1.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.cs",
+              "RelativeToolTip": "Practico2\\Form1.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADwv1YAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T20:54:54.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.cs",
+              "RelativeDocumentMoniker": "Practico2\\Form1.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Practico2\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T20:54:43.057Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Practico2\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Form1.Designer.cs",
+              "RelativeToolTip": "Practico2\\Form1.Designer.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAiwJsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T20:54:14.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Program.cs",
+              "RelativeDocumentMoniker": "Practico2\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico2\\Practico2\\Program.cs",
+              "RelativeToolTip": "Practico2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T20:53:40.313Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

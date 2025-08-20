@@ -1,0 +1,32 @@
+22/03/23
+Algortimo
+Estructuras y componentes de un programa
+-----------------------------------------
+Una expresión es una combinación de constantes, variables, operadores (aritméticos,
+lógicos y relacionales), paréntesis y nombres de funciones, que permite procesar datos y
+obtener un resultado.
+
+------------------------------------------
+Según sea el tipo de operadores y los valores que intervienen, las expresiones pueden ser:
+Aritméticas → Devuelven un resultado de tipo numérico
+Lógicas → Devuelven un resultado de tipo lógico
+-------------------------------------------------
+Operadores aritméticos Operación
++ - Suma
+- - Resta
+* - Multiplicación
+/  - División
+**, ^, ↑ - Exponenciación
+div - División de enteros
+mod, % - Resto de la división de entero
+----------------------------------------------
+a / (b * c) % e – (f * g)
+-------------------------
+(27 % 4) + (float) (15 / 4)
+  6,75   +      3,75
+       10,5
+-----------------------------
+Float= Decimales
+In= Entero
+-----------------------------
+

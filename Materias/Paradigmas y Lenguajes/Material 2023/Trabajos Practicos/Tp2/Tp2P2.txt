@@ -1,0 +1,20 @@
+; Variable max_temp:
+(defvar max_temp '(42 38 43 33 38 32 44 38 39 43 30 36 32 42 41 35 35 43 35 38 44 32 33 40 42 44 42 41 43 41 36))
+
+; Ejercicio 2a.
+(print (concatenate 'string "¿Qué temperatura se registra el primer día del mes?: " (write-to-string (car max_temp))))
+
+; Ejercicio 2b.
+(print (concatenate 'string "¿Qué temperatura se registra el último día del mes?: " (write-to-string (last max_temp))))
+
+; Ejercicio 2c.
+(print (concatenate 'string "¿Qué temperatura se registra el anteúltimo día del mes?: " (write-to-string (- (length max_temp) 2))))
+
+; Ejercicio 2d.
+(print (concatenate 'string "¿Qué temperatura se registra el tercer día del mes?: " (write-to-string (elt max_temp 2))))
+
+; Ejercicio 2e.
+(print (concatenate 'string "Verificar si en alguno de los días del mes la máxima fue de 40: " (write-to-string (member '40 max_temp :test #'equal))))
+
+; Ejercicio 2f.
+(print (concatenate 'string "Devolver la lista sin las temperaturas del primer y último día: " (write-to-string (butlast (cdr max_temp)))))

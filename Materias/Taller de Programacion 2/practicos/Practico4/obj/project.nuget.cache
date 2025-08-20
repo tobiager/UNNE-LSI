@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "dgSpecHash": "ieEFOKc6MNE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico4\\Practico4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\harfbuzzsharp\\7.3.0.3\\harfbuzzsharp.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0.3\\harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0.3\\harfbuzzsharp.nativeassets.macos.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0.3\\harfbuzzsharp.nativeassets.win32.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\opentk\\3.1.0\\opentk.3.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\opentk.glcontrol\\3.1.0\\opentk.glcontrol.3.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\scottplot\\5.0.55\\scottplot.5.0.55.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\scottplot.winforms\\5.0.55\\scottplot.winforms.5.0.55.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp\\2.88.9\\skiasharp.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.9\\skiasharp.harfbuzz.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.9\\skiasharp.nativeassets.linux.nodependencies.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.9\\skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.9\\skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.9\\skiasharp.views.desktop.common.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\skiasharp.views.windowsforms\\2.88.9\\skiasharp.views.windowsforms.2.88.9.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "El paquete \"OpenTK 3.1.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico4\\Practico4.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico4\\Practico4.csproj",
+      "libraryId": "OpenTK",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "El paquete \"OpenTK.GLControl 3.1.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico4\\Practico4.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Usuario\\Documents\\Tobias Orban\\Unne LSI\\Taller de Programacion 2\\practicos\\Practico4\\Practico4.csproj",
+      "libraryId": "OpenTK.GLControl",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

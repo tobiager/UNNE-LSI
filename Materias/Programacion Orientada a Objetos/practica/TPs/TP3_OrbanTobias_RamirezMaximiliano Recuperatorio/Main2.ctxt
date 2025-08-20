@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Main2
+comment0.text=\r\n\ Clase\ principal\ para\ calcular\ la\ distancia\ entre\ dos\ puntos.\r\n\ \r\n\ El\ programa\ toma\ las\ coordenadas\ de\ dos\ puntos\ desde\ los\ argumentos\ de\ la\ l\u00EDnea\ de\ comandos,\r\n\ crea\ los\ objetos\ de\ tipo\ Punto\ y\ calcula\ la\ distancia\ entre\ ellos.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ recibe\ los\ argumentos\ de\ l\u00EDnea\ de\ comandos\ y\ calcula\ la\ distancia\r\n\ entre\ dos\ puntos.\r\n\ \r\n\ @param\ args\ Los\ argumentos\ de\ l\u00EDnea\ de\ comandos,\ que\ deben\ contener\ las\ coordenadas\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ de\ dos\ puntos\ en\ el\ formato\:\ x1\ y1\ x2\ y2\r\n
+numComments=2

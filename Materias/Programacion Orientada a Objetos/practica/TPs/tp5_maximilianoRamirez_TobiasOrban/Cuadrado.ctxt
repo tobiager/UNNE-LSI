@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Cuadrado
+comment0.text=\r\n\ La\ clase\ Cuadrado\ representa\ un\ cuadrado\ en\ un\ sistema\ de\ coordenadas,\r\n\ hereda\ de\ la\ clase\ Rectangulo.\r\n\ \r\n\ @author\ Maximiliano\r\n\ @version\ 1.0\r\n
+comment1.params=p_origen\ p_lado
+comment1.target=Cuadrado(Punto,\ double)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Cuadrado\ que\ inicializa\ el\ origen\ y\ el\ lado.\r\n\ \r\n\ @param\ p_origen\ El\ punto\ que\ representa\ el\ origen\ del\ cuadrado.\r\n\ @param\ p_lado\ La\ longitud\ de\ los\ lados\ del\ cuadrado.\r\n
+comment2.params=
+comment2.target=java.lang.String\ nombreFigura()
+comment2.text=\r\n\ Devuelve\ el\ nombre\ de\ la\ figura\ geom\u00E9trica.\r\n\ \r\n\ @return\ El\ nombre\ de\ la\ figura\ como\ un\ String.\r\n
+comment3.params=
+comment3.target=void\ caracteristicas()
+comment3.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ cuadrado,\ incluyendo\ origen,\ lado,\ \r\n\ superficie\ y\ per\u00EDmetro.\r\n
+comment4.params=
+comment4.target=void\ mostrarSuperficie()
+comment4.text=\r\n\ Muestra\ la\ superficie\ del\ cuadrado.\r\n
+numComments=5

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Cuadrado
+comment1.params=p_origen\ p_lado
+comment1.target=Cuadrado(Punto,\ double)
+comment1.text=\r\n\ Crea\ un\ nuevo\ objeto\ Cuadrado\ con\ el\ origen\ y\ lado\ especificado.\r\n\r\n\ @param\ p_origen\ El\ punto\ de\ origen\ del\ cuadrado\ (Punto).\r\n\ @param\ p_lado\ \ \ La\ longitud\ del\ lado\ del\ cuadrado\ (double).\r\n
+comment2.params=p_lado
+comment2.target=void\ setLado(double)
+comment2.text=\r\n\ Establece\ la\ longitud\ del\ lado\ del\ cuadrado.\r\n\r\n\ @param\ p_lado\ La\ longitud\ del\ lado\ del\ cuadrado\ (double).\r\n
+comment3.params=
+comment3.target=double\ getLado()
+comment3.text=\r\n\ Obtiene\ la\ longitud\ del\ lado\ del\ cuadrado.\r\n\r\n\ @return\ La\ longitud\ del\ lado\ del\ cuadrado\ (double).\r\n
+comment4.params=
+comment4.target=java.lang.String\ nombreFigura()
+comment4.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ figura\ "Cuadrado"\ (String).\r\n
+comment5.params=
+comment5.target=void\ caracter\u00EDsticas()
+comment5.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ cuadrado,\ incluyendo\ su\ nombre,\ origen,\ lado,\r\n\ superficie\ y\ per\u00EDmetro.\r\n
+numComments=6

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Circulo
+comment0.text=\r\n\ La\ clase\ Circulo\ representa\ un\ c\u00EDrculo\ en\ un\ sistema\ de\ coordenadas,\r\n\ hereda\ de\ la\ clase\ Elipse.\r\n
+comment1.params=p_radio\ p_centro
+comment1.target=Circulo(double,\ Punto)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Circulo\ que\ inicializa\ el\ radio\ y\ el\ centro.\r\n\ \r\n\ @param\ p_radio\ El\ radio\ del\ c\u00EDrculo.\r\n\ @param\ p_centro\ El\ punto\ que\ representa\ el\ centro\ del\ c\u00EDrculo.\r\n
+comment2.params=
+comment2.target=double\ perimetro()
+comment2.text=\r\n\ Calcula\ el\ per\u00EDmetro\ del\ c\u00EDrculo\ utilizando\ la\ f\u00F3rmula\:\r\n\ 2\ *\ \u03C0\ *\ radio.\r\n\ \r\n\ @return\ El\ per\u00EDmetro\ del\ c\u00EDrculo.\r\n
+comment3.params=
+comment3.target=void\ caracteristicas()
+comment3.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ c\u00EDrculo,\ incluyendo\ su\ nombre,\r\n\ coordenadas,\ radio,\ superficie\ y\ per\u00EDmetro.\r\n
+comment4.params=
+comment4.target=java.lang.String\ nombreFigura()
+comment4.text=\r\n\ Devuelve\ el\ nombre\ de\ la\ figura\ geom\u00E9trica.\r\n\ \r\n\ @return\ El\ nombre\ de\ la\ figura\ como\ un\ String.\r\n
+comment5.params=
+comment5.target=void\ mostrarSuperficie()
+comment5.text=\r\n\ Muestra\ la\ superficie\ del\ c\u00EDrculo.\r\n
+numComments=6

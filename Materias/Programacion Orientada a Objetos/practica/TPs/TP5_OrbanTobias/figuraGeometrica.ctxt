@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=figuraGeometrica
+comment0.text=\r\n\ La\ clase\ abstracta\ figuraGeometrica\ representa\ una\ figura\ geom\u00E9trica\r\n\ en\ un\ sistema\ de\ coordenadas.\ Contiene\ informaci\u00F3n\ sobre\ su\ origen\ y\r\n\ m\u00E9todos\ abstractos\ para\ obtener\ el\ nombre\ de\ la\ figura,\ su\ superficie\r\n\ y\ para\ mostrar\ la\ superficie.\r\n\ \r\n\ @author\ (tu\ nombre)\r\n\ @version\ (n\u00FAmero\ de\ versi\u00F3n\ o\ fecha)\r\n
+comment1.params=p_origen
+comment1.target=figuraGeometrica(Punto)
+comment1.text=\r\n\ Constructor\ de\ la\ figuraGeometrica\ que\ establece\ el\ origen\ de\ la\ figura.\r\n\ \r\n\ @param\ p_origen\ El\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment2.params=p_origen
+comment2.target=void\ setOrigen(Punto)
+comment2.text=\r\n\ Establece\ el\ origen\ de\ la\ figura.\r\n\ \r\n\ @param\ p_origen\ El\ nuevo\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment3.params=
+comment3.target=Punto\ getOrigen()
+comment3.text=\r\n\ Obtiene\ el\ origen\ de\ la\ figura.\r\n\ \r\n\ @return\ El\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment4.params=
+comment4.target=java.lang.String\ nombreFigura()
+comment4.text=\r\n\ Devuelve\ el\ nombre\ de\ la\ figura\ geom\u00E9trica.\r\n\ \r\n\ @return\ El\ nombre\ de\ la\ figura.\r\n
+comment5.params=
+comment5.target=double\ superficie()
+comment5.text=\r\n\ Calcula\ la\ superficie\ de\ la\ figura\ geom\u00E9trica.\r\n\ \r\n\ @return\ La\ superficie\ de\ la\ figura.\r\n
+comment6.params=
+comment6.target=void\ mostrarSuperficie()
+comment6.text=\r\n\ Muestra\ la\ superficie\ de\ la\ figura\ geom\u00E9trica.\r\n
+numComments=7

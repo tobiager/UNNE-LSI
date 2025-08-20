@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Localidad
+comment0.text=\r\n\ Representa\ una\ localidad\ en\ el\ sistema\ de\ gesti\u00F3n\ hospitalaria.\r\n
+comment1.params=p_nombre\ p_provincia
+comment1.target=Localidad(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Crea\ una\ nueva\ localidad\ con\ los\ datos\ especificados.\r\n\ \r\n\ @param\ p_nombre\ el\ nombre\ de\ la\ localidad\r\n\ @param\ p_provincia\ la\ provincia\ donde\ se\ encuentra\ la\ localidad\r\n
+comment2.params=
+comment2.target=java.lang.String\ mostrar()
+comment2.text=\r\n\ Muestra\ la\ informaci\u00F3n\ de\ la\ localidad.\r\n\ \r\n\ @return\ una\ cadena\ con\ el\ nombre\ y\ la\ provincia\ de\ la\ localidad\r\n
+comment3.params=
+comment3.target=java.lang.String\ getNombre()
+comment4.params=nombre
+comment4.target=void\ setNombre(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getProvincia()
+comment6.params=provincia
+comment6.target=void\ setProvincia(java.lang.String)
+numComments=7

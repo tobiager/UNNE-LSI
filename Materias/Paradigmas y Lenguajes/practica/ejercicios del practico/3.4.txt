@@ -1,0 +1,10 @@
+(defun mi-segundo (lista atom)
+  "Devuelve una nueva lista con el átomo en la primera posición."
+  (cons atom (remove atom lista)))
+
+;; Ejemplo de uso:
+(let ((lista '(a b c d e))
+      (atom 'z))
+  (format t "Lista original: ~a ~%" lista)
+  (format t "Átomo a colocar en la primera posición: ~a ~%" atom)
+  (format t "Nueva lista: ~a ~%" (mi-segundo lista atom)))

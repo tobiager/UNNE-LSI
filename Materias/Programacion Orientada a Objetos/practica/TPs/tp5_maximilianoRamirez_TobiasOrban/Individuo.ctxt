@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Individuo
+comment0.text=\r\n\ Representa\ a\ un\ individuo\ que\ visita\ el\ zool\u00F3gico.\r\n
+comment1.params=
+comment1.target=double\ entrada()
+comment1.text=\r\n\ Calcula\ el\ costo\ de\ la\ entrada\ del\ individuo.\r\n\r\n\ @return\ El\ costo\ de\ la\ entrada.\r\n
+comment2.params=
+comment2.target=void\ mostrar()
+comment2.text=\r\n\ Muestra\ la\ informaci\u00F3n\ del\ individuo.\r\n
+comment3.params=p_fecha\ p_visitante
+comment3.target=void\ listarPorFecha(java.util.Calendar,\ java.lang.String)
+comment3.text=\r\n\ Lista\ los\ visitantes\ por\ fecha.\r\n\r\n\ @param\ p_fecha\ \ \ \ \ La\ fecha\ de\ la\ visita.\r\n\ @param\ p_visitante\ El\ tipo\ de\ visitante.\r\n
+comment4.params=
+comment4.target=java.lang.String\ tipoVisitante()
+comment4.text=\r\n\ Devuelve\ el\ tipo\ de\ visitante.\r\n\r\n\ @return\ "Individuo".\r\n
+numComments=5

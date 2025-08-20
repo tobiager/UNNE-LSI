@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=CajaDeAhorro
+comment1.params=p_nroCuenta\ p_titular
+comment1.target=CajaDeAhorro(int,\ Persona)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ CuentaDeAhorro.\r\n\ \r\n\ @param\ p_nroCuenta\ El\ n\u00FAmero\ de\ cuenta\ de\ la\ persona\ titular\ de\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuenta\ de\ ahorro.\r\n\ @param\ p_titular\ \ \ Persona\ titular\ de\ la\ cuenta\ de\ ahorro.\r\n
+comment2.params=p_nroCuenta\ p_saldo\ p_titular
+comment2.target=CajaDeAhorro(int,\ double,\ Persona)
+comment2.text=\r\n\ Constructor\ de\ la\ clase\ CuentaDeAhorro.\r\n\ \r\n\ @param\ p_nroCuenta\ El\ n\u00FAmero\ de\ cuenta\ de\ la\ persona\ titular\ de\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuenta\ de\ ahorro.\r\n\ @param\ p_saldo\ \ \ \ \ Saldo\ al\ iniciar\ la\ cuenta\ de\ ahorro.\r\n\ @param\ p_titular\ \ \ Persona\ titular\ de\ la\ cuenta\ de\ ahorro.\r\n
+comment3.params=p_extraccionesPosibles
+comment3.target=void\ setExtraccionesPosibles(int)
+comment3.text=\r\n\ Establece\ el\ valor\ de\ la\ variable\ "extraccionesPosibles"\ proporcionado\ del\r\n\ valor\ "p_extraccionesPosibles".\r\n\ \r\n\ @param\ p_extraccionesPosibles\ Es\ un\ valor\ doble\ que\ representa\ el\ nuevo\ valor\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ de\ la\ variable\ "extraccionesPosibles".\r\n
+comment4.params=
+comment4.target=int\ getExtraccionesPosibles()
+comment4.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "extraccionesPosibles".\r\n
+comment5.params=p_importe
+comment5.target=boolean\ puedeExtraer(double)
+comment5.text=\r\n\ Verifica\ si\ el\ monto\ dado\ se\ puede\ retirar\ de\ la\ cuenta\ sin\ exceder\ el\ l\u00EDmite\r\n\ de\ saldo.\r\n\r\n\ @param\ p_importe\ Representa\ la\ cantidad\ de\ dinero\ que\ el\ usuario\ desea\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ retirar\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ de\ su\ cuenta.\r\n\ @return\ Devuelve\ un\ valor\ booleano.\r\n
+comment6.params=p_importe
+comment6.target=boolean\ extraer(double)
+comment6.text=\r\n\ @param\ p_importe\ Valor\ que\ se\ extraer\u00E1\ en\ la\ cuenta\ del\ banco.\r\n\ @return\ Si\ se\ pudo\ extraer\ o\ no\ (boolean).\r\n
+comment7.params=
+comment7.target=void\ mostrar()
+comment7.text=\r\n\ Imprime\ el\ n\u00FAmero\ de\ cuenta,\ el\ saldo,\ el\ titular\ y\ sus\ extracciones\r\n\ disponibles\ de\ la\ cuenta\ bancaria.\r\n
+comment8.params=p_importe
+comment8.target=java.lang.String\ xQNoPuedeExtraer(double)
+comment8.text=\r\n\ @param\ p_importe\ Valor\ que\ se\ extraer\u00E1\ en\ la\ cuenta\ del\ banco.\r\n\ @return\ Un\ String\ que\ avisa\ si\ puede\ extraer\ o\ no.\r\n
+numComments=9

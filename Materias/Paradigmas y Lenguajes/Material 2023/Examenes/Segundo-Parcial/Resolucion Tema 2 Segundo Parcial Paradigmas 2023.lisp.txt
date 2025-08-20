@@ -1,0 +1,80 @@
+;; Ejercicio N° 1:
+(defun evaluar(l)
+  (cond
+    ((endp l) NIL)
+    ((numberp (first l)) (cons (first l) (evaluar (rest l))))
+    (T (evaluar (rest l)))
+  )
+)
+(defun predicado(l n)
+  (cond 
+    ((endp l) T)
+    ((and (numberp (first l)) (numberp n) (> (first l) n)) (predicado (rest l) n))
+    (T NIL)
+  )
+)
+(print (predicado (evaluar '(12 22 32 e a g 56 10 20 30)) 5))
+
+;; Ejercicio N° 2:
+;; Hay 2 maneras...
+(defun devolver-listaP2(l)
+  (cond
+    ((endp l) NIL)
+    ((> (first l) 30) (cons (first l) (devolver-listaP2 (rest l))))
+    (T (devolver-listaP2 (rest l)))
+  )
+)
+(defun devolver-listaP21(l)
+  (cond
+    ((endp l) NIL)
+    ((<= (first l) 30) (cons (* (first l) 1000) (devolver-listaP21 (rest l))))
+    (T (devolver-listaP21 (rest l)))
+  )
+)
+
+(defun devolver-lista(l)
+  (list
+    (remove NIL 
+      (mapcar (lambda (e)
+        (when (<= e 30)
+          (append (* e 1000))
+        )
+      ) l)
+    )
+    (remove NIL 
+      (mapcar (lambda (e)
+        (when (> e 30)
+          (append e)
+        )
+      ) l)
+    )
+  )
+  ; (list (devolver-listaP21 l) (devolver-listaP2 l))
+)
+
+;; Ejercicio N° 3:
+(defun cantidad-cajas(l n)
+  (cond 
+    ((endp l) 0)
+    ((<= (first l) n) (+ 1 (cantidad-cajas (rest l) n)))
+    (T (cantidad-cajas (rest l) n))
+  )
+)
+
+;; Ejercicio N° 4:
+(defun devolver-peso(l n)
+  (mapcar (lambda (e)
+    (> e n)
+  ) l)
+)
+
+;; Ejercicio N° 5:
+(defun map-car-funcion5(l)
+  (mapcar (lambda (e)
+    (cond
+      ((<= e 20) (list e "Liviano"))
+      ((and (> e 20) (<= e 60)) (list e "Pesado"))
+      (t (list e "Muy pesado"))
+    )
+  ) l)
+)

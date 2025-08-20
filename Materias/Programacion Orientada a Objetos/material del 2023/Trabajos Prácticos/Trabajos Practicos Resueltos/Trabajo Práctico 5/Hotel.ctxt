@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Hotel
+comment1.params=p_nombre\ p_precioBase\ p_diasAlquiler\ p_tipoHabitacion
+comment1.target=Hotel(java.lang.String,\ double,\ int,\ java.lang.String)
+comment1.text=\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ El\ nombre\ de\ la\ hotel\ (String).\r\n\ @param\ p_precioBase\ \ \ \ \ El\ precio\ base\ de\ la\ hotel\ (double).\r\n\ @param\ p_diasAlquiler\ \ \ Los\ dias\ de\ alquiler\ de\ la\ hotel\ (int).\r\n\ @param\ p_tipoHabitacion\ El\ tipo\ de\ habitaciones\ de\ la\ hotel\ (String).\r\n
+comment2.params=p_nombre\ p_precioBase\ p_diasAlquiler\ p_servicios\ p_tipoHabitacion
+comment2.target=Hotel(java.lang.String,\ double,\ int,\ java.util.ArrayList,\ java.lang.String)
+comment2.text=\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ El\ nombre\ de\ la\ hotel\ (String).\r\n\ @param\ p_precioBase\ \ \ \ \ El\ precio\ base\ de\ la\ hotel\ (double).\r\n\ @param\ p_diasAlquiler\ \ \ Los\ dias\ de\ alquiler\ de\ la\ hotel\ (int).\r\n\ @param\ p_servicios\ \ \ \ \ \ Una\ lista\ de\ servicios\ alquilados\ en\ el\ hotel\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (ArrayList<Servicio>).\r\n\ @param\ p_tipoHabitacion\ El\ tipo\ de\ habitaciones\ de\ la\ hotel\ (String).\r\n
+comment3.params=p_tipoHabitacion
+comment3.target=void\ setTipoHabitacion(java.lang.String)
+comment3.text=\r\n\ Establece\ el\ tipo\ de\ habitaci\u00F3n\ del\ hotel.\r\n\r\n\ @param\ p_tipoHabitacion\ El\ tipo\ de\ habitaci\u00F3n\ del\ hotel\ (String).\r\n
+comment4.params=
+comment4.target=java.lang.String\ getTipoHabitacion()
+comment4.text=\r\n\ Obtiene\ el\ tipo\ de\ habitaci\u00F3n\ del\ hotel.\r\n\r\n\ @return\ El\ tipo\ de\ habitaci\u00F3n\ del\ hotel\ (String).\r\n
+comment5.params=
+comment5.target=double\ costo()
+comment5.text=\r\n\ Calcula\ el\ costo\ total\ de\ la\ habitaci\u00F3n\ del\ hotel,\ incluyendo\ un\ cargo\r\n\ adicional\ si\ la\ habitaci\u00F3n\ es\ Single\ o\ Doble.\r\n\r\n\ @return\ El\ costo\ total\ del\ alquiler.\r\n
+comment6.params=p_alojamiento
+comment6.target=int\ contar(java.lang.String)
+comment6.text=\r\n\ Cuenta\ la\ cantidad\ de\ alojamientos\ de\ un\ tipo\ espec\u00EDfico.\r\n\r\n\ @param\ p_alojamiento\ El\ tipo\ de\ alojamiento\ que\ se\ desea\ contar\ (String).\r\n\ @return\ Devuelve\ 1\ si\ el\ tipo\ de\ alojamiento\ es\ "Hotel"\ si\ no\ 0\ (int).\r\n
+comment7.params=
+comment7.target=void\ liquidar()
+comment7.text=\r\n\ Imprime\ por\ pantalla\ el\ nombre\ del\ alojamiento,\ el\ costo\ por\ los\ dias\r\n\ alquilados\ el\ tipo\ de\ habitaci\u00F3n\ y\ el\ total\ a\ pagar.\r\n
+numComments=8

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=aplicacionFacultad
+comment0.text=\r\n\ La\ clase\ aplicacionFacultad\ contiene\ el\ m\u00E9todo\ principal\r\n\ para\ ejecutar\ la\ aplicaci\u00F3n\ de\ gesti\u00F3n\ de\ facultades,\r\n\ profesores\ y\ cargos.\r\n
+comment1.params=args
+comment1.target=void\ aplicacionBanco(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ inicia\ la\ aplicaci\u00F3n\ de\ gesti\u00F3n\ de\ facultades.\r\n\ \r\n\ @param\ args\ Argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ utilizados).\r\n
+numComments=2

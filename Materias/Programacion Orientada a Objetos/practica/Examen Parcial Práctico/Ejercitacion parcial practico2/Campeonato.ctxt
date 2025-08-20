@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Campeonato
+comment1.params=
+comment1.target=java.lang.String\ getNombre()
+comment2.params=p_nombre
+comment2.target=void\ setNombre(java.lang.String)
+comment3.params=p_nombre
+comment3.target=Campeonato(java.lang.String)
+comment4.params=p_equipo
+comment4.target=boolean\ agregarEquipo(Equipo)
+comment5.params=
+comment5.target=void\ determinarGanador()
+numComments=6

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Oficial
+comment1.params=
+comment1.target=java.lang.String\ getPorte()
+comment2.params=p_porte
+comment2.target=void\ setPorte(java.lang.String)
+comment3.params=p_costo\ p_porte
+comment3.target=Oficial(double,\ java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ tipoCategoria()
+comment5.params=turno
+comment5.target=double\ costoTotal(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ leyendaCategoria()
+numComments=7

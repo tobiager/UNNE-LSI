@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Atleta
+comment1.params=
+comment1.target=int\ getIdentificador()
+comment2.params=p_identificador
+comment2.target=void\ setIdentificador(int)
+comment3.params=
+comment3.target=java.lang.String\ getNombre()
+comment4.params=p_nombre
+comment4.target=void\ setNombre(java.lang.String)
+comment5.params=
+comment5.target=double\ getKilos()
+comment6.params=p_kilos
+comment6.target=void\ setKilos(double)
+comment7.params=p_identificador\ p_nombre\ p_kilos
+comment7.target=Atleta(int,\ java.lang.String,\ double)
+comment8.params=
+comment8.target=java.lang.String\ imprimirTipo()
+comment9.params=
+comment9.target=java.lang.String\ mostrarDatos()
+numComments=10

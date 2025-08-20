@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Pedido
+comment1.params=p_renglon
+comment1.target=Pedido(Renglon)
+comment1.text=\r\n\ @param\ p_renglon\ Un\ rengl\u00F3n\ para\ las\ etiquetas\ (Renglon).\r\n
+comment2.params=p_renglones
+comment2.target=Pedido(java.util.ArrayList)
+comment2.text=\r\n\ @param\ p_renglones\ Una\ lista\ de\ renglones\ con\ etiquetas\ (ArrayList<Renglon>).\r\n
+comment3.params=p_renglones
+comment3.target=void\ setRenglones(java.util.ArrayList)
+comment3.text=\r\n\ Asigna\ una\ lista\ de\ renglones\ para\ las\ diferentes\ etiquetas.\r\n\r\n\ @param\ p_renglones\ Una\ lista\ de\ renglones\ con\ etiquetas\ (ArrayList<Renglon>).\r\n
+comment4.params=
+comment4.target=java.util.ArrayList\ getRenglones()
+comment4.text=\r\n\ Obtiene\ una\ lista\ de\ los\ renglones\ para\ las\ diferentes\ etiquetas.\r\n\ \r\n\ @return\ Una\ lista\ de\ renglones\ con\ etiquetas\ (ArrayList<Renglon>).\r\n
+comment5.params=p_renglon
+comment5.target=boolean\ agregarRenglon(Renglon)
+comment5.text=\r\n\ Agrega\ un\ renglon\ a\ la\ lista\ de\ renglones.\r\n\r\n\ @param\ p_renglon\ El\ renglon\ que\ se\ va\ agregar\ a\ la\ lista\ de\ renglones\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Renglon).\r\n
+comment6.params=p_renglon
+comment6.target=boolean\ quitarRenglon(Renglon)
+comment6.text=\r\n\ Quita\ un\ renglon\ a\ la\ lista\ de\ renglones.\r\n\r\n\ @param\ p_renglon\ El\ renglon\ que\ se\ va\ quitar\ de\ la\ lista\ de\ renglones\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Renglon).\r\n
+comment7.params=
+comment7.target=void\ mostrar()
+comment7.text=\r\n\ Imprime\ por\ pantalla\ el\ pedido\ con\ la\ cantidad\ de\ items,\ y\ una\ lista\r\n\ en\u00FAmerada\ de\ los\ items\ con\ su\ inform\u00E1cion\ y\ el\ precio.\ Al\ final\ el\ total\ de\r\n\ etiquetas\ y\ el\ importe\ total\ a\ pagar.\r\n
+numComments=8

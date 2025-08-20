@@ -1,0 +1,46 @@
+#BlueJ class context
+comment0.target=Rectangulo
+comment0.text=\r\n\ Ejercicio\ 4\ del\ Tp3,\ clase\ Rectangulo.\r\n\ \r\n\ @author\ Olivarez\ Alexis\ E.\r\n
+comment1.params=pOrigen\ pAncho\ pAlto
+comment1.target=Rectangulo(Punto,\ double,\ double)
+comment1.text=\r\n\ Crea\ un\ nuevo\ objeto\ Rectangulo\ con\ el\ origen,\ ancho\ y\ alto\ especificados.\r\n\r\n\ @param\ pOrigen\ El\ punto\ de\ origen\ del\ rect\u00E1ngulo.\r\n\ @param\ pAncho\ \ El\ ancho\ del\ rect\u00E1ngulo.\r\n\ @param\ pAlto\ \ \ El\ alto\ del\ rect\u00E1ngulo.\r\n
+comment10.params=
+comment10.target=double\ superficie()
+comment10.text=\r\n\ Calcula\ la\ superficie\ del\ rectangulo.\r\n\ Superficie\ \=\ PI\ *\ Radio\u00B2\r\n\r\n\ @return\ La\ superficie\ del\ rectangulo.\r\n
+comment11.params=
+comment11.target=double\ perimetro()
+comment11.text=\r\n\ Calcula\ el\ per\u00EDmetro\ del\ rectangulo.\r\n\ Perimetro\ \=\ (Alto\ +\ Ancho)\ *\ 2\r\n\r\n\ @return\ El\ per\u00EDmetro\ del\ rectangulo.\r\n
+comment12.params=
+comment12.target=void\ caracteristicas()
+comment12.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ rectangulo,\ incluyendo\ su\ centro,\ alto,\ ancho,\r\n\ superficie\ y\ per\u00EDmetro.\r\n
+comment13.params=otroRectangulo
+comment13.target=double\ distanciaA(Rectangulo)
+comment13.text=\r\n\ Calcula\ la\ distancia\ entre\ el\ centro\ de\ este\ rectangulo\ y\ el\ centro\ de\ otro\r\n\ rectangulo\ dado.\r\n\ Distancia\ \=\ \u221A(x1\ -\ x2)\u00B2\ +\ (y1\ -\ y2)\u00B2\r\n\r\n\ @param\ otroRectangulo\ El\ otro\ rectangulo\ con\ el\ que\ se\ calcular\u00E1\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ distancia.\r\n\ @return\ La\ distancia\ entre\ los\ centros\ de\ los\ rectangulos.\r\n
+comment14.params=otroRectangulo
+comment14.target=Rectangulo\ elMayor(Rectangulo)
+comment14.text=\r\n\ Determina\ cu\u00E1l\ de\ los\ dos\ rectangulos\ tiene\ una\ superficie\ mayor.\r\n\r\n\ @param\ otroRectangulo\ El\ otro\ rectangulo\ con\ el\ que\ se\ comparar\u00E1\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ superficie.\r\n\ @return\ El\ rectangulo\ con\ la\ mayor\ superficie.\r\n
+comment2.params=pAncho\ pAlto
+comment2.target=Rectangulo(double,\ double)
+comment2.text=\r\n\ Crea\ un\ nuevo\ objeto\ Rectangulo\ con\ el\ ancho\ y\ alto\ especificados.\r\n\r\n\ @param\ pAncho\ El\ ancho\ del\ rect\u00E1ngulo.\r\n\ @param\ pAlto\ \ El\ alto\ del\ rect\u00E1ngulo.\r\n
+comment3.params=pOrigen
+comment3.target=void\ setOrigen(Punto)
+comment3.text=\r\n\ Establece\ el\ punto\ de\ origen\ del\ rect\u00E1ngulo.\r\n\r\n\ @param\ pOrigen\ El\ punto\ de\ origen\ del\ rect\u00E1ngulo.\r\n
+comment4.params=pAncho
+comment4.target=void\ setAncho(double)
+comment4.text=\r\n\ Establece\ el\ ancho\ del\ rectangulo.\r\n\r\n\ @param\ pAncho\ El\ ancho\ del\ rect\u00E1ngulo.\r\n
+comment5.params=pAlto
+comment5.target=void\ setAlto(double)
+comment5.text=\r\n\ Establece\ el\ alto\ del\ rectangulo.\r\n\r\n\ @param\ pAlto\ El\ alto\ del\ rect\u00E1ngulo.\r\n
+comment6.params=
+comment6.target=Punto\ getOrigen()
+comment6.text=\r\n\ Obtiene\ el\ punto\ de\ origen\ del\ rect\u00E1ngulo.\r\n\r\n\ @return\ El\ punto\ de\ origen\ del\ rect\u00E1ngulo.\r\n
+comment7.params=
+comment7.target=double\ getAncho()
+comment7.text=\r\n\ Obtiene\ el\ ancho\ del\ rect\u00E1ngulo.\r\n\r\n\ @return\ La\ anchura\ del\ rect\u00E1ngulo.\r\n
+comment8.params=
+comment8.target=double\ getAlto()
+comment8.text=\r\n\ Obtiene\ el\ alto\ del\ rect\u00E1ngulo.\r\n\r\n\ @return\ La\ altura\ del\ rect\u00E1ngulo.\r\n
+comment9.params=pDx\ pDy
+comment9.target=void\ desplazar(double,\ double)
+comment9.text=\r\n\ Desplaza\ el\ centro\ del\ rectangulo\ por\ las\ cantidades\ dadas\ en\ las\ coordenadas\ X\r\n\ e\ Y.\r\n\r\n\ @param\ pX\ La\ cantidad\ en\ la\ que\ el\ rectangulo\ debe\ moverse\ horizontalmente.\r\n\ @param\ pY\ La\ cantidad\ en\ la\ que\ el\ rectangulo\ debe\ moverse\ verticalmente.\r\n
+numComments=15

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Comercio
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=p_artefactoHogar\ p_cuotas\ p_interes
+comment2.target=void\ informeCuotas(ArtefactoHogar,\ int,\ float)
+numComments=3

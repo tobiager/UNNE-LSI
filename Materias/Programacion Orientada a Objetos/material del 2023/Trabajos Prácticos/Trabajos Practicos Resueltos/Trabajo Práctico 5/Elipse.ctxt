@@ -1,0 +1,35 @@
+#BlueJ class context
+comment0.target=Elipse
+comment1.params=p_sEjeMayor\ p_sEjeMenor\ p_centro
+comment1.target=Elipse(double,\ double,\ Punto)
+comment10.params=p_otraElipse
+comment10.target=double\ distanciaA(Elipse)
+comment10.text=\r\n\ Calcula\ la\ distancia\ entre\ el\ centro\ de\ este\ elipse\ y\ el\ centro\ de\ otro\r\n\ elipse\ dado.\r\n\ Distancia\ \=\ \u221A(x1\ -\ x2)\u00B2\ +\ (y1\ -\ y2)\u00B2\r\n\r\n\ @param\ p_otroCirculo\ El\ otro\ elipse\ con\ el\ que\ se\ calcular\u00E1\ la\ distancia.\r\n\ @return\ La\ distancia\ entre\ los\ centros\ de\ los\ elipses\ (double).\r\n
+comment11.params=p_otraElipse
+comment11.target=Elipse\ elMayor(Elipse)
+comment11.text=\r\n\ Determina\ cu\u00E1l\ de\ las\ dos\ elipses\ tiene\ una\ superficie\ mayor.\r\n\r\n\ @param\ p_otraElipse\ La\ otra\ Elipse\ con\ el\ que\ se\ comparar\u00E1\ la\ superficie.\r\n\ @return\ La\ elipse\ con\ la\ mayor\ superficie\ (Elipse).\r\n
+comment2.params=p_sEjeMayor
+comment2.target=void\ setsEjeMayor(double)
+comment2.text=\r\n\ Establece\ el\ eje\ mayor\ del\ elipse.\r\n\ \r\n\ @param\ p_sEjeMayor\ El\ eje\ mayor\ del\ elipse\ (double).\r\n
+comment3.params=p_sEjeMenor
+comment3.target=void\ setsEjeMenor(double)
+comment3.text=\r\n\ Establece\ el\ eje\ menor\ del\ elipse.\r\n\ \r\n\ @param\ p_sEjeMenor\ El\ eje\ menor\ del\ elipse\ (double).\r\n
+comment4.params=
+comment4.target=double\ getsEjeMayor()
+comment4.text=\r\n\ Obtiene\ el\ valor\ del\ eje\ mayor\ de\ la\ elipse.\r\n\r\n\ @return\ El\ valor\ del\ eje\ mayor\ de\ la\ elipse\ (double).\r\n
+comment5.params=
+comment5.target=double\ getsEjeMenor()
+comment5.text=\r\n\ Obtiene\ el\ valor\ del\ eje\ menor\ de\ la\ elipse.\r\n\r\n\ @return\ El\ valor\ del\ eje\ menor\ de\ la\ elipse\ (double).\r\n
+comment6.params=
+comment6.target=java.lang.String\ nombreFigura()
+comment6.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ figura\ "Elipse"\ (String).\r\n
+comment7.params=
+comment7.target=void\ caracteristicas()
+comment7.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ rectangulo,\ incluyendo\ su\ centro,\ semieje\r\n\ mayor,\ semieje\ menor\ y\ superficie.\r\n
+comment8.params=
+comment8.target=double\ superficie()
+comment8.text=\r\n\ Calcula\ la\ superficie\ del\ c\u00EDrculo.\r\n\ Superficie\ \=\ PI\ *\ EjeMayor\ *\ EjerMenor\r\n\r\n\ @return\ La\ superficie\ de\ una\ Elipse\ (double).\r\n
+comment9.params=p_dx\ p_dy
+comment9.target=void\ desplazar(double,\ double)
+comment9.text=\r\n\ Se\ desplaza\ la\ Elipse\ en\ los\ valores\ pasados\ como\ par\u00E1metros.\r\n\r\n\ @param\ p_x\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ horizontalmente.\r\n\ @param\ p_y\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ verticalmente.\r\n
+numComments=12

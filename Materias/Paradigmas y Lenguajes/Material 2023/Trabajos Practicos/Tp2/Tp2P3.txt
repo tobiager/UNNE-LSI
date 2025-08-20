@@ -1,0 +1,53 @@
+; Variables
+(defvar days_January '(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31))
+(defvar temp_Average '(42 38 43 33 38 32 44 38 39 43 30 36 32 42 41 35 35 43 35 38 44 32 33 40 42 44 42 41 43 41 36))
+
+; Ejercicio 3a.
+; Devolver una nueva lista con el primer y último elemento de la lista temp_promedio.
+(defvar new_List (list (first temp_Average) (car (last temp_Average))))
+(print new_List)
+
+; Ejercicio 3b.
+; Devolver una nueva lista donde el primer elemento será la lista días_enero y el segundo elemento será la lista temp_promedio.
+(defvar new_List2 (mapcar #'list days_January temp_Average))
+(print new_List2)
+
+; Ejercicio 3c.
+; Devolver una nueva lista en la cual se inserte como primer elemento de la lista temp_promedio, la lista días_enero.
+(defvar new_List3 (mapcar #'list temp_Average days_January))
+(print new_List3)
+
+; Ejercicio 3d.
+; Devolver una nueva lista con todos los elementos de las dos listas. Los mismos deben quedar todos en el primer nivel.
+(defvar new_List4 (mapcan #'list days_January temp_Average))
+(print new_List4)
+
+; Ejercicio 3e.
+; Insertar como primer elemento de la lista días_enero, el primer elemento de la lista temp_promedio.
+(setq days_January (cons (car temp_Average) days_January))
+(print days_January)
+
+; Ejercicio 3f.
+; Devolver una nueva lista donde el primer elemento será la lista días_enero y el segundo elemento será el último elemento de la lista temp_promedio
+(defvar new_List6 (list days_January (car (last temp_Average))))
+(print new_List6)
+
+; Ejercicio 3g.
+; Devolver una nueva lista conteniendo el primer elemento de días_enero y el primer elemento de temp_promedio.
+(defvar new_List7 (list (car days_January) (car temp_Average)))
+(print new_List7)
+
+; Ejercicio 3h.
+; Devolver una nueva lista conteniendo el primer elemento de días_enero y el último elemento de temp_promedio.
+(defvar new_List8 (list (car days_January) (car (last temp_Average))))
+(print new_List8)
+
+; Ejercicio 3i.
+; Devolver una nueva lista conteniendo el último elemento de días_enero y el primer elemento de temp_promedio.
+(defvar new_List9 (list (car (last days_January)) (car temp_Average)))
+(print new_List9)
+
+; Ejercicio 3j.
+; Insertar como primer elemento de la lista temp_promedio, el último elemento de la lista días_enero.
+(setq temp_Average (cons (car (last days_January)) temp_Average))
+(print temp_Average)

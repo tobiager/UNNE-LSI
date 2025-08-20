@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Hospital
+comment0.text=\r\n\ Representa\ un\ hospital\ en\ el\ sistema\ de\ gesti\u00F3n\ hospitalaria.\r\n
+comment1.params=p_nombreHospital\ p_nombreDirector
+comment1.target=Hospital(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Crea\ un\ nuevo\ hospital\ con\ los\ datos\ especificados.\r\n\ \r\n\ @param\ p_nombreHospital\ el\ nombre\ del\ hospital\r\n\ @param\ p_nombreDirector\ el\ nombre\ del\ director\ del\ hospital\r\n
+comment2.params=p_paciente
+comment2.target=void\ consultaDatosFiliatorios(Paciente)
+comment2.text=\r\n\ Muestra\ la\ informaci\u00F3n\ del\ hospital\ y\ los\ datos\ filiatorios\ del\ paciente.\r\n\ \r\n\ @param\ p_paciente\ el\ paciente\ cuya\ informaci\u00F3n\ se\ desea\ mostrar\r\n
+comment3.params=
+comment3.target=java.lang.String\ getNombreHospital()
+comment4.params=nombreHospital
+comment4.target=void\ setNombreHospital(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getNombreDirector()
+comment6.params=nombreDirector
+comment6.target=void\ setNombreDirector(java.lang.String)
+numComments=7

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Servicio
+comment1.params=p_descripcion\ p_precio
+comment1.target=Servicio(java.lang.String,\ double)
+comment1.text=\r\n\ @param\ p_descripcion\ La\ descripcion\ del\ servicio\ a\ alquilar\ (String).\r\n\ @param\ p_precio\ \ \ \ \ \ El\ precio\ del\ servicio\ a\ alquilar\ (double).\r\n
+comment2.params=p_descripcion
+comment2.target=void\ setDescripcion(java.lang.String)
+comment2.text=\r\n\ Establece\ la\ descripcion\ del\ servicio\ a\ alquilar.\r\n\ \r\n\ @param\ p_descripcion\ La\ descripcion\ del\ servicio\ a\ alquilar\ (String).\r\n
+comment3.params=p_precio
+comment3.target=void\ setPrecio(double)
+comment3.text=\r\n\ Establece\ el\ precio\ del\ servicio\ a\ alquilar.\r\n\ \r\n\ @param\ p_precio\ El\ precio\ del\ servicio\ a\ alquilar\ (double).\r\n
+comment4.params=
+comment4.target=java.lang.String\ getDescripcion()
+comment4.text=\r\n\ Obtiene\ la\ descripcion\ del\ servicio.\r\n\r\n\ @return\ La\ descripcion\ del\ servicio\ (String).\r\n
+comment5.params=
+comment5.target=double\ getPrecio()
+comment5.text=\r\n\ Obtiene\ el\ precio\ del\ servicio\ a\ alquilar.\r\n\r\n\ @return\ El\ precio\ del\ servicio\ a\ alquilar\ (double).\r\n
+numComments=6

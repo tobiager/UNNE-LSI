@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=SemiExclusivo
+comment1.params=p_nombre\ p_sueldoBasico\ p_anioIngreso\ p_horasDeDocencia\ p_horasDeInvestigacion
+comment1.target=SemiExclusivo(java.lang.String,\ double,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ para\ crear\ un\ cargo\ SemiExclusivo.\r\n\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Nombre\ del\ cargo\ (String).\r\n\ @param\ p_sueldoBasico\ \ \ \ \ \ \ \ \ Sueldo\ b\u00E1sico\ del\ cargo\ (double).\r\n\ @param\ p_anioIngreso\ \ \ \ \ \ \ \ \ \ A\u00F1o\ de\ ingreso\ del\ profesor\ en\ el\ cargo\ (int).\r\n\ @param\ p_horasDeDocencia\ \ \ \ \ \ Cantidad\ de\ horas\ de\ docencia\ asignadas\ al\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cargo\ (int).\r\n\ @param\ p_horasDeInvestigacion\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cargo\ SemiExclusivo\ (int).\r\n
+comment2.params=p_horasDeInvestigacion
+comment2.target=void\ setHorasDeInvestigacion(int)
+comment2.text=\r\n\ Establece\ la\ cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\r\n\ SemiExclusivo.\r\n\r\n\ @param\ p_horasDeInvestigacion\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ a\ asignar.\r\n
+comment3.params=
+comment3.target=int\ getHorasDeInvestigacion()
+comment3.text=\r\n\ Obtiene\ la\ cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\r\n\ SemiExclusivo.\r\n\r\n\ @return\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\ SemiExclusivo\r\n\ \ \ \ \ \ \ \ \ (int).\r\n
+comment4.params=
+comment4.target=void\ mostrarCargo()
+comment4.text=\r\n\ Muestra\ los\ detalles\ del\ cargo\ SemiExclusivo,\ incluyendo\ su\ nombre,\ sueldo\r\n\ b\u00E1sico,\ sueldo\ del\ cargo,\ antig\u00FCedad,\ horas\ de\ docencia\ y\ horas\ de\r\n\ investigaci\u00F3n.\r\n
+numComments=5

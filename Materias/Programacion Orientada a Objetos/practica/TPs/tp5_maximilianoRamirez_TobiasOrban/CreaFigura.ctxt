@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CreaFigura
+comment0.text=\r\n\ La\ clase\ CreaFigura\ permite\ crear,\ manipular\ y\ comparar\ c\u00EDrculos\ y\ rect\u00E1ngulos.\r\n\ Se\ solicita\ al\ usuario\ que\ ingrese\ datos\ para\ los\ c\u00EDrculos\ y\ luego\ se\ crean\ rect\u00E1ngulos\r\n\ con\ dimensiones\ aleatorias.\ Se\ calculan\ distancias\ entre\ figuras\ y\ se\ determinan\r\n\ cu\u00E1les\ son\ mayores\ seg\u00FAn\ su\ \u00E1rea.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ ejecuta\ la\ creaci\u00F3n\ y\ manipulaci\u00F3n\ de\ figuras\ geom\u00E9tricas\ (c\u00EDrculos\ y\ rect\u00E1ngulos).\r\n\ \r\n\ @param\ args\ Argumentos\ de\ la\ l\u00EDnea\ de\ comandos\ (no\ utilizados\ en\ este\ programa).\r\n
+numComments=2

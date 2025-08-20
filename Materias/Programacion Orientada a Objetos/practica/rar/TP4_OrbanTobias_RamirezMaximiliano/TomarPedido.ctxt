@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=TomarPedido
+comment0.text=\r\n\ esta\ clase\ instancia\ la\ clase\ pedido,\ Laboratorio,\ producto\ y\ cliente.\ \r\n\ \r\n\ @author\ Ariel\ Ramirez\r\n\ @author\ Tobias\ Orban\r\n\ @version\ 5.4.1\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

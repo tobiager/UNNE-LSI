@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=CuentaCorriente
+comment0.text=\r\n\ Clase\ que\ representa\ una\ cuenta\ corriente,\ que\ hereda\ de\ CuentaBancaria.\r\n
+comment1.params=p_nroCuenta\ p_titular
+comment1.target=CuentaCorriente(int,\ Persona)
+comment1.text=\r\n\ Constructor\ de\ CuentaCorriente.\r\n\ @param\ p_nroCuenta\ el\ n\u00FAmero\ de\ cuenta\r\n\ @param\ p_titular\ el\ titular\ de\ la\ cuenta\r\n
+comment2.params=p_nroCuenta\ p_titular\ p_saldo
+comment2.target=CuentaCorriente(int,\ Persona,\ double)
+comment2.text=\r\n\ Constructor\ de\ CuentaCorriente\ con\ saldo\ inicial.\r\n\ @param\ p_nroCuenta\ el\ n\u00FAmero\ de\ cuenta\r\n\ @param\ p_titular\ el\ titular\ de\ la\ cuenta\r\n\ @param\ p_saldo\ el\ saldo\ inicial\ de\ la\ cuenta\r\n
+comment3.params=p_importe
+comment3.target=boolean\ puedeExtraer(double)
+comment4.params=p_importe
+comment4.target=double\ extraer(double)
+comment5.params=
+comment5.target=void\ mostrar()
+numComments=6

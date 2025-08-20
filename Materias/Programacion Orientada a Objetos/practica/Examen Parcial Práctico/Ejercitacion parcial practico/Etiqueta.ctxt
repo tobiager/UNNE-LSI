@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Etiqueta
+comment1.params=
+comment1.target=double\ getCosto()
+comment2.params=p_costo
+comment2.target=void\ setCosto(double)
+comment3.params=p_costo
+comment3.target=Etiqueta(double)
+comment4.params=q
+comment4.target=double\ precio(int)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=
+comment6.target=java.lang.String\ tipo()
+numComments=7

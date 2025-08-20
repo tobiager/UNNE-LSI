@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Rx
+comment1.params=
+comment1.target=int\ getRingMuscleUps()
+comment2.params=p_ringMuscleUps
+comment2.target=void\ setRingMuscleUps(int)
+comment3.params=p_identificador\ p_nombre\ p_kilos\ p_ringMuscleUps
+comment3.target=Rx(int,\ java.lang.String,\ double,\ int)
+comment4.params=
+comment4.target=java.lang.String\ imprimirTipo()
+comment5.params=
+comment5.target=java.lang.String\ mostrarDatos()
+numComments=6

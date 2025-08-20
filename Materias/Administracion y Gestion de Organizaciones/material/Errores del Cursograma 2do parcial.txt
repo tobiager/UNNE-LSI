@@ -1,0 +1,13 @@
+Errores 
+1 los sectores deben quedarse con al menos un comprobante sobre lo que pidieron 
+2 control no significativo debería poder contraponerlo con alguna documentacion sobre el inventario del sector almacenes 
+3 emite un documento y no se queda con ninguna copia 
+4 controla y no tiene ningún documento para contraponerlo 
+5 emite un documento y no se queda con ninguna copia 
+6  conforma el duplicado del remito sin controlarlo con la mercadería 
+7 almacenes recibe la factura cuando es jurisdicción de contaduría 
+8 conforma la factura sin tener ninguna documentación 
+9 contaduría emite la orden de pago, tarea que le corresponde a tesorería 
+10 emite un cheque sin ninguno control previo en función con otros documentos 
+11 tesorería envía el cheque sin firmarlo 
+12 contaduría recibe el recibo de pago en vez de tesorería

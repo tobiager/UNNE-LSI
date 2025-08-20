@@ -1,0 +1,18 @@
+(defun clima (temperatura)
+  "Indica el estado del clima según la temperatura."
+  (cond ((< temperatura 0) 'Helado)
+        ((and (>= temperatura 0) (< temperatura 10)) 'Frio)
+        ((and (>= temperatura 10) (< temperatura 20)) 'Templado)
+        ((and (>= temperatura 20) (< temperatura 30)) 'Calido)
+        ((>= temperatura 30) 'Abrasador)))
+
+;; Ejemplo de uso:
+(let ((temperatura1 -5)
+      (temperatura2 15)
+      (temperatura3 25))
+  (format t "El estado del clima para una temperatura de ~a°C es: ~a ~%"
+          temperatura1 (clima temperatura1))
+  (format t "El estado del clima para una temperatura de ~a°C es: ~a ~%"
+          temperatura2 (clima temperatura2))
+  (format t "El estado del clima para una temperatura de ~a°C es: ~a ~%"
+          temperatura3 (clima temperatura3)))
