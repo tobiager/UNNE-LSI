@@ -1,0 +1,179 @@
+;; Ejercicio Nº 1.
+;; A partir de una lista heterogenea contenida en la variable A, evaluar si el último elemento de
+;; la misma es un valor numérico.
+#|(progn 
+    (defvar A (read))
+    (print (numberp (car (last A))))
+)|#
+
+;; Ejercicio Nº 2.
+;; A partir de una lista heterogénea contenida en la variable B, evaluar si el primer elemento es 
+;; un número par.
+#|(progn
+    (defvar B (read))
+    (print (and (numberp (car B)) (evenp (car B))))
+)|#
+
+;; Ejercicio Nº 3.
+;; A partir de una lista heterogénea contenida en la variable X, evaluar si el primero y el último 
+;; elemento son IGUALES. 
+#|(prog 
+    (defvar X (read))
+    (print (equal (car X) (car (last X))))
+)|#
+
+;; Ejercicio Nº 4. 
+;; Escribir las funciones necesarias para hallar el determinante de una matriz de 2*2. Si la 
+;; matriz está representada por dos listas ((a11 a12 ) (a21 a22)). Recordar que el determinante 
+;; de una matriz de 2x2 = ( - (* a11 a22) (* a12 a21).
+#|(progn
+    (defvar M '((3 2) (2 3)))
+    (print (- (* (caar M) (cadadr M)) (* (cadar M) (caadr M))))
+)|#
+
+;; Ejercicio Nº 5. 
+;; A partir de 2 listas, lista1 y lista2, escribir las funciones necesarias para crear una nueva 
+;; lista, que resulte de cambiar el primer término de lista2, por el primer término de lista1.
+#|(progn
+    (defvar lista1 '(1 2 3))
+    (defvar lista2 '(4 5 6))
+    (defvar newlist (cons (car lista1) (cdr lista2)))
+    (print newlist)
+)|#
+
+;; Ejercicio Nº 6. 
+;; A partir de una lista contenida en la variable alumnos, la que está formada por sublistas de la manera: 
+;; --> ((NL1 NOTA1) (NL2 NOTA2) ...)
+;; donde NL.. representa los nros de libreta y NOTA la nota de cada alumno. 
+;; Se solicita:
+;; a. Determinar la cantidad de alumnos que hay.
+;; b. ¿Cuál es el nro de libreta del primer alumno de la lista?
+;; c. ¿Qué nota que sacó el último alumno de la lista?
+;; d. Escriba las funciones necesarias para devolver T (verdadero) o Nil (falso) si el primer alumno 
+;; de la lista regularizó la materia. Un alumno regulariza la materia cuando su nota es >= 6.
+#|(progn
+    (defvar alumnos '((1 10) (2 9) (3 8)))
+    #|(mapcar (lambda (x)
+        (print (first (last x)))
+        (princ "-> ")
+        (if (>= (first (last x)) 6)
+            (princ T)
+            (princ NIL)
+        )) alumnos
+    )|# ; Recorre la lista y pregunta si el segundo elemeto de la sublista es menor a 6 devuelve T o NIL.
+    (print  (length alumnos)); a.
+    (print  (first (first alumnos))); b.
+    (print  (first (last (first (last alumnos))))); c.
+    (print 
+        (if (>= (elt (first alumnos) 1) 6)
+            (print T)
+            (print NIL)
+        )
+    )
+)|#
+
+;; Ejercicio Nº 7.
+;; Escribir las funciones necesarias para permitir que el usuario ingrese un valor por teclado y 
+;; muestre el mensaje ATOMO o LISTA, dependiendo del tipo de elemento ingresado.
+#|(progn 
+    (let (value)
+        (setq value (read))
+        (if (atom value) (print "ATOMO") (print "LISTA"))
+    )
+)|#
+
+;; Ejercicio Nº 8
+;; Escribir la secuencia de funciones necesarias para ingresar los valores de dos variables y mostrar el 
+;; resultado de la suma de los mismos.
+#|(progn 
+    (defvar a (read))
+    (defvar b (read))
+    (print (+ a b))
+)|#
+
+;; Ejercicio Nº 9
+;; Escribir la secuencia de funciones necesarias para ingresar los valores de las variables que 
+;; permiten calcular el área de un trapecio (ver fórmula en TP 1).
+#|(progn 
+    (defvar b1 (read))
+    (defvar b2 (read))
+    (defvar h (read))
+    (print (* (/ (+ b1 b2) 2) h))
+)|#
+
+;; Ejercicio Nº 10
+;; Escribir la secuencia de funciones necesarias verificar si se cumple el teorema de Pitágoras
+;; a partir de las variables ingresadas por teclado (ver fórmula en TP 1).
+#|(progn 
+    (defvar a (read))
+    (defvar b (read))
+    (defvar c (read))
+    (print (equal (+ (* a a) (* b b)) (* c c)))
+)|#
+
+;; Ejercicio Nº 11
+;; Escribir las funciones necesarias para que el usuario ingrese tres variables numéricas y 
+;; determine si la expresión B*2 – 4*A*C es menor que cero, siendo A, B y C las variables 
+;; correspondientes.
+#|(progn 
+    (defvar a (read))
+    (defvar b (read))
+    (defvar c (read))
+    (print (< (- (* b 2) (* 4 a c)) 0))
+)|#
+
+;; Ejercicio Nº 12
+;; Escribir las funciones necesarias para que a partir de una lista, devuelva T si la misma 
+;; contiene al menos una vocal. Recordar la función que le permite buscar un elemento en una lista.
+#|(progn
+    (defvar P '(a e i o u f))
+    (print (mapcar (lambda (x) (or
+        (equal x 'a)
+        (equal x 'e)
+        (equal x 'i)
+        (equal x 'o)
+        (equal x 'u))
+    ) P))
+    ; Devuelve (T T T T T NIL)
+)|#
+#|(progn
+    (defvar P '(a e i o u f))
+    (print (mapcar (lambda (x) (if (or
+        (equal x 'a)
+        (equal x 'e)
+        (equal x 'i)
+        (equal x 'o)
+        (equal x 'u)) (setq x 'T) (setq x x))
+    ) P))
+    ; Devuelve (T T T T T F)
+)|#
+#|(progn 
+    (defvar P '(q w r k y))
+    (cond
+        ((member 'a P :test #'equal) (print T))
+        ((member 'e P :test #'equal) (print T))
+        ((member 'i P :test #'equal) (print T))
+        ((member 'o P :test #'equal) (print T))
+        ((member 'u P :test #'equal) (print T))
+        (T (print NIL))
+    )
+)|#
+
+;; Ejercicio Nº 13
+;; Escribir la secuencia de funciones necesarias para ingresar los valores de tres variables 
+;; numéricas y determinar cuál es la mayor sin utilizar la función MAX.
+#|(progn 
+    (defvar a (read))
+    (defvar b (read))
+    (defvar c (read))
+    (cond
+        ((and (> a b) (> a c)) (print "a es el mayor"))
+        ((and (> b a) (> b c)) (print "b es el mayor"))
+        (T (print "c es el mayor"))
+    )
+)|#
+#|(progn
+    (defvar lista '(1 2 3))
+    (defvar primeraPosicion (car lista))
+    (print (mapcar (lambda (x) (if (> primeraPosicion x) (print primeraPosicion) )) lista))
+)|#

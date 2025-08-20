@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Escuela
+comment0.text=\r\n\ La\ clase\ Escuela\ gestiona\ la\ informaci\u00F3n\ de\ los\ alumnos,\r\n\ permitiendo\ agregar\ y\ quitar\ alumnos\ de\ una\ lista.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ se\ ejecuta\ al\ iniciar\ la\ aplicaci\u00F3n.\r\n\ Permite\ ingresar\ informaci\u00F3n\ sobre\ un\ alumno\ y\ agregarlo\r\n\ a\ la\ lista\ de\ alumnos.\r\n\r\n\ @param\ args\ Argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ utilizados).\r\n
+comment2.params=p_alumno
+comment2.target=boolean\ agregarAlumno(Alumno)
+comment2.text=\r\n\ Agrega\ un\ alumno\ a\ la\ lista\ de\ alumnos.\r\n\ \r\n\ @param\ p_alumno\ El\ alumno\ a\ agregar.\r\n\ @return\ true\ si\ el\ alumno\ se\ agreg\u00F3\ correctamente,\ false\ en\ caso\ contrario.\r\n
+comment3.params=p_alumno
+comment3.target=boolean\ quitarAlumno(Alumno)
+comment3.text=\r\n\ Quita\ un\ alumno\ de\ la\ lista\ de\ alumnos.\r\n\ \r\n\ @param\ p_alumno\ El\ alumno\ a\ quitar.\r\n\ @return\ true\ si\ el\ alumno\ se\ quit\u00F3\ correctamente,\ false\ en\ caso\ contrario.\r\n
+numComments=4

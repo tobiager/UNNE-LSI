@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ArtefactoHogar
+comment0.text=\r\n\ Clase\ abstracta\ que\ representa\ un\ artefacto\ del\ hogar.\r\n
+comment1.params=marca\ precio\ stock
+comment1.target=ArtefactoHogar(java.lang.String,\ float,\ int)
+comment1.text=\r\n\ Constructor\ de\ ArtefactoHogar.\r\n\ @param\ marca\ la\ marca\ del\ artefacto\r\n\ @param\ precio\ el\ precio\ del\ artefacto\r\n\ @param\ stock\ la\ cantidad\ en\ stock\ del\ artefacto\r\n
+comment2.params=
+comment2.target=void\ imprimir()
+comment2.text=\r\n\ M\u00E9todo\ abstracto\ para\ imprimir\ la\ informaci\u00F3n\ del\ artefacto.\r\n
+comment3.params=p_cuotas\ p_interes
+comment3.target=float\ cuotaCredito(int,\ float)
+comment3.text=\r\n\ Calcula\ el\ valor\ de\ la\ cuota\ de\ cr\u00E9dito.\r\n\ @param\ p_cuotas\ la\ cantidad\ de\ cuotas\r\n\ @param\ p_interes\ el\ porcentaje\ de\ inter\u00E9s\r\n\ @return\ el\ valor\ de\ la\ cuota\r\n
+comment4.params=p_cuotas\ p_interes
+comment4.target=float\ creditoConAdicional(int,\ float)
+comment4.text=\r\n\ M\u00E9todo\ abstracto\ para\ calcular\ el\ cr\u00E9dito\ con\ adicional.\r\n\ @param\ p_cuotas\ la\ cantidad\ de\ cuotas\r\n\ @param\ p_interes\ el\ porcentaje\ de\ inter\u00E9s\r\n\ @return\ el\ valor\ del\ cr\u00E9dito\ con\ adicional\r\n
+numComments=5

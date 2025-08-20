@@ -1,0 +1,37 @@
+#BlueJ class context
+comment0.target=Circulo
+comment0.text=\r\n\ Ejercicio\ 3\ del\ Tp3,\ clase\ Circulo.\r\n\ \r\n\ @author\ Olivarez\ Alexis\ E.\r\n
+comment1.params=pRadio\ pCentro
+comment1.target=Circulo(double,\ Punto)
+comment1.text=\r\n\ Crea\ un\ nuevo\ objeto\ Circulo\ con\ el\ radio\ y\ centro\ especificados.\r\n\ \r\n\ @param\ pRadio\ \ El\ radio\ del\ c\u00EDrculo.\r\n\ @param\ pCentro\ El\ centro\ del\ c\u00EDrculo.\r\n
+comment10.params=otroCirculo
+comment10.target=double\ distanciaA(Circulo)
+comment10.text=\r\n\ Calcula\ la\ distancia\ entre\ el\ centro\ de\ este\ c\u00EDrculo\ y\ el\ centro\ de\ otro\r\n\ c\u00EDrculo\ dado.\r\n\ Distancia\ \=\ \u221A(x1\ -\ x2)\u00B2\ +\ (y1\ -\ y2)\u00B2\r\n\r\n\ @param\ otroCirculo\ El\ otro\ c\u00EDrculo\ con\ el\ que\ se\ calcular\u00E1\ la\ distancia.\r\n\ @return\ La\ distancia\ entre\ los\ centros\ de\ los\ c\u00EDrculos.\r\n
+comment11.params=otroCirculo
+comment11.target=Circulo\ elMayor(Circulo)
+comment11.text=\r\n\ Determina\ cu\u00E1l\ de\ los\ dos\ c\u00EDrculos\ tiene\ una\ superficie\ mayor.\r\n\r\n\ @param\ otroCirculo\ El\ otro\ c\u00EDrculo\ con\ el\ que\ se\ comparar\u00E1\ la\ superficie.\r\n\ @return\ El\ c\u00EDrculo\ con\ la\ mayor\ superficie.\r\n
+comment2.params=pRadio
+comment2.target=void\ setRadio(double)
+comment2.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "radio"\ proporcionado\ del\ valor\r\n\ "pRadio".\r\n\ \r\n\ @param\ pRadio\ Es\ un\ valor\ doble\ que\ representa\ el\ nuevo\ valor\ de\ la\ variable\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "radio".\r\n
+comment3.params=pCentro
+comment3.target=void\ setCentro(Punto)
+comment3.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "centro"\ proporcionado\ del\ valor\r\n\ "pCentro".\r\n\ \r\n\ @param\ pCentro\ Es\ un\ valor\ Objeto\ Punto\ que\ representa\ el\ nuevo\ valor\ de\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ "centro".\r\n
+comment4.params=
+comment4.target=double\ getRadio()
+comment4.text=\r\n\ Obtiene\ el\ radio\ del\ c\u00EDrculo.\r\n\r\n\ @return\ El\ radio\ del\ c\u00EDrculo.\r\n
+comment5.params=
+comment5.target=Punto\ getCentro()
+comment5.text=\r\n\ Obtiene\ el\ centro\ del\ c\u00EDrculo.\r\n\r\n\ @return\ El\ centro\ del\ c\u00EDrculo.\r\n
+comment6.params=
+comment6.target=double\ superficie()
+comment6.text=\r\n\ Calcula\ la\ superficie\ del\ c\u00EDrculo.\r\n\ Superficie\ \=\ PI\ *\ Radio\u00B2\r\n\r\n\ @return\ La\ superficie\ del\ c\u00EDrculo.\r\n
+comment7.params=
+comment7.target=double\ perimetro()
+comment7.text=\r\n\ Calcula\ el\ per\u00EDmetro\ del\ c\u00EDrculo.\r\n\ Perimetro\ \=\ Radio\ *\ 2\ *\ PI\r\n\r\n\ @return\ El\ per\u00EDmetro\ del\ c\u00EDrculo.\r\n
+comment8.params=
+comment8.target=void\ caracteristicas()
+comment8.text=\r\n\ Muestra\ las\ caracter\u00EDsticas\ del\ c\u00EDrculo,\ incluyendo\ su\ centro,\ radio,\r\n\ superficie\ y\ per\u00EDmetro.\r\n
+comment9.params=pX\ pY
+comment9.target=void\ desplazar(double,\ double)
+comment9.text=\r\n\ Desplaza\ el\ centro\ del\ c\u00EDrculo\ por\ las\ cantidades\ dadas\ en\ las\ coordenadas\ X\r\n\ e\ Y.\r\n\r\n\ @param\ pX\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ horizontalmente.\r\n\ @param\ pY\ La\ cantidad\ en\ la\ que\ el\ objeto\ debe\ moverse\ verticalmente.\r\n
+numComments=12

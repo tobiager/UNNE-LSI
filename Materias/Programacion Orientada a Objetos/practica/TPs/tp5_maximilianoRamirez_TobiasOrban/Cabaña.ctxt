@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Caba\u00F1a
+comment1.params=p_nombre\ p_precioBase\ p_diasAlquiler\ p_nroHabitaciones
+comment1.target=Caba\u00F1a(java.lang.String,\ double,\ int,\ int)
+comment1.text=\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ \ El\ nombre\ de\ la\ caba\u00F1a\ (String).\r\n\ @param\ p_precioBase\ \ \ \ \ \ El\ precio\ base\ de\ la\ caba\u00F1a\ (double).\r\n\ @param\ p_diasAlquiler\ \ \ \ Los\ dias\ de\ alquiler\ de\ la\ caba\u00F1a\ (int).\r\n\ @param\ p_nroHabitaciones\ El\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a\ (int).\r\n
+comment2.params=p_nombre\ p_precioBase\ p_diasAlquiler\ p_servicios\ p_nroHabitaciones
+comment2.target=Caba\u00F1a(java.lang.String,\ double,\ int,\ java.util.ArrayList,\ int)
+comment2.text=\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ \ El\ nombre\ de\ la\ caba\u00F1a\ (String).\r\n\ @param\ p_precioBase\ \ \ \ \ \ El\ precio\ base\ de\ la\ caba\u00F1a\ (double).\r\n\ @param\ p_diasAlquiler\ \ \ \ Los\ dias\ de\ alquiler\ de\ la\ caba\u00F1a\ (int).\r\n\ @param\ p_servicios\ \ \ \ \ \ \ Una\ lista\ de\ servicios\ alquilados\ en\ la\ caba\u00F1a\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (ArrayList<Servicio>).\r\n\ @param\ p_nroHabitaciones\ El\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a\ (int).\r\n
+comment3.params=p_nroHabitaciones
+comment3.target=void\ setNroHabitaciones(int)
+comment3.text=\r\n\ Establece\ el\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a.\r\n\r\n\ @param\ p_nroHabitaciones\ El\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a\ (int).\r\n
+comment4.params=
+comment4.target=int\ getNroHabitaciones()
+comment4.text=\r\n\ Obtiene\ el\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a.\r\n\r\n\ @return\ El\ n\u00FAmero\ de\ habitaciones\ de\ la\ caba\u00F1a\ (int).\r\n
+comment5.params=
+comment5.target=double\ costo()
+comment5.text=\r\n\ Calcula\ el\ costo\ total\ de\ alquiler\ de\ la\ caba\u00F1a,\ incluyendo\ un\ cargo\r\n\ adicional\ por\ habitaciones.\r\n\r\n\ @return\ El\ costo\ total\ del\ alquiler\ considerando\ las\ habitaciones\r\n\ \ \ \ \ \ \ \ \ adicionales.\r\n
+comment6.params=p_alojamiento
+comment6.target=int\ contar(java.lang.String)
+comment6.text=\r\n\ Cuenta\ la\ cantidad\ de\ alojamientos\ de\ un\ tipo\ espec\u00EDfico.\r\n\r\n\ @param\ p_alojamiento\ El\ tipo\ de\ alojamiento\ que\ se\ desea\ contar\ .\r\n\ @return\ Devuelve\ 1\ si\ el\ tipo\ de\ alojamiento\ es\ "Caba\u00F1a"\ si\ no\ 0\ (int).\r\n
+comment7.params=
+comment7.target=void\ liquidar()
+comment7.text=\r\n\ Imprime\ por\ pantalla\ el\ nombre\ del\ alojamiento,\ el\ costo\ por\ los\ dias\r\n\ alquilados,\ la\ lista\ de\ todos\ los\ servicios\ alquilados,\ la\ cantidad\ de\r\n\ habitaciones\ y\ el\ total\ a\ pagar.\r\n
+numComments=8

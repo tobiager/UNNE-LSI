@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Scaled
+comment1.params=
+comment1.target=int\ getPullUps()
+comment2.params=p_pullUps
+comment2.target=void\ setPullUps(int)
+comment3.params=p_identificador\ p_nombre\ p_kilos\ p_pullUps
+comment3.target=Scaled(int,\ java.lang.String,\ double,\ int)
+comment4.params=
+comment4.target=java.lang.String\ imprimirTipo()
+comment5.params=
+comment5.target=java.lang.String\ mostrarDatos()
+numComments=6

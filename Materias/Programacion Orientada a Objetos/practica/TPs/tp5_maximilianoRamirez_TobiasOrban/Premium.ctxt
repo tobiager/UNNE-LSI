@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Premium
+comment0.text=\r\n\ La\ clase\ Premium\ representa\ una\ etiqueta\ de\ tipo\ premium,\r\n\ que\ extiende\ la\ clase\ abstracta\ Etiquetas.\r\n
+comment1.params=p_costo\ p_plus\ p_colores
+comment1.target=Premium(double,\ double,\ int)
+comment1.text=\r\n\ Constructor\ para\ crear\ una\ instancia\ de\ una\ etiqueta\ premium.\r\n\ \r\n\ @param\ p_costo\ El\ costo\ de\ la\ etiqueta.\r\n\ @param\ p_plus\ Un\ costo\ adicional\ o\ "plus"\ de\ la\ etiqueta.\r\n\ @param\ p_colores\ La\ cantidad\ de\ colores\ de\ la\ etiqueta.\r\n
+comment2.params=q
+comment2.target=double\ precio(int)
+comment2.text=\r\n\ Calcula\ el\ precio\ total\ de\ la\ etiqueta\ premium\ en\ funci\u00F3n\r\n\ de\ la\ cantidad\ solicitada.\r\n\ \r\n\ @param\ q\ La\ cantidad\ de\ etiquetas.\r\n\ @return\ El\ precio\ total\ para\ la\ cantidad\ especificada.\r\n
+comment3.params=
+comment3.target=double\ adicional()
+comment3.text=\r\n\ Calcula\ un\ adicional\ basado\ en\ la\ cantidad\ de\ colores\r\n\ de\ la\ etiqueta.\r\n\ \r\n\ @return\ El\ porcentaje\ adicional\ a\ aplicar.\r\n
+comment4.params=
+comment4.target=java.lang.String\ tipo()
+comment4.text=\r\n\ Devuelve\ el\ tipo\ de\ etiqueta,\ que\ en\ este\ caso\ es\ "premium".\r\n\ \r\n\ @return\ El\ tipo\ de\ etiqueta.\r\n
+numComments=5

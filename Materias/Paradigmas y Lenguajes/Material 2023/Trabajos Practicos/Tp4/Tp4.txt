@@ -1,0 +1,240 @@
+;; Ejercicio Nº 1.
+;; Definir una función predicado llamada palíndromo, que determine si una lista ingresada 
+;; por el operador, es una lista palíndromo. (se lee igual de izquierda a derecha y de derecha a izquierda).
+;; Por ejemplo: ( I T A T I) es una lista palíndromo.
+
+(defun palindromo (lista)
+    (print (equalp lista (reverse lista)))
+)
+; (palindromo '(I T A T I))
+
+;; Ejercicio Nº 2.
+;; Definir una función llamada clima, la que a partir de la temperatura que será ingresada 
+;; por el operador, me indique el estado del clima.
+;; | Temperatura |    Clima   |
+;; |     < 0     |   Helado   |
+;; | = 0 y < 10  |    Frio    |
+;; | = 10 y < 20 |  Templado  |
+;; | = 20 y < 30 |   Calido   |
+;; |    > 30     |  Abrasador |
+(defun clima (temp)
+    (cond 
+      	((not (numberp temp)) (print "ERROR"))
+      	((< temp 0) (print "Helado"))
+      	((< temp 10) (print "Frio"))
+        ((< temp 20) (print "Templado"))
+        ((< temp 30) (print "Calido"))
+        (T (print "Abrasador"))
+    )
+)
+; (clima -1)
+
+;; Ejercicio N° 3.
+;; Definir una función llamada area-triangulo que devuelve el área de un triángulo a partir 
+;; de su base y su altura. La base y la altura son ingresadas como parámetros.
+(defun area-triangulo (base altura)
+    (print (/ (* base altura) 2))
+)
+; (area-triangulo 2 2)
+
+;; Ejercicio N° 4.
+;; Definir la función predicado llamada es_Cuadrado_Perfecto, la cual deberá evaluar si 
+;; un número que es ingresado como parámetro, es un cuadrado perfecto. Un número es 
+;; un cuadrado perfecto si su raíz cuadrada es un número entero. (Puede ayudarse con 
+;; una o mas de las siguientes funciones ZEROP, MOD, SQRT, TRUNCATE, INTEGERP).
+(defun es_Cuadrado_Perfecto (n)
+    (zerop (mod n (sqrt n)))
+)
+; (print (es_Cuadrado_Perfecto 49))
+
+;; Ejercicio Nº 5.
+;; Definir una función llamada clasifico-triángulos, la que a partir de los valores de los 
+;; lados de un triángulo ingresados por el operador, clasifique el mismo en: isósceles, 
+;; equilátero o escaleno. Tener en cuenta que todo triangulo debe cumplir que. “Un lado es 
+;; menor que la suma de los otros dos y mayor que la diferencia”.
+(defun clasifico-triangulos (a b c)
+    (if (and (< a (+ b c)) (> a (- b c))
+            (< b (+ a c)) (> b (- a c))
+            (< c (+ a b)) (> a (- a b)))
+        (cond
+            ((= a b c)) (print "Triangulo Equilatero"))
+            ((/= a b c)) (print "Triangulo Escaleno"))
+            (T (print "Triangulo Isósceles"))
+        )
+        (print "ERROR")
+    )
+)
+; (clasifico-triangulos 1 2 3)
+
+;; Ejercicio Nº 6.
+;; A partir la mínima temperatura del día de ayer y de dos listas:
+;; - min_marzo: que contendrá las mínimas temperaturas registradas para cada uno de los días de marzo.
+;; - min_abril: que contendrá las mínimas temperaturas registradas para cada uno de los días de abril.
+;; determinar si la temperatura mínima de ayer se registró también en marzo o en abril. (el 
+;; valor atómico y las dos listas deben ser ingresadas como parámetros)
+(defvar min_marzo '(32 42 41 35 35 43 35 38 44 32 33 40))
+(defvar min_abril '(42 38 43 33 38 32 44 38 39 43 30 36))
+(defun temp_ayer (e listaMarzo listaAbril)
+    (cond 
+        ((member e listaMarzo) (print "Se registro la temperatura de ayer en el mes de Marzo."))
+        ((member e listaAbril) (print "Se registro la temperatura de ayer en el mes de Abril."))
+        (T (print "No se registro la temperatura de ayer en Marzo o en Abril."))
+    )
+)
+; (temp_ayer 39 min_marzo min_abril)
+
+;; Ejercicio N° 7.
+;; Crear las siguientes funciones de rotación:
+;; a. una función llamada derecha que rote a la DERECHA los elementos de una lista 
+;; ingresada como parámetro haciendo que su primer elemento pase a ser el último. 
+;; Por ejemplo:
+;; >> (rotar-derecha '(1 2 3 4)) ==> (2 3 4 1).
+;; b. una función llamada izquierda que rote a la IZQUIERDA los elementos de una 
+;; lista ingresada como parámetro haciendo que el último elemento pase a ser el primero. Por ejemplo,
+;; >> (rotar-izquierda '(1 2 3 4)) ==> (4 1 2 3).
+(defun rotar-derecha (listaDerecha)
+    (print (cons (cdr listaDerecha) (car listaDerecha)))
+)
+(defun rotar-izquierda (listaIzquierda)
+    (print (cons (car (last listaIzquierda)) (butlast listaIzquierda)))
+)
+; (rotar-derecha '(1 2 3 4))
+; (rotar-izquierda '(1 2 3 4))
+
+;; Ejercicio Nº 8.
+;; Definir una función llamada mediano¸ la que a partir de tres valores numéricos 
+;; ingresados como parámetros, devuelva el valor mediano (puede ayudarse con las 
+;; funciones max y min). El valor mediano será aquel que no es ni el mayor ni el menor valor.
+(defun mediano(a b c)
+  (if (/= a b c)
+      (- (+ a b c) (min a b c) (max a b c))
+      (print "Hay iguales") ; (print NIL)
+  )
+)
+; (print (mediano 1 2 3))
+
+;; Ejercicio Nº 9.
+;; Definir una función llamada posición, que reciba como argumentos un elemento y una 
+;; lista e indique la posición que ocupa el elemento en la lista.
+(defun posición (e lista)
+    (print (- (length lista) (length (member e lista))))
+)
+; (posición 14 '(3 2 14 4 5))
+
+;; Ejercicio Nº 10.
+;; Definir una función llamada mi-segundo que recibe una lista y un átomo como 
+;; parámetros. La misma debe devolver una nueva lista donde el átomo ingresado como 
+;; parámetro ocupará la primera posición de la lista. (Recuerde que las posiciones 
+;; comienzan a contarse desde la 0).
+(defun mi-segundo (a lista)
+    (cons a lista)
+)
+; (print (mi-segundo 1 '(2 3 4 5)))
+
+;; Ejercicio N° 11.
+(defun analizo (l a)
+    (cond 
+    ((not (member a l)) (print "no se encuentra"))
+    ((oddp (length (member a l))) (print (list (member a l)(length (member a l)))))
+    (T (print "no es par"))
+))
+; (analizo '(2 3 4 5 6 7) 8) ;a. "no se encuentra".
+; (analizo '(2 3 4 5 6 7) 5) ;b. new lista con los elementos que estan despues del elemento buscado y su posicion --> ((5 6 7) 3)
+
+;; Ejercicio Nº 12.
+(defun calculo (n1 n2)
+    (if (> n1 n2) 
+        (+ (* n1 n2))
+        (/ n2 n1)
+    )
+)
+; (print (calculo 5 3)) ;a. 15
+; (print (calculo 3 18)) ;b. 6
+
+;; Ejercicio N° 13.
+(defun primero-ultimo (l)
+    (if (numberp (car (last l)))
+        (cons (car (last L)) (butlast l ))
+        (car (last L))
+    )
+)
+; (print (primero-ultimo '((5 6) 1 2 3 4))); a. (4 (5 6) 1 2 3)
+; (print (primero-ultimo '(5 6 7 X Z))); b. Z
+
+;; Ejercicio Nº 14
+;; A partir de tres valores numéricos que son ingresados por el operador y representan el 
+;; nivel de un río en tres días consecutivos, obtener:
+;; a. La dispersión del nivel del rio. Siendo la dispersión, la diferencia entre el valor 
+;; más alto y el más bajo. Estos valores deben ser ingresados.
+;; b. Determinar si esta dispersión corresponde a días parejos, locos o normales. 
+;; - Son días parejos si la dispersión es chica (menos de 30 cm)
+;; - Son días locos si la dispersión es grande (más de un metro)
+;; - Son días normales si no son ni parejos ni locos.
+;; NOTA: Se aconseja desarrollar los items a y b en funciones diferentes y luego llamar en 
+;; la función definida en el punto a, a la función definida en el punto b.
+(defun rio (a b c)
+    (- (max a b c) (min a b c))
+)
+(defun date ()
+    (let ((a) (b) (c))
+        (print "Ingrese 3 Valores Numericos")
+        (setq a (read)) (setq b (read)) (setq c (read))
+        (if (and (numberp a) (numberp b) (numberp c)) 
+            (cond
+                ((< (rio a b c) 30) (print "Dias Parejos"))
+                ((> (rio a b c) 100) (print "Dias Locos"))
+                (T (print "Dias Normales"))
+		    )
+            (print 'ERROR)
+        )
+    )
+)
+; (date)
+
+;; Ejercicio N° 15:
+;; En una plantación de pinos, de cada árbol se conoce la altura expresada en metros.
+;; El peso de un pino se puede calcular a partir de la altura así:
+;; - 3 kg por cada centímetro hasta 3 metros,
+;; - 2 kg por cada centímetro arriba de los 3 metros
+;; Por ejemplo:
+;; - 2 metros pesan 600 kg, porque 200 * 3 = 600
+;; - 5 metros pesan 1300 kg, porque los primeros 3 metros pesan 900 kg y los 
+;; siguientes 2 pesan los 400 restantes.
+;; Los pinos se usan para llevarlos a una fábrica de muebles, a la que le sirve árboles de 
+;; entre 400 y 1000 kilos, un pino fuera de este rango no le sirve a la fábrica.
+;; a. Definir la función pesoPino, que recibe la altura de un pino y devuelve su peso.
+;; b. Definir la función predicado esPesoUtil, recibe un peso en kg y responde verdadero 
+;; si un pino de ese peso le sirve a la fábrica
+;; c. Definir la función predicado sirvePino, recibe la altura de un pino y responde 
+;; verdadero si un pino de ese peso le sirve a la fábrica.
+(defun pesoPino (alturaM)
+    (if (<= alturaM 3)
+        (* alturaM 3)
+        (+ (* 300 3) (* (- alturaM 3) 2 100))
+    )
+)
+(defun esPesoUtil (pesoKg)
+    (if (and (>= pesoKg 400) (<= pesoKg 1000))
+        (print T)
+        (print NIL)
+    )
+)
+(defun sirvePino (alturaM)
+    (esPesoUtil (pesoPino alturaM))
+)
+; (print (pesoPino 5)); Devuelve el peso en kilos de la altura del Pino.
+; (esPesoUtil 1300); Devuelve T o NIL si el peso ingresada en Kg le sirve a la fabrica.
+; (sirvePino 5); Devuelve T o NIL analiza el peso de la altura ingresada pregunta si le sirve a la fabrica.
+
+;; Ejercicio N° 16
+;; Definir una función cuantoPagaCadaUno, que recibe como parámetros el precio de 1 
+;; pizza y una cantidad de comensales y devuelva cuánto debe pagar cada uno.
+;; Tener en cuenta que cada comensal come 3 porciones y sólo se pueden comprar pizzas 
+;; enteras (que tiene cada una 8 porciones).
+;; Por ejemplo:
+;; - Son 3 comensales, se necesitan entonces 9 porciones, lo que son dos pizzas, que 
+;; salen $ 120 cada una, lo que implica $240 a dividir entre 3 = $80 cada uno.
+(defun cuantoPagaCadaUno (precioPizza cantidadComenzales)
+    (/ (* (ceiling (* (/ cantidadComenzales 8) 3)) precioPizza) cantidadComenzales)
+)
+; (prin1 '$) (print (cuantoPagaCadaUno 120 3))

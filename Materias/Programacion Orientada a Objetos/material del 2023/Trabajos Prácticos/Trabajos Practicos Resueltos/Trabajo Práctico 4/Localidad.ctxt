@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Localidad
+comment1.params=pNombre\ pProvincia
+comment1.target=Localidad(java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Localidad.\r\n\ \r\n\ @param\ pNombre\ \ \ \ El\ nombre\ de\ la\ Localidad.\r\n\ @param\ pProvincia\ El\ nombre\ de\ la\ Provincia.\r\n
+comment2.params=pNombre
+comment2.target=void\ setNombre(java.lang.String)
+comment2.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "nombre"\ proporcionado\ del\r\n\ valor\ "pNombre".\r\n\r\n\ @param\ pNombre\ Es\ un\ String\ que\ representa\ el\ nuevo\ valor\ para\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ "nombre".\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debe\ ser\ un\ String\ no\ nulo\ y\ no\ vac\u00EDo.\r\n
+comment3.params=pProvincia
+comment3.target=void\ setProvincia(java.lang.String)
+comment3.text=\r\n\ El\ m\u00E9todo\ establece\ el\ valor\ de\ la\ variable\ "provincia"\ proporcionado\ del\r\n\ valor\ "pProvincia".\r\n\r\n\ @param\ pProvincia\ Es\ un\ String\ que\ representa\ el\ nuevo\ valor\ para\ la\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ "provincia".\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debe\ ser\ un\ String\ no\ nulo\ y\ no\ vac\u00EDo.\r\n
+comment4.params=
+comment4.target=java.lang.String\ getNombre()
+comment4.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "nombre".\r\n
+comment5.params=
+comment5.target=java.lang.String\ getProvincia()
+comment5.text=\r\n\ @return\ Devuelve\ el\ valor\ de\ la\ variable\ de\ instancia\ "provincia".\r\n
+comment6.params=
+comment6.target=java.lang.String\ mostrar()
+comment6.text=\r\n\ @return\ Cadena\ de\ texto\ concatenando\ Localidad\ y\ Provincia.\r\n
+numComments=7

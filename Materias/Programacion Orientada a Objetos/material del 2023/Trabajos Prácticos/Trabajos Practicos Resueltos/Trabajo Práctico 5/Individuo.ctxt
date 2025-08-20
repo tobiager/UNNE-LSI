@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Individuo
+comment1.params=p_persona\ p_fechaVisita
+comment1.target=Individuo(Persona,\ java.util.Calendar)
+comment2.params=p_persona
+comment2.target=void\ setPersona(Persona)
+comment2.text=\r\n\ Establece\ un\ integrante.\r\n\ \r\n\ @param\ p_persona\ Una\ persona\ que\ visita\ el\ zoologico\ (Persona).\r\n
+comment3.params=
+comment3.target=Persona\ getPersona()
+comment3.text=\r\n\ Obtiene\ la\ persona\ que\ asistio\ al\ zoologico.\r\n\ \r\n\ @return\ La\ persona\ que\ asisti\u00F3\ al\ zoologico\ (Persona).\r\n
+comment4.params=
+comment4.target=double\ entrada()
+comment4.text=\r\n\ @return\ El\ costo\ de\ la\ entrada\ de\ la\ persona\ que\ asistio\ al\ zoologico\r\n\ \ \ \ \ \ \ \ \ (double).\r\n
+comment5.params=
+comment5.target=void\ mostrar()
+comment5.text=\r\n\ Imprime\ por\ pantalla\ los\ datos\ de\ la\ persona\ que\ asistio\ al\ zoologico.\r\n
+comment6.params=p_fecha\ p_visitante
+comment6.target=void\ listarPorFecha(java.util.Calendar,\ java.lang.String)
+comment6.text=\r\n\ @param\ p_fecha\ \ \ \ \ La\ fecha\ del\ dia\ que\ se\ quiere\ saber\ quienes\ asistieron\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Calendar).\r\n\ @param\ p_visitante\ El\ tipo\ de\ visitante\ a\ consultar.\r\n
+comment7.params=
+comment7.target=java.lang.String\ tipoVisitante()
+comment7.text=\r\n\ @return\ Un\ String\ del\ nombre\ del\ tipo\ visitante\ "Individuo"\ (String).\r\n
+numComments=8

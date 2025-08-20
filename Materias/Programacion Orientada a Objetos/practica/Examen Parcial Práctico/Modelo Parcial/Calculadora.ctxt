@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Calculadora
+comment1.params=x\ y
+comment1.target=int\ sumar(int,\ int)
+comment2.params=x\ y
+comment2.target=double\ dividir(int,\ int)
+numComments=3

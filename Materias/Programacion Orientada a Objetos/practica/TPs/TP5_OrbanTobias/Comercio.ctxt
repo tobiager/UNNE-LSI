@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Comercio
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=artefactos\ scanner
+comment2.target=void\ ingresarArtefacto(java.util.ArrayList,\ java.util.Scanner)
+comment3.params=artefactos\ scanner
+comment3.target=void\ quitarArtefacto(java.util.ArrayList,\ java.util.Scanner)
+comment4.params=artefactos
+comment4.target=void\ mostrarArtefactos(java.util.ArrayList)
+comment5.params=artefactos\ scanner
+comment5.target=void\ calcularCuotas(java.util.ArrayList,\ java.util.Scanner)
+numComments=6

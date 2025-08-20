@@ -1,0 +1,282 @@
+;; Ejercicio Nº 1.
+;; A partir de una lista heterogénea que es ingresada como parámetro, definir la función suma que 
+;; permita obtener la suma de todos los elementos de una lista.
+(defun suma (l)
+  (cond
+    ((endp l) 0)
+    ((numberp (first l)) (+ (first l) (suma (rest l))))
+    (T (suma (rest l)))
+  )
+)
+; (print (suma '(1 2 3 4)))
+
+;; Ejercicio Nº 2.
+;; A partir de una lista que es ingresada como parámetro y que contiene únicamente elementos 
+;; atómicos, defina una función que cuente la cantidad de números impares que posee la misma-
+(defun impares (l)
+  (cond
+    ((endp l) 0)
+    ((and (numberp (first l)) (oddp (first l))) (+ 1 (impares (rest l))))
+    (T (impares (rest l)))
+  )
+)
+
+; Otra forma de hacer...
+; (defun cant-oddp-numbers (l)
+;   (labels ((cant-oddp (l cant)
+;     (cond 
+;       ((null l) cant)
+;       ((oddp (first l)) (cant-oddp (rest l) (+ 1 cant)))
+;       (T (cant-oddp (rest l) cant)))))
+;     (cant-oddp l 0)
+;   )
+; )
+; (print (cant-oddp-numbers '(1 2 3 4 5)))
+; (print (impares '(1 2 3 4)))
+
+;; Ejercicio Nº 3.
+;; A partir de una lista heterogénea que es ingresada como parámetro, definir la función promedio que 
+;; permita obtener el promedio de todos los elementos numéricos de una lista.
+(defun numbers (l)
+  (cond
+    ((endp l) 0)
+    ((numberp (first l)) (+ 1 (numbers (rest l))))
+    (T (numbers (rest l)))
+  )
+)
+
+; Otra forma de hacer...
+; (defun average (l)
+;   (labels ((recursiva (l suma cantidad)
+;     (cond 
+;       ((null l) (/ suma cantidad))
+;       ((numberp (first l)) (recursiva (rest l) (+ suma (first l)) (+ 1 cantidad)))
+;       (T (recursiva (rest l) suma cantidad))
+;     )))
+;     (recursiva l 0 0)
+;   )
+; )
+
+(defun promedio (l)
+  (/ (suma l) (numbers l))
+)
+; (print (average '(1 2 3 4 5)))
+; (print (promedio '(1 2 3 4 5)))
+
+;; Ejercicio Nº 4
+;; A partir de una lista heterogénea que es ingresada como parámetro, definir una función que devuelva 
+;; una lista cuyos elementos son el resultado de evaluar uno a uno si cada uno de los elementos de la 
+;; lista ingresada como parámetro es una sublista.
+(defun listaSublista (l)
+  (cond
+    ((endp l) NIL)
+    ((consp (first l)) (append (list (first l)) (listaSublista (rest l))))
+    (T (listaSublista (rest l)))
+  )
+)
+; (print (listaSublista '((1 2) (3 4) 1 (2) 3 4)))
+
+;; Ejercicio Nº 5.
+;; Definir una función predicado, la que a partir de una lista solicitada al operador, verifique si todos los 
+;; elementos de la lista son valores numéricos.
+(defun all-Numbers (l)
+  (cond
+    ((endp l) T)
+    ((numberp (first l)) (all-Numbers (rest l)))
+  )
+)
+; (print (all-Numbers '(1 2 3 4 5)))
+
+;; Ejercicio Nº 6.
+;; A partir de una lista con las Notas los parciales de Programación de un alumno, la que es ingresada 
+;; por el operador, definir una función predicado llamada Aprobado. La función debe evaluar si la 
+;; materia está aprobada. Una materia está aprobada si todas las notas son 6 o valores mayores a 6.
+(defun Aprobado? (l)
+  (cond
+    ((endp l) T)
+    ((>= (first l) 6) (Aprobado? (rest l)))
+  )
+)
+
+(defun notas-Parciales ()
+  (let (l)
+    (print "Ingrese una lista de sus notas: ")
+    (setq l (read))
+    (if (consp l)
+      (Aprobado? l)
+      'ERROR
+    )
+  )
+)
+; (print (notas-Parciales))
+
+;; Ejercicio Nº 7.
+;; Definir la función soloListas, la que a partir de una lista heterogénea ingresada como parámetro, 
+;; devuelva una lista cuyos elementos serán sublistas. Cada sublista estará conformada por el 
+;; elemento que sea una sublista de la lista original junto con su longitud.
+(defun soloListas (l)
+  (cond
+    ((endp l) NIL)
+    ((consp (first l)) (cons (list (first l) (length (first l))) (soloListas (rest l))))
+    (T (soloListas (rest l)))
+  )
+)
+; (print (soloListas '((1 2) (3 4 5 6) 1 2 3 4)))
+
+;; Ejercicio Nº 8.
+;; Definir una función predicado que determine si una lista numérica que es recibida como parámetro 
+;; está ordenando en forma ascendente. 
+(defun predicado (l)
+  (cond
+    ((endp l) T)
+    ((null (rest l)) T)
+    ((< (first l) (cadr l)) (predicado (rest l)))
+  )
+  ; Otra forma de hacer...
+  ; (if (or (null l) (null (rest l)))
+  ;     T
+  ;     (and (<= (first l) (cadr l)) (predicado (rest l)))
+  ; )
+)
+; (print (predicado '(1 2 3 4 5 6)))
+
+;; Ejercicio Nº 9.
+;; A partir de dos listas ingresadas como parámetros, definir una función que devuelva una nueva lista 
+;; donde cada elemento sea el resultado de la diferencia de los elementos de la lista 1 con los 
+;; elementos de la lista 2 que se encuentren en la misma posición.
+(defun devolverNewList (l1 l2)
+  (cond
+    ((or (endp l1) (endp l2)) NIL)
+    ((and (numberp (first l1)) (numberp (first l2))) (cons (- (first l1) (first l2)) (devolverNewList (rest l1) (rest l2))))
+    (T (devolverNewList (rest l1) (rest l2)))
+  )
+)
+; (print (devolverNewList '(2 4 6 8) '(1 2 3 4)))
+; (print (devolverNewList '(1 2 3 4) '(2 4 6 8)))
+
+;; Ejercicio Nº 10.
+;; A partir de una lista que es ingresada por el operador, definir una función que devuelva una 
+;; nueva lista conteniendo dos sublistas. La primer sublista estará formada por los elementos de la 
+;; lista original que son números enteros. La segunda sublista estará formada por los elementos de 
+;; la lista original que no son números enteros.
+
+(defun integerpNumber (l)
+  (cond
+	  ((endp l) NIL)
+	  ((integerp (first l)) (cons (first l) (integerpNumber (rest l)))) 
+    (T (integerpNumber (rest l)))
+	)
+)
+
+(defun floatNumber (l)
+  (cond
+		((endp l) NIL)
+		((floatp (first l)) (cons (first l) (floatNumber (rest l))))
+    (T (floatNumber (rest l)))
+	)
+)
+
+; Otra forma de hacer...
+; (defun newList2Sublist (l)
+;   (labels ((separar (l enteros decimales)
+;     (cond
+;       ((endp l) (list (reverse enteros) (reverse decimales)))
+;       ((integerp (first l)) (separar (rest l) (cons (first l) enteros) decimales))
+;       (T (separar (rest l) enteros (cons (first l) decimales)))
+;     )))
+;     (separar l '() '())
+;   )
+; )
+
+(defun datosOperador ()
+  (let (l)
+    (print "Ingrese una lista de números enteros y números decimales: ")
+    (setq l (read))
+    (if (consp l)
+      ; (newList2Sublist l)
+      (list (integerpNumber l) (floatNumber l))
+      'ERROR
+    )
+  )
+)
+; (print (datosOperador))
+; (print (newList2Sublist '(1 1.2 2 2.4 3 4 2 3.4 4.5)))
+
+;; Ejercicio Nº 11.
+;; A partir de una lista heterogénea que contiene únicamente elementos atómicos, defina una función 
+;; que devuelva una lista sin los elementos repetidos de la lista original. Si el elemento está repetido 
+;; debe aparecer una sola vez.
+(defun removeDuplicates (l)
+  (cond 
+    ((endp l) NIL)
+    ((member (first l) (rest l) :test #'equal) (removeDuplicates (rest l)))
+    (T (cons (first l) (removeDuplicates (rest l))))
+  )
+)
+; (print (removeDuplicates '((1 2) 1 1 (1 3) (1 2 3) 2 (1 3) 2 (1 2) (2 2) (1 2))))
+
+;; Ejercicio Nº 12.
+;; En la compañía telefónica FunTel modelan la historia de llamadas del usuario mediante una lista 
+;; conteniendo dos sublistas. 
+;; * la primer sublista corresponde al tiempo de duraciones de llamadas (en minutos) en el horario normal.
+;; * la segunda sublista corresponde al tiempo de duraciones de llamadas (en minutos) en el horario reducido.
+;; Se necesita que desarrollen las siguientes funciones:
+;; a. cuandoHabloMas, que determine en que horario hablo mas. Si en los dos hablo la misma cantidad, responder IGUAL.
+;; b. LLamadaMasLarga: que determine cuál fue la llamada más larga y en que horario.
+;; c. LLamadaMasCorta: que determine cuál fue la llamada más corta y en que horario.
+(defun maximo-recursivo (l)
+  (cond 
+    ((endp l) NIL)
+    ((null (rest l)) (first l))
+    (T (max (first l) (maximo-recursivo (rest l))))
+  )
+)
+
+(defun minimo-recursivo (l)
+  (cond 
+    ((endp l) NIL)
+    ((null (rest l)) (first l))
+    (T (min (first l) (minimo-recursivo (rest l))))
+  )
+)
+
+(defun cuandoHabloMas (l)
+  (let ((max-normal (suma (first l))) (max-reducido (suma (second l))))
+    (cond
+      ((> max-normal max-reducido) "Horario Normal")
+      ((< max-normal max-reducido) "Horario Reducido")
+      (T "Igual")
+    )
+  )
+)
+
+(defun llamadaMasLarga (l)
+  (let ((max-normal (maximo-recursivo (first l))) (max-reducido (maximo-recursivo (second l))) (horario (cuandoHabloMas l)))
+    (if (equal horario "Igual")
+      horario
+      (list (max max-normal max-reducido) horario)
+    )
+  )
+)
+
+(defun cuandoHabloMenos (l)
+  (let ((min-normal (suma (first l))) (min-reducido (suma (second l))))
+    (cond
+      ((< min-normal min-reducido) "Horario Normal")
+      ((> min-normal min-reducido) "Horario Reducido")
+      (T "Igual")
+    )
+  )
+)
+
+(defun llamadaMasCorta (l)
+  (let ((min-normal (minimo-recursivo (first l))) (min-reducido (minimo-recursivo (second l))) (horario (cuandoHabloMenos l)))
+    (if (equal horario "Igual")
+      horario
+      (list (min min-normal min-reducido) horario)
+    )
+  )
+)
+(print (cuandoHabloMas '((14 25 56) (14 25 56)))); Devuelve "Igual"
+(print (llamadaMasLarga '((14 25 56) (10 50 11)))); Devuelve (56 "Horario Normal")
+(print (llamadaMasCorta '((14 25 56) (10 59 11)))); Devuelve (10 "Horario Reducido")

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=RegistroCivil
+comment0.text=\r\n\ Clase\ principal\ para\ manejar\ el\ registro\ civil,\ incluyendo\ el\ matrimonio\ y\ divorcio\ entre\ personas.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ para\ ejecutar\ el\ programa\ de\ registro\ civil.\r\n\ @param\ args\ Argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ utilizados).\r\n
+numComments=2

@@ -1,0 +1,29 @@
+; Variable lluvia:
+(defvar lluvia '((5 20) (6 21.4) (10 9.5) (11 18) (21 32.8) (22 31)))
+
+; Ejercicio 1a.
+(print (concatenate 'string "¿Cuánto llovió el primer día que se informa?: " (write-to-string (car (last (car lluvia))))))
+
+; Ejercicio 1b.
+(print (concatenate 'string "¿Cuál es el primer día que se informa la cantidad de lluvia caída?: " (write-to-string (car (car lluvia)))))
+
+; Ejercicio 1c.
+(print (concatenate 'string "¿Cuánto llovió el último día que se informa?: " (write-to-string (car (last (elt lluvia (- (length lluvia) 1)))))))
+
+; Ejercicio 1d.
+(print (concatenate 'string "¿Cuál es el último día que se informa la cantidad de lluvia caída?: " (write-to-string (car (elt lluvia (- (length lluvia) 1))))))
+
+; Ejercicio 1e.
+(print (concatenate 'string "Informar el día y la cantidad de lluvia caída el 4to día que se registra en la lista: " (write-to-string (elt lluvia 3))))
+
+; Ejercicio 1f.
+(print (concatenate 'string "Informar la cantidad de lluvia caída el 4to día que se registra en la lista: " (write-to-string (car (last (elt lluvia 3))))))
+
+; Ejercicio 1g.
+(print (concatenate 'string "Informar el día y la cantidad de lluvia caída el 5to día que se registra en la lista: " (write-to-string (elt lluvia 4))))
+
+; Ejercicio 1h.
+(print (concatenate 'string "Informar la cantidad de lluvia caída el 5to día que se registra en la lista: " (write-to-string (car (last (elt lluvia 4))))))
+
+; Ejercicio 1i.
+(print (concatenate 'string "Evaluar si (10 9.5) se encuentra en la lista lluvia_caida: " (write-to-string (member '(10 9.5) lluvia :test #'equal))))

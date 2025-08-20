@@ -1,0 +1,33 @@
+Parcial practico:
+Funcional 1 y 2 
+Funcional 3 todo menos:(iterativas) loop 
+Do
+Dotimes
+Dolist
+Mapcar
+Marlist
+Funcional 4: tengo entendido que todo menos lo de lambda
+
+Parcial teorico: todo, hasta antes de recursividad
+
+
+Cuando el profe me dijo eso me dio a entender tambien que en el parcial teorico podrian entrar definiciones de loop y eso, pero no ejercicios con loop, porque sería contradictorio a la practica
+------------------------------------------------------------
+Preguntas de examen que dijo el profe en clase de teoria:
+"En un lenguaje convencional es necesario declarar el tipo de contenido. En Lisp no es necesario hacerlo, aunque lo permite"
+
+
+"Lisp listener= READ-EVAL-PRINT
+(print (eval(read))) "
+
+"Las funciones aritmeticas son no destructivas" 
+
+"Predicados de comparacion (que devuelve un predicado de comparacion) T o nil" 
+
+"Una forma en lisp= es una expresion que puede ser evaluada. Un atomo no es una Forma tipo lista"
+
+" no se puede aplicar funcion de listas a los atomos" 
+
+"Setq no tiene limites"
+
+"¿Con que funcion se pueden crear listas impropias? Con cons y appened. Listas propias con List "

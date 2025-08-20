@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Exclusivo
+comment0.text=\r\n\ La\ clase\ Exclusivo\ representa\ un\ cargo\ acad\u00E9mico\ exclusivo,\r\n\ que\ extiende\ la\ clase\ Cargo.\ Esta\ clase\ incluye\ informaci\u00F3n\r\n\ sobre\ las\ horas\ de\ investigaci\u00F3n\ y\ horas\ de\ extensi\u00F3n\ del\ cargo.\r\n
+comment1.params=p_nombreCargo\ p_sueldoBasico\ p_anioIngreso\ p_horasDeDocencia\ p_hInvestigacion\ p_horasExtension
+comment1.target=Exclusivo(java.lang.String,\ double,\ int,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ para\ crear\ un\ objeto\ de\ tipo\ Exclusivo.\r\n\ \r\n\ @param\ p_nombreCargo\ El\ nombre\ del\ cargo.\r\n\ @param\ p_sueldoBasico\ El\ sueldo\ b\u00E1sico\ asociado\ al\ cargo.\r\n\ @param\ p_anioIngreso\ El\ a\u00F1o\ en\ que\ se\ ingres\u00F3\ al\ cargo.\r\n\ @param\ p_horasDeDocencia\ Las\ horas\ de\ docencia\ asignadas.\r\n\ @param\ p_hInvestigacion\ Las\ horas\ de\ investigaci\u00F3n\ asignadas.\r\n\ @param\ p_horasExtension\ Las\ horas\ de\ extensi\u00F3n\ asignadas.\r\n
+comment2.params=p_hInvestigacion
+comment2.target=void\ setHorasInvestigacion(int)
+comment2.text=\r\n\ Establece\ las\ horas\ de\ investigaci\u00F3n.\r\n\ \r\n\ @param\ p_hInvestigacion\ Las\ horas\ de\ investigaci\u00F3n\ a\ establecer.\r\n
+comment3.params=p_horasExtencion
+comment3.target=void\ setHorasExtencion(int)
+comment3.text=\r\n\ Establece\ las\ horas\ de\ extensi\u00F3n.\r\n\ \r\n\ @param\ p_horasExtencion\ Las\ horas\ de\ extensi\u00F3n\ a\ establecer.\r\n
+comment4.params=
+comment4.target=int\ getHorasInvestigacion()
+comment4.text=\r\n\ Obtiene\ las\ horas\ de\ investigaci\u00F3n.\r\n\ \r\n\ @return\ Las\ horas\ de\ investigaci\u00F3n.\r\n
+comment5.params=
+comment5.target=int\ getHorasExtension()
+comment5.text=\r\n\ Obtiene\ las\ horas\ de\ extensi\u00F3n.\r\n\ \r\n\ @return\ Las\ horas\ de\ extensi\u00F3n.\r\n
+comment6.params=
+comment6.target=void\ mostrarCargo()
+comment6.text=\r\n\ Muestra\ la\ informaci\u00F3n\ del\ cargo\ exclusivo,\ incluyendo\r\n\ las\ horas\ de\ investigaci\u00F3n\ y\ de\ extensi\u00F3n.\r\n
+numComments=7

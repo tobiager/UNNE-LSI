@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Triangulo
+comment1.params=p_origen\ p_base\ p_altura
+comment1.target=Triangulo(Punto,\ double,\ double)
+comment1.text=\r\n\ Crea\ un\ nuevo\ objeto\ Triangulo\ con\ el\ origen,\ base\ y\ altura\ especificado.\r\n\r\n\ @param\ p_origen\ El\ punto\ de\ origen\ del\ triangulo\ (Punto).\r\n\ @param\ p_base\ \ \ La\ base\ del\ triangulo\ (double).\r\n\ @param\ p_altura\ La\ altura\ del\ triangulo\ (double).\r\n
+comment2.params=p_altura
+comment2.target=void\ setAltura(double)
+comment2.text=\r\n\ Establece\ la\ altura\ del\ triangulo.\r\n\ \r\n\ @param\ p_altura\ La\ altura\ del\ triangulo\ (double).\r\n
+comment3.params=p_base
+comment3.target=void\ setBase(double)
+comment3.text=\r\n\ Establece\ la\ base\ del\ triangulo.\r\n\ \r\n\ @param\ p_base\ La\ base\ del\ triangulo\ (double).\r\n
+comment4.params=
+comment4.target=double\ getAltura()
+comment4.text=\r\n\ Obtiene\ la\ altura\ del\ triangulo.\r\n\r\n\ @return\ La\ altura\ del\ triangulo\ (double).\r\n
+comment5.params=
+comment5.target=double\ getBase()
+comment5.text=\r\n\ Obtiene\ la\ base\ del\ triangulo.\r\n\r\n\ @return\ La\ base\ del\ triangulo\ (double).\r\n
+comment6.params=
+comment6.target=java.lang.String\ nombreFigura()
+comment6.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ figura\ "Triangulo"\ (String).\r\n
+comment7.params=
+comment7.target=double\ superficie()
+comment7.text=\r\n\ Calcula\ la\ superficie\ del\ triangulo.\r\n\ Superficie\ \=\ (Base\ *\ Altura)\ /\ 2\r\n\r\n\ @return\ La\ superficie\ del\ triangulo\ (double).\r\n
+numComments=8

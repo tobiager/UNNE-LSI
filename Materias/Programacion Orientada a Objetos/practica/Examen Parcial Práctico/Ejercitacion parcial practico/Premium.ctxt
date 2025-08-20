@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Premium
+comment1.params=
+comment1.target=int\ getColores()
+comment2.params=p_colores
+comment2.target=void\ setColores(int)
+comment3.params=p_costo\ p_colores
+comment3.target=Premium(double,\ int)
+comment4.params=q
+comment4.target=double\ precio(int)
+comment5.params=
+comment5.target=double\ adicional()
+comment6.params=
+comment6.target=java.lang.String\ tipo()
+numComments=7

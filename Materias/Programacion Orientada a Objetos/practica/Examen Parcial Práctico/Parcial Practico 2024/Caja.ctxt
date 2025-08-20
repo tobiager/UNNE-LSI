@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Caja
+comment1.params=nroCaja\ cajero
+comment1.target=Caja(int,\ Cajero)
+comment2.params=p_ticket
+comment2.target=boolean\ agregarTicket(Ticket)
+comment3.params=p_ticket
+comment3.target=boolean\ quitarTicket(Ticket)
+comment4.params=
+comment4.target=double\ recaudacion()
+comment5.params=
+comment5.target=java.lang.String\ contarPorCategoria()
+comment6.params=
+comment6.target=java.lang.String\ contarPorTurno()
+comment7.params=
+comment7.target=void\ cerrarCaja()
+numComments=8

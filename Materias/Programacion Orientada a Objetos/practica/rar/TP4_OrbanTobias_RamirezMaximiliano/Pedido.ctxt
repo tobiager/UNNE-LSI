@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Pedido
+comment1.params=p_fecha
+comment1.target=void\ setFecha(java.util.Calendar)
+comment2.params=
+comment2.target=java.util.Calendar\ getFecha()
+comment3.params=
+comment3.target=double\ totalAlContado()
+comment3.text=\r\n\ Calcula\ el\ total\ a\ pagar\ al\ contado\ de\ los\ productos\ en\ el\ pedido.\r\n\ @return\ Total\ al\ contado.\r\n
+comment4.params=
+comment4.target=double\ totalFinanciado()
+comment4.text=\r\n\ Calcula\ el\ total\ a\ pagar\ financiado\ de\ los\ productos\ en\ el\ pedido.\r\n\ @return\ Total\ financiado.\r\n
+comment5.params=
+comment5.target=void\ mostrar()
+comment5.text=\r\n\ Muestra\ el\ detalle\ del\ pedido,\ incluyendo\ productos\ y\ totales.\r\n
+numComments=6

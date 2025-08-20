@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Exclusivo
+comment1.params=p_nombre\ p_sueldoBasico\ p_anioIngreso\ p_horasDeDocencia\ p_horasDeInvestigacion\ p_horasDeExtension
+comment1.target=Exclusivo(java.lang.String,\ double,\ int,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ para\ crear\ un\ cargo\ Exclusivo.\r\n\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Nombre\ del\ cargo\ (String).\r\n\ @param\ p_sueldoBasico\ \ \ \ \ \ \ \ \ Sueldo\ b\u00E1sico\ del\ cargo\ (double).\r\n\ @param\ p_anioIngreso\ \ \ \ \ \ \ \ \ \ A\u00F1o\ de\ ingreso\ del\ profesor\ en\ el\ cargo\ (int).\r\n\ @param\ p_horasDeDocencia\ \ \ \ \ \ Cantidad\ de\ horas\ de\ docencia\ asignadas\ al\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cargo\ (int).\r\n\ @param\ p_horasDeInvestigacion\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cargo\ Exclusivo\ (int).\r\n\ @param\ p_horasDeExtension\ \ \ \ \ Cantidad\ de\ horas\ de\ extensi\u00F3n\ asignadas\ al\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cargo\ Exclusivo\ (int).\r\n
+comment2.params=p_horasDeInvestigacion
+comment2.target=void\ setHorasDeInvestigacion(int)
+comment2.text=\r\n\ Establece\ la\ cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\ Exclusivo.\r\n\r\n\ @param\ p_horasDeInvestigacion\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ a\ asignar.\r\n
+comment3.params=p_horasDeExtension
+comment3.target=void\ setHorasDeExtension(int)
+comment3.text=\r\n\ Establece\ la\ cantidad\ de\ horas\ de\ extensi\u00F3n\ asignadas\ al\ cargo\ Exclusivo.\r\n\r\n\ @param\ p_horasDeExtension\ Cantidad\ de\ horas\ de\ extensi\u00F3n\ a\ asignar.\r\n
+comment4.params=
+comment4.target=int\ getHorasDeInvestigacion()
+comment4.text=\r\n\ Obtiene\ la\ cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\ Exclusivo.\r\n\r\n\ @return\ Cantidad\ de\ horas\ de\ investigaci\u00F3n\ asignadas\ al\ cargo\ Exclusivo\r\n\ \ \ \ \ \ \ \ \ (int).\r\n
+comment5.params=
+comment5.target=int\ getHorasDeExtension()
+comment5.text=\r\n\ Obtiene\ la\ cantidad\ de\ horas\ de\ extensi\u00F3n\ asignadas\ al\ cargo\ Exclusivo.\r\n\r\n\ @return\ Cantidad\ de\ horas\ de\ extensi\u00F3n\ asignadas\ al\ cargo\ Exclusivo\ (int).\r\n
+comment6.params=
+comment6.target=void\ mostrarCargo()
+comment6.text=\r\n\ Muestra\ los\ detalles\ del\ cargo\ Exclusivo,\ incluyendo\ su\ nombre,\ sueldo\r\n\ b\u00E1sico,\ sueldo\ del\ cargo,\ antig\u00FCedad,\ horas\ de\ docencia,\ horas\ de\r\n\ investigaci\u00F3n\ y\ horas\ de\ extensi\u00F3n.\r\n
+numComments=7

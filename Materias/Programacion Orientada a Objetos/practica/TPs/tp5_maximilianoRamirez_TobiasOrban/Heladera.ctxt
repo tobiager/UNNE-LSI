@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Heladera
+comment0.text=\r\n\ Clase\ que\ representa\ una\ heladera,\ que\ hereda\ de\ ArtefactoHogar.\r\n
+comment1.params=marca\ precio\ stock\ pies\ puertas\ compresor
+comment1.target=Heladera(java.lang.String,\ float,\ int,\ int,\ int,\ boolean)
+comment1.text=\r\n\ Constructor\ de\ Heladera.\r\n\ @param\ marca\ la\ marca\ de\ la\ heladera\r\n\ @param\ precio\ el\ precio\ de\ la\ heladera\r\n\ @param\ stock\ la\ cantidad\ en\ stock\ de\ la\ heladera\r\n\ @param\ pies\ la\ cantidad\ de\ pies\ de\ la\ heladera\r\n\ @param\ puertas\ la\ cantidad\ de\ puertas\ de\ la\ heladera\r\n\ @param\ compresor\ si\ tiene\ compresor\r\n
+comment2.params=
+comment2.target=void\ imprimir()
+comment3.params=p_cuotas\ p_interes
+comment3.target=float\ creditoConAdicional(int,\ float)
+numComments=4

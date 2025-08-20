@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Docente
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Docente\ here.\r\n\ \r\n\ @author\ (Alejandro\ Ezequiel\ Ratti).\ \r\n
+comment1.params=p_dniSocio\ p_nombre\ p_area
+comment1.target=Docente(int,\ java.lang.String,\ java.lang.String)
+comment2.params=p_dniSocio\ p_nombre\ p_prestamos\ p_prestamo\ p_area
+comment2.target=Docente(int,\ java.lang.String,\ java.util.ArrayList,\ Prestamo,\ java.lang.String)
+comment3.params=p_area
+comment3.target=void\ setArea(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getArea()
+comment5.params=
+comment5.target=boolean\ esResponsable()
+comment5.text=\r\n\ verifica\ si\ el\ Docente\ puede\ pedir\ o\ no\ libros.\r\n\ @param\ no\ recibe\ parametros.\r\n
+comment6.params=p_dias
+comment6.target=void\ cambiarDiasDePrestamo(int)
+comment6.text=\r\n\ \ \ \ \ \r\n\ Si\ el\ docente\ es\ responsable,\ se\ le\ asigna\ dias\ de\ prestamos,como\ bonificacion.\r\n\ @param\ p_dias\ de\ tipo\ int.\r\n
+comment7.params=
+comment7.target=boolean\ puedePedir()
+comment7.text=\r\n\ \ \ \ \ \ \ \ verifica\ si\ el\ Docente\ puede\ pedir\ libros.\r\n\ \ \ \ \ \ \ \ \ \ @param\ no\ recibe\ parametros\r\n
+comment8.params=
+comment8.target=java.lang.String\ soyDeLaClase()
+comment8.text=\r\n\ \ \ \ \ \ \ retorna\ el\ mensaje\ Docente.\r\n\ \ \ \ \ \ \ @param\ no\ recibe\ parametros\r\n
+numComments=9

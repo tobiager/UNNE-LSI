@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Comun
+comment1.params=
+comment1.target=double\ getPlus()
+comment2.params=p_plus
+comment2.target=void\ setPlus(double)
+comment3.params=p_costo\ p_plus
+comment3.target=Comun(double,\ double)
+comment4.params=q
+comment4.target=double\ precio(int)
+comment5.params=q
+comment5.target=double\ descuento(int)
+comment6.params=
+comment6.target=java.lang.String\ tipo()
+numComments=7

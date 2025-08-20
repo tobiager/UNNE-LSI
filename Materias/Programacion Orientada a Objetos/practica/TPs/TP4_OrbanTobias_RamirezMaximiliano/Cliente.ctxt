@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Cliente
+comment0.text=\r\n\ esta\ clase\ da\ los\ datos\ generales\ de\ un\ cliente\r\n\ \r\n\ @author\ Ariel\ Ramirez\r\n\ @author\ Tobias\ Orban\r\n\ @version\ 5.4.1\r\n
+comment1.params=p_nombre\ p_direccion
+comment1.target=Cliente(java.lang.String,\ java.lang.String)
+comment2.params=p_nombre
+comment2.target=void\ setNombre(java.lang.String)
+comment3.params=p_direccion
+comment3.target=void\ setDireccion(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getNombre()
+comment5.params=
+comment5.target=java.lang.String\ getDireccion()
+numComments=6

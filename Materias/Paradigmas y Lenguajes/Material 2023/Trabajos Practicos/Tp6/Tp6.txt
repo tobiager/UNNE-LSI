@@ -1,0 +1,131 @@
+;; Ejercicio Nº 3.
+;; Definir una función que a partir de una lista ingresada como parámetro 
+;; devuelva una nueva lista cuyos elementos sean el resultado de evaluar 
+;; si cada elemento de la lista original es o no un elemento numérico.
+(defun evaluarList (l)
+  (mapcar 'numberp l)
+)
+; (print (evaluarList '(1 "2" 3 "4" 5)))
+
+;; Ejercicio Nº 4:
+;; Realizar los cambios necesarios en la función definida en el Ejercicio N° 3, de tal manera que el 
+;; resultado de cada evaluación realizada devuelva la leyenda SI o NO.
+(defun evaluarList2 (l)
+  (mapcar (lambda (e)
+    (if (numberp e) "SI" "NO")
+  ) l)
+)
+; (print (evaluarList2 '(1 "2" 3 "4" 5)))
+
+;; Ejercicio Nº 5:
+;; Definir una función que solicite al operador el ingreso de una Lista no vacía y un número entero
+;; X, de tal manera que devuelva una lista que asocie los elementos numéricos de la lista original 
+;; con el resultado de calcular su potencia X.
+(defun functionMapCar (l n)
+  (remove NIL (mapcar (lambda (e)
+    (when (numberp e)
+       (expt e n)
+    )
+  ) l))
+)
+; (print (functionMapCar '(1 2 3 4 5) 2));
+(defun ingresoLista ()
+  (let ((l) (x))
+    (print "Ingrese una lista no vacia:")
+    (setq l (read))
+    (print "Ingrese un número")
+    (setq x (read))
+    (if (and (consp l) (integerp x))
+        (functionMapCar l x)
+        'ERROR
+    )
+  )
+)
+; (print (ingresoLista))
+
+;; Ejercicio Nº 6
+;; Definir una función que a partir de una lista heterogénea ingresada por el operador, devuelva 
+;; una nueva lista formada por sublistas, donde cada sublsita estará formada de la siguiente 
+;; manera: ( X signo 0), donde X será el elemento de la lista original, signo se corresponderá con 
+;; <, > o = según ese elemento sea mayor, menor o igual a cero.
+(defun listSubList (l)
+  (remove NIL (mapcar (lambda (e) 
+     (cond
+       ((not (numberp e)) NIL)
+       ((= e 0) (list e '= 0)) 
+       ((< e 0) (list e '< 0)) 
+       ((> e 0) (list e '> 0)) 
+     )) l)
+  )
+)
+
+(defun ingresoListaHeterogenea ()
+  (let (l)
+    (print "Ingrese una lista no vacia:")
+    (setq l (read))
+    (if (consp l)
+      (listSubList (devolverNumbers l))
+      'ERROR
+    )
+  )
+)
+; (print (ingresoListaHeterogenea))
+
+;; Ejercicio Nº 7
+;; Definir una función que a partir de una lista heterogénea ingresada como parámetro, devuelva 
+;; una nueva lista formada por las longitudes de aquellos elementos que sean sublistas.
+(defun newListLength (l)
+  (remove NIL (mapcar (lambda (e)
+    (when (consp e) 
+      (length e)
+    )
+  ) l))
+)
+; (print (newListLength '((1 2) (3 4) 1 (2) 3 4)))
+
+;; Ejercicio Nº 8: Definir una función que a partir de dos listas ingresadas como parámetro, 
+;; devuelva una nueva lista que asocie cada elemento no-numérico de la LISTA1 con el último 
+;; elemento de la LISTA2.
+(defun asocieLista (l1 l2)
+  (remove NIL (mapcar (lambda (e)
+    (when (not (numberp e))
+      (list e (first (last l2)))
+    )
+  ) l1))
+)
+; (print (asocieLista '("a" "b" "c" "d") '(1 2 3 4 5)))
+
+;; Ejercicio Nº 9: Definir la función sumo-ambos que a partir de 2 Listas no vacías: LISTA1 y 
+;; LISTA2, devuelva una nueva Lista con el resultado de sumar elemento a elemento, los 
+;; elementos de la misma posición. (1° elemento de LISTA1 con el 1° elemento de LISTA”, 2° 
+;; elemento de LISTA1 con el 2° elemento de LISTA”, ….)
+(defun sumo-ambos (l1 l2)
+  (mapcar '+ l1 l2)
+)
+; (print (sumo-ambos '(1 2 3) '(1 2 3)))
+
+;; Ejercicio Nº 10: Definir la función ambos-enteros que solicite al operador el ingreso de dos 
+;; Listas no vacías: LISTA1 y LISTA2. La función deberá devolver una nueva Lista con el resultado 
+;; de evaluar elemento a elemento ambas Listas, indicando en forma de sublista ambos elementos, 
+;; si coinciden en que sean números enteros.
+(defun ambos-enteros (l1 l2)
+  (remove NIL (mapcar #'(lambda (x y)
+    (when (and (integerp x) (integerp y))
+      (list x y))
+  ) l1 l2))
+)
+; (print (ambos-enteros '(1 2 3 4) '(2 3 "hello" 5))); Test
+(defun ingresosListas ()
+  (let ((l1) (l2))
+    (print "Ingrese 2 listas: ")
+    (print "Lista 1:")
+    (setq l1 (read))
+    (print "Lista 2:")
+    (setq l2 (read))
+    (if (and (consp l1) (consp l2))
+      (ambos-enteros l1 l2)
+      'ERROR
+    )
+  )
+)
+; (print (ingresosListas))

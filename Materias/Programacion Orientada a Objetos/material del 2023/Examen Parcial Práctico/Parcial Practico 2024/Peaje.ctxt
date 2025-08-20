@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Peaje
+comment1.params=nombrePeaje
+comment1.target=Peaje(java.lang.String)
+comment2.params=caja
+comment2.target=void\ agregarCaja(Caja)
+comment3.params=
+comment3.target=double\ totalRecaudado()
+comment4.params=
+comment4.target=void\ informeTurno()
+numComments=5

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Main5
+comment0.text=\r\n\ Clase\ principal\ que\ contiene\ el\ m\u00E9todo\ main\ para\ crear\ y\ mostrar\ un\ objeto\ Empleado.\r\n\ @author\ Ariel\ Ramirez\r\n\ @author\ Tobias\ Orban\r\n\ @version\ 5.4.1\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ pide\ al\ usuario\ los\ datos\ de\ un\ empleado,\ los\ utiliza\ para\ crear\ un\ objeto\ Empleado,\ y\ luego\ muestra\ la\ informaci\u00F3n\ del\ empleado.\r\n\ @param\ args\ Los\ argumentos\ pasados\ a\ trav\u00E9s\ de\ la\ l\u00EDnea\ de\ comandos.\r\n
+numComments=2

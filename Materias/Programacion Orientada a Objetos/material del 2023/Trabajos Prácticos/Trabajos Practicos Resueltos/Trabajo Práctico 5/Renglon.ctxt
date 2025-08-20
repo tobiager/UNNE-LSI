@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Renglon
+comment1.params=p_cantidad\ p_item
+comment1.target=Renglon(int,\ Etiqueta)
+comment1.text=\r\n\ @param\ p_cantidad\ La\ cantidad\ de\ etiquetas\ (int).\r\n\ @param\ p_item\ \ \ \ \ El\ tipo\ de\ etiqueta\ (Etiqueta).\r\n
+comment2.params=p_cantidad
+comment2.target=void\ setCantidad(int)
+comment2.text=\r\n\ Establece\ la\ cantidad\ de\ etiquetas.\r\n\ \r\n\ @param\ p_cantidad\ La\ cantidad\ de\ etiquetas\ (int).\r\n
+comment3.params=p_importe
+comment3.target=void\ setImporte(double)
+comment3.text=\r\n\ Establece\ el\ importe\ a\ pagar\ de\ todas\ las\ etiquetas.\r\n\ \r\n\ @param\ p_importe\ El\ importe\ a\ pagar\ de\ todas\ las\ etiquetas\ (double).\r\n
+comment4.params=p_item
+comment4.target=void\ setItem(Etiqueta)
+comment4.text=\r\n\ Establece\ la\ etiqueta\ de\ un\ solo\ tipo.\r\n\ \r\n\ @param\ p_item\ La\ etiqueta\ de\ un\ solo\ tipo\ (Etiqueta).\r\n
+comment5.params=
+comment5.target=int\ getCantidad()
+comment5.text=\r\n\ Obtiene\ la\ cantidad\ de\ etiquetas.\r\n\r\n\ @return\ La\ cantidad\ de\ etiquetas\ (int).\r\n
+comment6.params=
+comment6.target=double\ getImporte()
+comment6.text=\r\n\ Obtiene\ el\ importe\ a\ pagar\ de\ todas\ las\ etiquetas.\r\n\r\n\ @return\ El\ importe\ a\ pagar\ de\ todas\ las\ etiquetas\ (int).\r\n
+comment7.params=
+comment7.target=Etiqueta\ getItem()
+comment7.text=\r\n\ Obtiene\ la\ etiquetas\ de\ un\ solo\ tipo.\r\n\r\n\ @return\ El\ importe\ a\ pagar\ de\ todas\ las\ etiquetas\ (int).\r\n
+comment8.params=
+comment8.target=void\ mostrar()
+comment8.text=\r\n\ Imprime\ por\ pantalla\ la\ cantidad\ de\ etiquetas\ el\ tipo\ de\ etiqueta\ y\ el\ costo\r\n\ por\ unidad.\r\n
+numComments=9

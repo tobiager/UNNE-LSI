@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Estudiante
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Docente\ here.\r\n\ \r\n\ @author\ (Alejandro\ Ezequil\ Ratti)\ \r\n
+comment1.params=p_dniSocio\ p_nombre\ p_carrera
+comment1.target=Estudiante(int,\ java.lang.String,\ java.lang.String)
+comment2.params=p_dniSocio\ p_nombre\ p_prestamos\ p_prestamo\ p_carrera
+comment2.target=Estudiante(int,\ java.lang.String,\ java.util.ArrayList,\ Prestamo,\ java.lang.String)
+comment3.params=p_carrera
+comment3.target=void\ setCarrera(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getCarrera()
+comment5.params=
+comment5.target=boolean\ puedePedir()
+comment5.text=\r\n\ \ \ \ \ \ \ \ verifica\ si\ el\ Estudiante\ puede\ pedir\ libros.\r\n\ \ \ \ \ \ \ \ \ \ @param\ no\ recibe\ parametros\r\n
+comment6.params=
+comment6.target=java.lang.String\ soyDeLaClase()
+comment6.text=\r\n\ \ \ \ \ \ \ retorna\ el\ mensaje\ Estudiante.\r\n\ \ \ \ \ \ \ @param\ no\ recibe\ parametros\r\n
+numComments=7

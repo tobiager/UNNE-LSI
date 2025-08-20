@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Punto
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ punto\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Punto()
+comment10.params=
+comment10.target=void\ mostrar()
+comment2.params=p_x\ p_y
+comment2.target=Punto(double,\ double)
+comment3.params=p_x
+comment3.target=void\ setX(double)
+comment4.params=p_y
+comment4.target=void\ setY(double)
+comment5.params=
+comment5.target=double\ getX()
+comment6.params=
+comment6.target=double\ getY()
+comment7.params=p_ptoDistante
+comment7.target=double\ distanciaA(Punto)
+comment8.params=p_dx\ p_dy
+comment8.target=void\ desplazar(double,\ double)
+comment9.params=
+comment9.target=java.lang.String\ coordenada()
+numComments=11

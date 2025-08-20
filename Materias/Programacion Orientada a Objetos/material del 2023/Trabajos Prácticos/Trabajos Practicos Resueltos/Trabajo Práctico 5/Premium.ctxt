@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Premium
+comment1.params=p_costo\ p_colores
+comment1.target=Premium(double,\ int)
+comment1.text=\r\n\ @param\ p_costo\ \ \ El\ precio\ por\ unidad\ de\ la\ etiqueta\ premium\ (double).\r\n\ @param\ p_colores\ La\ cantidad\ de\ colores\ de\ la\ etiqueta\ premium\ (double).\r\n
+comment2.params=p_colores
+comment2.target=void\ setColores(int)
+comment2.text=\r\n\ Establece\ la\ cantidad\ de\ colores\ de\ la\ etiqueta.\r\n\ \r\n\ @param\ p_colores\ La\ cantidad\ de\ colores\ de\ la\ etiqueta\ (double).\r\n
+comment3.params=
+comment3.target=int\ getColores()
+comment3.text=\r\n\ Obtiene\ la\ cantidad\ de\ colores\ de\ la\ etiqueta.\r\n\r\n\ @return\ La\ cantidad\ de\ colores\ de\ la\ etiqueta\ (int).\r\n
+comment4.params=q
+comment4.target=double\ precio(int)
+comment4.text=\r\n\ @param\ q\ La\ cantidad\ de\ unidades\ de\ etiquetas\ (int).\r\n\ @return\ El\ precio\ final\ que\ deber\u00E1\ pagar\ con\ el\ adicional\ (double).\r\n
+comment5.params=
+comment5.target=java.lang.String\ tipo()
+comment5.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ etiqueta\ "Premium"\ (String).\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ @return\ Una\ cadena\ de\ caracteres\ que\ contiene\ el\ tipo\ de\ etiqueta,\ costo\ por\r\n\ \ \ \ \ \ \ \ \ unidad\ y\ la\ cantidad\ de\ colores\ (String).\r\n
+comment7.params=
+comment7.target=double\ adicional()
+comment7.text=\r\n\ Adicional\ por\ cantidad\ de\ colores.\r\n\ \r\n\ @return\ Devuelve\ el\ adicional\ (double).\r\n
+numComments=8

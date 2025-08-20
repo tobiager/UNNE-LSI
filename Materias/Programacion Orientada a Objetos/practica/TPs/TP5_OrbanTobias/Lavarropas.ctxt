@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Lavarropas
+comment0.text=\r\n\ Clase\ que\ representa\ un\ lavarropas,\ que\ hereda\ de\ ArtefactoHogar.\r\n
+comment1.params=marca\ precio\ stock\ programas\ kilos\ automatico
+comment1.target=Lavarropas(java.lang.String,\ float,\ int,\ int,\ float,\ boolean)
+comment1.text=\r\n\ Constructor\ de\ Lavarropas.\r\n\ @param\ marca\ la\ marca\ del\ lavarropas\r\n\ @param\ precio\ el\ precio\ del\ lavarropas\r\n\ @param\ stock\ la\ cantidad\ en\ stock\ del\ lavarropas\r\n\ @param\ programas\ la\ cantidad\ de\ programas\ del\ lavarropas\r\n\ @param\ kilos\ la\ capacidad\ en\ kilos\ del\ lavarropas\r\n\ @param\ automatico\ si\ es\ autom\u00E1tico\r\n
+comment2.params=
+comment2.target=void\ imprimir()
+comment3.params=p_cuotas\ p_interes
+comment3.target=float\ creditoConAdicional(int,\ float)
+numComments=4

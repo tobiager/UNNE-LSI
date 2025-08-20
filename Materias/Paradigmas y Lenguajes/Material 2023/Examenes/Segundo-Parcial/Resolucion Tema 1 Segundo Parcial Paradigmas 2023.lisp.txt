@@ -1,0 +1,60 @@
+;; Ejercicio N° 1:
+(defun ingresar-lista()
+  (let (l)
+    (setq l '(("Pantalon" 3500) ("Pantalon Vaquero" 16000) ("Remera Deportiva" 990) ("Short Deportivo" 500) ("Zapatilla" 15000) ("Ojota" 0)))
+    ; (print "Ingrese una lista de sublistas donde nombre de prenda y precio")
+    ; (print "Ejemplo ((Nombre1 Precio1) (Nombre2 Precio2)...)")
+    ; (setq l (read))
+    (print (promedio_precios l))
+    (print (lista_prendas l))
+    (print (ejer4_mapcar l))
+    (print (ejer5_mapcar l))
+  )
+)
+
+;; Ejercicio N° 2:
+(defun suma_precios(l)
+  (cond 
+    ((endp l) 0)
+    ((and (consp (first l)) (numberp (cadar l))) (+ (cadar l) (suma_precios (rest l))))
+    (T (suma_precios (rest l)))
+  )
+)
+(defun cantidad_stock(l)
+  (cond 
+    ((endp l) 0)
+    ((and (consp (first l)) (numberp (cadar l)) (> (cadar l) 0)) (+ 1 (cantidad_stock (rest l))))
+    (T (cantidad_stock (rest l)))
+  )
+)
+(defun promedio_precios(l)
+  (/ (suma_precios l) (cantidad_stock l))
+)
+
+;; Ejercicio N° 3:
+(defun lista_prendas(l)
+  (cond 
+    ((endp l) NIL)
+    ((and (consp (first l)) (stringp (caar l)) (numberp (cadar l)) (> (cadar l) 3000)) (cons (caar l) (lista_prendas (rest l))))
+    (T (lista_prendas (rest l)))
+  )
+)
+
+;; Ejercicio N° 4:
+(defun ejer4_mapcar(l)
+  (mapcar (lambda (e)
+    (cond
+      ((not (numberp (cadr e))) NIL)
+      ((= (cadr e) 0) (list (cadr e) "Sin-stock"))
+      ((<= (cadr e) 1000) (list (cadr e) "Barato"))
+      ((> (cadr e) 1000) (list (cadr e) "Caro"))
+    )
+  ) l)
+)
+
+;; Ejercicio N° 5:
+(defun ejer5_mapcar(l)
+  (mapcar (lambda (e)
+    (and (consp e) (stringp (car e)) (numberp (cadr e)) (= (cadr e) 0))
+  ) l)
+)

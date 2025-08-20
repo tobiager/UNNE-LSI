@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=main2
+comment0.text=\r\n\ Clase\ principal\ que\ contiene\ el\ m\u00E9todo\ main\ para\ ejecutar\ el\ programa.\r\n\ Crea\ una\ instancia\ de\ la\ clase\ Laboratorio\ y\ muestra\ su\ informaci\u00F3n.\r\n\ @author\ Ariel\ Ramirez\r\n\ @author\ Tobias\ Orban\r\n\ @version\ 5.4.1\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ se\ ejecuta\ al\ iniciar\ el\ programa.\r\n\ Crea\ un\ objeto\ Laboratorio\ y\ muestra\ su\ informaci\u00F3n.\r\n\r\n\ @param\ args\ Argumentos\ pasados\ por\ l\u00EDnea\ de\ comandos\ (no\ se\ utilizan\ en\ este\ programa).\r\n
+numComments=2

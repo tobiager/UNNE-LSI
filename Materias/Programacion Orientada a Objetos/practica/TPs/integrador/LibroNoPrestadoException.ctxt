@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=LibroNoPrestadoException
+comment0.text=\r\n\ Excepcion\ personalizada\ que\ extiende\ de\ la\ clase\ {@Exception}\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=message
+comment1.target=LibroNoPrestadoException(java.lang.String)
+numComments=2

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Cajero
+comment1.params=usuarioCajero\ nombre
+comment1.target=Cajero(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

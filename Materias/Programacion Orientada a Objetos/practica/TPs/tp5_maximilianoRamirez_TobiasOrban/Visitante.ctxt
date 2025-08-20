@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Visitante
+comment0.text=\r\n\ Clase\ abstracta\ que\ representa\ a\ un\ visitante\ del\ zool\u00F3gico.\r\n
+comment1.params=
+comment1.target=void\ mostrar()
+comment2.params=
+comment2.target=double\ entrada()
+comment3.params=p_fecha\ p_visitante
+comment3.target=void\ listarPorFecha(java.util.Calendar,\ java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ tipoVisitante()
+comment5.params=p_nombre\ p_fechaVisita
+comment5.target=Visitante(java.lang.String,\ java.util.Calendar)
+comment5.text=\r\n\ Constructor\ de\ la\ clase\ Visitante.\r\n\r\n\ @param\ p_nombre\ \ \ \ \ \ El\ nombre\ del\ visitante.\r\n\ @param\ p_fechaVisita\ La\ fecha\ de\ la\ visita.\r\n
+comment6.params=p_nombre
+comment6.target=void\ setNombre(java.lang.String)
+comment6.text=\r\n\ Establece\ el\ nombre\ del\ visitante.\r\n\r\n\ @param\ p_nombre\ El\ nombre\ del\ visitante.\r\n
+comment7.params=p_fechaVisita
+comment7.target=void\ setFechaVisita(java.util.Calendar)
+comment7.text=\r\n\ Establece\ la\ fecha\ de\ visita.\r\n\r\n\ @param\ p_fechaVisita\ La\ fecha\ de\ visita.\r\n
+comment8.params=
+comment8.target=java.lang.String\ getNombre()
+comment8.text=\r\n\ Obtiene\ el\ nombre\ del\ visitante.\r\n\r\n\ @return\ El\ nombre\ del\ visitante.\r\n
+comment9.params=
+comment9.target=java.util.Calendar\ getFechaVisita()
+comment9.text=\r\n\ Obtiene\ la\ fecha\ de\ visita.\r\n\r\n\ @return\ La\ fecha\ de\ visita.\r\n
+numComments=10

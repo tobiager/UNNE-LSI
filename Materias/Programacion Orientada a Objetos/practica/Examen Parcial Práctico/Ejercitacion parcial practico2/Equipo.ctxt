@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Equipo
+comment1.params=
+comment1.target=java.lang.String\ getNombre()
+comment10.params=
+comment10.target=void\ mostrarEquipo()
+comment2.params=p_nombre
+comment2.target=void\ setNombre(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getProcedencia()
+comment4.params=p_procedencia
+comment4.target=void\ setProcedencia(java.lang.String)
+comment5.params=p_nombre\ p_procedencia
+comment5.target=Equipo(java.lang.String,\ java.lang.String)
+comment6.params=p_atleta
+comment6.target=boolean\ agregarAtleta(Atleta)
+comment7.params=
+comment7.target=int\ cantidadIntegrantes()
+comment8.params=
+comment8.target=double\ totalKilos()
+comment9.params=
+comment9.target=void\ listarEquipo()
+numComments=11

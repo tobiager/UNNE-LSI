@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Administracion
+comment0.text=\r\n\ La\ clase\ Administracion\ es\ responsable\ de\ la\ interacci\u00F3n\ del\ usuario\ \r\n\ para\ la\ creaci\u00F3n\ de\ un\ jard\u00EDn\ con\ figuras\ geom\u00E9tricas,\ como\ rect\u00E1ngulos\ \r\n\ y\ elipses.\ Permite\ al\ usuario\ ingresar\ las\ coordenadas\ y\ dimensiones\ \r\n\ de\ las\ figuras\ que\ se\ a\u00F1adir\u00E1n\ al\ jard\u00EDn.\r\n\ \r\n\ @author\ (tu\ nombre)\r\n\ @version\ (n\u00FAmero\ de\ versi\u00F3n\ o\ fecha)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ M\u00E9todo\ principal\ que\ inicia\ la\ aplicaci\u00F3n\ y\ gestiona\ la\ entrada\ \r\n\ del\ usuario\ para\ crear\ un\ jard\u00EDn\ y\ a\u00F1adir\ figuras\ geom\u00E9tricas.\r\n\ \r\n\ @param\ args\ Argumentos\ de\ l\u00EDnea\ de\ comandos\ (no\ se\ utilizan\ en\ esta\ aplicaci\u00F3n).\r\n
+numComments=2

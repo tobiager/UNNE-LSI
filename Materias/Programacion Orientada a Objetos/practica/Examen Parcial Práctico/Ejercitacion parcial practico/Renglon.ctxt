@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Renglon
+comment1.params=
+comment1.target=int\ getCantidad()
+comment2.params=p_cantidad
+comment2.target=void\ setCantidad(int)
+comment3.params=
+comment3.target=double\ getImporte()
+comment4.params=p_importe
+comment4.target=void\ setImporte(double)
+comment5.params=
+comment5.target=Etiqueta\ getTicket()
+comment6.params=p_ticket
+comment6.target=void\ setTicket(Etiqueta)
+comment7.params=p_cantidad\ p_importe\ p_ticket
+comment7.target=Renglon(int,\ double,\ Etiqueta)
+comment8.params=p_cantidad\ p_importe
+comment8.target=Renglon(int,\ double)
+comment9.params=
+comment9.target=void\ mostrar()
+numComments=10

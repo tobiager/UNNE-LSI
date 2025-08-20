@@ -1,0 +1,61 @@
+### Para que dos conjuntos de instrucciones Si y Sj, i ≠ j, i < j se puedan ejecutar concurrentemente se tiene 
+### que cumplir que:
+1. L(Si) ∩ E(Sj) = Ø
+2. E(Si) ∩ L(Sj) = Ø
+3. E(Si) ∩ E(Sj) = Ø
+
+(L = Lectura, E = Escritura);
+<!-- para mejor expreriencia cambiar el .txt por .md -->
+
+### Ejercicio Nº 1. Sean las cuatro sentencias siguientes:
+* S1 ➝ z := x + y
+* S2 ➝ r := z * 5
+* S3 ➝ p := sqrt(z) + y
+* S4 ➝ q := s + p
+
+a) Verificar las condiciones de Bernstein.\
+b) Realizar la Tabla resultante de aplicar las condiciones.
+
+a)
+L(s₁) = {x,y}          E(s₁) = {z}  
+L(s₂) = {z}            E(s₂) = {r}
+L(s₃) = {z,y}          E(s₃) = {p}
+L(s₄) = {s,p}          E(s₄) = {q}
+
+Entre s₁ ∩ s₂
+* L(s₁) ∩ E(s₂) = Ø
+* E(s₁) ∩ L(s₂) = z ≠ Ø
+* E(s₁) ∩ E(s₂) = Ø
+
+Entre s₁ ∩ s₃
+* L(s₁) ∩ E(s₃) = Ø
+* E(s₁) ∩ L(s₃) = z ≠ Ø
+* E(s₁) ∩ E(s₃) = Ø
+
+Entre s₁ ∩ s₄
+* L(s₁) ∩ E(s₄) = Ø
+* E(s₁) ∩ L(s₄) = Ø
+* E(s₁) ∩ E(s₄) = Ø
+
+Entre s₂ ∩ s₃
+* L(s₂) ∩ E(s₃) = Ø
+* E(s₂) ∩ L(s₃) = Ø
+* E(s₂) ∩ E(s₃) = Ø
+
+Entre s₂ ∩ s₄
+* L(s₂) ∩ E(s₄) = Ø
+* E(s₂) ∩ L(s₄) = Ø
+* E(s₂) ∩ E(s₄) = Ø
+
+Entre s₃ ∩ s₄
+* L(s₃) ∩ E(s₄) = Ø
+* E(s₃) ∩ L(s₄) = p ≠ Ø
+* E(s₃) ∩ E(s₄) = Ø
+
+b)
+|    | s₁ | s₂ | s₃ | s₄ |
+|-|-|-|-|-|
+| s₁ | - | No | No | Si |
+| s₂ | - | - | Si | Si | 
+| s₃ | - | - | - | No |
+| s₄ | - | - | - | - | 

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=FiguraGeometrica
+comment1.params=
+comment1.target=java.lang.String\ nombreFigura()
+comment2.params=
+comment2.target=double\ superficie()
+comment3.params=p_origen
+comment3.target=FiguraGeometrica(Punto)
+comment3.text=\r\n\ Constructor\ de\ FiguraGeometrica\ que\ establece\ el\ punto\ de\ origen\ de\ la\r\n\ figura.\r\n\r\n\ @param\ p_origen\ El\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment4.params=p_origen
+comment4.target=void\ setOrigen(Punto)
+comment4.text=\r\n\ Establece\ el\ punto\ de\ origen\ de\ la\ figura.\r\n\r\n\ @param\ p_origen\ El\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment5.params=
+comment5.target=Punto\ getOrigen()
+comment5.text=\r\n\ Obtiene\ el\ punto\ de\ origen\ de\ la\ figura.\r\n\r\n\ @return\ El\ punto\ de\ origen\ de\ la\ figura.\r\n
+comment6.params=
+comment6.target=void\ mostrarSuperficie()
+comment6.text=\r\n\ Muestra\ informaci\u00F3n\ sobre\ la\ figura,\ incluyendo\ su\ nombre\ y\ superficie.\r\n
+numComments=7

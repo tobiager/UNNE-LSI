@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=AplicacionBanco
+comment1.params=banco
+comment1.target=AplicacionBanco(Banco)
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+comment3.params=scanner
+comment3.target=void\ agregarEmpleado(java.util.Scanner)
+comment4.params=scanner
+comment4.target=void\ quitarEmpleado(java.util.Scanner)
+comment5.params=scanner
+comment5.target=void\ agregarCuentaBancaria(java.util.Scanner)
+comment6.params=scanner
+comment6.target=void\ quitarCuentaBancaria(java.util.Scanner)
+comment7.params=
+comment7.target=void\ emitirResumen()
+comment8.params=
+comment8.target=void\ mostrarEmpleados()
+numComments=9

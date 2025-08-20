@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Comun
+comment1.params=p_costo\ p_plus
+comment1.target=Comun(double,\ double)
+comment1.text=\r\n\ @param\ p_costo\ El\ precio\ por\ unidad\ de\ la\ etiqueta\ com\u00FAn\ (double).\r\n\ @param\ p_plus\ \ El\ plus\ por\ dise\u00F1o\ de\ la\ etiqueta\ com\u00FAn\ (double).\r\n
+comment2.params=p_plus
+comment2.target=void\ setPlus(double)
+comment2.text=\r\n\ Establece\ el\ plus\ por\ dise\u00F1o\ de\ la\ etiqueta.\r\n\ \r\n\ @param\ p_plus\ El\ plus\ por\ dise\u00F1o\ de\ la\ etiqueta\ (double).\r\n
+comment3.params=
+comment3.target=double\ getPlus()
+comment3.text=\r\n\ Obtiene\ el\ plus\ por\ dise\u00F1o\ de\ la\ etiqueta.\r\n\r\n\ @return\ El\ plus\ por\ dise\u00F1o\ de\ la\ etiqueta\ (double).\r\n
+comment4.params=q
+comment4.target=double\ precio(int)
+comment4.text=\r\n\ @param\ q\ La\ cantidad\ de\ unidades\ de\ etiquetas\ (int).\r\n\ @return\ El\ precio\ final\ que\ deber\u00E1\ pagar\ con\ el\ descuento\ y\ con\ el\ plus\ de\r\n\ \ \ \ \ \ \ \ \ dise\u00F1o\ de\ la\ etiqueta\ (double).\r\n
+comment5.params=
+comment5.target=java.lang.String\ tipo()
+comment5.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ etiqueta\ "Com\u00FAn"\ (String).\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ @return\ Una\ cadena\ de\ caracteres\ que\ contiene\ el\ tipo\ de\ etiqueta,\ costo\ por\r\n\ \ \ \ \ \ \ \ \ unidad\ y\ el\ plus\ de\ dise\u00F1o\ (String).\r\n
+comment7.params=q
+comment7.target=double\ descuento(int)
+comment7.text=\r\n\ Descuento\ por\ cantidad\ de\ unidades.\r\n\ \r\n\ @param\ q\ La\ cantidad\ de\ unidades\ de\ etiquetas\ (int).\r\n\ @return\ Devuelve\ el\ descuento.\r\n
+numComments=8

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Ticket
+comment1.params=
+comment1.target=java.lang.String\ getTurno()
+comment2.params=p_turno
+comment2.target=void\ setTurno(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getPatente()
+comment4.params=p_patente
+comment4.target=void\ setPatente(java.lang.String)
+comment5.params=
+comment5.target=Categoria\ getCategoria()
+comment6.params=p_categoria
+comment6.target=void\ setCategoria(Categoria)
+comment7.params=p_turno\ p_patente\ fecha\ p_categoria
+comment7.target=Ticket(java.lang.String,\ java.lang.String,\ java.util.Calendar,\ Categoria)
+comment8.params=
+comment8.target=double\ calculaPeaje()
+comment9.params=
+comment9.target=void\ imprimirTicket()
+numComments=10

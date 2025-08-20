@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Circulo
+comment1.params=p_radio\ p_centro
+comment1.target=Circulo(double,\ Punto)
+comment1.text=\r\n\ Crea\ un\ objeto\ Circulo\ con\ un\ radio\ y\ un\ centro.\r\n\r\n\ @param\ p_radio\ \ El\ radio\ del\ c\u00EDrculo\ (double).\r\n\ @param\ p_centro\ El\ centro\ del\ c\u00EDrculo\ representado\ como\ un\ objeto\ (Punto).\r\n
+comment2.params=
+comment2.target=java.lang.String\ nombreFigura()
+comment2.text=\r\n\ @return\ Un\ String\ del\ nombre\ de\ la\ figura\ "Circulo"\ (String).\r\n
+numComments=3
