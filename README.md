@@ -15,15 +15,6 @@
   <img src="https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-orange?style=for-the-badge"/>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"/>
-  <img src="https://img.shields.io/badge/CodeIgniter-EF4223?style=for-the-badge&logo=codeigniter&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"/>
-  <img src="https://img.shields.io/badge/SQL-1F6FEB?style=for-the-badge&logo=sqlite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
-</p>
-
 # 🎓 LSI UNNE — Apuntes, prácticos y guías por materia
 
 Repositorio **no oficial** con material **propio** (resúmenes, prácticos resueltos, guías y plantillas) de la **Licenciatura en Sistemas de Información (FaCENA–UNNE)**.
