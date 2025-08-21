@@ -10,8 +10,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/UNNE-Sistemas%20y%20Organizaciones-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-completado-greenlight?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
 # 📄 Sistemas y Organizaciones - UNNE 2024
@@ -34,14 +34,6 @@ Material de la materia **Sistemas y Organizaciones** de la **UNNE - FaCENA**.
 - Gestión de información y toma de decisiones.
 - Modelado de procesos y documentación.
 
----
-
-## 🧠 Tecnologías utilizadas
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
-</p>
 
 ---
 
