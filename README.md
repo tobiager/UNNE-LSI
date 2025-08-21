@@ -75,4 +75,4 @@ assets/
 
 ---
 
-<p align="center"><b>❤️🐔 Hecho por Tobias (@tobiager). Que le sirva a alguien más.</b></p>
+<p align="center"><b>❤️🐔 Hecho con pasion y dedicacion por Tobias. Que le sirva a alguien más.</b></p>
