@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/facena.png" alt="Logo de FaCENA" width="100">
+  <img src="../assets/facena.png" alt="Logo de FACENA" width="100"/>
 </p>
 
 <p align="center">
@@ -9,53 +9,70 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/> 
 </p>
 
-# 🎓 Algoritmo y Estructura de Datos II - UNNE 2024
+#  Algoritmos y Estructura de Datos II - UNNE 2023
 
-Recursos y prácticos de la materia **Algoritmo y Estructura de Datos II** de la **UNNE - FaCENA**.
+Este repositorio contiene los materiales y trabajos desarrollados en la materia **Algoritmos y Estructura de Datos II** de la **UNNE - Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA)**.  
 
----
-
-## 📦 Estructura del Repositorio
-
-| Carpeta | Contenido |
-| ------- | --------- |
-| 🔬 teoria | Apuntes teóricos y presentaciones |
-| 📝 Trabajos | Trabajos prácticos de la materia |
-| 🖊️ borradores | Bosquejos y notas previas |
-| 🎖️ 2do parcial | Material del segundo parcial |
-| 🛠️ trabajo integrador | Proyecto final integrador |
+El enfoque fue aplicar **estructuras de datos avanzadas en C++** para la resolución de problemas complejos.
 
 ---
 
-## 🚀 Temas principales y conceptos aplicados
+## 📦 Contenido de la carpeta
 
-- Estructuras dinámicas: listas, pilas y colas.
-- Recursividad y algoritmos divididos y vencerás.
-- Árboles y grafos.
-- Complejidad algorítmica y optimización.
+- **2do Parcial** → Ejercicios de práctica y repaso.  
+- **Borradores** → Soluciones preliminares y pruebas de código.  
+- **Teoría** → Apuntes y material de estudio.  
+- **Trabajo Integrador** → Proyecto final que combina todos los conocimientos aprendidos.  
+- **Trabajos adicionales** → Ejercicios complementarios y práctica continua.  
 
 ---
 
-## 🧠 Tecnologías utilizadas
+## 🚀 Temas principales
+
+- **Arreglos y matrices** → Manipulación y algoritmos de recorrido.  
+- **Estructuras (struct)** → Modelado de datos complejos.  
+- **Listas, pilas y colas** → Implementaciones estáticas y dinámicas.  
+- **Archivos avanzados** → Persistencia de datos y organización de información.  
+- **Integración de proyectos** → Programas completos con menús y gestión de información.  
+
+---
+
+## 🏆 Proyecto Integrador
+
+El proyecto integrador de la materia consistió en el desarrollo de un programa completo en C++, que:  
+
+- Manejó datos mediante **archivos**.  
+- Implementó **structs** para modelar entidades reales.  
+- Utilizó **listas y arreglos** para organizar la información.  
+- Fue modular y bien estructurado.  
+- Contó con un menú interactivo para el usuario.  
+
+Este trabajo reflejó la capacidad de aplicar todos los conocimientos adquiridos en una solución real.  
+
+---
+
+## 🚀 Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
+  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Dev%20C%2B%2B-0065A9?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Librerías-Standard%20C++-00599C?style=for-the-badge"/>
 </p>
 
 ---
 
 ## 📌 Notas
 
-- Incluye materiales de estudio y proyectos desarrollados en 2024.
-- Recomendado para consolidar estructuras de datos avanzadas.
+- Materia: **Algoritmos y Estructura de Datos II - UNNE (FaCENA)**, año 2023.  
+- Aplicación de estructuras de datos dinámicas y proyectos integradores.  
+- Ejercicios documentados en español.  
 
-<p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
+---
 
+<p align="center"><b>❤️🐔 Hecho con dedicación por Tobias</b></p>
