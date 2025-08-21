@@ -30,12 +30,13 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 
 ## 📌 Índice rápido
 
-- [ Sobre la carrera](#-sobre-la-carrera)  
-- [ Estructura del repositorio](#-estructura-del-repositorio)  
-- [ Planes de estudio](#-planes-de-estudio)  
-- [ Tips de cursada](#-tips-de-cursada)  
-- [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)  
-- [ Licencia](#-licencia)  
+- [ Sobre la carrera](#-sobre-la-carrera)
+- [ Estructura del repositorio](#-estructura-del-repositorio)
+- [ Planes de estudio](#-planes-de-estudio)
+- [ Materias](#-materias)
+- [ Tips de cursada](#-tips-de-cursada)
+- [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)
+- [ Licencia](#-licencia)
 
 ---
 
@@ -113,8 +114,28 @@ La carrera se dicta bajo dos planes vigentes:
 
 > 🎓 Al aprobar 3° año + Inglés se obtiene el título de **Analista Programador Universitario (APU)**.  
 
-👉 Ver detalle completo: [planes/2023.md](./planes/2023.md)  
+👉 Ver detalle completo: [planes/2023.md](./planes/2023.md)
 
+---
+
+## 📚 Materias
+
+Listado de materias con enlaces a sus carpetas y el estado actual.
+
+- [Administracion y Gestion de Organizaciones](./Materias/Administracion%20y%20Gestion%20de%20Organizaciones/) — ✅ Aprobada
+- [Algoritmo y Estructura de datos 1](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201/) — ✅ Aprobada
+- [Algoritmo y Estructura de datos 2](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) — ✅ Aprobada
+- [Arquitectura de computadoras](./Materias/Arquitectura%20de%20computadoras/) — ✅ Aprobada
+- [Calculo](./Materias/Calculo/) — ✅ Aprobada
+- [Comunicacion de datos 1](./Materias/Comunicacion%20de%20datos%201/) — ✅ Aprobada
+- [Ingenieria de Software 1](./Materias/Ingenieria%20de%20Software%201/) — ✅ Aprobada
+- [Logica y Matematica Computacional](./Materias/Logica%20y%20Matematica%20Computacional/) — ✅ Aprobada
+- [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes/) — ✅ Aprobada
+- [Programacion Orientada a Objetos](./Materias/Programacion%20Orientada%20a%20Objetos/) — ✅ Aprobada
+- [Sistemas Operativos](./Materias/Sistemas%20Operativos/) — ✅ Aprobada
+- [Sistemas y Organizaciones](./Materias/Sistemas%20y%20Organizaciones/) — ✅ Aprobada
+- [Taller de Programacion 1](./Materias/Taller%20de%20Programacion%201/) — ✅ Aprobada
+- [Taller de Programacion 2](./Materias/Taller%20de%20Programacion%202/) — ⏳ En curso
 
 ---
 
