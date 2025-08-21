@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-orange?style=for-the-badge"/>
 </p>
 
-# 🎓 LSI UNNE — Apuntes, prácticos y guías por materia
+#  LSI UNNE — Apuntes, prácticos y guías por materia
 
 Hola! Soy **Tobias**, ingresé a la carrera en **2023** pero curso bajo el **plan 2009**. Actualmente estoy en **3er año** y decidí documentar mi recorrido para que sirva de guía, repaso y ayuda para quien venga detrás.
 
