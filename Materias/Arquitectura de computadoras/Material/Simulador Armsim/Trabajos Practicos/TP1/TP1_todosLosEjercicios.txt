@@ -1,0 +1,69 @@
+// Todos los ejercicios
+
+**1) Cargar el dato 5 en el registro R3.**
+
+.text
+mov r3, #5
+.end
+
+**2) Escribir el dato 6 en la dirección de memoria 0x5000.**
+
+.text
+mov r1, 0x5000
+mov r2, #6
+str r2, [r1]
+.end
+
+**3) Leer el dato presente en la dirección de memoria 0x5000 dejándolo en el registro R6.**
+
+.text
+mov r1, #0x5000
+ldr r6, [r1]
+.end
+
+**4) Sumar los números 3 y 4 dejando el resultado en el registro R0**
+
+.text
+mov r1, #3
+mov r2, #4
+add r0, r1, r2
+.end
+
+otra forma...
+
+.text
+add r0, #3, #4
+.end
+
+**5) Sumar el contenido de la dirección 0x5000 con la dirección 0x5004 dejando el resultado en 0x5008.**
+
+.text
+ldr r0, =0x5000
+ldr r0, [r0]
+ldr r1, =0x5004
+ldr r1, [r1]
+add r1, r1, r0
+ldr r3, =0x5008
+str r1, [r3]
+.end
+
+**6) Escribir un programa que realice la suma de dos datos inmediatos (el 1 y el 8) que se encuentran en los registros R1 y R2 del procesador. El resultado lo almacenará en R3.**
+
+.text
+mov r1, #1
+mov r2, #8
+add r3, r1, r2
+.end
+
+**7) Escribir un programa que realice la resta de dos datos inmediatos (el 9 y el 2) que se encuentran en los registros R1 y R2 del procesador. El resultado lo almacenará en R3.**
+
+.text
+mov r1, #9
+mov r2, #2
+sub r3, r1, r2
+.end
+
+
+
+
+
