@@ -1,50 +1,65 @@
-<p align="center">
-  <img src="./assets/banner1.jpeg" alt="banner de LSI" width="1200"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/tobiager">
-    <img src="https://img.shields.io/github/followers/tobiager?label=Follow%20@tobiager&style=social" alt="Follow @tobiager" />
+  <!-- Banner -->
+  <a href="https://github.com/tobiager/UNNE-LSI">
+    <img src="./assets/banner1.jpeg" alt="UNNE-LSI — Licenciatura en Sistemas (FaCENA-UNNE)" width="1200">
   </a>
-</p>
 
-<p align="center">
-  <img src="./assets/facena.png" alt="logo de facena" width="35"/>
-  <img src="https://img.shields.io/badge/Organizaci%C3%B3n-Por%20Materia-8A2BE2?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Planes-2009%20%7C%202023-4caf50?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20Construcci%C3%B3n-orange?style=for-the-badge"/>
-</p>
+  <!-- Social -->
+  <p style="margin-top:20px;">
+    <a href="https://github.com/tobiager">
+      <img src="https://img.shields.io/github/followers/tobiager?label=Follow%20@tobiager&style=social" alt="Follow @tobiager" />
+    </a>
+    <a href="https://github.com/tobiager/UNNE-LSI/stargazers">
+      <img src="https://img.shields.io/github/stars/tobiager/UNNE-LSI" alt="Stars Badge"/>
+    </a>
+    <a href="https://github.com/tobiager/UNNE-LSI/network/members">
+      <img src="https://img.shields.io/github/forks/tobiager/UNNE-LSI" alt="Forks Badge"/>
+    </a>
+  </p>
 
-<p align="center">
-<a href="https://github.com/tobiager/UNNE-LSI/stargazers">
-  <img src="https://img.shields.io/github/stars/tobiager/UNNE-LSI" alt="Stars Badge"/>
-</a>
-<a href="https://github.com/tobiager/UNNE-LSI/network/members">
-  <img src="https://img.shields.io/github/forks/tobiager/UNNE-LSI" alt="Forks Badge"/>
-</a>
-<a href="https://github.com/tobiager/UNNE-LSI/pulls">
-  <img src="https://img.shields.io/github/issues-pr/tobiager/UNNE-LSI" alt="Pull Requests Badge"/>
-</a>
-<a href="https://github.com/tobiager/UNNE-LSI/issues">
-  <img src="https://img.shields.io/github/issues/tobiager/UNNE-LSI" alt="Issues Badge"/>
-</a>
-<a href="https://github.com/tobiager/UNNE-LSI/graphs/contributors">
-  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/tobiager/UNNE-LSI?color=2b9348">
-</a>
-<a href="https://github.com/tobiager/UNNE-LSI/blob/main/LICENSE">
-  <img src="https://img.shields.io/github/license/tobiager/UNNE-LSI?color=2b9348" alt="License Badge"/>
-</a>
+  <!-- Badges de estado del repo -->
+  <p>
+    <img src="https://img.shields.io/badge/Organización-Por%20Materia-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
+    <img src="https://img.shields.io/badge/Planes-2009%20%7C%202023-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
+    <img src="https://img.shields.io/badge/Estado-En%20Construcción-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
+  </p>
 
-</p>
+  <!-- Métricas de GitHub -->
+  <p>
+    <a href="https://github.com/tobiager/UNNE-LSI/pulls">
+      <img src="https://img.shields.io/github/issues-pr/tobiager/UNNE-LSI?style=for-the-badge&labelColor=0a0a0a&color=008CFF" alt="Pull Requests"/>
+    </a>
+    <a href="https://github.com/tobiager/UNNE-LSI/issues">
+      <img src="https://img.shields.io/github/issues/tobiager/UNNE-LSI?style=for-the-badge&labelColor=0a0a0a&color=008CFF" alt="Issues"/>
+    </a>
+    <a href="https://github.com/tobiager/UNNE-LSI/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/tobiager/UNNE-LSI?style=for-the-badge&labelColor=0a0a0a&color=008CFF" alt="Contributors"/>
+    </a>
+    <a href="https://github.com/tobiager/UNNE-LSI/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/tobiager/UNNE-LSI?style=for-the-badge&labelColor=0a0a0a&color=008CFF" alt="License"/>
+    </a>
+  </p>
 
-#  LSI UNNE — Apuntes, prácticos y guías por materia
+  <!-- Nav estilo "Resume Matcher" -->
+  <p>
+    <a href="#-índice-rápido">Índice Rápido</a> ✦
+    <a href="./CONTRIBUTING.md">Cómo Contribuir</a> ✦
+    <a href="./Planes/README.md">Planes de Estudio</a> ✦
+    <a href="./Materias">Materias</a> ✦
+    <a href="https://github.com/tobiager/UNNE-LSI/issues/new/choose">Sugerir/Reportar</a>
+  </p>
+
+</div>
+
+# LSI UNNE — Apuntes, prácticos y guías por materia
 
 Hola! Soy **Tobias**, ingresé a la carrera en **2023** bajo el **plan 2009** y actualmente estoy en **3er año**.  
-Decidí armar este repositorio para dejar un registro de mi recorrido y que también le sirva a quien venga detrás.  
+Decidí armar este repositorio para dejar un registro de mi recorrido y que también le sirva a quien venga detrás.
 
 Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guías, parciales resueltos y tips de cursada** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
 
-> [!NOTE] 
+> [!NOTE]
 > “El que estudia con parciales viejos, aprueba dos veces” — proverbio LSI
 
 ---
