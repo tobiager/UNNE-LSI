@@ -15,7 +15,27 @@
   <img src="https://img.shields.io/badge/Estado-En%20Construcci%C3%B3n-orange?style=for-the-badge"/>
 </p>
 
----
+<p align="center">
+<a href="https://github.com/tobiager/UNNE-LSI/stargazers">
+  <img src="https://img.shields.io/github/stars/tobiager/UNNE-LSI" alt="Stars Badge"/>
+</a>
+<a href="https://github.com/tobiager/UNNE-LSI/network/members">
+  <img src="https://img.shields.io/github/forks/tobiager/UNNE-LSI" alt="Forks Badge"/>
+</a>
+<a href="https://github.com/tobiager/UNNE-LSI/pulls">
+  <img src="https://img.shields.io/github/issues-pr/tobiager/UNNE-LSI" alt="Pull Requests Badge"/>
+</a>
+<a href="https://github.com/tobiager/UNNE-LSI/issues">
+  <img src="https://img.shields.io/github/issues/tobiager/UNNE-LSI" alt="Issues Badge"/>
+</a>
+<a href="https://github.com/tobiager/UNNE-LSI/graphs/contributors">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/tobiager/UNNE-LSI?color=2b9348">
+</a>
+<a href="https://github.com/tobiager/UNNE-LSI/blob/main/LICENSE">
+  <img src="https://img.shields.io/github/license/tobiager/UNNE-LSI?color=2b9348" alt="License Badge"/>
+</a>
+
+</p>
 
 #  LSI UNNE — Apuntes, prácticos y guías por materia
 
