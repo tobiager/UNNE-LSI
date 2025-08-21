@@ -242,5 +242,16 @@ Gracias a todos los que contribuyen al crecimiento de este proyecto. ¡Tu contri
 
 ---
 
+
+## ⭐ Apoyá este proyecto
+
+Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes y dejando tu ⭐ en GitHub.  
+
+<p align="center">
+  <a href="https://github.com/tobiager/UNNE-LSI">
+    <img src="https://img.shields.io/badge/Dale%20una%20⭐%20al%20repo-ff9800?style=for-the-badge"/>
+  </a>
+</p>
+
 <p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Que le sirva a alguien más.</b></p>
 
