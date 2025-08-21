@@ -177,7 +177,9 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 <p align="left">
   <img src="https://img.shields.io/badge/Avance-60%25-brightgreen?style=for-the-badge"/>
 </p>
-Ver progreso completo en [Roadmap](./Roadmap.md).
+
+Ver progreso completo [Roadmap](https://github.com/tobiager/UNNE-LSI/blob/main/Roadmap.md)
+
 
 ### Materias en curso
 - ⏳ Taller de Programación II  
