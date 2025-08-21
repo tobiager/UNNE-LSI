@@ -93,16 +93,26 @@ cd Materias/AED1
 ## ❓ Si no sabés cómo usar GitHub
 
 <details>
-<summary>Guía rápida para empezar</summary>
+<summary>📥 Descarga rápida (la forma más fácil)</summary>
 
-1. **Creá una cuenta** en [github.com](https://github.com/).
-2. **Instalá Git** en tu computadora: [descargar Git](https://git-scm.com/).
-3. **Cloná** este repositorio:
+1. Hacé clic en el botón verde **Code** (arriba a la derecha de este repositorio).  
+2. Elegí la opción **Download ZIP**.  
+3. Se va a descargar un archivo `.zip` con **todo el contenido del repositorio (≈4 GB)**.  
+4. Descomprimilo en tu computadora y listo: vas a ver todas las carpetas de materiales. 🎓  
+
+</details>
+
+---
+
+<details>
+<summary>💻 Para usuarios con Git (opcional)</summary>
+
+1. **Creá una cuenta** en [github.com](https://github.com/).  
+2. **Instalá Git**: [git-scm.com](https://git-scm.com/).  
+3. **Cloná** este repositorio:  
    ```bash
    git clone https://github.com/tobiager/UNNE-LSI.git
-   ```
-4. **Explorá** las carpetas desde tu navegador de archivos o la terminal.
-5. **¿Querés aportar?** Hacé un *fork*, creá una rama y abrí un *pull request* con tus cambios.
+Explorá las carpetas desde tu navegador de archivos o la terminal.
 
 Para más información consultá la [documentación oficial de GitHub](https://docs.github.com/es).
 
