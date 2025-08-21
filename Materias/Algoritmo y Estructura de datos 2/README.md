@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../assets/facena.png" alt="Logo de FACENA" width="100"/>
+  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/facena.png" alt="Logo de FaCENA" width="100">
 </p>
 
 <p align="center">
