@@ -41,6 +41,20 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 - Uso de **Sublime Text** como editor principal.
 - Comparativa entre distintos lenguajes.
 
+## ¿Por qué aprender Common Lisp?
+
+Aunque **Common Lisp** es un lenguaje con varias décadas de historia, sigue siendo una herramienta poderosa para comprender la programación funcional y la metaprogramación. Sus macros, su modelo de listas y su capacidad para modificar el lenguaje desde dentro permiten ejercitar una forma de pensar distinta y muy flexible.
+
+Estudiarlo ayuda a valorar la evolución de los lenguajes modernos y a reconocer cómo muchas de sus ideas inspiraron a herramientas actuales. Además, refuerza la lógica y la recursividad, habilidades fundamentales para cualquier desarrollador.
+
+## Sobre el programa de la materia
+
+El programa oficial recorre distintos paradigmas de programación y propone comparar sus enfoques. Comenzamos con el estilo imperativo, continuamos con el enfoque funcional en **Common Lisp** y finalizamos con el paradigma lógico utilizando Prolog. Cada unidad se acompaña de prácticos y trabajos integradores disponibles en este repositorio.
+
+## Mi experiencia
+
+La cursada 2024 fue una oportunidad para salir de la zona de confort y explorar conceptos que no siempre se ven en otros espacios. Common Lisp, a pesar de su antigüedad, se reveló como un lenguaje muy vigente: permite resolver problemas complejos con elegancia y fomenta una mentalidad abierta a distintas formas de programar. Aprenderlo me ayudó a apreciar la historia del desarrollo de software y a comprender mejor los fundamentos que siguen presentes en tecnologías modernas.
+
 ---
 
 ## 🧠 Tecnologías utilizadas
