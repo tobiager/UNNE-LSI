@@ -169,6 +169,9 @@ Ver progreso completo en [Roadmap](Roadmap.md).
    `materia/<materia>-<cambio>`  
 3. Todo aporte suma: **resúmenes, parciales, PDFs, tips de cursada**.  
 
+Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles.
+
+
 <br clear="all"/>
 
 ---
