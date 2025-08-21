@@ -26,15 +26,15 @@ Cada materia se marca como:
 ### 2° Año
 - ✅ Paradigmas y Lenguajes  
 - ✅ Arquitectura y Organización de Computadoras  
-- ✅ Cálculo Diferencial e Integral  
+- ⚠️ Cálculo Diferencial e Integral  
 - ✅ Programación Orientada a Objetos  
 - ✅ Sistemas Operativos  
-- ✅ Administración y Gestión de Organizaciones  
+- ⚠️ Administración y Gestión de Organizaciones  
 
 ### 3° Año
 - ✅ Taller de Programación I  
 - ✅ Comunicaciones de Datos  
-- ✅ Ingeniería de Software I  
+- ⚠️ Ingeniería de Software I  
 - ⏳ Taller de Programación II  
 - ⏳ Probabilidad y Estadística  
 - ⏳ Bases de Datos I  
