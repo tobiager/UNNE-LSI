@@ -32,6 +32,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 
 - [ Sobre la carrera](#-sobre-la-carrera)
 - [ Estructura del repositorio](#-estructura-del-repositorio)
+- [ Instalación y uso local](#-instalación-y-uso-local)
 - [ Planes de estudio](#-planes-de-estudio)
 - [ Materias](#-materias)
 - [ Tips de cursada](#-tips-de-cursada)
@@ -74,6 +75,19 @@ assets/
 - **planes/** → Info detallada de cada plan vigente.  
 - **meta/** → Archivos auxiliares para correlatividades.  
 - **assets/** → Logos, banners y stickers de Jäger (modo estudiante).  
+
+---
+
+## 💻 Instalación y uso local
+
+Para trabajar con este repositorio en tu máquina:
+
+```bash
+git clone https://github.com/tobiager/UNNE-LSI.git
+cd UNNE-LSI
+# Ejemplo: navegar a la carpeta de una materia
+cd Materias/AED1
+```
 
 ---
 
