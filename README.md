@@ -127,6 +127,13 @@ cd UNNE-LSI
 cd Materias/AED1
 ```
 
+Para generar y previsualizar la documentación del sitio:
+
+```bash
+pip install mkdocs mkdocs-material
+mkdocs serve
+```
+
 ## ❓ Si no sabés cómo usar GitHub
 
 <details>
