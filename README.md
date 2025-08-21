@@ -120,12 +120,14 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 🧭 Tips de cursada
 
--  **Parciales viejos** → son oro. Buscalos, pedilos, compartilos.  
--  **Armate grupo de estudio** → nadie aprueba solo en LSI.  
--  **No subestimes las correlativas** → calculá bien qué materias habilitan otras.  
--  **Resumí con tus palabras** → más útil que copiar PDF de 200 páginas.  
--  **Consultá a los profes** → suelen dar pistas de examen.  
--  **Hack**: resolvé parciales anteriores como si fueran mocks.  
+<img src="./assets/tip.png" alt="tips" width="200" align="right">
+
+- **Parciales viejos** → son oro. Buscalos, pedilos, compartilos.  
+- **Armate grupo de estudio** → nadie aprueba solo en LSI.  
+- **No subestimes las correlativas** → calculá bien qué materias habilitan otras.  
+- **Resumí con tus palabras** → más útil que copiar PDF de 200 páginas.  
+- **Consultá a los profes** → suelen dar pistas de examen.  
+- **Hack** → resolvé parciales anteriores como si fueran mocks.  
 
 
 ---
