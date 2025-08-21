@@ -11,7 +11,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Logisim-000000?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
