@@ -22,13 +22,15 @@ Material teórico, prácticos y evaluaciones de **Sistemas Operativos** de la **
 
 ## 📦 Estructura del Repositorio
 
-| Carpeta | Contenido |
-| ------- | --------- |
-| 📗 Teoria | Apuntes y libro de la materia |
-| 📝 Practicos | Ejercicios y guías de laboratorio |
-| 🎖️ Parciales 2024 | Evaluaciones del año |
-| 🗂️ modelo parciales anteriores | Modelos de exámenes |
-| 📋 resumenes | Resúmenes y cuestionarios |
+| Archivo/Carpeta | Contenido |
+| ---------------- | --------- |
+| `Teoria/` | Apuntes y libro de la materia |
+| `Practicos/` | Ejercicios y guías de laboratorio |
+| `Parciales/` | Evaluaciones 2024 y modelos anteriores |
+| `resumenes/` | Resúmenes y cuestionarios |
+| `final/` | Material de preparación para el examen final |
+| `RES. 0408-23 CD - Aprob. Prog. SO.pdf` | Programa oficial de la cátedra |
+| `tema 19 monografia 2024.pdf` | Monografía presentada en 2024 |
 
 ---
 

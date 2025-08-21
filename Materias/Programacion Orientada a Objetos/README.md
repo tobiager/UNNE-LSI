@@ -25,12 +25,14 @@ El punto culminante del curso fue el **Proyecto Integrador**, donde apliqué tod
 
 ## 📦 Estructura del Repositorio
 
-| Carpeta | Contenido |
-| ------- | --------- |
-| 📖 Material de la cursada | Programa, planificación y teoría |
-| 📚 Teoría y Proyectos de Examen | Apuntes, ejercicios resueltos y proyecto de examen final |
-| 🧰 Ejercicios Prácticos | Ejercicios guiados para afianzar conceptos de POO |
-| 🏗️ Proyecto Integrador | Proyecto completo aplicando todos los conocimientos |
+| Archivo/Carpeta | Contenido |
+| ---------------- | --------- |
+| `Cuadernillo Java/` | Guía principal con teoría y ejercicios de Java |
+| `material del 2023/` | Recursos y apuntes de una cursada anterior |
+| `practica/` | Trabajos prácticos y ejercicios resueltos |
+| `Planificacion Grupo Pratico_2.pdf` | Cronograma y planificación de la cursada 2024 |
+| `ProgramaPOO_Res0395_23.pdf` | Programa oficial de la materia |
+| `Final POO.docx` | Enunciado del proyecto del examen final |
 
 ---
 
