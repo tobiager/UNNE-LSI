@@ -12,6 +12,7 @@
   <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Paradigmas-blue?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
