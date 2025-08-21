@@ -9,52 +9,54 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
-# 🎓 Algoritmo y Estructura de Datos I - UNNE 2024
+#  Algoritmos y Estructura de Datos I - UNNE 2023
 
-Material de estudio, ejercicios y guías de la materia **Algoritmo y Estructura de Datos I** de la **UNNE - FaCENA**.
+Este repositorio contiene los materiales y trabajos realizados en la materia **Algoritmos y Estructura de Datos I** de la **UNNE - Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA)**.  
 
----
-
-## 📦 Estructura del Repositorio
-
-| Carpeta | Contenido |
-| ------- | --------- |
-| 📓 Clases de Algoritmo | Apuntes y diapositivas de las clases |
-| 💻 Dev C++ | Entorno y ejemplos en Dev-C++ |
-| 📍 Estrategias de Resolucion TP1-2 | Guía para los primeros trabajos prácticos |
-| 🗃️ Partes de un programa TP3 | Material del trabajo práctico 3 |
+El enfoque principal fue introducirme en los **fundamentos de programación y algoritmos básicos utilizando C++**.
 
 ---
 
-## 🚀 Temas principales y conceptos aplicados
+## 📦 Contenido de la carpeta
 
-- Fundamentos de programación imperativa.
-- Estructuras de datos lineales.
-- Modularización y funciones.
-- Algoritmos básicos de ordenamiento y búsqueda.
+- **Clases de Algoritmo** → Apuntes, ejercicios y ejemplos vistos en clase.  
+- **Dev C++** → Programas prácticos implementados en el entorno.  
+- **Estrategias de resolución (TP1-2)** → Métodos para abordar problemas algorítmicos.  
+- **Partes de un programa (TP3)** → Ejercicios para comprender la estructura básica de un programa en C++.  
 
 ---
 
-## 🧠 Tecnologías utilizadas
+## 🚀 Temas principales
+
+- **Pensamiento algorítmico** → Diagramas de flujo, pseudocódigo y resolución de problemas.  
+- **Fundamentos de C++** → Variables, operadores, entrada/salida, condicionales, bucles y funciones.  
+- **Archivos de texto** → Lectura y escritura básica.  
+- **Programación estructurada** → Modularización mediante funciones.  
+
+---
+
+## 🚀 Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
+  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Dev%20C%2B%2B-0065A9?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Librerías-Standard%20C++-00599C?style=for-the-badge"/>
 </p>
 
 ---
 
 ## 📌 Notas
 
-- Incluye ejercicios y material de apoyo para la cursada.
-- Ideal para repasar conceptos básicos de algoritmos.
+- Materia: **Algoritmos y Estructura de Datos I - UNNE (FaCENA)**, año 2023.  
+- Enfocado en los fundamentos de la programación.  
+- Los programas incluyen explicaciones y comentarios en español.  
 
-<p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
+---
 
+<p align="center"><b>❤️🐔 Hecho con dedicación por Tobias</b></p>
