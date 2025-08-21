@@ -157,13 +157,15 @@ La carrera se dicta bajo dos planes vigentes:
 
 ---
 
-##  🤝🏻 Top Contributors
+## 🤝🏻 Top Contributors
 
-Thanks to everyone who's helping this project grow. Your contribution can also be included here!
+Gracias a todos los que contribuyen al crecimiento de este proyecto. ¡Tu contribución también puede incluirse aquí!
 
-<a href="https://github.com/tobiager/UNNE-LSr/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tobiager/UNNE-LS" />
-</a>
+<p align="center">
+  <a href="https://github.com/tobiager/UNNE-LSI/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=tobiager/UNNE-LSI" alt="Top contributors" />
+  </a>
+</p>
 
 ---
 
