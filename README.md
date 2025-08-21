@@ -54,7 +54,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 - [ Estructura del repositorio](#-estructura-del-repositorio)
 - [ Instalación y uso local](#-instalación-y-uso-local)
 - [ Si no sabés cómo usar GitHub](#-si-no-sabés-cómo-usar-github)
-- [ Planes de estudio](#-planes-de-estudio)
+- [ Planes de estudio](#%EF%B8%8F-planes-de-estudio)
 - [ Materias](#-materias)
 - [ Tips de cursada](#-tips-de-cursada)
 - [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)
