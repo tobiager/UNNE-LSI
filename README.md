@@ -53,7 +53,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 - [ Sobre la carrera](#-sobre-la-carrera)
 - [ Estructura del repositorio](#-estructura-del-repositorio)
 - [ Instalación y uso local](#-instalación-y-uso-local)
-- [Si no sabés cómo usar GitHub](#-si-no-sabes-como-usar-github)
+- [Si no sabés cómo usar GitHub](#-si-no-sabés-cómo-usar-github)
 - [Planes de estudio](#-planes-de-estudio)
 - [ Materias](#-materias)
 - [ Tips de cursada](#-tips-de-cursada)
