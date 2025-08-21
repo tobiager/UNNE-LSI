@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
-# 📚 Paradigmas y Lenguajes - UNNE 2024
+#  Paradigmas y Lenguajes - UNNE 2024
 
 Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - FaCENA**.
 
@@ -26,10 +26,10 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 📚 Teoria | Apuntes teóricos |
-| 📝 practica | Ejercicios guiados |
-| 👤 Material 2023 | Recursos de la cursada anterior |
-| 📁 data | Archivos de apoyo |
+|  Teoria | Apuntes teóricos |
+|  practica | Ejercicios guiados |
+|  Material 2023 | Recursos de la cursada anterior |
+|  data | Archivos de apoyo |
 
 ---
 
