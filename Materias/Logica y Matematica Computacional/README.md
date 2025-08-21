@@ -16,6 +16,8 @@
 
 # 🧠 Lógica y Matemática Computacional - UNNE 2023
 
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/piso.png" alt="Viejo Lisp" width="180" align="right">
+
 Repositorio con apuntes, parciales y material de la materia **Lógica y Matemática Computacional** de la **UNNE - FaCENA**.  
 Incluye también mi **experiencia personal de cursada**, tips y recomendaciones para futuros estudiantes.
 
