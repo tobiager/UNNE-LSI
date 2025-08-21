@@ -9,8 +9,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Prolog-E61B23?style=for-the-badge&logo=prolog&logoColor=white"/>
   <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Paradigmas-blue?style=for-the-badge"/>
@@ -47,11 +45,7 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 ## 🧠 Tecnologías utilizadas
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Prolog-E61B23?style=for-the-badge&logo=prolog&logoColor=white"/>
   <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
   <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
 </p>
 
