@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
-# 💻 Arquitectura de Computadoras - UNNE 2024
+#  Arquitectura de Computadoras - UNNE 2024
 
 Apuntes, prácticos y herramientas de la materia **Arquitectura de Computadoras** de la **UNNE - FaCENA**.
 
@@ -25,10 +25,10 @@ Apuntes, prácticos y herramientas de la materia **Arquitectura de Computadoras*
 
 | Carpeta | Descripción |
 | ------- | ----------- |
-| 📝 `teoria` | Material teórico, presentaciones y resúmenes |
-| 🧪 `Actividades practicas` | Guías de ejercicios, laboratorios y simulaciones |
-| 📚 `Material pasado` | Recursos de cursadas anteriores y parciales resueltos |
-| 📝 `2do parcial` | Material de evaluación y repaso |
+|  `teoria` | Material teórico, presentaciones y resúmenes |
+|  `Actividades practicas` | Guías de ejercicios, laboratorios y simulaciones |
+|  `Material pasado` | Recursos de cursadas anteriores y parciales resueltos |
+|  `2do parcial` | Material de evaluación y repaso |
 
 ---
 
