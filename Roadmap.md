@@ -3,7 +3,8 @@
 Este roadmap muestra el estado de avance en mi carrera de **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.  
 Cada materia se marca como:  
 - ✅ Aprobada  
-- ⏳ En curso  
+- ⏳ En curso
+- ⚠️ Regular
 - ❌ Pendiente  
 
 ---
