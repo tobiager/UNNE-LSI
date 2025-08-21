@@ -14,9 +14,13 @@
   <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
-# 📄 Sistemas y Organizaciones - UNNE 2023
+#  Sistemas y Organizaciones - UNNE 2023
 
-Material de la materia **Sistemas y Organizaciones** de la **UNNE - FaCENA**.
+Este es el material que pude **rescatar de la materia Sistemas y Organizaciones**.  
+Aclaro que **no sé por qué no me aparece el aula virtual de cuando la cursé**, así que lo que hay acá es lo que logré guardar.  
+
+En resumen, es una materia **fácil y llevadera** (aunque a mí personalmente no me guste ).  
+Se puede **promocionar tranquilamente**: en mi caso, en los dos parciales me saqué **7** y en la exposición oral en grupo me fue muy bien.  
 
 ---
 
@@ -24,23 +28,21 @@ Material de la materia **Sistemas y Organizaciones** de la **UNNE - FaCENA**.
 
 | Archivo | Contenido |
 | ------- | --------- |
-| `TP2-Grupo 10.docx` | Trabajo práctico n.º 2 |
+| Material .docx / .pdf | Lo que pude rescatar de la cursada |
 
 ---
 
 ## 🚀 Temas principales y conceptos aplicados
 
-- Análisis de sistemas y procesos organizacionales.
-- Gestión de información y toma de decisiones.
-- Modelado de procesos y documentación.
-
+- Análisis de sistemas y procesos organizacionales.  
+- Gestión de información y toma de decisiones.  
+- Modelado de procesos y documentación.  
 
 ---
 
 ## 📌 Notas
 
-- Carpeta en desarrollo con material de prácticos y teoría.
-- Enfocada en la organización de la información dentro de las empresas.
+- Carpeta con material recuperado de prácticos y teoría.  
+- Enfocada en la organización de la información dentro de las empresas.  
 
 <p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
-
