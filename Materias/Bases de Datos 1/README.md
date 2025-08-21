@@ -11,24 +11,31 @@
 <p align="center">
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
   <img src="https://img.shields.io/badge/Modelado-ERDPlus-6A5ACD?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/UNNE-Inform%C3%A1tica-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Estado-En%20curso-orange?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-#  Bases de Datos - UNNE 2025
+# 📊 Bases de Datos - UNNE 2025
+
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/database.png" alt="Sticker database" width="400" align="right" style="margin-left:20px;"/>
 
 Esta carpeta reúne **modelos ER**, **scripts SQL**, **prácticos**, **material de estudio** y **mini-proyectos** desarrollados en la materia **Bases de Datos** de la **UNNE – FaCENA** (cursada 2025), trabajando principalmente con **MySQL** y **ERDPlus**.
 
----
+
+<br><br> <!-- 👈 Espaciado extra antes de la siguiente sección -->
+
+
+
+<br><br> <!-- 👈 Espaciado extra antes de la siguiente sección -->
 
 ## 📦 Estructura del Repositorio
 
-| Archivo/Carpeta            | Contenido |
-|----------------------------|----------|
-| `practicos/`               | Enunciados y resoluciones de TP |
-| `parciales/`               | Guías de repaso, simulacros y soluciones |
-| `apuntes/`                 | Resúmenes: normalización, claves, restricciones, transacciones |
+| Carpeta/Archivo | Contenido |
+|-----------------|-----------|
+| `practicos/`    | Enunciados y resoluciones de trabajos prácticos |
+| `parciales/`    | Guías de repaso, simulacros y soluciones |
+| `apuntes/`      | Resúmenes: normalización, claves, restricciones, transacciones |
 
 ---
 
