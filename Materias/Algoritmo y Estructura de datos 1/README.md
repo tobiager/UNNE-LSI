@@ -24,11 +24,12 @@ El enfoque principal fue introducirme en los **fundamentos de programación y al
 ---
 
 ## 📦 Contenido de la carpeta
-
-- **Clases de Algoritmo** → Apuntes, ejercicios y ejemplos vistos en clase.  
-- **Dev C++** → Programas prácticos implementados en el entorno.  
-- **Estrategias de resolución (TP1-2)** → Métodos para abordar problemas algorítmicos.  
-- **Partes de un programa (TP3)** → Ejercicios para comprender la estructura básica de un programa en C++.  
+| Carpeta | Contenido |
+| ------- | --------- |
+|  **Clases de Algoritmo** |  Apuntes, ejercicios y ejemplos vistos en clase.  | 
+|  **Dev C++** |  Programas prácticos implementados en el entorno.  | 
+|  **Estrategias de resolución (TP1-2)** |  Métodos para abordar problemas algorítmicos.  | 
+|  **Partes de un programa (TP3)** |  Ejercicios para comprender la estructura básica de un programa en C++.  | 
 
 ---
 
