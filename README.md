@@ -50,7 +50,7 @@ La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 año
 - **Planes:** 2009 (en extinción) y 2023 (nuevo).  
 - **Modalidad:** presencial, con cuatrimestrales y anuales.  
 - **Perfil del egresado:** desarrollo de software, gestión de proyectos, docencia e investigación.  
-- **Salida laboral:** analista, programador, sysadmin, project manager, investigador.  
+- **Salida laboral:** analista, programador, etc.  
 
 
 ---
