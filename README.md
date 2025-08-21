@@ -190,7 +190,7 @@ Ver progreso completo [Roadmap](https://github.com/tobiager/UNNE-LSI/blob/main/R
 - ⏳ Bases de Datos I  
 - ⏳ Inglés Técnico Informático  
 
----
+
 
 <p align="center">
   <img src="./assets/cemento.png" alt="Cemento" height="240"/>
