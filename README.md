@@ -168,6 +168,9 @@ La carrera se dicta bajo dos planes vigentes:
    `materia/<materia>-<cambio>`  
 3. Todo aporte suma: **resúmenes, parciales, PDFs, tips de cursada**.  
 
+Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para más detalles.
+
+
 <br clear="all"/>
 
 ---
