@@ -1,4 +1,4 @@
-# 📍 Roadmap Académico — LSI UNNE
+📍 Roadmap Académico — LSI UNNE
 
 Este roadmap muestra el estado de avance en mi carrera de **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.  
 Cada materia se marca como:  
