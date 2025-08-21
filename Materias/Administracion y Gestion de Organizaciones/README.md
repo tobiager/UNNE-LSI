@@ -9,13 +9,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Administraci%C3%B3n-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
-# 📈 Administración y Gestión de Organizaciones - UNNE 2024
+#  Administración y Gestión de Organizaciones - UNNE 2024
 
 Esta carpeta reúne apuntes, prácticas y material del curso **Administración y Gestión de Organizaciones** de la **UNNE - FaCENA**.
 
@@ -41,15 +40,6 @@ Esta carpeta reúne apuntes, prácticas y material del curso **Administración y
 
 ---
 
-## 🧠 Tecnologías utilizadas
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
-</p>
-
----
 
 ## 📌 Notas
 
