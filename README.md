@@ -253,5 +253,9 @@ Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes 
   </a>
 </p>
 
+<p align="center">
+  <img src="./assets/estrella.png" alt="estrella" height="300"/>
+</p>
+
 <p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Que le sirva a alguien más.</b></p>
 
