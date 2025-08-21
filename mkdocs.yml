@@ -1,0 +1,24 @@
+site_name: UNNE LSI
+theme:
+  name: material
+nav:
+  - Inicio: index.md
+  - Materias:
+      - "Administración y Gestión de Organizaciones": "Materias/Administracion y Gestion de Organizaciones/README.md"
+      - "Álgebra": "Materias/Algebra/README.md"
+      - "Algoritmos y Estructura de Datos I": "Materias/Algoritmo y Estructura de datos 1/README.md"
+      - "Algoritmos y Estructura de Datos II": "Materias/Algoritmo y Estructura de datos 2/README.md"
+      - "Arquitectura de Computadoras": "Materias/Arquitectura de computadoras/README.md"
+      - "Cálculo": "Materias/Calculo/README.md"
+      - "Comunicación de Datos I": "Materias/Comunicacion de datos 1/README.md"
+      - "Ingeniería de Software I": "Materias/Ingenieria de Software 1/README.md"
+      - "Lógica y Matemática Computacional": "Materias/Logica y Matematica Computacional/README.md"
+      - "Paradigmas y Lenguajes": "Materias/Paradigmas y Lenguajes/README.md"
+      - "Programación Orientada a Objetos": "Materias/Programacion Orientada a Objetos/README.md"
+      - "Sistemas Operativos": "Materias/Sistemas Operativos/README.md"
+      - "Sistemas y Organizaciones": "Materias/Sistemas y Organizaciones/README.md"
+      - "Taller de Programación I": "Materias/Taller de Programacion 1/README.md"
+      - "Taller de Programación II": "Materias/Taller de Programacion 2/README.md"
+  - Planes:
+      - "2009": "planes/2009.md"
+      - "2023": "planes/2023.md"
