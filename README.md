@@ -142,6 +142,7 @@ La carrera se dicta bajo dos planes vigentes:
 <p align="left">
   <img src="https://img.shields.io/badge/Avance-60%25-brightgreen?style=for-the-badge"/>
 </p>
+Ver progreso completo en [Roadmap](Roadmap.md).
 
 ### Materias en curso
 - ⏳ Taller de Programación II  
