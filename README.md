@@ -32,7 +32,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 
 - [ Sobre la carrera](#-sobre-la-carrera)  
 - [ Estructura del repositorio](#-estructura-del-repositorio)  
-- [ Índice por año y materias](#-índice-por-año-y-materias)  
+- [ Planes de estudio](#-planes-de-estudio)  
 - [ Tips de cursada](#-tips-de-cursada)  
 - [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)  
 - [ Licencia](#-licencia)  
@@ -43,6 +43,8 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 
 La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 años** dictada en la **Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA – UNNE)**, en Corrientes, Argentina.  
 
+<img src="./assets/certificado.png" alt="Sticker certificado" width="170" align="right" style="margin-left:20px;"/>
+
 ### Características principales:
 - **Duración oficial:** 5 años.  
 - **Planes:** 2009 (en extinción) y 2023 (nuevo).  
@@ -50,9 +52,6 @@ La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 año
 - **Perfil del egresado:** desarrollo de software, gestión de proyectos, docencia e investigación.  
 - **Salida laboral:** analista, programador, sysadmin, project manager, investigador.  
 
-<p align="center">
-  <img src="./assets/certificado.png" alt="Sticker certificado" width="120"/>
-</p>
 
 ---
 
@@ -77,27 +76,45 @@ assets/
 
 ---
 
-## 📑 Índice por año y materias
+## 🗺️ Planes de estudio
 
-### 🔹 Primer año
-- [Algoritmos y Estructuras de Datos I](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201)  
-- [Álgebra](./Materias/Calculo)  
-- [Lógica y Matemática Computacional](./Materias/Logica%20y%20Matematica%20Computacional)  
-- [Sistemas y Organizaciones](./Materias/Sistemas%20y%20Organizaciones)  
+La carrera se dicta bajo dos planes vigentes:
 
-### 🔹 Segundo año
-- [Algoritmos y Estructuras de Datos II](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202)  
-- [Programación Orientada a Objetos](./Materias/Programacion%20Orientada%20a%20Objetos)  
-- [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes)  
-- [Arquitectura de Computadoras](./Materias/Arquitectura%20de%20computadoras)  
+<p>
+  <a href="./planes/2009.md">
+    <img src="https://img.shields.io/badge/Plan-2009-64748B?style=for-the-badge" alt="Plan 2009"/>
+  </a>
+  <a href="./planes/2023.md">
+    <img src="https://img.shields.io/badge/Plan-2023-22C55E?style=for-the-badge" alt="Plan 2023"/>
+  </a>
+</p>
 
-### 🔹 Tercer año
-- [Bases de Datos](./Materias/Base%20de%20Datos)  
-- [Taller de Programación I](./Materias/Taller%20de%20Programacion%201)  
-- [Taller de Programación II](./Materias/Taller%20de%20Programacion%202)  
-- [Comunicación de Datos I](./Materias/Comunicacion%20de%20datos%201)  
-- [Sistemas Operativos](./Materias/Sistemas%20Operativos)  
-- [Ingeniería de Software I](./Materias/Ingenieria%20de%20Software%201)  
+### 📌 Plan 2009 — Orden de cursada
+
+- **1° año:** AED I, Álgebra, AED II, Lógica, SyO  
+- **2° año:** Paradigmas, Arquitectura, Cálculo, POO, SO, Adm. y Gestión  
+- **3° año:** Taller I, Comunicaciones, Ing. de Software I, Taller II (cursando), Probabilidad y Estadística (cursando), Bases de Datos I (cursando), Inglés Técnico Informático (pendiente)  
+- **4° año:** Ing. de Software II, Economía, Teoría de la Computación, Redes, Bases de Datos II, Métodos Computacionales  
+- **5° año:** Proyecto Final, Auditoría y Seguridad, Optativas I–III  
+
+> 🎓 Al aprobar 3° año + Inglés Técnico se obtiene el título intermedio de **Analista Programador Universitario (APU)**.  
+
+👉 Ver detalle completo: [planes/2009.md](./planes/2009.md)  
+
+---
+
+### 📌 Plan 2023 — Orden de cursada
+
+- **1° año:** AED I, Álgebra, AED II, Lógica, SyO  
+- **2° año:** Paradigmas, Arquitectura, Cálculo, POO, SO, Bases de Datos I  
+- **3° año:** Programación Web, Comunicaciones, Ing. de Software I, Probabilidad y Estadística, Programación Avanzada, Ing. de Software II  
+- **4° año:** IA, Teoría de la Computación, Redes, Ing. de Software III, Bases de Datos II, Métodos Computacionales, Análisis de Organizaciones y Procesos  
+- **5° año:** Auditoría y Seguridad, Emprendedorismo, Optativa I, Introducción a Ciencia de Datos, Aspectos Profesionales y Sociales, Optativa II, Proyecto Integrador de Carrera  
+
+> 🎓 Al aprobar 3° año + Inglés se obtiene el título de **Analista Programador Universitario (APU)**.  
+
+👉 Ver detalle completo: [planes/2023.md](./planes/2023.md)  
+
 
 ---
 
