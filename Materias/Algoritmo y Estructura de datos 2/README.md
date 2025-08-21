@@ -25,11 +25,13 @@ El enfoque fue aplicar **estructuras de datos avanzadas en C++** para la resoluc
 
 ## 📦 Contenido de la carpeta
 
-- **2do Parcial** → Ejercicios de práctica y repaso.  
-- **Borradores** → Soluciones preliminares y pruebas de código.  
-- **Teoría** → Apuntes y material de estudio.  
-- **Trabajo Integrador** → Proyecto final que combina todos los conocimientos aprendidos.  
-- **Trabajos adicionales** → Ejercicios complementarios y práctica continua.  
+| Carpeta | Contenido |
+| ------- | --------- |
+| **2do Parcial** | Ejercicios de práctica y repaso. | 
+| **Borradores** | Soluciones preliminares y pruebas de código. | 
+| **Teoría** | Apuntes y material de estudio.  |
+| **Trabajo Integrador** | Proyecto final que combina todos los conocimientos aprendidos.  |
+| **Trabajos adicionales** | Ejercicios complementarios y práctica continua.  |
 
 ---
 
