@@ -9,14 +9,17 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/UNNE-C%C3%A1lculo-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/UNNE-Cálculo-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
-# 🎓 Cálculo - UNNE 2024
-
+#  Cálculo - UNNE 2024 
 Recopilación de apuntes, prácticas y exámenes de la materia **Cálculo** de la **UNNE - FaCENA**.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/regla.png" alt="Matemáticas" width="200">
+</p>
 
 ---
 
@@ -24,28 +27,28 @@ Recopilación de apuntes, prácticas y exámenes de la materia **Cálculo** de l
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 🎖️ 2do parcial | Material del segundo parcial |
-| 📋 años anteriores | Recursos de cursadas pasadas |
-| 📍 info importante | Información y comunicados |
-| 🗂️ modelos parciales | Modelos de exámenes |
-| 📗 teoria 2024 | Apuntes teóricos del año |
+|  2do parcial | Material del segundo parcial |
+|  Años anteriores | Recursos de cursadas pasadas |
+|  Info importante | Información y comunicados |
+|  Modelos parciales | Modelos de exámenes |
+|  Teoría 2024 | Apuntes teóricos del año |
 
 ---
 
 ## 🚀 Temas principales y conceptos aplicados
 
-- Límites y continuidad.
-- Derivadas y aplicaciones.
-- Integrales indefinidas y definidas.
-- Series y sucesiones.
-
+-  Límites y continuidad  
+-  Derivadas y aplicaciones  
+-  Integrales indefinidas y definidas  
+-  Series y sucesiones  
 
 ---
 
 ## 📌 Notas
 
-- Incluye modelos de parciales y apuntes para estudiar.
-- Enfocado en la cursada 2024.
+- Incluye modelos de parciales y apuntes para estudiar.  
+- Enfocado en la cursada 2024.  
+
+---
 
 <p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
-
