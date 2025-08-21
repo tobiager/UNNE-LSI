@@ -126,9 +126,9 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - [Algoritmo y Estructura de datos 1](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201/) — ✅ Aprobada
 - [Algoritmo y Estructura de datos 2](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) — ✅ Aprobada
 - [Arquitectura de computadoras](./Materias/Arquitectura%20de%20computadoras/) — ✅ Aprobada
-- [Calculo](./Materias/Calculo/) — ✅ Aprobada
+- [Calculo](./Materias/Calculo/) — ⏳ Me falta el final 
 - [Comunicacion de datos 1](./Materias/Comunicacion%20de%20datos%201/) — ✅ Aprobada
-- [Ingenieria de Software 1](./Materias/Ingenieria%20de%20Software%201/) — ✅ Aprobada
+- [Ingenieria de Software 1](./Materias/Ingenieria%20de%20Software%201/) — ⏳ Me falta el final 
 - [Logica y Matematica Computacional](./Materias/Logica%20y%20Matematica%20Computacional/) — ✅ Aprobada
 - [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes/) — ✅ Aprobada
 - [Programacion Orientada a Objetos](./Materias/Programacion%20Orientada%20a%20Objetos/) — ✅ Aprobada
