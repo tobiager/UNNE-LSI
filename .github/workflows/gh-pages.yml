@@ -1,4 +1,4 @@
-name: Deploy documentation to GitHub Pages
+name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
@@ -15,20 +15,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'   # o '3.11' si preferís
+
+      - run: python -m pip install --upgrade pip
       - run: pip install mkdocs mkdocs-material
+
       - run: mkdocs build --strict
-      - uses: actions/upload-pages-artifact@v2
+
+      # 👉 reemplaza v2 por v3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # 👉 reemplaza v2 por v4
       - id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
