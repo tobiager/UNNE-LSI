@@ -9,13 +9,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Cisco-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Redes-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-# 📶 Comunicación de Datos I - UNNE 2024
+#  Comunicación de Datos I - UNNE 2025
 
 Recursos, prácticos y evaluaciones de la materia **Comunicación de Datos I** de la **UNNE - FaCENA**.
 
@@ -25,9 +24,9 @@ Recursos, prácticos y evaluaciones de la materia **Comunicación de Datos I** d
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 📝 practicos | Laboratorios y ejercicios de redes |
-| 📄 parciales | Exámenes y resoluciones |
-| 📎 archivos varios | Informes y TPs en formato PDF/DOC |
+|  practicos | Laboratorios y ejercicios de redes |
+|  parciales | Exámenes y resoluciones |
+|  archivos varios | Informes y TPs en formato PDF/DOC |
 
 ---
 
@@ -37,17 +36,6 @@ Recursos, prácticos y evaluaciones de la materia **Comunicación de Datos I** d
 - Protocolos TCP/IP y direccionamiento.
 - Topologías y dispositivos de red.
 - Herramientas de monitoreo y simulación.
-
----
-
-## 🧠 Tecnologías utilizadas
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Cisco-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
-</p>
 
 ---
 
