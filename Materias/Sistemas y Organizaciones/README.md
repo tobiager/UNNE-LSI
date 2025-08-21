@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
-# 📄 Sistemas y Organizaciones - UNNE 2024
+# 📄 Sistemas y Organizaciones - UNNE 2023
 
 Material de la materia **Sistemas y Organizaciones** de la **UNNE - FaCENA**.
 
