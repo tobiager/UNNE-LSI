@@ -12,11 +12,12 @@
   <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Paradigmas-blue?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
 
-#  Paradigmas y Lenguajes - UNNE 2024
+
+# 🧙 Paradigmas y Lenguajes - UNNE 2024
 
 Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - FaCENA**.
 
@@ -37,23 +38,38 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 
 - Paradigma imperativo y estructurado.
 - Programación funcional con **Common Lisp** y recursiva.
-- Paradigma lógico con Prolog.
+- Paradigma lógico con **Prolog**.
 - Uso de **Sublime Text** como editor principal.
 - Comparativa entre distintos lenguajes.
 
-## ¿Por qué aprender Common Lisp?
+---
 
-Aunque **Common Lisp** es un lenguaje con varias décadas de historia, sigue siendo una herramienta poderosa para comprender la programación funcional y la metaprogramación. Sus macros, su modelo de listas y su capacidad para modificar el lenguaje desde dentro permiten ejercitar una forma de pensar distinta y muy flexible.
+## 🧙‍♂️ ¿Por qué aprender Common Lisp?
 
-Estudiarlo ayuda a valorar la evolución de los lenguajes modernos y a reconocer cómo muchas de sus ideas inspiraron a herramientas actuales. Además, refuerza la lógica y la recursividad, habilidades fundamentales para cualquier desarrollador.
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/viejo.png" alt="Viejo Lisp" width="180" align="left">
 
-## Sobre el programa de la materia
+Aunque **Common Lisp** es un lenguaje con varias décadas de historia, sigue siendo una herramienta poderosa para comprender la programación funcional y la metaprogramación.  
+Sus macros, su modelo de listas y su capacidad para modificar el lenguaje desde dentro permiten ejercitar una forma de pensar distinta y muy flexible.
 
-El programa oficial recorre distintos paradigmas de programación y propone comparar sus enfoques. Comenzamos con el estilo imperativo, continuamos con el enfoque funcional en **Common Lisp** y finalizamos con el paradigma lógico utilizando Prolog. Cada unidad se acompaña de prácticos y trabajos integradores disponibles en este repositorio.
+Estudiarlo ayuda a valorar la evolución de los lenguajes modernos y a reconocer cómo muchas de sus ideas inspiraron a herramientas actuales.  Además, refuerza la lógica y la recursividad, habilidades fundamentales para cualquier desarrollador.
 
-## Mi experiencia
 
-La cursada 2024 fue una oportunidad para salir de la zona de confort y explorar conceptos que no siempre se ven en otros espacios. Common Lisp, a pesar de su antigüedad, se reveló como un lenguaje muy vigente: permite resolver problemas complejos con elegancia y fomenta una mentalidad abierta a distintas formas de programar. Aprenderlo me ayudó a apreciar la historia del desarrollo de software y a comprender mejor los fundamentos que siguen presentes en tecnologías modernas.
+---
+
+## 📖 Sobre el programa de la materia
+
+El programa oficial recorre distintos paradigmas de programación y propone comparar sus enfoques.  
+Comenzamos con el estilo **imperativo**, continuamos con el enfoque **funcional en Common Lisp**, y finalizamos con el **paradigma lógico utilizando Prolog**.  
+Cada unidad se acompaña de prácticos y trabajos integradores disponibles en este repositorio.
+
+---
+
+## ✍️ Mi experiencia
+
+La cursada 2024 fue una oportunidad para salir de la zona de confort y explorar conceptos que no siempre se ven en otros espacios.  
+Common Lisp, a pesar de su antigüedad, se reveló como un lenguaje muy vigente: permite resolver problemas complejos con elegancia y fomenta una mentalidad abierta a distintas formas de programar.  
+
+Aprenderlo me ayudó a apreciar la historia del desarrollo de software y a comprender mejor los fundamentos que siguen presentes en tecnologías modernas.
 
 ---
 
@@ -68,7 +84,8 @@ La cursada 2024 fue una oportunidad para salir de la zona de confort y explorar 
 
 ## 🛠️ Entorno de desarrollo
 
-El desarrollo de los ejercicios se realizó principalmente utilizando el editor **Sublime Text**. Se recomienda instalar los paquetes [SublimeREPL](https://packagecontrol.io/packages/SublimeREPL) y [Lisp](https://packagecontrol.io/packages/Lisp) para trabajar cómodamente con código **Common Lisp**.
+El desarrollo de los ejercicios se realizó principalmente utilizando el editor **Sublime Text**.  
+Se recomienda instalar los paquetes [SublimeREPL](https://packagecontrol.io/packages/SublimeREPL) y [Lisp](https://packagecontrol.io/packages/Lisp) para trabajar cómodamente con código **Common Lisp**.
 
 ---
 
@@ -77,5 +94,9 @@ El desarrollo de los ejercicios se realizó principalmente utilizando el editor 
 - Incluye ejercicios en distintos lenguajes.
 - Contiene material histórico y actual de la materia.
 
-<p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
+---
+
+<p align="center">
+  <b>❤️ Hecho con dedicación por Tobias</b><br>
+</p>
 
