@@ -134,7 +134,7 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 📊 Estado actual del repo
 
-
+<img src="./assets/construccion.png" alt="tips" width="140" align="right">
 
 - ✅ AED1 / AED2 → completos  
 - ⚠️ POO → en construcción  
