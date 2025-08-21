@@ -33,6 +33,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 - [ Sobre la carrera](#-sobre-la-carrera)
 - [ Estructura del repositorio](#-estructura-del-repositorio)
 - [ Instalación y uso local](#-instalación-y-uso-local)
+- [ Si no sabés cómo usar GitHub](#-si-no-sabes-como-usar-github)
 - [ Planes de estudio](#-planes-de-estudio)
 - [ Materias](#-materias)
 - [ Tips de cursada](#-tips-de-cursada)
@@ -88,6 +89,24 @@ cd UNNE-LSI
 # Ejemplo: navegar a la carpeta de una materia
 cd Materias/AED1
 ```
+
+## ❓ Si no sabés cómo usar GitHub
+
+<details>
+<summary>Guía rápida para empezar</summary>
+
+1. **Creá una cuenta** en [github.com](https://github.com/).
+2. **Instalá Git** en tu computadora: [descargar Git](https://git-scm.com/).
+3. **Cloná** este repositorio:
+   ```bash
+   git clone https://github.com/tobiager/UNNE-LSI.git
+   ```
+4. **Explorá** las carpetas desde tu navegador de archivos o la terminal.
+5. **¿Querés aportar?** Hacé un *fork*, creá una rama y abrí un *pull request* con tus cambios.
+
+Para más información consultá la [documentación oficial de GitHub](https://docs.github.com/es).
+
+</details>
 
 ---
 
