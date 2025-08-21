@@ -207,6 +207,12 @@ Gracias a todos los que contribuyen al crecimiento de este proyecto. ¡Tu contri
   </a>
 </p>
 
+## 📣 Contacto o Comunidad
+
+- Correo: [tobiasorban00@gmail.com](mailto:tobiasorban00@gmail.com)
+- GitHub: [@tobiager](https://github.com/tobiager)
+- ¿Consultas o sugerencias? Abrí un [issue](https://github.com/tobiager/UNNE-LSI/issues).
+
 ---
 
 ## 📜 Licencia
