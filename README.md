@@ -134,6 +134,8 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 📊 Estado actual del repo
 
+
+
 - ✅ AED1 / AED2 → completos  
 - ⚠️ POO → en construcción  
 - ⚠️ BD → resúmenes parciales  
@@ -144,24 +146,20 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 🛠️ Cómo contribuir
 
-1. **Abrí un Issue** con lo que quieras aportar.  
-2. (Opcional) armá un **Pull Request** desde una rama `materia/<materia>-<cambio>`.  
-3. Todo aporte suma: resúmenes, parciales, PDFs, tips de cursada.  
+<img src="./assets/contribuir.png" alt="contribuir" width="120" align="left">
 
-<p align="center">
-  <img src="./assets/regla.png" alt="Sticker regla" width="120"/>
-</p>
+1. **Abrí un Issue** con lo que quieras aportar.  
+2. *(Opcional)* armá un **Pull Request** desde una rama con el formato:  
+   `materia/<materia>-<cambio>`  
+3. Todo aporte suma: **resúmenes, parciales, PDFs, tips de cursada**.  
 
 ---
 
-## 📄 Licencia
+## 📜 Licencia
 
 - **Apuntes/guías/resúmenes propios:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
-- **Código/plantillas:** [MIT](./LICENSE)  
+- **Código/plantillas:** [MIT](./LICENSE)
 
-<p align="center">
-  <img src="./assets/seguridad.png" alt="Sticker seguridad" width="120"/>
-</p>
 
 ---
 
