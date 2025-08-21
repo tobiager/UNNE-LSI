@@ -89,6 +89,8 @@ El proyecto final consistió en el desarrollo de un **ecommerce temático de Cal
 ## 🔗 Link del Proyecto
 
 👉 [Repositorio completo en GitHub](https://github.com/Juanro-kun/repositorio)
-
+<a href="https://github.com/Juanro-kun/repositorio">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=Juanro-kun&repo=repositorio&theme=transparent&hide_border=true" alt="POO-UNNE-2024 repo card"/>
+</a>
 
 <p align="center"><b>❤️ Hecho con dedicación por Tobias Orban y Juanro Zacarias</b></p>
