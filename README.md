@@ -157,6 +157,16 @@ La carrera se dicta bajo dos planes vigentes:
 
 ---
 
+##  🤝🏻 Top Contributors
+
+Thanks to everyone who's helping this project grow. Your contribution can also be included here!
+
+<a href="https://github.com/tobiager/UNNE-LSr/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tobiager/UNNE-LS" />
+</a>
+
+---
+
 ## 📜 Licencia
 
 - **Apuntes/guías/resúmenes propios:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
