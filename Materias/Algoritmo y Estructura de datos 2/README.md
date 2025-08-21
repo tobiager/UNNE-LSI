@@ -43,6 +43,22 @@ El enfoque fue aplicar **estructuras de datos avanzadas en C++** para la resoluc
 
 ---
 
+## 🎥 Playlists útiles (YouTube)
+
+- [Lista 1 — Algoritmos y Estructuras](https://www.youtube.com/watch?v=9idgIGmQvAQ&list=PLw8RQJQ8K1ySN6bVHYEpDoh-CKVkL_uOF)
+- [Lista 2 — Algoritmos y Estructuras](https://www.youtube.com/watch?v=ldkkInPgGMQ&list=PLw8RQJQ8K1yQbSU9w2Ofb62pH-AThcvzx)
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=9idgIGmQvAQ&list=PLw8RQJQ8K1ySN6bVHYEpDoh-CKVkL_uOF">
+    <img src="https://img.shields.io/badge/YouTube-Lista%201-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Lista 1"/>
+  </a>
+  <a href="https://www.youtube.com/watch?v=ldkkInPgGMQ&list=PLw8RQJQ8K1yQbSU9w2Ofb62pH-AThcvzx">
+    <img src="https://img.shields.io/badge/YouTube-Lista%202-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Lista 2"/>
+  </a>
+</p>
+
+---
+
 ## 🏆 Proyecto Integrador
 
 El proyecto integrador de la materia consistió en el desarrollo de un programa completo en C++, que:  
