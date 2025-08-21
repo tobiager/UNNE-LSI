@@ -44,7 +44,8 @@ Decidí armar este repositorio para dejar un registro de mi recorrido y que tamb
 
 Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guías, parciales resueltos y tips de cursada** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
 
-> “El que estudia con parciales viejos, aprueba dos veces” — proverbio lsi 🧓
+> [!NOTE] 
+> “El que estudia con parciales viejos, aprueba dos veces” — proverbio LSI
 
 ---
 
@@ -74,6 +75,23 @@ La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 año
 - **Modalidad:** presencial y virtual, con materias cuatrimestrales.  
 - **Perfil del egresado:** desarrollo de software, gestión de proyectos, docencia e investigación.  
 - **Salida laboral:** analista, programador, etc.  
+
+---
+
+### 🔎 ¿Qué podés esperar de la carrera?
+
+La LSI te brinda **bases sólidas en informática, matemática, organización y gestión**, que sirven como punto de partida para después orientarte hacia lo que más te guste.  
+
+Durante el cursado vas a ver desde **programación y estructuras de datos** hasta materias de **gestión, ingeniería de software, redes, bases de datos, seguridad, inteligencia artificial** y más.  
+Esa variedad hace que cada estudiante pueda descubrir en qué área se siente más cómodo:  
+- **Desarrollo de software** (backend, frontend, mobile, videojuegos).  
+- **Infraestructura y redes** (administración de servidores, seguridad, cloud).  
+- **Datos e investigación** (ciencia de datos, IA, estadística aplicada).  
+- **Gestión y consultoría** (liderar proyectos, analizar procesos, trabajo con empresas).  
+- **Docencia y academia** (enseñar, investigar y seguir con posgrados).  
+
+> [!IMPORTANT]
+>  En resumen: la carrera no te encierra en un solo camino, sino que te da las herramientas para que elijas tu rumbo profesional según tus intereses.  
 
 
 ---
