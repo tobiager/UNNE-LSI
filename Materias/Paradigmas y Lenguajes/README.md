@@ -17,7 +17,7 @@
 </p>
 
 
-# 🧙 Paradigmas y Lenguajes - UNNE 2024
+#  Paradigmas y Lenguajes - UNNE 2024
 
 Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - FaCENA**.
 
