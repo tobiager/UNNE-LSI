@@ -134,13 +134,26 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 📊 Estado actual del repo
 
-<img src="./assets/construccion.png" alt="tips" width="140" align="right">
+📌 Actualmente cursando: **3er Año — 2° Cuatrimestre**  
+📍 Plan: **2009**  
 
-- ✅ AED1 / AED2 → completos  
-- ⚠️ POO → en construcción  
-- ⚠️ BD → resúmenes parciales  
-- ❌ Redes → pendiente  
-- 🚧 Talleres → se van actualizando por TP  
+📈 Avance aproximado:  
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Avance-60%25-brightgreen?style=for-the-badge"/>
+</p>
+
+### Materias en curso
+- ⏳ Taller de Programación II  
+- ⏳ Probabilidad y Estadística  
+- ⏳ Bases de Datos I  
+- ⏳ Inglés Técnico Informático  
+
+---
+
+<p align="center">
+  <img src="./assets/construccion.png" alt="En construcción" width="200"/>
+</p>
 
 ---
 
