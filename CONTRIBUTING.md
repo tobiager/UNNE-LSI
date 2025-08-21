@@ -61,7 +61,7 @@ assets/
 ## 🛡️ Licencia
 
 - Todo el contenido textual está bajo [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).  
-- Código y plantillas: licencia [MIT](../LICENSE).  
+- Código y plantillas: licencia [MIT](./LICENSE).  
 - Asegurate de **no subir material con copyright** (libros escaneados, papers completos, etc.).  
 
 ---
