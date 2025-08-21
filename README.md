@@ -136,7 +136,8 @@ La carrera se dicta bajo dos planes vigentes:
 
 Listado de materias con enlaces a sus carpetas y el estado actual.
 
-- [Administracion y Gestion de Organizaciones](./Materias/Administracion%20y%20Gestion%20de%20Organizaciones/) — ⏳ Me falta el final 
+- [Administracion y Gestion de Organizaciones](./Materias/Administracion%20y%20Gestion%20de%20Organizaciones/) — ⏳ Me falta el final
+- [Algebra](./Materias/Algebra/) — ✅ Aprobada
 - [Algoritmo y Estructura de datos 1](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201/) — ✅ Aprobada
 - [Algoritmo y Estructura de datos 2](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) — ✅ Aprobada
 - [Arquitectura de computadoras](./Materias/Arquitectura%20de%20computadoras/) — ✅ Aprobada
