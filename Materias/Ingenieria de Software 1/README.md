@@ -11,11 +11,11 @@
 <p align="center">
   <img src="https://img.shields.io/badge/UML-02569B?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/UNNE-Ingeniería-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-# 🎓 Ingeniería de Software I - UNNE 2024
+# 🎓 Ingeniería de Software I - UNNE 2025
 
 Material, prácticos y proyectos de la materia **Ingeniería de Software I** de la **UNNE - FaCENA**.
 
@@ -25,11 +25,11 @@ Material, prácticos y proyectos de la materia **Ingeniería de Software I** de 
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 📚 Teoria | Apuntes y presentaciones teóricas |
-| 📝 Practica | Ejercicios y guías prácticas |
-| 👤 Materiales | Recursos adicionales |
-| 💪 Sistema Hospitalario | Proyecto aplicado a gestión hospitalaria |
-| 📄 Parciales Viejos | Exámenes de años anteriores |
+|  Teoria | Apuntes y presentaciones teóricas |
+|  Practica | Ejercicios y guías prácticas |
+|  Materiales | Recursos adicionales |
+|  Sistema Hospitalario | Proyecto seleccionado aplicado a gestión hospitalaria |
+|  Parciales Viejos | Exámenes de años anteriores |
 
 ---
 
@@ -39,16 +39,6 @@ Material, prácticos y proyectos de la materia **Ingeniería de Software I** de 
 - Relevamiento y especificación de requisitos.
 - Modelado y diagramas UML.
 - Introducción a metodologías ágiles.
-
----
-
-## 🧠 Tecnologías utilizadas
-
-<p align="center">
-  <img src="https://img.shields.io/badge/UML-02569B?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
-</p>
 
 ---
 
