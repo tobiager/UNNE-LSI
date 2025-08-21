@@ -11,6 +11,8 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Prolog-E61B23?style=for-the-badge&logo=prolog&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Paradigmas-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2024-blue?style=for-the-badge"/>
 </p>
@@ -35,8 +37,9 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 ## 🚀 Temas principales y conceptos aplicados
 
 - Paradigma imperativo y estructurado.
-- Programación funcional y recursiva.
+- Programación funcional con **Common Lisp** y recursiva.
 - Paradigma lógico con Prolog.
+- Uso de **Sublime Text** como editor principal.
 - Comparativa entre distintos lenguajes.
 
 ---
@@ -46,9 +49,17 @@ Ejercicios y material de la materia **Paradigmas y Lenguajes** de la **UNNE - Fa
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
   <img src="https://img.shields.io/badge/Prolog-E61B23?style=for-the-badge&logo=prolog&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Git-181717?style=for-the-badge&logo=git&logoColor=white"/>
   <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
 </p>
+
+---
+
+## 🛠️ Entorno de desarrollo
+
+El desarrollo de los ejercicios se realizó principalmente utilizando el editor **Sublime Text**. Se recomienda instalar los paquetes [SublimeREPL](https://packagecontrol.io/packages/SublimeREPL) y [Lisp](https://packagecontrol.io/packages/Lisp) para trabajar cómodamente con código **Common Lisp**.
 
 ---
 
