@@ -146,12 +146,14 @@ La carrera se dicta bajo dos planes vigentes:
 
 ## 🛠️ Cómo contribuir
 
-<img src="./assets/contribuir.png" alt="contribuir" width="120" align="left">
+<img src="./assets/contribuir.png" alt="contribuir" width="180" align="left">
 
 1. **Abrí un Issue** con lo que quieras aportar.  
 2. *(Opcional)* armá un **Pull Request** desde una rama con el formato:  
    `materia/<materia>-<cambio>`  
 3. Todo aporte suma: **resúmenes, parciales, PDFs, tips de cursada**.  
+
+<br clear="all"/>
 
 ---
 
