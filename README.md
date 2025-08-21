@@ -152,8 +152,10 @@ La carrera se dicta bajo dos planes vigentes:
 ---
 
 <p align="center">
-  <img src="./assets/construccion.png" alt="En construcción" width="200"/>
+  <img src="./assets/cemento.png" alt="Cemento" height="220"/>
+  <img src="./assets/construccion.png" alt="En construcción" height="220"/>
 </p>
+
 
 ---
 
