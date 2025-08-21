@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="banner de LSI" width="1200"/>
+  <img src="./assets/banner1.jpeg" alt="banner de LSI" width="1200"/>
 </p>
 
 <p align="center">
