@@ -12,10 +12,12 @@
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
-#  Algoritmos y Estructura de Datos I - UNNE 2023
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/pc.png" alt="Programador" width="200" align="right">
+
+# Algoritmos y Estructura de Datos I - UNNE 2023
 
 Este repositorio contiene los materiales y trabajos realizados en la materia **Algoritmos y Estructura de Datos I** de la **UNNE - Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA)**.  
 
