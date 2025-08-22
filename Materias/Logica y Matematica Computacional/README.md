@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
-# 🧠 Lógica y Matemática Computacional - UNNE 2023
+#  Lógica y Matemática Computacional - UNNE 2023
 
 <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/piso.png" alt="Viejo Lisp" width="180" align="right">
 
@@ -23,11 +23,11 @@ Incluye también mi **experiencia personal de cursada**, tips y recomendaciones 
 
 ---
 
-## 📚 Mi experiencia en la cursada
+## 🧑‍🎓 Mi experiencia en la cursada
 
 - Regularicé aprobando los **dos parciales con 7**.  
 - Perdí la **promoción** porque en el teórico no me fue bien.  
-- Tuve que rendir **4 veces el final**: las primeras 3 veces me mató el profe con los ejemplos, saqué **2, 3 y 3**. En la cuarta, finalmente aprobé con un **9**. Imagínense mi bronca .  
+- Tuve que rendir **4 veces el final**: las primeras 3 veces me mató el profe con los ejemplos, saqué **3, 3 y 4**. En la cuarta, finalmente aprobé con un **9**. Imagínense mi bronca .  
 
 👉 Mi conclusión: esta materia **no es imposible**, pero el final tiene mucha trampa si no practicás como corresponde. El profe se fija muchísimo en los **ejemplos** y no perdona si no sabés justificarlos bien.
 
