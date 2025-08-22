@@ -15,6 +15,8 @@
   <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/> 
 </p>
 
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/pc.png" alt="Programador" width="200" align="right">
+
 #  Algoritmos y Estructura de Datos II - UNNE 2023
 
 Este repositorio contiene los materiales y trabajos desarrollados en la materia **Algoritmos y Estructura de Datos II** de la **UNNE - Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA)**.  
