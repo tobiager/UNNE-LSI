@@ -179,7 +179,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 
 ---
 
-## 🗺️ Planes de estudio
+## 📜 Planes de estudio
 
 La carrera se dicta bajo dos planes vigentes:
 
