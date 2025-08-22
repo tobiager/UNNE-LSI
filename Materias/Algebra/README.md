@@ -27,7 +27,7 @@ Además, incluye mi **experiencia personal de cursada**, tips de estudio y algun
 
 ## 🧑‍🎓 Mi experiencia en la cursada
 
-Al principio me costó bastante adaptarme, sobre todo porque venía de una escuela donde no había tanta base matemática, y además **no soy fan de las matemáticas** 😅.  
+Al principio me costó bastante adaptarme, sobre todo porque venía de una escuela donde no había tanta base matemática, y además **no soy fan de las matemáticas** .  
 - Regularicé la materia con **6 en el primer y segundo parcial**.  
 - En el final me fue mal un par de veces (me saqué un 2 y un 3), pero en el tercer intento logré aprobar.  
 - Fue una cursada donde aprendí que la constancia es clave: aunque no me gustara mucho la materia, **la repetición y el repaso** me terminaron salvando.  
