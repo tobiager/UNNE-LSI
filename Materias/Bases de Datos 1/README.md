@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-# 📊 Bases de Datos - UNNE 2025
+# Bases de Datos - UNNE 2025
 
 <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/database1.png" alt="Sticker database" width="300" align="right" style="margin-left:20px;"/>
 
