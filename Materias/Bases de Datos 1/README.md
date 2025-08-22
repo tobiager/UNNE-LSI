@@ -165,5 +165,13 @@ ORDER BY promedio_aprobados DESC;
 
 ---
 
+<h1 align="center" style="font-size:60px; color:#ff6600;">
+   CURSANDO
+</h1>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/cursando.png" alt="Cursando" width="400"/>
+</p>
+
 <p align="center"><b>❤️🐔 Hecho con dedicacion y pasion por Tobias</b></p>
 
