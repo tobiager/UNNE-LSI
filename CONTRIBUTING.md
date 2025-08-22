@@ -1,7 +1,15 @@
-#  Guía de Contribución
+<!-- Banner -->
+<p align="center">
+  <a href="https://github.com/tobiager/UNNE-LSI">
+    <img src="./assets/banner2.jpeg" alt="Guía de Contribución" width="1000">
+  </a>
+</p>
+
+<h1 align="center"> Guía de Contribución</h1>
 
 ¡Gracias por tu interés en colaborar con este repositorio de **LSI UNNE**! 🎓  
 Este espacio busca ser una **fuente abierta** de apuntes, prácticos y guías de cursada para estudiantes de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.  
+
 
 ---
 
