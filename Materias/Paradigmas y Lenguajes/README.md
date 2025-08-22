@@ -64,21 +64,12 @@ Cada unidad se acompaña de prácticos y trabajos integradores disponibles en es
 
 ---
 
-## ✍️ Mi experiencia
+## 🧑‍🎓 Mi experiencia
 
 La cursada 2024 fue una oportunidad para salir de la zona de confort y explorar conceptos que no siempre se ven en otros espacios.  
 Common Lisp, a pesar de su antigüedad, se reveló como un lenguaje muy vigente: permite resolver problemas complejos con elegancia y fomenta una mentalidad abierta a distintas formas de programar.  
 
 Aprenderlo me ayudó a apreciar la historia del desarrollo de software y a comprender mejor los fundamentos que siguen presentes en tecnologías modernas.
-
----
-
-## 🧠 Tecnologías utilizadas
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Common%20Lisp-3FB68B?style=for-the-badge&logo=common-lisp&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Sublime%20Text-FF9800?style=for-the-badge&logo=sublime-text&logoColor=white"/>
-</p>
 
 ---
 
