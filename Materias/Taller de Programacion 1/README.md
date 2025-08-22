@@ -31,10 +31,10 @@ El objetivo fue **aprender y aplicar conceptos de desarrollo web** utilizando **
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 📖 Prácticos Iniciales | Ejercicios con HTML, CSS y Bootstrap |
-| ⚙️ MVC CodeIgniter | Ejercicios con vistas, modelos y controladores |
-| 🏗️ Proyecto Integrador | Ecommerce temático: **La Taberna del Gnomo Errante** |
-| 🗄️ Base de Datos | Script SQL precargado con usuarios, productos y pedidos |
+|  Prácticos Iniciales | Ejercicios con HTML, CSS y Bootstrap |
+|  MVC CodeIgniter | Ejercicios con vistas, modelos y controladores |
+|  Proyecto Integrador | Ecommerce temático: **La Taberna del Gnomo Errante** |
+|  Base de Datos | Script SQL precargado con usuarios, productos y pedidos |
 
 ---
 
