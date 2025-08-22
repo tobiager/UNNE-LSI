@@ -18,7 +18,7 @@
 
 #  Taller de Programación II - UNNE 2025
 
-<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/pc.png" alt="Viejo Lisp" width="200" align="right">
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/pc.png" alt="programando" width="200" align="right">
 
 Ejercicios y material de **Taller de Programación II** de la **UNNE - FaCENA**.  
 
@@ -62,6 +62,14 @@ Cuando tengamos el repositorio del **proyecto grupal**, acá voy a dejar el enla
 - Contiene material utilizado en la cursada 2025.  
 - Enfoque en el desarrollo de proyectos completos.  
 - El link al **repo del proyecto** será agregado cuando esté disponible.  
+
+<h1 align="center" style="font-size:60px; color:#ff6600;">
+   CURSANDO
+</h1>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/cursando.png" alt="Cursando" width="400"/>
+</p>
 
 <p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
 
