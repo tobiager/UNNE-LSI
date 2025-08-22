@@ -18,7 +18,7 @@
 
 # 📊 Bases de Datos - UNNE 2025
 
-<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/database.png" alt="Sticker database" width="400" align="right" style="margin-left:20px;"/>
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/database1.png" alt="Sticker database" width="300" align="right" style="margin-left:20px;"/>
 
 Esta carpeta reúne **modelos ER**, **scripts SQL**, **prácticos**, **material de estudio** y **mini-proyectos** desarrollados en la materia **Bases de Datos** de la **UNNE – FaCENA** (cursada 2025), trabajando principalmente con **MySQL** y **ERDPlus**.
 
