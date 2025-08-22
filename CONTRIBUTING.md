@@ -1,11 +1,11 @@
-# 🤝 Guía de Contribución
+#  Guía de Contribución
 
 ¡Gracias por tu interés en colaborar con este repositorio de **LSI UNNE**! 🎓  
 Este espacio busca ser una **fuente abierta** de apuntes, prácticos y guías de cursada para estudiantes de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.  
 
 ---
 
-## 📌 Cómo contribuir
+##  Cómo contribuir
 
 1. **Abrí un Issue**
    - Antes de subir algo nuevo, creá un [Issue](../../issues) para contar qué querés aportar o mejorar.  
@@ -24,7 +24,7 @@ Este espacio busca ser una **fuente abierta** de apuntes, prácticos y guías de
 
 ---
 
-## 📂 Organización del contenido
+##  Organización del contenido
 
 El repositorio está organizado así:
 
@@ -42,14 +42,14 @@ meta/
 assets/
 ```
 
-👉 Reglas básicas:
+ Reglas básicas:
 - Cada materia debe tener su propio `README.md` explicando qué hay adentro.  
 - Usá subcarpetas (`practicos`, `parciales`, `resumenes`) cuando haga falta.  
 - Los archivos deben tener nombres descriptivos y sin espacios.  
 
 ---
 
-## 🎨 Estilo y consistencia
+##  Estilo y consistencia
 
 - Usá **Markdown** (`.md`) para apuntes, guías y explicaciones.  
 - Si subís **código**, nombrá los archivos con extensión clara (`.java`, `.cpp`, `.sql`).  
@@ -58,7 +58,7 @@ assets/
 
 ---
 
-## 🛡️ Licencia
+##  Licencia
 
 - Todo el contenido textual está bajo [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).  
 - Código y plantillas: licencia [MIT](./LICENSE).  
@@ -66,7 +66,7 @@ assets/
 
 ---
 
-## 🙌 Tips para aportar mejor
+##  Tips para aportar mejor
 
 - Usá lenguaje claro y simple, pensando en estudiantes que recién arrancan.  
 - No subas cosas personales (fotos, chats, mails).  
