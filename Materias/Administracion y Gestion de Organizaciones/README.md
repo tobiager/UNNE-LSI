@@ -18,16 +18,18 @@
 
 Esta carpeta reúne apuntes, prácticas y material del curso **Administración y Gestión de Organizaciones** de la **UNNE - FaCENA**.
 
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/empresa2.png" alt="Sticker empresario" width="200" align="right" style="margin-left:20px;"/>
+
 ---
 
 ## 📦 Estructura del Repositorio
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 📎 material | Documentación de apoyo y lecturas complementarias |
-| 📝 practica | Actividades prácticas y ejercicios |
-| 📚 teoria | Apuntes teóricos de la materia |
-| 🏁 FINAL ADMIN | Material para el examen final |
+|  material | Documentación de apoyo y lecturas complementarias |
+|  practica | Actividades prácticas y ejercicios |
+|  teoria | Apuntes teóricos de la materia |
+|  FINAL ADMIN | Material para el examen final |
 
 ---
 
