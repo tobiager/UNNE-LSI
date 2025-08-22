@@ -345,7 +345,7 @@ Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes 
   <img src="./assets/estrella.png" alt="estrella" height="300"/>
 </p>
 
-## ⭐ Star History
+## ⭐ Historia de Estrellas
 
 [![Star History Chart](https://api.star-history.com/svg?repos=tobiager/UNNE-LSI&type=Date)](https://star-history.com/#tobiager/UNNE-LSI&Date)
 
