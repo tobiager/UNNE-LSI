@@ -53,8 +53,8 @@ De forma general, la materia se centra en:
 
 | Archivo/Carpeta | Contenido |
 | --------------- | --------- |
-| **Apuntes ** | Material de clases y ejemplos |
-| **Teoria ** | Desarrollo teórico de las unidades |
+| **Apuntes** | Material de clases y ejemplos |
+| **Teoria** | Desarrollo teórico de las unidades |
 | **Parciales** | Síntesis para parciales  |
 | **Otros** | Programa de la materia e imágenes de apoyo |
 
