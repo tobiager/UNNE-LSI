@@ -1,1 +1,0 @@
-../../../Materias/Logica y Matematica Computacional/README.md

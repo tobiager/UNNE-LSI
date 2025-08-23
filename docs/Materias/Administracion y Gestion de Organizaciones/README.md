@@ -1,1 +1,0 @@
-../../../Materias/Administracion y Gestion de Organizaciones/README.md

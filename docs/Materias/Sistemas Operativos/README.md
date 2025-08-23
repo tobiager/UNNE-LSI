@@ -1,1 +1,0 @@
-../../../Materias/Sistemas Operativos/README.md

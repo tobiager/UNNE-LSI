@@ -1,1 +1,0 @@
-../../../Materias/Algoritmo y Estructura de datos 1/README.md
