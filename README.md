@@ -45,7 +45,7 @@
   <p>
     <a href="#-índice-rápido">Índice Rápido</a> ✦
     <a href="./CONTRIBUTING.md">Cómo Contribuir</a> ✦
-    <a href="#%EF%B8%8F-planes-de-estudio">Planes de Estudio</a> ✦
+    <a href="#-planes-de-estudio">Planes de Estudio</a> ✦
     <a href="./Materias">Materias</a> ✦
     <a href="https://github.com/tobiager/UNNE-LSI/issues/new/choose">Sugerir/Reportar</a>
   </p>
