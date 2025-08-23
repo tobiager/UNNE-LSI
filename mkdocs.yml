@@ -1,8 +1,9 @@
 site_name: UNNE LSI
+docs_dir: .
 theme:
   name: material
 nav:
-  - Inicio: index.md
+  - Inicio: README.md
   - Materias:
       - "Administración y Gestión de Organizaciones": "Materias/Administracion y Gestion de Organizaciones/README.md"
       - "Álgebra": "Materias/Algebra/README.md"
