@@ -16,22 +16,22 @@ Este espacio busca ser una **fuente abierta** de apuntes, prácticos y guías de
 ##  Cómo contribuir
 
 1. **Abrí un Issue**
-   - Antes de subir algo nuevo, creá un [Issue](../../issues) para contar qué querés aportar o mejorar.  
-   - Ejemplos: *“Subo resumen de BD1”*, *“Agrego parciales de Paradigmas”*, *“Corregí un error en el TP de AED2”*.  
+   - Antes de subir algo nuevo, creá un [Issue](../../issues) usando la plantilla correspondiente ("Nueva materia/aporte" o "Corrección de contenido existente") para contar qué querés aportar o mejorar.
+   - Ejemplos: *“Subo resumen de BD1”*, *“Agrego parciales de Paradigmas”*, *“Corregí un error en el TP de AED2”*.
 
 2. **Creá una Rama (branch)**
-   - Usá este formato:  
+   - Usá este formato:
      ```
      materia/<materia>-<cambio>
      ```
    - Ejemplo: `materia/bd1-resumen-parcial`.
 
 3. **Pull Request**
-   - Hacé tu PR hacia la rama `main`.  
-   - Incluí una breve descripción del aporte.  
+   - Hacé tu PR hacia la rama `main`.
+   - Incluí una breve descripción del aporte.
+   - Completá el template del Pull Request, enlazando el Issue y agregando capturas si corresponde.
 
 ---
-
 ##  Organización del contenido
 
 El repositorio está organizado así:
