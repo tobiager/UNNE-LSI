@@ -10,9 +10,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -20,8 +17,10 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material
+        working-directory: ${{ github.workspace }}
       - name: Build site
         run: mkdocs build --strict
+        working-directory: ${{ github.workspace }}
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
