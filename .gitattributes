@@ -1,0 +1,28 @@
+# === Archivos de ofimática ===
+*.pdf linguist-detectable=false
+*.docx linguist-detectable=false
+*.doc linguist-detectable=false
+*.rtf linguist-detectable=false
+*.odt linguist-detectable=false
+*.xlsx linguist-detectable=false
+*.xls linguist-detectable=false
+*.ppt linguist-detectable=false
+*.pptx linguist-detectable=false
+
+# === Textos y apuntes ===
+*.txt linguist-detectable=false
+*.md linguist-detectable=false
+
+# === Imágenes ===
+*.png linguist-detectable=false
+*.jpg linguist-detectable=false
+*.jpeg linguist-detectable=false
+*.gif linguist-detectable=false
+*.svg linguist-detectable=false
+
+# === Otros archivos comunes de la facu ===
+*.zip linguist-detectable=false
+*.rar linguist-detectable=false
+*.7z linguist-detectable=false
+*.tar linguist-detectable=false
+*.gz linguist-detectable=false
