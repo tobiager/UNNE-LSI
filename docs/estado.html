@@ -45,6 +45,7 @@
   .reg .badge{background:#f59e0b;color:#1c1504}
   .ok{border-color:#16a34a}
   .ok .badge{background:#16a34a;color:#04140a}
+  .note{margin-top:4px;color:var(--muted);font-size:.85rem;white-space:pre-wrap}
   .col{display:flex;flex-direction:column;gap:12px}
   .col-title{font-weight:700;margin-bottom:8px;color:var(--muted)}
   h3{margin:0 0 8px;font-size:1.1rem;color:#cfe1ff}
@@ -107,10 +108,22 @@ document.body.classList.add(savedTheme);
   const plan = plans[share.plan];
   if(!plan){ document.getElementById('head').textContent='Plan no encontrado.'; return; }
 
+  function getStatus(code){
+    const v=share.states?.[code];
+    return typeof v==='object'? (v.s||0) : (v||0);
+  }
+  function getNote(code){
+    const v=share.states?.[code];
+    return typeof v==='object'? (v.n||'') : '';
+  }
+  function escapeHtml(str){
+    return str.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  }
+
   // stats
   const arr=plan.materias||[];
   const counts={0:0,1:0,2:0};
-  arr.forEach(m=>counts[share.states?.[m.codigo]||0]++);
+  arr.forEach(m=>counts[getStatus(m.codigo)]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
 
   const head=document.getElementById('head');
@@ -123,10 +136,11 @@ document.body.classList.add(savedTheme);
   // listado compacto
   const byYear={};
   arr.forEach(m=>{
-    const s=share.states?.[m.codigo]||0;
+    const s=getStatus(m.codigo);
+    const note=getNote(m.codigo);
     const year=byYear[m.anio] ||= {1:[],2:[]};
     const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
-    year[cuat].push({...m, s});
+    year[cuat].push({...m, s, note});
   });
 
   function renderCards(list){
@@ -135,6 +149,7 @@ document.body.classList.add(savedTheme);
       return `<div class="card ${cls}">
         <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
         <div>${m.regimen} · ${m.carga_horaria}h</div>
+        ${m.note?`<div class="note">${escapeHtml(m.note)}</div>`:''}
       </div>`;
     }).join('');
   }
