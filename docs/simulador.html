@@ -3,31 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Simulador de Avance</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin:0;padding:1rem;}
-#controls{margin-bottom:1rem;}
-#materias{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.card{border:1px solid #444;border-radius:8px;padding:0.5rem;background:#333;flex:1 1 300px;cursor:pointer;}
-.card.no{background:#444;}
-.card.regular{background:#b59f3b;}
-.card.aprobada{background:#2e7d32;}
-.card.disabled{opacity:0.4;cursor:not-allowed;}
-.badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
-@media(max-width:600px){.card{flex:1 1 100%;}}
-</style>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1>Simulador de Avance</h1>
-<div id="controls">
-  <select id="plan"></select>
-  <button id="save">Guardar</button>
-  <button id="reset">Reiniciar</button>
-  <button id="export">Exportar JSON</button>
-  <button id="import">Importar JSON</button>
-  <input type="file" id="fileInput" style="display:none" />
+<body class="bg-gray-900 text-gray-100 font-sans p-4">
+<h1 class="text-2xl mb-4">Simulador de Avance</h1>
+<div id="legend" class="flex gap-4 mb-4 text-sm">
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-gray-600 inline-block"></span><span>No cursada</span></div>
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-yellow-600 inline-block"></span><span>Regular</span></div>
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-green-700 inline-block"></span><span>Aprobada</span></div>
 </div>
-<div id="stats"></div>
-<div id="materias"></div>
+<div id="controls" class="flex flex-wrap gap-2 mb-4">
+  <select id="plan" class="bg-gray-800 border border-gray-600 rounded p-2"></select>
+  <button id="save" class="bg-blue-700 hover:bg-blue-600 active:bg-blue-800 px-3 py-2 rounded">Guardar</button>
+  <button id="reset" class="bg-red-700 hover:bg-red-600 active:bg-red-800 px-3 py-2 rounded">Reiniciar</button>
+  <button id="export" class="bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-3 py-2 rounded">Exportar JSON</button>
+  <button id="import" class="bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-3 py-2 rounded">Importar JSON</button>
+  <input type="file" id="fileInput" class="hidden" />
+</div>
+<div id="stats" class="mb-4"></div>
+<div id="materias" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={},currentPlan='2023',states={};
@@ -68,13 +62,20 @@ function allowed(code){
 function render(){
   const container=document.getElementById('materias');
   container.innerHTML='';
+  const stateClasses=['bg-gray-700','bg-yellow-600','bg-green-700'];
   plans[currentPlan].materias.forEach(m=>{
     const card=document.createElement('div');
-    card.className='card';
     const state=states[m.codigo]||0;
-    card.classList.add(['no','regular','aprobada'][state]);
-    if(!allowed(m.codigo))card.classList.add('disabled');
-    card.innerHTML=`<strong>${m.codigo} — ${m.nombre}</strong><div class="badges"><span>Año: ${m.anio}</span><span>Cuatr: ${m.cuatrimestre}</span><span>${m.regimen}</span><span>${m.carga_horaria}h</span></div>`+(m.correlativas.length?`<div>Correlativas: ${m.correlativas.join(', ')}</div>`:'');
+    card.className=`p-4 rounded-lg border border-gray-600 transition transform hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer ${stateClasses[state]}`;
+    if(!allowed(m.codigo))card.classList.add('opacity-40','cursor-not-allowed');
+    card.innerHTML=`<strong class="block mb-1">${m.codigo} — ${m.nombre}</strong>`+
+      `<div class="flex flex-wrap gap-2 text-xs">
+        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded">Año: ${m.anio}</span>
+        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded">Cuatr: ${m.cuatrimestre}</span>
+        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded"><span>📅</span>${m.regimen}</span>
+        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded"><span>⏱️</span>${m.carga_horaria}h</span>
+      </div>`+
+      (m.correlativas.length?`<div class="text-xs mt-2 flex items-center gap-1"><span>🔗</span>${m.correlativas.join(', ')}</div>`:'');
     if(allowed(m.codigo))card.addEventListener('click',()=>toggleState(m.codigo));
     container.appendChild(card);
   });
