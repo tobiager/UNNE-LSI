@@ -505,7 +505,7 @@ function updateStats(){
   const arr=plans[currentPlan].materias||[];
 
   const counts={0:0,1:0,2:0,3:0};
-  arr.forEach(m=>{counts[states[m.codigo]||0]++;});
+  arr.forEach(m=>{counts[getStatus(m.codigo)]++;});
 
 
   document.getElementById('cAprob').textContent = counts[2];
