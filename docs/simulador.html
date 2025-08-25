@@ -17,10 +17,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin
 .card.disabled{opacity:0.4;cursor:not-allowed;}
 .badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
 @media(max-width:600px){#materias{grid-template-columns:100%;}}
+@media(max-width:600px){.card{flex:1 1 100%;}}
+footer{background:#121212;color:#eee;text-align:center;padding:1rem;margin-top:1rem;}
+footer a{color:#b59f3b;text-decoration:none;}
+@media(min-width:600px){footer{position:fixed;bottom:0;left:0;width:100%;}}
 </style>
 </head>
-<body>
-<h1>Simulador de Avance</h1>
+<body class="bg-gray-900 text-gray-100 font-sans p-4">
+<h1 class="text-2xl mb-4">Simulador de Avance</h1>
 <div id="controls">
   <select id="plan"></select>
   <button id="save">Guardar</button>
@@ -29,8 +33,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin
   <button id="import">Importar JSON</button>
   <input type="file" id="fileInput" style="display:none" />
 </div>
+<div id="legend" class="flex gap-4 mb-4 text-sm">
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-gray-600 inline-block"></span><span>No cursada</span></div>
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-yellow-600 inline-block"></span><span>Regular</span></div>
+  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-green-700 inline-block"></span><span>Aprobada</span></div>
+</div>
 <div id="stats"></div>
 <div id="materias"></div>
+<footer>Hecho por <a href="https://github.com/openai" target="_blank">ChatGPT</a></footer>
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={},currentPlan='2023',states={};
