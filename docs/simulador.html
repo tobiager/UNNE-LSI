@@ -120,6 +120,11 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .statusbar:not([open])>summary::after{content:'\25B2'}
   .status-inner{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .statusbar:not([open]) .status-inner{display:none}
+  /* Desktop: barra de estado siempre visible */
+  @media (min-width:700px){
+    .statusbar>summary{display:none}
+    .statusbar .status-inner{display:flex !important}
+  }
   .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--panel);font-weight:700;font-size:.82rem}
   .pill.green{border-color:#1f6d3c;background:#0f2717;color:#9df2c9}
   .pill.yellow{border-color:#8b6a1b;background:#2a220d;color:#fde68a}
@@ -222,7 +227,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
   <div id="materias"></div>
 </main>
 
-<details id="statusbar" class="statusbar" open>
+<details id="statusbar" class="statusbar">
   <summary></summary>
   <div class="status-inner">
     <div class="pill green">Aprobadas: <span id="cAprob">0</span></div>
@@ -280,6 +285,20 @@ padding:8px 12px;border-radius:12px;font-weight:600
 </div>
 
 <script>
+function responsiveMenu(){
+  const isDesktop = window.innerWidth >= 700;
+  const menu = document.getElementById('menu');
+  const status = document.getElementById('statusbar');
+  if(isDesktop){
+    menu.setAttribute('open','');
+    status.setAttribute('open','');
+  }else{
+    menu.removeAttribute('open');
+    status.removeAttribute('open');
+  }
+}
+responsiveMenu();
+window.addEventListener('resize', responsiveMenu);
 const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);
 const STORAGE_KEY='simulador-avance';
