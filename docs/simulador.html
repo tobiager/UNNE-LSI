@@ -577,11 +577,18 @@ function colorByPct(p){
 }
 function makeYearBadgeMarkdown(){
   const year = highestFullYearApproved();
-  const label = encodeURIComponent('🎓 LSI');
-  const msg   = encodeURIComponent( year===0 ? 'Ingresante' : `${year}º año` );
-  const color = '16a34a';
-  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
-  return `[![LSI · ${year===0?'Ingresante':year+'º año'}](${url})](${shareUrl()})`;
+  const files={
+    0:'1er-año.png',
+    1:'1er-año.png',
+    2:'2do-año.PNG',
+    3:'3er-año.PNG',
+    4:'4to-año.PNG',
+    5:'5to-año.PNG'
+  };
+  const file=files[year]||files[0];
+  const imgUrl=new URL('../assets/badges/'+file,location.href).href;
+  const alt=`LSI · ${year===0?'Ingresante':year+'º año'}`;
+  return `[![${alt}](${imgUrl})](${shareUrl()})`;
 }
 function makePctBadgeMarkdown(){
   const pct = computeLicPct();
