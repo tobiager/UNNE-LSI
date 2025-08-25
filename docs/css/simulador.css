@@ -1,0 +1,34 @@
+/* Responsive layout for simulador */
+
+#materias {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Adjust layout for medium screens */
+@media (max-width: 1200px) {
+  #materias {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+  }
+}
+
+/* Stack content on small screens */
+@media (max-width: 600px) {
+  #materias {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
