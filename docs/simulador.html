@@ -43,6 +43,18 @@
     background:var(--panel);border:1px solid var(--border);color:var(--text);
     padding:8px 12px;border-radius:12px;font-weight:600
   }
+  .input-name{display:flex;flex-direction:column;gap:4px;font-weight:600}
+  .input-name input{
+    padding:8px 12px;border-radius:12px;border:1px solid var(--border);
+    background:var(--panel);color:var(--text);
+    transition:border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .input-name input:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 2px var(--accent);
+    outline:none;
+    transform:scale(1.02);
+  }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .toolbar details.menu>summary{
     
@@ -206,7 +218,10 @@ padding:8px 12px;border-radius:12px;font-weight:600
     <h1>Simulador de Avance</h1>
     <div class="toolbar">
       <select id="plan"></select>
-      <input id="studentName" placeholder="Tu nombre">
+      <label class="input-name">
+        <span>Tu nombre</span>
+        <input id="studentName" type="text">
+      </label>
       <input id="search" type="search" placeholder="Buscar materia..." />
       <details id="menu" class="menu">
         <summary>Opciones</summary>
