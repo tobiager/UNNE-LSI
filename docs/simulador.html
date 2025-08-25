@@ -33,8 +33,7 @@
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
-  main{padding:10px 0 24px; /* espacio base */}
-  /* Aseguramos espacio para barra fija y footer */
+  main{padding:10px 0 24px}
   main, body{padding-bottom:calc(var(--status-h) + var(--footer-h) + 24px)}
 
   #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
@@ -43,7 +42,6 @@
   .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
   .cuat h3{margin:0 0 8px;color:#b6c6dc;font-size:1rem}
 
-  /* Card */
   .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,#101a2b,#0b1423);transition:transform .12s ease,box-shadow .12s ease;position:relative}
   .card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,0,0,.25)}
   .title{font-weight:800;margin:0 0 2px;font-size:1.02rem}
@@ -61,7 +59,6 @@
   .btn.reg{background:#5e4a16}
   .btn.ok{background:#0f3a20}
 
-  /* Estado badge (esquina) y borde por estado */
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
   .no     {border-color:#3b414c}
   .no .badge{background:#3b414c}
@@ -70,7 +67,6 @@
   .aprobada{border-color:#16a34a}
   .aprobada .badge{background:#16a34a}
 
-  /* ===== Barra de estado fija (sobre el footer) ===== */
   .statusbar{
     position:fixed; left:0; right:0; bottom:var(--footer-h);
     z-index:20; background:rgba(11,15,20,.75); backdrop-filter:saturate(130%) blur(8px);
@@ -90,7 +86,6 @@
   .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
   .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:800}
 
-  /* ===== Footer sticky ===== */
   footer{
     position:fixed; left:0; right:0; bottom:0; height:var(--footer-h);
     z-index:19;
@@ -112,6 +107,10 @@
   }
   .gh-link:hover{text-decoration:underline}
   .gh-link svg{width:18px;height:18px;fill:currentColor}
+
+  /* Oculta el icono en el enlace del repo */
+  .gh-link.no-icon .gh-icon{ display:none; }
+
   a{color:#9cc9ff;text-decoration:none}
   a:hover{text-decoration:underline}
 
@@ -150,7 +149,6 @@
   <div id="materias"></div>
 </main>
 
-<!-- ===== Barra de estado fija ===== -->
 <div class="statusbar">
   <div class="status-inner">
     <div class="pill green">Aprobadas: <span id="cAprob">0</span></div>
@@ -172,32 +170,24 @@
   </div>
 </div>
 
-<!-- ===== Footer sticky ===== -->
 <footer>
   <div class="footer-inner">
     <span>Hecho con pasión y dedicación por</span>
     <a class="gh-link" href="https://github.com/tobiager" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16" aria-hidden="true">
-        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-        2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
-        0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-
-        2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-
-        .68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 
-        1.21 1.87.87 2.33.66.07-.52.28-.87.51-
-        1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-
-        1.59.82-2.15-.08-.2-.36-1.02.08-2.12 
-        0 0 .67-.21 2.2.82.64-.18 1.32-.27 
-        2-.27s1.36.09 2 .27c1.53-1.04 2.2-
-        .82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
-        1.27.82 2.15 0 3.07-1.87 3.75-3.65 
-        3.95.29.25.54.73.54 1.48 0 1.07-.01 
-        1.93-.01 2.19 0 .21.15.46.55.38A8.013 
-        8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      <svg class="gh-icon" viewBox="0 0 16 16" aria-hidden="true">
+        <!-- Octicon mark completo -->
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+        0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+        -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+        0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82
+        .44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+        0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
       </svg>
       Tobías
     </a>
     <span>y</span>
-    <a class="gh-link" href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">
+    <a class="gh-link no-icon" href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">
       Repositorio de LSI
     </a>
   </div>
@@ -207,11 +197,7 @@
 const STORAGE_KEY='simulador-avance';
 let plans={}, currentPlan='', states={};
 
-// (Opcional) overrides de "Analista" por plan (si no es solo años 1–3)
-const ANALISTA_OVERRIDES = {
-  // "2009": ["slug1","slug2"],
-  // "2023": ["slug..."]
-};
+const ANALISTA_OVERRIDES = {};
 
 fetch('plans.json').then(r=>r.json()).then(data=>{
   plans=data;
@@ -254,7 +240,6 @@ function needs(list){
 function canCursar(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.cursar).every(x=>x.ok); }
 function canRendir(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.rendir).every(x=>x.ok); }
 
-// Etiquetas y orden (incluye anual y extracurricular)
 const CUAT_LABEL = { '1':'1° Cuatrimestre', '2':'2° Cuatrimestre', 'anual':'Anual', 'extra':'Extracurricular', 'otro':'Otros' };
 const CUAT_ORDER = ['1','2','anual','extra','otro'];
 function cuatKey(c){
@@ -270,7 +255,6 @@ function render(){
   const only=document.getElementById('onlyEnabled').checked;
   const box=document.getElementById('materias'); box.innerHTML='';
 
-  // agrupar por año + tipo de cuatrimestre
   const grouped={};
   (plans[currentPlan].materias||[]).forEach(m=>{
     if(q && !(m.nombre.toLowerCase().includes(q))) return;
@@ -355,13 +339,11 @@ function updateStats(){
   const counts={0:0,1:0,2:0};
   arr.forEach(m=>{counts[states[m.codigo]||0]++;});
 
-  // Píldoras
   document.getElementById('cAprob').textContent = counts[2];
   document.getElementById('cReg').textContent   = counts[1];
   document.getElementById('cNo').textContent    = counts[0];
   document.getElementById('cTot').textContent   = arr.length;
 
-  // Analista = años 1–3 (o override)
   const anaSet = (ANALISTA_OVERRIDES[currentPlan]||[]).length
     ? new Set(ANALISTA_OVERRIDES[currentPlan])
     : new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
@@ -372,7 +354,6 @@ function updateStats(){
   document.getElementById('mAnalista').style.width = anaPct + '%';
   document.getElementById('pAna').textContent      = anaPct + '%';
 
-  // Licenciado total
   const licTotal = arr.length;
   const licAprob = counts[2];
   const licPct   = licTotal ? Math.round(100*licAprob/licTotal) : 0;
@@ -381,7 +362,6 @@ function updateStats(){
   document.getElementById('pLic').textContent = licPct + '%';
 }
 
-/* ===== Badges + Link de estado ===== */
 const BADGE_STYLE = 'for-the-badge';
 
 function computeLicPct(){
@@ -445,7 +425,6 @@ document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
 document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
 document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeMarkdown());
 
-/* acciones básicas */
 document.getElementById('save').onclick=()=>{
   saveStates(); const btn=document.getElementById('save'); const t=btn.textContent;
   btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900);
@@ -468,4 +447,3 @@ document.getElementById('fileInput').addEventListener('change',e=>{
 </script>
 </body>
 </html>
-
