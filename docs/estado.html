@@ -45,6 +45,8 @@
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.75rem}
   .no{border-color:#3b414c}
   .no .badge{background:#3b414c;color:#e5e7eb}
+  .cur{border-color:#1e3a5f}
+  .cur .badge{background:#1e3a5f;color:#bfdbfe}
   .reg{border-color:#b59f3b}
   .reg .badge{background:#f59e0b;color:#1c1504}
   .ok{border-color:#16a34a}
@@ -110,6 +112,7 @@ document.body.classList.add(savedTheme);
     }catch{ return null; }
   }
   const share=decodeHash();
+  function getStatus(code){ return share?.states?.[code] ?? 0; }
   if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
   const plans = await (await fetch('plans.json')).json();
   const plan = plans[share.plan];
@@ -129,7 +132,8 @@ document.body.classList.add(savedTheme);
 
   // stats
   const arr=plan.materias||[];
-  const counts={0:0,1:0,2:0};
+  const counts={0:0,1:0,2:0,3:0};
+
   arr.forEach(m=>counts[getStatus(m.codigo)]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
 
@@ -145,18 +149,10 @@ document.body.classList.add(savedTheme);
   const head=document.getElementById('head');
   head.innerHTML = `
     <div><strong>Plan:</strong> ${plan.nombre}</div>
-    <div style="margin:6px 0">Aprobadas: ${counts[2]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
-    <div class="meter"><span class="m-green" style="width:${pct}%"></span></div>
-    <div class="bar" title="Avance Analista (años 1–3)">
-      <span style="white-space:nowrap;color:#9fb0c2">Analista</span>
-      <div class="meter"><span id="mAnalista" class="m-blue"></span></div>
-      <span id="pAna" class="pct">0%</span>
-    </div>
-    <div class="bar" title="Avance Licenciado/a (total)">
-      <span style="white-space:nowrap;color:#9fb0c2">Licenciado/a</span>
-      <div class="meter"><span id="mLic" class="m-green"></span></div>
-      <span id="pLic" class="pct">0%</span>
-    </div>
+
+    <div style="margin:6px 0">Aprobadas: ${counts[2]} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
+    <div class="meter"><span style="width:${pct}%"></span></div>
+
   `;
 
   document.getElementById('mAnalista').style.width = anaPct + '%';
@@ -168,7 +164,9 @@ document.body.classList.add(savedTheme);
   const byYear={};
   arr.forEach(m=>{
     const s=getStatus(m.codigo);
+
     const note=getNote(m.codigo);
+
     const year=byYear[m.anio] ||= {1:[],2:[]};
     const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
     year[cuat].push({...m, s, note});
@@ -176,9 +174,10 @@ document.body.classList.add(savedTheme);
 
   function renderCards(list){
     return list.map(m=>{
-      const cls=m.s===2?'ok':(m.s===1?'reg':'no');
+      const cls = m.s===3 ? 'cur' : (m.s===2 ? 'ok' : (m.s===1 ? 'reg' : 'no'));
+      const label = m.s===3 ? 'En curso' : (m.s===2 ? 'Aprobada' : (m.s===1 ? 'Regular' : 'No'));
       return `<div class="card ${cls}">
-        <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
+        <div class="ttl">${m.nombre} <span class="badge">${label}</span></div>
         <div>${m.regimen} · ${m.carga_horaria}h</div>
         ${m.note?`<div class="note">${escapeHtml(m.note)}</div>`:''}
       </div>`;

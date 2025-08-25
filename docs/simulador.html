@@ -94,6 +94,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer}
   .btn.active{outline:2px solid var(--accent)}
   .btn.off{background:#30343b}
+  .btn.cur{background:#1e3a5f}
   .btn.reg{background:#5e4a16}
   .btn.ok{background:#0f3a20}
   .note{margin-top:8px;width:100%}
@@ -101,6 +102,8 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
   .no     {border-color:#3b414c}
   .no .badge{background:#3b414c}
+  .curso  {border-color:#1e3a5f}
+  .curso .badge{background:#1e3a5f}
   .regular{border-color:#b59f3b}
   .regular .badge{background:#b59f3b}
   .aprobada{border-color:#16a34a}
@@ -131,6 +134,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .pill.yellow{border-color:#8b6a1b;background:#2a220d;color:#fde68a}
   .pill.gray{border-color:#3b414c;background:#161a22;color:#cbd5e1}
   .pill.dark{border-color:#2b3644;background:#0f1522;color:#cfe1ff}
+  .pill.blue{border-color:#1e3a5f;background:#10223b;color:#bfdbfe}
 
   .bar{flex:1;display:flex;align-items:center;gap:10px;min-width:280px}
   .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
@@ -218,6 +222,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
           <input type="file" id="fileInput" accept="application/json" style="display:none" />
           <div class="legend">
             <span class="pill gray">No cursada</span>
+            <span class="pill blue">En curso</span>
             <span class="pill yellow">Regular</span>
             <span class="pill green">Aprobada</span>
           </div>
@@ -236,6 +241,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
   <div class="status-inner">
     <div class="pill green">Aprobadas: <span id="cAprob">0</span></div>
     <div class="pill yellow">Regulares: <span id="cReg">0</span></div>
+    <div class="pill blue">En curso: <span id="cCur">0</span></div>
     <div class="pill gray">No cursadas: <span id="cNo">0</span></div>
     <div class="pill dark">Total: <span id="cTot">0</span></div>
 
@@ -373,6 +379,7 @@ function setState(code,val){
   if(val>cur){
     if(val===1 && !canCursar(code)) return;
     if(val===2 && !canRendir(code)) return;
+    if(val===3 && !canCursar(code)) return;
   }
   states[code]={s:val,n:getNote(code)}; saveStates(); render();
 }
@@ -431,11 +438,11 @@ function render(){
       arr.forEach(m=>{
         const s=getStatus(m.codigo);
         const reqC=needs(m.requisitos?.cursar), reqR=needs(m.requisitos?.rendir);
-        const cls=['no','regular','aprobada'][s];
+        const cls=['no','regular','aprobada','curso'][s];
         const card=document.createElement('div'); card.className=`card ${cls}`;
 
         card.innerHTML = `
-          <span class="badge">${['No','Regular','Aprobada'][s]}</span>
+          <span class="badge">${['No','Regular','Aprobada','En curso'][s]}</span>
           <h4 class="title">${m.nombre}</h4>
           <div class="sub">${m.regimen} • ${m.carga_horaria}h</div>
           <div class="meta">
@@ -457,23 +464,23 @@ function render(){
 
           <div class="state">
             <button class="btn off ${s===0?'active':''}">No</button>
+            <button class="btn cur ${s===3?'active':''}">Curso</button>
             <button class="btn reg ${s===1?'active':''}">Reg</button>
             <button class="btn ok ${s===2?'active':''}">Apro</button>
           </div>
           <input type="text" class="note" placeholder="Notas/fecha de examen">
         `;
 
-        const [b0,b1,b2]=card.querySelectorAll('.state .btn');
+        const [b0,b1,b2,b3]=card.querySelectorAll('.state .btn');
         b0.onclick=()=>setState(m.codigo,0);
-        b1.onclick=()=>setState(m.codigo,1);
-        b2.onclick=()=>setState(m.codigo,2);
+        b1.onclick=()=>setState(m.codigo,3);
+        b2.onclick=()=>setState(m.codigo,1);
+        b3.onclick=()=>setState(m.codigo,2);
 
-        const noteInput=card.querySelector('.note');
-        noteInput.value=getNote(m.codigo);
-        noteInput.addEventListener('input',e=>setNote(m.codigo,e.target.value));
 
-        if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; }
-        else if(!canRendir(m.codigo)){ b2.disabled=true; }
+        if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; b3.disabled=true; }
+        else if(!canRendir(m.codigo)){ b3.disabled=true; }
+
 
         col.appendChild(card);
       });
@@ -493,11 +500,14 @@ function prettyName(slug){
 
 function updateStats(){
   const arr=plans[currentPlan].materias||[];
-  const counts={0:0,1:0,2:0};
-  arr.forEach(m=>{counts[getStatus(m.codigo)]++;});
+
+  const counts={0:0,1:0,2:0,3:0};
+  arr.forEach(m=>{counts[states[m.codigo]||0]++;});
+
 
   document.getElementById('cAprob').textContent = counts[2];
   document.getElementById('cReg').textContent   = counts[1];
+  document.getElementById('cCur').textContent   = counts[3];
   document.getElementById('cNo').textContent    = counts[0];
   document.getElementById('cTot').textContent   = arr.length;
 
