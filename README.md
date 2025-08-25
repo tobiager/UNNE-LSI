@@ -59,6 +59,8 @@ Decidí armar este repositorio para dejar un registro de mi recorrido y que tamb
 
 Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guías, parciales resueltos y tips de cursada** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
 
+👉 [Simulador de avance](./docs/simulador.html)
+
 > [!NOTE]
 > “El que estudia con parciales viejos, aprueba dos veces” — proverbio LSI
 
