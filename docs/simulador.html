@@ -590,8 +590,8 @@ function colorByPct(p){
   if(p>=30) return 'f97316';
   return '64748b';
 }
-function makeYearBadgeMarkdown(){
-const year = highestYearWithProgress();
+function makeYearBadgeHtml(){
+  const year = highestYearWithProgress();
 
   const files={
     0:'1er-año.png',
@@ -601,22 +601,30 @@ const year = highestYearWithProgress();
     4:'4to-año.PNG',
     5:'5to-año.PNG'
   };
+  const labels={
+    0:'LSI — Ingresante',
+    1:'LSI — 1er Año',
+    2:'LSI — 2do Año',
+    3:'LSI — 3er Año',
+    4:'LSI — 4to Año',
+    5:'LSI — 5to Año'
+  };
   const file=files[year]||files[0];
-  const imgUrl=new URL('../assets/badges/'+file,location.href).href;
-  const alt=`LSI · ${year===0?'Ingresante':year+'º año'}`;
-  return `[![${alt}](${imgUrl})](${shareUrl()})`;
+  const alt=labels[year]||labels[0];
+  const imgUrl=`https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/badges/${file}`;
+  return `<p align="center">\n  <a href="${shareUrl()}">\n    <img src="${imgUrl}" alt="${alt}" width="200"/>\n  </a>\n</p>`;
 }
-function makePctBadgeMarkdown(){
+function makePctBadgeHtml(){
   const pct = computeLicPct();
   const label = encodeURIComponent('🎓 Avance LSI');
   const msg   = encodeURIComponent(`${pct}%`);
   const color = colorByPct(pct);
   const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
-  return `[![Avance LSI ${pct}%](${url})](${shareUrl()})`;
+  return `<p align="center">\n  <a href="${shareUrl()}">\n    <img src="${url}" alt="Avance LSI ${pct}%" width="200"/>\n  </a>\n</p>`;
 }
 document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
-document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
-document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeMarkdown());
+document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeHtml());
+document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeHtml());
 
 document.getElementById('save').onclick=()=>{
   saveStates(); const btn=document.getElementById('save'); const t=btn.textContent;
