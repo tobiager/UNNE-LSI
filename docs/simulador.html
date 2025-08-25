@@ -6,14 +6,17 @@
 <style>
 body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin:0;padding:1rem;}
 #controls{margin-bottom:1rem;}
-#materias{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.card{border:1px solid #444;border-radius:8px;padding:0.5rem;background:#333;flex:1 1 300px;cursor:pointer;}
+#materias{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));grid-auto-rows:auto;gap:0.5rem;overflow-x:auto;}
+.year{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:0.5rem;}
+.year h2{grid-column:1 / -1;}
+.cuatrimestre{display:flex;flex-direction:column;gap:0.5rem;}
+.card{border:1px solid #444;border-radius:8px;padding:0.5rem;background:#333;cursor:pointer;}
 .card.no{background:#444;}
 .card.regular{background:#b59f3b;}
 .card.aprobada{background:#2e7d32;}
 .card.disabled{opacity:0.4;cursor:not-allowed;}
 .badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
-@media(max-width:600px){.card{flex:1 1 100%;}}
+@media(max-width:600px){#materias{grid-template-columns:100%;}}
 </style>
 </head>
 <body>
@@ -68,15 +71,37 @@ function allowed(code){
 function render(){
   const container=document.getElementById('materias');
   container.innerHTML='';
+  const grouped={};
   plans[currentPlan].materias.forEach(m=>{
-    const card=document.createElement('div');
-    card.className='card';
-    const state=states[m.codigo]||0;
-    card.classList.add(['no','regular','aprobada'][state]);
-    if(!allowed(m.codigo))card.classList.add('disabled');
-    card.innerHTML=`<strong>${m.codigo} — ${m.nombre}</strong><div class="badges"><span>Año: ${m.anio}</span><span>Cuatr: ${m.cuatrimestre}</span><span>${m.regimen}</span><span>${m.carga_horaria}h</span></div>`+(m.correlativas.length?`<div>Correlativas: ${m.correlativas.join(', ')}</div>`:'');
-    if(allowed(m.codigo))card.addEventListener('click',()=>toggleState(m.codigo));
-    container.appendChild(card);
+    if(!grouped[m.anio])grouped[m.anio]={1:[],2:[]};
+    if(!grouped[m.anio][m.cuatrimestre])grouped[m.anio][m.cuatrimestre]=[];
+    grouped[m.anio][m.cuatrimestre].push(m);
+  });
+  Object.keys(grouped).sort((a,b)=>a-b).forEach(anio=>{
+    const yearRow=document.createElement('div');
+    yearRow.className='year';
+    const h2=document.createElement('h2');
+    h2.textContent=`${anio}° Año`;
+    yearRow.appendChild(h2);
+    [1,2].forEach(cuat=>{
+      const cuatDiv=document.createElement('div');
+      cuatDiv.className='cuatrimestre';
+      const h3=document.createElement('h3');
+      h3.textContent=`${cuat}° Cuatrimestre`;
+      cuatDiv.appendChild(h3);
+      (grouped[anio][cuat]||[]).forEach(m=>{
+        const card=document.createElement('div');
+        card.className='card';
+        const state=states[m.codigo]||0;
+        card.classList.add(['no','regular','aprobada'][state]);
+        if(!allowed(m.codigo))card.classList.add('disabled');
+        card.innerHTML=`<strong>${m.codigo} — ${m.nombre}</strong><div class="badges"><span>${m.regimen}</span><span>${m.carga_horaria}h</span></div>`+(m.correlativas.length?`<div>Correlativas: ${m.correlativas.join(', ')}</div>`:'');
+        if(allowed(m.codigo))card.addEventListener('click',()=>toggleState(m.codigo));
+        cuatDiv.appendChild(card);
+      });
+      yearRow.appendChild(cuatDiv);
+    });
+    container.appendChild(yearRow);
   });
   updateStats();
 }
