@@ -5,14 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Estado de carrera</title>
 <style>
-  :root{--bg:#0b0f14;--panel:#0f1625;--border:#1f2a36;--text:#e6edf3;--muted:#9fb0c2;--ok:#16a34a;--warn:#f59e0b;--off:#4b5563}
+  :root{
+    --bg-light:#f3f4f6;--bg-dark:#0b0f14;
+    --panel-light:#ffffff;--panel-dark:#0f1625;
+    --border-light:#d1d5db;--border-dark:#1f2a36;
+    --text-light:#1f2937;--text-dark:#e6edf3;
+    --muted-light:#6b7280;--muted-dark:#9fb0c2;
+    --ok:#16a34a;--warn:#f59e0b;--off:#4b5563;
+    /* valores por defecto (oscuro) */
+    --bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);
+    --text:var(--text-dark);--muted:var(--muted-dark);
+  }
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark)}
   *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
   .wrap{max-width:900px;margin:0 auto;padding:16px}
-  .panel{background:linear-gradient(180deg,#0f1625,#0b1423);border:1px solid var(--border);border-radius:14px;padding:16px}
-  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px}
+  .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden}
     .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
-    .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:#0e1524}
+    .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:var(--panel)}
     .ttl{font-weight:800;margin:0 0 6px}
     .badge{padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
     .no .badge{background:#3b414c}
@@ -29,6 +41,8 @@
   <div id="list" class="panel" style="margin-top:12px"></div>
 </div>
 <script>
+const savedTheme = localStorage.getItem('theme') || 'theme-dark';
+document.body.classList.add(savedTheme);
 (async function(){
   function decodeHash(){
     try{
