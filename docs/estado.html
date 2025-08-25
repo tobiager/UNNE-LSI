@@ -112,7 +112,6 @@ document.body.classList.add(savedTheme);
     }catch{ return null; }
   }
   const share=decodeHash();
-  function getStatus(code){ return share?.states?.[code] ?? 0; }
   if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
   const plans = await (await fetch('plans.json')).json();
   const plan = plans[share.plan];
