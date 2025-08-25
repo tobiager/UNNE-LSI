@@ -114,6 +114,26 @@
   a{color:#9cc9ff;text-decoration:none}
   a:hover{text-decoration:underline}
 
+  .toast{
+    position:fixed;left:50%;bottom:calc(var(--footer-h) + 16px);
+    transform:translateX(-50%) translateY(100%);
+    background:rgba(15,23,42,.95);
+    border:1px solid var(--border);color:var(--text);
+    padding:12px 20px;border-radius:12px;z-index:999;
+    opacity:0;transition:transform .3s ease,opacity .3s ease;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+  .confirm{
+    position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .3s;
+    z-index:1000;
+  }
+  .confirm.show{opacity:1;pointer-events:auto;}
+  .confirm-box{background:var(--panel);padding:20px;border-radius:12px;max-width:90%;color:var(--text);} 
+  .confirm-buttons{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;}
+  .confirm-buttons button{background:#0e1727;border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:8px;font-weight:600;}
+
   @media (max-width:900px){
     #materias{grid-template-columns:1fr}
     .year-grid{grid-template-columns:1fr}
@@ -193,11 +213,46 @@
   </div>
 </footer>
 
+<div id="toast" class="toast"></div>
+<div id="confirm" class="confirm">
+  <div class="confirm-box">
+    <p id="confirm-message"></p>
+    <div class="confirm-buttons">
+      <button id="confirm-accept">Aceptar</button>
+      <button id="confirm-cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={}, currentPlan='', states={};
 
 const ANALISTA_OVERRIDES = {};
+
+function showToast(msg,dur=2000){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer=setTimeout(()=>el.classList.remove('show'),dur);
+}
+
+function showConfirm(msg,onAccept){
+  const modal=document.getElementById('confirm');
+  document.getElementById('confirm-message').textContent=msg;
+  modal.classList.add('show');
+  const acc=document.getElementById('confirm-accept');
+  const canc=document.getElementById('confirm-cancel');
+  function cleanup(){
+    modal.classList.remove('show');
+    acc.removeEventListener('click',onA);
+    canc.removeEventListener('click',onC);
+  }
+  function onA(){ cleanup(); onAccept&&onAccept(); }
+  function onC(){ cleanup(); }
+  acc.addEventListener('click',onA);
+  canc.addEventListener('click',onC);
+}
 
 fetch('plans.json').then(r=>r.json()).then(data=>{
   plans=data;
@@ -391,11 +446,11 @@ function shareUrl(){
 }
 function copyToClipboard(text){
   if (navigator.clipboard?.writeText) {
-    navigator.clipboard.writeText(text).then(()=>alert('Copiado ✅'));
+    navigator.clipboard.writeText(text).then(()=>showToast('Copiado ✅'));
   } else {
     const ta=document.createElement('textarea'); ta.value=text;
     document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-    document.body.removeChild(ta); alert('Copiado ✅');
+    document.body.removeChild(ta); showToast('Copiado ✅');
   }
 }
 function colorByPct(p){
@@ -430,7 +485,7 @@ document.getElementById('save').onclick=()=>{
   btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900);
 };
 document.getElementById('reset').onclick=()=>{
-  if(confirm('¿Reiniciar estados del plan actual?')){ states={}; saveStates(); render(); }
+  showConfirm('¿Reiniciar estados del plan actual?', ()=>{ states={}; saveStates(); render(); });
 };
 document.getElementById('export').onclick=()=>{
   const data=localStorage.getItem(STORAGE_KEY)||'{}';
@@ -441,7 +496,7 @@ document.getElementById('import').onclick=()=>document.getElementById('fileInput
 document.getElementById('fileInput').addEventListener('change',e=>{
   const file=e.target.files[0]; if(!file) return;
   const reader=new FileReader();
-  reader.onload=ev=>{ try{ localStorage.setItem(STORAGE_KEY,ev.target.result); loadStates(); render(); }catch{ alert('JSON inválido'); } };
+  reader.onload=ev=>{ try{ localStorage.setItem(STORAGE_KEY,ev.target.result); loadStates(); render(); }catch{ showToast('JSON inválido'); } };
   reader.readAsText(file);
 });
 </script>
