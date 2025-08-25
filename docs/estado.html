@@ -32,6 +32,7 @@
   }
   .wrap{max-width:900px;margin:0 auto;padding:16px}
   h1{margin:0 0 16px;font-size:1.8rem}
+  .owner{font-family:Georgia,serif;color:#3b82f6}
   .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px}
   .bar{display:flex;align-items:center;gap:10px;min-width:280px}
   .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
@@ -81,7 +82,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>Estado de carrera</h1>
+  <h1>Estado de carrera <span id="owner" class="owner"></span></h1>
   <div id="head" class="panel"></div>
   <div id="list" class="panel"></div>
 </div>
@@ -113,6 +114,7 @@ document.body.classList.add(savedTheme);
   }
   const share=decodeHash();
   if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
+  document.getElementById('owner').textContent = share.name || '';
   const plans = await (await fetch('plans.json')).json();
   const plan = plans[share.plan];
   if(!plan){ document.getElementById('head').textContent='Plan no encontrado.'; return; }
