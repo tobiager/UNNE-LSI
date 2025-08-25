@@ -6,40 +6,86 @@
 <title>Estado de carrera</title>
 <style>
   :root{
-    --bg-light:#f3f4f6;--bg-dark:#0b0f14;
-    --panel-light:#ffffff;--panel-dark:#0f1625;
-    --border-light:#d1d5db;--border-dark:#1f2a36;
-    --text-light:#1f2937;--text-dark:#e6edf3;
-    --muted-light:#6b7280;--muted-dark:#9fb0c2;
-    --ok:#16a34a;--warn:#f59e0b;--off:#4b5563;
-    /* valores por defecto (oscuro) */
-    --bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);
-    --text:var(--text-dark);--muted:var(--muted-dark);
+    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
+    --panel-light:#ffffff; --panel-dark:#0f1625;
+    --border-light:#d1d5db; --border-dark:#1f2a36;
+    --text-light:#1f2937; --text-dark:#e6edf3;
+    --muted-light:#6b7280; --muted-dark:#9fb0c2;
+    --card-light:#ffffff; --card-dark:#0f1726;
+    --card2-light:#f9fafb; --card2-dark:#0b1423;
+    --grad1-light:#ffffff; --grad1-dark:#10233a;
+    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
+    --footer-h:56px;
   }
-  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light)}
-  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark)}
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--card:var(--card-light);--card2:var(--card2-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--card:var(--card-dark);--card2:var(--card2-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto;
+    padding-bottom:calc(var(--footer-h) + 24px);
+  }
   .wrap{max-width:900px;margin:0 auto;padding:16px}
-  .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px}
+  h1{margin:0 0 16px;font-size:1.8rem}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px}
   .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden}
-    .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
-    .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:var(--panel)}
-    .ttl{font-weight:800;margin:0 0 6px}
-    .badge{padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
-    .no .badge{background:#3b414c}
-    .reg .badge{background:#f59e0b;color:#1c1504}
-    .ok .badge{background:#16a34a;color:#04140a}
-    .col{display:flex;flex-direction:column;gap:12px}
-    .col-title{font-weight:700;margin-bottom:8px;color:var(--muted)}
-    </style>
+  .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
+  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,var(--card),var(--card2));position:relative}
+  .ttl{font-weight:800;margin:0 0 6px}
+  .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.75rem}
+  .no{border-color:#3b414c}
+  .no .badge{background:#3b414c;color:#e5e7eb}
+  .reg{border-color:#b59f3b}
+  .reg .badge{background:#f59e0b;color:#1c1504}
+  .ok{border-color:#16a34a}
+  .ok .badge{background:#16a34a;color:#04140a}
+  .col{display:flex;flex-direction:column;gap:12px}
+  .col-title{font-weight:700;margin-bottom:8px;color:var(--muted)}
+  h3{margin:0 0 8px;font-size:1.1rem;color:#cfe1ff}
+  footer{
+    position:fixed;left:0;right:0;bottom:0;height:var(--footer-h);
+    background:linear-gradient(180deg,rgba(15,23,42,.95),rgba(11,15,20,.95));
+    backdrop-filter:saturate(140%) blur(8px);
+    border-top:1px solid var(--border);
+    box-shadow:0 -2px 6px rgba(0,0,0,.4);
+    color:var(--muted);
+  }
+  .footer-inner{
+    max-width:1180px;margin:0 auto;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    gap:8px;flex-wrap:wrap;
+    padding:0 24px;font-size:.9rem;text-align:center;
+  }
+  .gh-link{
+    display:inline-flex;align-items:center;gap:6px;
+    color:#3b82f6;font-weight:600;text-decoration:none;
+  }
+  .gh-icon{width:16px;height:16px;fill:currentColor}
+</style>
 </head>
 <body>
 <div class="wrap">
   <h1>Estado de carrera</h1>
   <div id="head" class="panel"></div>
-  <div id="list" class="panel" style="margin-top:12px"></div>
+  <div id="list" class="panel"></div>
 </div>
+<footer>
+  <div class="footer-inner">
+    <span>Compartido desde</span>
+    <a class="gh-link" href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">
+      <svg class="gh-icon" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      Repositorio de LSI
+    </a>
+  </div>
+</footer>
 <script>
 const savedTheme = localStorage.getItem('theme') || 'theme-dark';
 document.body.classList.add(savedTheme);
@@ -71,40 +117,40 @@ document.body.classList.add(savedTheme);
   `;
 
   // listado compacto
-    const byYear={};
-    arr.forEach(m=>{
-      const s=share.states?.[m.codigo]||0;
-      const year=byYear[m.anio] ||= {1:[],2:[]};
-      const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
-      year[cuat].push({...m, s});
-    });
+  const byYear={};
+  arr.forEach(m=>{
+    const s=share.states?.[m.codigo]||0;
+    const year=byYear[m.anio] ||= {1:[],2:[]};
+    const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
+    year[cuat].push({...m, s});
+  });
 
-    function renderCards(list){
-      return list.map(m=>{
-        const cls=m.s===2?'ok':(m.s===1?'reg':'no');
-        return `<div class="card ${cls}">
-          <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
-          <div>${m.regimen} · ${m.carga_horaria}h</div>
-        </div>`;
-      }).join('');
-    }
-
-    const list=document.getElementById('list');
-    list.innerHTML = Object.keys(byYear).sort((a,b)=>a-b).map(y=>{
-      const year=byYear[y];
-      return `<h3>${y}° Año</h3>
-      <div class="grid">
-        <div class="col">
-          <div class="col-title">1° Cuatrimestre</div>
-          ${renderCards(year[1])}
-        </div>
-        <div class="col">
-          <div class="col-title">2° Cuatrimestre</div>
-          ${renderCards(year[2])}
-        </div>
+  function renderCards(list){
+    return list.map(m=>{
+      const cls=m.s===2?'ok':(m.s===1?'reg':'no');
+      return `<div class="card ${cls}">
+        <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
+        <div>${m.regimen} · ${m.carga_horaria}h</div>
       </div>`;
     }).join('');
-  })();
-  </script>
-  </body>
-  </html>
+  }
+
+  const list=document.getElementById('list');
+  list.innerHTML = Object.keys(byYear).sort((a,b)=>a-b).map(y=>{
+    const year=byYear[y];
+    return `<h3>${y}° Año</h3>
+    <div class="grid">
+      <div class="col">
+        <div class="col-title">1° Cuatrimestre</div>
+        ${renderCards(year[1])}
+      </div>
+      <div class="col">
+        <div class="col-title">2° Cuatrimestre</div>
+        ${renderCards(year[2])}
+      </div>
+    </div>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>
