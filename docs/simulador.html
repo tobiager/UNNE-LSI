@@ -14,6 +14,9 @@ body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin
 .card.disabled{opacity:0.4;cursor:not-allowed;}
 .badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
 @media(max-width:600px){.card{flex:1 1 100%;}}
+footer{background:#121212;color:#eee;text-align:center;padding:1rem;margin-top:1rem;}
+footer a{color:#b59f3b;text-decoration:none;}
+@media(min-width:600px){footer{position:fixed;bottom:0;left:0;width:100%;}}
 </style>
 </head>
 <body>
@@ -28,6 +31,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin
 </div>
 <div id="stats"></div>
 <div id="materias"></div>
+<footer>Hecho por <a href="https://github.com/openai" target="_blank">ChatGPT</a></footer>
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={},currentPlan='2023',states={};
