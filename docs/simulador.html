@@ -206,6 +206,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
     <h1>Simulador de Avance</h1>
     <div class="toolbar">
       <select id="plan"></select>
+      <input id="studentName" placeholder="Tu nombre">
       <input id="search" type="search" placeholder="Buscar materia..." />
       <details id="menu" class="menu">
         <summary>Opciones</summary>
@@ -312,7 +313,8 @@ window.addEventListener('resize', responsiveMenu);
 const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);
 const STORAGE_KEY='simulador-avance';
-let plans={}, currentPlan='', states={};
+const NAME_KEY='simulador-nombre';
+let plans={}, currentPlan='', states={}, studentName='';
 
 const ANALISTA_OVERRIDES = {};
 
@@ -350,6 +352,7 @@ fetch('plans.json').then(r=>r.json()).then(data=>{
   sel.addEventListener('change',()=>{ currentPlan=sel.value; loadStates(); render(); });
   document.getElementById('search').addEventListener('input',render);
   document.getElementById('onlyEnabled').addEventListener('change',render);
+  document.getElementById('studentName').addEventListener('input',e=>{ studentName=e.target.value; saveStates(); });
   loadStates(); render();
 });
 
@@ -361,10 +364,13 @@ function loadStates(){
     if(typeof v==='object') states[c]=v;
     else states[c]={s:v,n:''};
   });
+  studentName=localStorage.getItem(NAME_KEY)||'';
+  document.getElementById('studentName').value=studentName;
 }
 function saveStates(){
   const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
   all[currentPlan]=states; localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
+  localStorage.setItem(NAME_KEY,studentName);
 }
 function getStatus(code){
   const v=states[code];
@@ -560,7 +566,7 @@ function highestYearWithProgress(){
   return max;
 }
 function currentShareHash(){
-  const payload={ plan: currentPlan, states };
+  const payload={ plan: currentPlan, states, name: studentName };
   const json=JSON.stringify(payload);
   return btoa(unescape(encodeURIComponent(json)));
 }
