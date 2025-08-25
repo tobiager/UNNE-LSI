@@ -37,7 +37,9 @@
   header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.7);
     backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  h1{margin:0 0 8px;font-size:1.7rem;letter-spacing:.2px}
+  h1{margin:0 0 8px;font-size:1.8rem;letter-spacing:.2px;font-weight:800;text-shadow:0 2px 4px rgba(0,0,0,.4)}
+  .brand-lsi{display:inline-block;background:linear-gradient(45deg,#4cc9f0,#4361ee,#f72585);background-size:200% 200%;color:transparent;-webkit-background-clip:text;animation:brandShift 4s linear infinite}
+  @keyframes brandShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
   select,button,input[type="search"],input[type="text"]{
     background:var(--panel);border:1px solid var(--border);color:var(--text);
@@ -203,7 +205,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
 <body>
 <header>
   <div class="wrap">
-    <h1>Simulador de Avance</h1>
+    <h1>Simulador de Avance <span class="brand-lsi">LSI</span></h1>
     <div class="toolbar">
       <select id="plan"></select>
       <input id="studentName" placeholder="Tu nombre">
