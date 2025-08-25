@@ -24,6 +24,10 @@ select,button,input[type="search"]{
 }
 .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
 .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
+#fileInput{display:none}
+.dot.no{background:#3b414c}
+.dot.regular{background:#b59f3b}
+.dot.aprobada{background:#16a34a}
 
 main{padding:10px 0 24px}
 main, body{padding-bottom:calc(var(--status-h) + var(--footer-h) + 24px)}
