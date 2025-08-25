@@ -7,46 +7,58 @@
 <style>
   :root{
     --bg:#0b0f14; --panel:#0f1625; --border:#1f2a36; --text:#e6edf3; --muted:#9fb0c2;
-    --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa; --danger:#f87171;
+    --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa;
     --card:#0f1726; --card2:#0b1423;
   }
   *{box-sizing:border-box}
-  body{margin:0;color:var(--text);background:radial-gradient(1000px 400px at -10% -10%,#10233a 0,transparent 60%),radial-gradient(800px 500px at 110% -10%,#1b2a43 0,transparent 50%),var(--bg);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}
+  body{margin:0;color:var(--text);background:radial-gradient(900px 360px at -10% -10%,#10233a 0,transparent 60%),radial-gradient(700px 480px at 110% -10%,#1b2a43 0,transparent 50%),var(--bg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}
   header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.7);backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  h1{margin:0 0 8px;font-size:1.6rem}
+  h1{margin:0 0 8px;font-size:1.7rem;letter-spacing:.2px}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  select,button,input[type="search"]{background:linear-gradient(180deg,var(--panel),#0c131f);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:12px;font-weight:600}
+  select,button,input[type="search"]{background:#0e1727;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:12px;font-weight:600}
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
-  #stats{margin-top:6px;color:var(--muted)}
-  #progress{margin-top:8px;height:8px;border-radius:999px;background:#111a29;overflow:hidden;border:1px solid var(--border)}
-  #progress>span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);width:0%}
-  main{padding-bottom:24px}
+  .stats{display:grid;gap:10px;margin-top:8px}
+  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
+  .meter>span{display:block;height:100%;width:0%}
+  .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
+  main{padding:10px 0 24px}
 
   #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
   .year{grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:14px;background:linear-gradient(180deg,var(--card),var(--card2))}
-  .year>h2{margin:0 0 10px;font-size:1.2rem;color:#cfe1ff}
+  .year>h2{margin:4px 0 12px;font-size:1.15rem;color:#cfe1ff}
   .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
   .cuat h3{margin:0 0 8px;color:#b6c6dc;font-size:1rem}
 
-  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,#101a2b,#0b1423);transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
+  /* Card */
+  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,#101a2b,#0b1423);transition:transform .12s ease,box-shadow .12s ease;position:relative}
   .card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,0,0,.25)}
-  .title{font-weight:800;margin-bottom:2px}
-  .secondary{color:#c8d7ea;margin-bottom:6px}
+  .title{font-weight:800;margin:0 0 2px;font-size:1.02rem}
+  .sub{color:#c8d7ea;margin:0 0 6px;font-size:.85rem}
   .meta,.reqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .chip{background:#0b1423;border:1px solid #223147;color:#b8c5d8;padding:2px 8px;border-radius:999px;font-size:.75rem}
-  .req{padding:2px 8px;border-radius:999px;font-size:.75rem;border:1px solid #294151}
+  .chip{background:#0b1423;border:1px solid #223147;color:#b8c5d8;padding:2px 8px;border-radius:999px;font-size:.73rem}
+  .req{padding:2px 8px;border-radius:999px;font-size:.73rem;border:1px solid #294151}
   .req.ok{background:#0f2717;border-color:#1e6a39;color:#a7f3d0}
   .req.miss{background:#2a0f12;border-color:#7f1d1d;color:#fecaca}
   .req.unknown{background:#2a1f0f;border-color:#7c2d12;color:#fde68a}
-  .state{display:inline-flex;gap:6px;margin-top:8px}
+  .state{display:inline-flex;gap:6px;margin-top:10px}
   .btn{border:1px solid var(--border);background:#0e1524;color:#dbe6f4;padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer}
   .btn.active{outline:2px solid var(--accent)}
-  .btn.off{background:#161c27}
-  .btn.reg{background:#2b2413;border-color:#6b5714}
-  .btn.ok{background:#0e2415;border-color:#1b6a35}
-  .disabled{opacity:.5;filter:grayscale(.05)}
+  .btn.off{background:#30343b}
+  .btn.reg{background:#5e4a16}
+  .btn.ok{background:#0f3a20}
+
+  /* Estado badge (esquina) y borde por estado */
+  .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
+  .no     {border-color:#3b414c}
+  .no .badge{background:#3b414c}
+  .regular{border-color:#b59f3b}
+  .regular .badge{background:#b59f3b}
+  .aprobada{border-color:#16a34a}
+  .aprobada .badge{background:#16a34a}
+
   @media (max-width:900px){#materias{grid-template-columns:1fr}.year-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -64,13 +76,19 @@
       <button id="import">Importar JSON</button>
       <input type="file" id="fileInput" accept="application/json" style="display:none" />
       <div class="legend">
-        <span><span class="dot" style="background:var(--off)"></span>No cursada</span>
-        <span><span class="dot" style="background:var(--warn)"></span>Regular</span>
-        <span><span class="dot" style="background:var(--ok)"></span>Aprobada</span>
+        <span><span class="dot" style="background:#3b414c"></span>No cursada</span>
+        <span><span class="dot" style="background:#b59f3b"></span>Regular</span>
+        <span><span class="dot" style="background:#16a34a"></span>Aprobada</span>
       </div>
     </div>
-    <div id="stats"></div>
-    <div id="progress"><span></span></div>
+
+    <div class="stats">
+      <div id="stats"></div>
+      <div>Progreso Analista</div>
+      <div class="meter"><span id="mAnalista" class="m-blue"></span></div>
+      <div>Progreso Licenciado</div>
+      <div class="meter"><span id="mLic" class="m-green"></span></div>
+    </div>
   </div>
 </header>
 
@@ -81,6 +99,12 @@
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={}, currentPlan='', states={};
+
+// Si Analista NO es simplemente "hasta 3er año", listá acá las materias (por slug) por plan:
+const ANALISTA_OVERRIDES = {
+  // "2009": ["algoritmos-estructuras-i", "..."],
+  // "2023": ["..."]
+};
 
 fetch('plans.json').then(r=>r.json()).then(data=>{
   plans=data;
@@ -101,19 +125,18 @@ function loadStates(){
 }
 function saveStates(){
   const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-  all[currentPlan]=states;
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
+  all[currentPlan]=states; localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
 }
 function setState(code,val){
   const cur=states[code]||0;
-  // para subir (0->1->2) tiene que cumplir requisitos de cursada (0->1) y rendir (1->2)
   if(val>cur){
     if(val===1 && !canCursar(code)) return;
     if(val===2 && !canRendir(code)) return;
   }
   states[code]=val; saveStates(); render();
 }
-function needs(list){ // list: [["slug",1|2], ...]
+function getMateria(code){ return (plans[currentPlan].materias||[]).find(x=>x.codigo===code); }
+function needs(list){
   return (list||[]).map(([slug,need])=>{
     const exists = !!getMateria(slug);
     const st = states[slug]||0;
@@ -121,17 +144,8 @@ function needs(list){ // list: [["slug",1|2], ...]
     return {slug,need,exists,ok};
   });
 }
-function canCursar(code){
-  const m=getMateria(code); if(!m) return false;
-  return needs(m.requisitos?.cursar).every(x=>x.ok);
-}
-function canRendir(code){
-  const m=getMateria(code); if(!m) return false;
-  return needs(m.requisitos?.rendir).every(x=>x.ok);
-}
-function getMateria(code){
-  return (plans[currentPlan].materias||[]).find(x=>x.codigo===code);
-}
+function canCursar(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.cursar).every(x=>x.ok); }
+function canRendir(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.rendir).every(x=>x.ok); }
 
 function render(){
   const q=(document.getElementById('search').value||'').toLowerCase();
@@ -139,7 +153,7 @@ function render(){
   const box=document.getElementById('materias'); box.innerHTML='';
   const grouped={};
   (plans[currentPlan].materias||[]).forEach(m=>{
-    if(q && !(m.nombre.toLowerCase().includes(q)||m.codigo.toLowerCase().includes(q))) return;
+    if(q && !(m.nombre.toLowerCase().includes(q))) return; // no mostramos slug
     if(only && !canCursar(m.codigo)) return;
     if(!grouped[m.anio]) grouped[m.anio]={1:[],2:[]};
     grouped[m.anio][m.cuatrimestre]=grouped[m.anio][m.cuatrimestre]||[];
@@ -150,6 +164,7 @@ function render(){
     const y=document.createElement('section'); y.className='year';
     y.innerHTML=`<h2>${anio}° Año</h2>`;
     const grid=document.createElement('div'); grid.className='year-grid';
+
     [1,2].forEach(cuat=>{
       const col=document.createElement('div'); col.className='cuat';
       const h3=document.createElement('h3'); h3.textContent=`${cuat}° Cuatrimestre`; col.appendChild(h3);
@@ -157,27 +172,27 @@ function render(){
       (grouped[anio][cuat]||[]).forEach(m=>{
         const s=states[m.codigo]||0;
         const reqC=needs(m.requisitos?.cursar), reqR=needs(m.requisitos?.rendir);
-        const card=document.createElement('div'); card.className='card';
+        const cls=['no','regular','aprobada'][s];
+        const card=document.createElement('div'); card.className=`card ${cls}`;
 
         card.innerHTML = `
-          <div class="title">${m.nombre}</div>
-          <div class="secondary">${m.codigo}</div>
+          <span class="badge">${['No','Regular','Aprobada'][s]}</span>
+          <h4 class="title">${m.nombre}</h4>
+          <div class="sub">${m.regimen} • ${m.carga_horaria}h</div>
           <div class="meta">
             <span class="chip">Año ${m.anio}</span>
             <span class="chip">Cuatr ${m.cuatrimestre}</span>
-            <span class="chip">${m.regimen}</span>
-            <span class="chip">${m.carga_horaria}h</span>
           </div>
 
-          ${reqC.length?`<div class="reqs"><strong>Cursar:</strong> ${
+          ${reqC.length?`<div class="reqs"><strong style="opacity:.8">Cursar:</strong> ${
             reqC.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
-              ${r.ok?'✅':'🔒'} ${r.slug}${r.need===2?' (aprobar)':' (regular)'}
+              ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
             </span>`).join('')}
           </div>`:''}
 
-          ${reqR.length?`<div class="reqs"><strong>Rendir:</strong> ${
+          ${reqR.length?`<div class="reqs"><strong style="opacity:.8">Rendir:</strong> ${
             reqR.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
-              ${r.ok?'✅':'🔒'} ${r.slug}${r.need===2?' (aprobar)':' (regular)'}
+              ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
             </span>`).join('')}
           </div>`:''}
 
@@ -193,33 +208,51 @@ function render(){
         b1.onclick=()=>setState(m.codigo,1);
         b2.onclick=()=>setState(m.codigo,2);
 
-        if(!canCursar(m.codigo)) { b1.disabled=true; b2.disabled=true; card.classList.add('disabled'); }
-        else if(!canRendir(m.codigo)) { b2.disabled=true; }
+        if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; }
+        else if(!canRendir(m.codigo)){ b2.disabled=true; }
 
         col.appendChild(card);
       });
 
       grid.appendChild(col);
     });
+
     y.appendChild(grid); box.appendChild(y);
   });
 
   updateStats();
 }
+
+function prettyName(slug){
+  const m=getMateria(slug); return m?m.nombre:slug;
+}
+
 function updateStats(){
   const arr=plans[currentPlan].materias||[];
   const counts={0:0,1:0,2:0};
   arr.forEach(m=>{counts[states[m.codigo]||0]++;});
   document.getElementById('stats').textContent=
     `Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${arr.length}`;
-  const pct=arr.length?Math.round(100*counts[2]/arr.length):0;
-  document.querySelector('#progress>span').style.width=pct+'%';
+
+  // Progreso Analista y Licenciado
+  const analistaSet = ANALISTA_OVERRIDES[currentPlan] && ANALISTA_OVERRIDES[currentPlan].length
+    ? new Set(ANALISTA_OVERRIDES[currentPlan])
+    : new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
+
+  const anaTotal = Array.from(analistaSet).length;
+  const anaAprob = Array.from(analistaSet).filter(c=> (states[c]||0)===2).length;
+
+  const licTotal = arr.length;
+  const licAprob = counts[2];
+
+  document.getElementById('mAnalista').style.width = (anaTotal? (100*anaAprob/anaTotal):0)+'%';
+  document.getElementById('mLic').style.width = (licTotal? (100*licAprob/licTotal):0)+'%';
 }
 
 // acciones
 document.getElementById('save').onclick=()=>{
   saveStates(); const btn=document.getElementById('save'); const t=btn.textContent;
-  btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,1000);
+  btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900);
 };
 document.getElementById('reset').onclick=()=>{
   if(confirm('¿Reiniciar estados del plan actual?')){ states={}; saveStates(); render(); }
@@ -239,4 +272,3 @@ document.getElementById('fileInput').addEventListener('change',e=>{
 </script>
 </body>
 </html>
-
