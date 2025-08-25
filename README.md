@@ -22,7 +22,7 @@
   <p>
     <img src="https://img.shields.io/badge/Organización-Por%20Materia-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
     <img src="https://img.shields.io/badge/Planes-2009%20%7C%202023-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
-    <img src="https://img.shields.io/badge/Estado-En%20Construcción-008CFF?style=for-the-badge&labelColor=0a0a0a"/>
+   
   </p>
 
   <!-- Métricas de GitHub -->
