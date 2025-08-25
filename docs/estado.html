@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estado de carrera</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#0f1625;--border:#1f2a36;--text:#e6edf3;--muted:#9fb0c2;--ok:#16a34a;--warn:#f59e0b;--off:#4b5563}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+  .wrap{max-width:900px;margin:0 auto;padding:16px}
+  .panel{background:linear-gradient(180deg,#0f1625,#0b1423);border:1px solid var(--border);border-radius:14px;padding:16px}
+  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
+  .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:12px;margin-top:12px}
+  .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:#0e1524}
+  .ttl{font-weight:800;margin:0 0 6px}
+  .badge{padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
+  .no .badge{background:#3b414c}
+  .reg .badge{background:#f59e0b;color:#1c1504}
+  .ok .badge{background:#16a34a;color:#04140a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Estado de carrera</h1>
+  <div id="head" class="panel"></div>
+  <div id="list" class="panel" style="margin-top:12px"></div>
+</div>
+<script>
+(async function(){
+  function decodeHash(){
+    try{
+      const h=location.hash.slice(1);
+      if(!h) return null;
+      return JSON.parse(decodeURIComponent(escape(atob(h))));
+    }catch{ return null; }
+  }
+  const share=decodeHash();
+  if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
+  const plans = await (await fetch('plans.json')).json();
+  const plan = plans[share.plan];
+  if(!plan){ document.getElementById('head').textContent='Plan no encontrado.'; return; }
+
+  // stats
+  const arr=plan.materias||[];
+  const counts={0:0,1:0,2:0};
+  arr.forEach(m=>counts[share.states?.[m.codigo]||0]++);
+  const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
+
+  const head=document.getElementById('head');
+  head.innerHTML = `
+    <div><strong>Plan:</strong> ${plan.nombre}</div>
+    <div style="margin:6px 0">Aprobadas: ${counts[2]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
+    <div class="meter"><span style="width:${pct}%"></span></div>
+  `;
+
+  // listado compacto
+  const byYear={};
+  arr.forEach(m=>{
+    const s=share.states?.[m.codigo]||0;
+    (byYear[m.anio] ||= []).push({...m, s});
+  });
+
+  const list=document.getElementById('list');
+  list.innerHTML = Object.keys(byYear).sort((a,b)=>a-b).map(y=>{
+    const cards = byYear[y].map(m=>{
+      const cls = m.s===2?'ok':(m.s===1?'reg':'no');
+      return `<div class="card ${cls}">
+        <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
+        <div>${m.regimen} · ${m.carga_horaria}h</div>
+      </div>`;
+    }).join('');
+    return `<h3>${y}° Año</h3><div class="grid">${cards}</div>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>
