@@ -44,6 +44,25 @@
     padding:8px 12px;border-radius:12px;font-weight:600
   }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
+  .toolbar details.menu>summary{
+    list-style:none;cursor:pointer;
+    background:var(--panel);border:1px solid var(--border);color:var(--text);
+    padding:8px 12px;border-radius:12px;font-weight:600
+  }
+  .toolbar details.menu>summary::-webkit-details-marker{display:none}
+  .toolbar details.menu>.menu-content{flex-wrap:wrap;gap:10px;margin-top:8px}
+  .toolbar details.menu[open]>.menu-content{display:flex}
+  .toolbar details.menu:not([open])>.menu-content{display:none}
+  .toolbar details.menu .legend{margin-left:0}
+  @media (min-width:700px){
+    .toolbar details.menu>summary{display:none}
+    .toolbar details.menu{display:flex;flex-wrap:wrap;gap:10px}
+    .toolbar details.menu>.menu-content{display:flex;margin-top:0}
+  }
+  @media (max-width:699px){
+    .toolbar select,.toolbar input[type="search"]{flex:1 1 100%}
+    .toolbar details.menu{width:100%}
+  }
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
   main{padding:10px 0 24px}
@@ -160,21 +179,26 @@
     <div class="toolbar">
       <select id="plan"></select>
       <input id="search" type="search" placeholder="Buscar materia..." />
-      <label><input type="checkbox" id="onlyEnabled"> Solo habilitadas</label>
-      <button id="save">Guardar</button>
-      <button id="reset">Reiniciar</button>
-      <button id="export">Exportar JSON</button>
-      <button id="import">Importar JSON</button>
-      <button id="share">Link de estado</button>
-      <button id="badgeYear">Copiar badge · Año</button>
-      <button id="badgePct">Copiar badge · %</button>
-      <button id="themeToggle">Tema</button>
-      <input type="file" id="fileInput" accept="application/json" style="display:none" />
-      <div class="legend">
-        <span><span class="dot" style="background:#3b414c"></span>No cursada</span>
-        <span><span class="dot" style="background:#b59f3b"></span>Regular</span>
-        <span><span class="dot" style="background:#16a34a"></span>Aprobada</span>
-      </div>
+      <details id="menu" class="menu">
+        <summary>Opciones</summary>
+        <div class="menu-content">
+          <label><input type="checkbox" id="onlyEnabled"> Solo habilitadas</label>
+          <button id="save">Guardar</button>
+          <button id="reset">Reiniciar</button>
+          <button id="export">Exportar JSON</button>
+          <button id="import">Importar JSON</button>
+          <button id="share">Link de estado</button>
+          <button id="badgeYear">Copiar badge · Año</button>
+          <button id="badgePct">Copiar badge · %</button>
+          <button id="themeToggle">Tema</button>
+          <input type="file" id="fileInput" accept="application/json" style="display:none" />
+          <div class="legend">
+            <span><span class="dot" style="background:#3b414c"></span>No cursada</span>
+            <span><span class="dot" style="background:#b59f3b"></span>Regular</span>
+            <span><span class="dot" style="background:#16a34a"></span>Aprobada</span>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </header>
