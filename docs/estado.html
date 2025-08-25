@@ -33,8 +33,12 @@
   .wrap{max-width:900px;margin:0 auto;padding:16px}
   h1{margin:0 0 16px;font-size:1.8rem}
   .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px}
-  .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden}
-  .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .bar{display:flex;align-items:center;gap:10px;min-width:280px}
+  .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
+  .meter>span{display:block;height:100%;width:0%}
+  .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
+  .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:800}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:12px}
   .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,var(--card),var(--card2));position:relative}
   .ttl{font-weight:800;margin:0 0 6px}
@@ -47,6 +51,7 @@
   .reg .badge{background:#f59e0b;color:#1c1504}
   .ok{border-color:#16a34a}
   .ok .badge{background:#16a34a;color:#04140a}
+  .note{margin-top:4px;color:var(--muted);font-size:.85rem;white-space:pre-wrap}
   .col{display:flex;flex-direction:column;gap:12px}
   .col-title{font-weight:700;margin-bottom:8px;color:var(--muted)}
   h3{margin:0 0 8px;font-size:1.1rem;color:#cfe1ff}
@@ -62,7 +67,10 @@
     max-width:1180px;margin:0 auto;height:100%;
     display:flex;align-items:center;justify-content:center;
     gap:8px;flex-wrap:wrap;
-    padding:0 24px;font-size:.9rem;text-align:center;
+    padding:0 24px;text-align:center;
+  }
+  @media (max-width:600px){
+    .footer-inner{font-size:0.75rem;}
   }
   .gh-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -110,26 +118,58 @@ document.body.classList.add(savedTheme);
   const plan = plans[share.plan];
   if(!plan){ document.getElementById('head').textContent='Plan no encontrado.'; return; }
 
+  function getStatus(code){
+    const v=share.states?.[code];
+    return typeof v==='object'? (v.s||0) : (v||0);
+  }
+  function getNote(code){
+    const v=share.states?.[code];
+    return typeof v==='object'? (v.n||'') : '';
+  }
+  function escapeHtml(str){
+    return str.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  }
+
   // stats
   const arr=plan.materias||[];
   const counts={0:0,1:0,2:0,3:0};
+
   arr.forEach(m=>counts[getStatus(m.codigo)]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
+
+  const anaSet = new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
+  const anaTotal = anaSet.size;
+  const anaAprob = Array.from(anaSet).filter(c=> (share.states?.[c]||0)===2).length;
+  const anaPct = anaTotal ? Math.round(100*anaAprob/anaTotal) : 0;
+
+  const licTotal = arr.length;
+  const licAprob = counts[2];
+  const licPct   = licTotal ? Math.round(100*licAprob/licTotal) : 0;
 
   const head=document.getElementById('head');
   head.innerHTML = `
     <div><strong>Plan:</strong> ${plan.nombre}</div>
+
     <div style="margin:6px 0">Aprobadas: ${counts[2]} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
     <div class="meter"><span style="width:${pct}%"></span></div>
+
   `;
+
+  document.getElementById('mAnalista').style.width = anaPct + '%';
+  document.getElementById('pAna').textContent      = anaPct + '%';
+  document.getElementById('mLic').style.width = licPct + '%';
+  document.getElementById('pLic').textContent = licPct + '%';
 
   // listado compacto
   const byYear={};
   arr.forEach(m=>{
     const s=getStatus(m.codigo);
+
+    const note=getNote(m.codigo);
+
     const year=byYear[m.anio] ||= {1:[],2:[]};
     const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
-    year[cuat].push({...m, s});
+    year[cuat].push({...m, s, note});
   });
 
   function renderCards(list){
@@ -139,6 +179,7 @@ document.body.classList.add(savedTheme);
       return `<div class="card ${cls}">
         <div class="ttl">${m.nombre} <span class="badge">${label}</span></div>
         <div>${m.regimen} · ${m.carga_horaria}h</div>
+        ${m.note?`<div class="note">${escapeHtml(m.note)}</div>`:''}
       </div>`;
     }).join('');
   }
