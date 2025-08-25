@@ -41,6 +41,8 @@
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-weight:700;font-size:.75rem}
   .no{border-color:#3b414c}
   .no .badge{background:#3b414c;color:#e5e7eb}
+  .cur{border-color:#1e3a5f}
+  .cur .badge{background:#1e3a5f;color:#bfdbfe}
   .reg{border-color:#b59f3b}
   .reg .badge{background:#f59e0b;color:#1c1504}
   .ok{border-color:#16a34a}
@@ -109,14 +111,14 @@ document.body.classList.add(savedTheme);
 
   // stats
   const arr=plan.materias||[];
-  const counts={0:0,1:0,2:0};
+  const counts={0:0,1:0,2:0,3:0};
   arr.forEach(m=>counts[share.states?.[m.codigo]||0]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
 
   const head=document.getElementById('head');
   head.innerHTML = `
     <div><strong>Plan:</strong> ${plan.nombre}</div>
-    <div style="margin:6px 0">Aprobadas: ${counts[2]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
+    <div style="margin:6px 0">Aprobadas: ${counts[2]} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
     <div class="meter"><span style="width:${pct}%"></span></div>
   `;
 
@@ -131,9 +133,10 @@ document.body.classList.add(savedTheme);
 
   function renderCards(list){
     return list.map(m=>{
-      const cls=m.s===2?'ok':(m.s===1?'reg':'no');
+      const cls = m.s===3 ? 'cur' : (m.s===2 ? 'ok' : (m.s===1 ? 'reg' : 'no'));
+      const label = m.s===3 ? 'En curso' : (m.s===2 ? 'Aprobada' : (m.s===1 ? 'Regular' : 'No'));
       return `<div class="card ${cls}">
-        <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
+        <div class="ttl">${m.nombre} <span class="badge">${label}</span></div>
         <div>${m.regimen} · ${m.carga_horaria}h</div>
       </div>`;
     }).join('');
