@@ -20,17 +20,6 @@
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
-  /* Progreso compacto */
-  .stats-compact{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px;align-items:center}
-  .pbar{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
-  .pbar .label{color:var(--muted);white-space:nowrap}
-  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
-  .meter.sm{height:8px}
-  .meter>span{display:block;height:100%;width:0%}
-  .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
-  .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
-  .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:700}
-
   main{padding:10px 0 24px}
   #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
   .year{grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:14px;background:linear-gradient(180deg,var(--card),var(--card2))}
@@ -65,6 +54,25 @@
   .aprobada{border-color:#16a34a}
   .aprobada .badge{background:#16a34a}
 
+  /* Progreso (abajo) */
+  .progress{grid-column:1 / -1;border-top:1px solid var(--border);margin-top:24px;padding-top:14px}
+  .stats-compact{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;align-items:center}
+  .pbar{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
+  .pbar .label{color:var(--muted);white-space:nowrap}
+  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
+  .meter.sm{height:8px}
+  .meter>span{display:block;height:100%;width:0%}
+  .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
+  .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
+  .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:700}
+  .small{color:var(--muted);margin-top:8px}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);background:rgba(11,15,20,.6);padding:16px 0;margin-top:18px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+  footer a{color:#80c0ff;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
   @media (max-width:900px){
     #materias{grid-template-columns:1fr}
     .year-grid{grid-template-columns:1fr}
@@ -94,8 +102,15 @@
         <span><span class="dot" style="background:#16a34a"></span>Aprobada</span>
       </div>
     </div>
+  </div>
+</header>
 
-    <!-- Progreso compacto -->
+<main class="wrap">
+  <div id="materias"></div>
+
+  <!-- PROGRESO ABAJO -->
+  <section class="progress" id="progress">
+    <div id="stats" class="small"></div>
     <div class="stats-compact">
       <div class="pbar">
         <span class="label">Analista Programador/a</span>
@@ -108,15 +123,18 @@
         <span id="pLic" class="pct">0%</span>
       </div>
     </div>
-
-    <div id="stats" style="margin-top:6px;color:#9fb0c2"></div>
-    <div id="anaInfo" style="margin-top:4px;color:#9fb0c2"></div>
-  </div>
-</header>
-
-<main class="wrap">
-  <div id="materias"></div>
+    <div id="anaInfo" class="small"></div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yearNow"></span> Simulador de Avance — Todos los derechos reservados.</div>
+    <div>Hecho por <a href="https://github.com/tobiager" target="_blank" rel="noopener">tobiager</a> ·
+      Código fuente: <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">tobiager/UNNE-LSI</a>
+    </div>
+  </div>
+</footer>
 
 <script>
 const STORAGE_KEY='simulador-avance';
@@ -140,6 +158,9 @@ fetch('plans.json').then(r=>r.json()).then(data=>{
   document.getElementById('onlyEnabled').addEventListener('change',render);
   loadStates(); render();
 });
+
+// año en footer
+document.getElementById('yearNow').textContent = new Date().getFullYear();
 
 function loadStates(){
   const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
