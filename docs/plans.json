@@ -67,8 +67,7 @@
       { "codigo": "comunicaciones-de-datos", "nombre": "Comunicaciones de Datos", "anio": 3, "cuatrimestre": 1, "regimen": "Cuatrimestral", "carga_horaria": 128, "requisitos": { "cursar": [["sistemas-operativos",1],["arquitectura-y-organizacion-de-computadoras",2]], "rendir": [["sistemas-operativos",2]] } },
       { "codigo": "ingenieria-de-software-i", "nombre": "Ingeniería de Software I", "anio": 3, "cuatrimestre": 1, "regimen": "Cuatrimestral", "carga_horaria": 128, "requisitos": { "cursar": [["administracion-y-gestion-de-organizaciones",1],["poo",1],["sistemas-y-organizaciones",2]], "rendir": [["administracion-y-gestion-de-organizaciones",2],["poo",2]] } },
 
-      { "codigo": "taller-de-programacion-i", "nombre": "Taller de Programación I", "anio": 3, "cuatrimestre": 1, "regimen": "Cuatrimestral", "carga_horaria": 128,
-        "requisitos": { "cursar": [["paradigmas-y-lenguajes",1],["poo",2]], "rendir": [["paradigmas-y-lenguajes",2],["poo",2]] } },
+      { "codigo": "taller-de-programacion-i", "nombre": "Taller de Programación I", "anio": 3, "cuatrimestre": 1, "regimen": "Cuatrimestral", "carga_horaria": 128, "requisitos": { "cursar": [["paradigmas-y-lenguajes",1],["poo",2]], "rendir": [["paradigmas-y-lenguajes",2],["poo",2]] } },
 
       { "codigo": "base-de-datos-i", "nombre": "Bases de Datos I", "anio": 3, "cuatrimestre": 2, "regimen": "Cuatrimestral", "carga_horaria": 128, "requisitos": { "cursar": [["arquitectura-y-organizacion-de-computadoras",1],["ingenieria-de-software-i",2]], "rendir": [["ingenieria-de-software-i",2]] } },
       { "codigo": "probabilidad-y-estadistica", "nombre": "Probabilidad y Estadística", "anio": 3, "cuatrimestre": 2, "regimen": "Cuatrimestral", "carga_horaria": 128, "requisitos": { "cursar": [["calculo-diferencial-e-integral",1]], "rendir": [["calculo-diferencial-e-integral",2]] } },
