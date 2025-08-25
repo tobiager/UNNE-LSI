@@ -1,0 +1,64 @@
+{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "EMPLEADO",
+        "x": 560,
+        "y": 180,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["N_Emp"],      "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 10 },
+          { "names": ["Legajo"],     "order": 0, "pkMember": false, "optional": false, "soloUnique": true,  "fk": false, "dataType": "varchar", "dataTypeSize": "10", "id": 11 },
+          { "names": ["nombre"],     "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 12 },
+          { "names": ["apellido"],   "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 13 },
+          { "names": ["Sueldo"],     "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 14 },
+          { "names": ["Descuentos"], "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 15 },
+          { "names": ["CUIL"],       "order": 0, "pkMember": false, "optional": false, "soloUnique": true,  "fk": false, "dataType": "varchar", "dataTypeSize": "20", "id": 16 },
+          { "names": ["idCargo"],    "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "varchar", "dataTypeSize": "5",  "references": [ { "tableId": 2, "attributeId": 21, "fkSubIndex": 0 } ], "id": 17 },
+          { "names": ["idDpto"],     "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "varchar", "dataTypeSize": "5",  "references": [ { "tableId": 3, "attributeId": 31, "fkSubIndex": 0 } ], "id": 18 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "CARGO",
+        "x": 260,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["idCargo"],     "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "5",  "id": 21 },
+          { "names": ["nombreCargo"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 22 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DEPARTAMENTO",
+        "x": 260,
+        "y": 260,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["idDpto"],     "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "5",  "id": 31 },
+          { "names": ["nombreDpto"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 32 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 17, "id": 1001 }, "source": 1, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 18, "id": 1002 }, "source": 1, "destination": 3 }
+  ],
+  "width": 1600,
+  "height": 900
+}

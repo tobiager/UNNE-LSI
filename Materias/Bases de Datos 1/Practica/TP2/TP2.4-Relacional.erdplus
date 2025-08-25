@@ -1,0 +1,110 @@
+{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "CONTENIDO",
+        "x": 560,
+        "y": 140,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Contenido"],   "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 101 },
+          { "names": ["titulo"],         "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 102 },
+          { "names": ["tipo"],           "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 103 },
+          { "names": ["anioLanzamiento"],"order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 104 },
+          { "names": ["duracion"],       "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 105 },
+          { "names": ["categoria"],      "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 106 },
+          { "names": ["idPais"],         "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",     "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 107 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "ACTOR",
+        "x": 240,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Actor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 201 },
+          { "names": ["nombre"],   "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 202 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DIRECTOR",
+        "x": 240,
+        "y": 260,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Director"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 301 },
+          { "names": ["nombre"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 302 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "PAIS",
+        "x": 900,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Pais"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 401 },
+          { "names": ["nombre"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 402 }
+        ],
+        "uniqueGroups": [],
+        "id": 4
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "REPARTO",
+        "x": 240,
+        "y": 400,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Contenido"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 501 },
+          { "names": ["ID_Actor"],     "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 502 }
+        ],
+        "uniqueGroups": [],
+        "id": 5
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DIRIGE",
+        "x": 560,
+        "y": 400,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Contenido"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 601 },
+          { "names": ["ID_Director"],  "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301, "fkSubIndex": 0 } ], "id": 602 }
+        ],
+        "uniqueGroups": [],
+        "id": 6
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 107, "id": 9001 }, "source": 1, "destination": 4 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 501, "id": 9002 }, "source": 5, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 502, "id": 9003 }, "source": 5, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 601, "id": 9004 }, "source": 6, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 602, "id": 9005 }, "source": 6, "destination": 3 }
+  ],
+  "width": 1600,
+  "height": 900
+}

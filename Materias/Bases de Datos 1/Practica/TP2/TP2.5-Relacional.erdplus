@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "CLIENTE",
+        "x": 220,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Cliente"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 101 },
+          { "names": ["nombre"],     "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 102 },
+          { "names": ["apellido"],   "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 103 },
+          { "names": ["cuil"],       "order": 0, "pkMember": false, "optional": true,  "soloUnique": true,  "fk": false, "dataType": "varchar", "dataTypeSize": "20", "id": 104 },
+          { "names": ["email"],      "order": 0, "pkMember": false, "optional": true,  "soloUnique": true,  "fk": false, "dataType": "varchar", "dataTypeSize": "120","id": 105 },
+          { "names": ["direccion"],  "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120","id": 106 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "VENDEDOR",
+        "x": 900,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Vendedor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 201 },
+          { "names": ["nombre"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 202 },
+          { "names": ["apellido"],    "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "60", "id": 203 },
+          { "names": ["idEncargado"], "order": 1, "pkMember": false, "optional": true,  "soloUnique": false, "fk": true,  "dataType": "int",     "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 204 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "PRODUCTO",
+        "x": 220,
+        "y": 360,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Producto"],   "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 301 },
+          { "names": ["descripcion"],   "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120","id": 302 },
+          { "names": ["precioUnitario"],"order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 303 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "FACTURA",
+        "x": 560,
+        "y": 220,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Factura"],  "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 401 },
+          { "names": ["fecha"],       "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date",    "dataTypeSize": "",   "id": 402 },
+          { "names": ["ID_Cliente"],  "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",     "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 403 },
+          { "names": ["ID_Vendedor"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",     "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 404 },
+          { "names": ["total"],       "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null, "id": 405 }
+        ],
+        "uniqueGroups": [],
+        "id": 4
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DETALLE_FACTURA",
+        "x": 560,
+        "y": 400,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Factura"],     "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 501 },
+          { "names": ["ID_Producto"],    "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301, "fkSubIndex": 0 } ], "id": 502 },
+          { "names": ["cantidad"],       "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 503 },
+          { "names": ["precioUnitario"], "order": 3, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 504 }
+        ],
+        "uniqueGroups": [],
+        "id": 5
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 204, "id": 9001 }, "source": 2, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 403, "id": 9002 }, "source": 4, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 404, "id": 9003 }, "source": 4, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 501, "id": 9004 }, "source": 5, "destination": 4 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 502, "id": 9005 }, "source": 5, "destination": 3 }
+  ],
+  "width": 1600,
+  "height": 900
+}

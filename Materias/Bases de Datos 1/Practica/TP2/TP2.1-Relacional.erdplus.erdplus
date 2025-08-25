@@ -1,0 +1,151 @@
+﻿{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "LIBRO",
+        "x": 560,
+        "y": 460,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["CU_ISBN"],          "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 101 },
+          { "names": ["titulo"],           "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 102 },
+          { "names": ["nombreEditorial"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 103 },
+          { "names": ["anioPublicacion"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 104 },
+          { "names": ["genero"],           "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 105 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "AUTOR",
+        "x": 900,
+        "y": 460,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IO_ORCID"],    "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 201 },
+          { "names": ["nombre"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 202 },
+          { "names": ["apellido"],    "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 203 },
+          { "names": ["nacionalidad"],"order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 204 },
+          { "names": ["sitioWeb"],    "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 205 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "EJEMPLAR",
+        "x": 560,
+        "y": 280,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["Id_Ejemplar"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 301 },
+          { "names": ["estado"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 302 },
+          { "names": ["CU_ISBN"],     "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 303 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "USUARIO",
+        "x": 220,
+        "y": 280,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["DNI"],               "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 401 },
+          { "names": ["nombre"],            "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 402 },
+          { "names": ["apellido"],          "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 403 },
+          { "names": ["fechaNacimiento"],   "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 404 },
+          { "names": ["correoElectronico"], "order": 0, "pkMember": false, "optional": false, "soloUnique": true,  "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 405 },
+          { "names": ["telefono"],          "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 406 }
+        ],
+        "uniqueGroups": [],
+        "id": 4
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "PRESTAMO",
+        "x": 220,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["id_prestamo"],             "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 501 },
+          { "names": ["fechaRetiro"],             "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 502 },
+          { "names": ["fechaPrevistaDevolucion"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 503 },
+          { "names": ["fechaDevolucionReal"],     "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 504 },
+          { "names": ["DNI"],                     "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 505 }
+        ],
+        "uniqueGroups": [],
+        "id": 5
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "LIBRO_AUTOR",
+        "x": 900,
+        "y": 620,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["CU_ISBN"],  "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 601 },
+          { "names": ["IO_ORCID"], "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 602 }
+        ],
+        "uniqueGroups": [],
+        "id": 6
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DETALLE_PRESTAMO",
+        "x": 380,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["id_prestamo"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 5, "attributeId": 501, "fkSubIndex": 0 } ], "id": 701 },
+          { "names": ["Id_Ejemplar"], "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301, "fkSubIndex": 0 } ], "id": 702 }
+        ],
+        "uniqueGroups": [],
+        "id": 7
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "LIBRO_colorTapa",
+        "x": 380,
+        "y": 620,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["colorTapa"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 801 },
+          { "names": ["CU_ISBN"],  "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 802 }
+        ],
+        "uniqueGroups": [],
+        "id": 8
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 303, "id": 9001 }, "source": 3, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 505, "id": 9002 }, "source": 5, "destination": 4 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 601, "id": 9003 }, "source": 6, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 602, "id": 9004 }, "source": 6, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 701, "id": 9005 }, "source": 7, "destination": 5 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 702, "id": 9006 }, "source": 7, "destination": 3 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 802, "id": 9007 }, "source": 8, "destination": 1 }
+  ],
+  "width": 1600,
+  "height": 900
+}

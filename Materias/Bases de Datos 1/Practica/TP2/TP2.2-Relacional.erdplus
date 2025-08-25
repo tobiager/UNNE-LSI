@@ -1,0 +1,163 @@
+﻿{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "SUSCRIPTOR",
+        "x": 220,
+        "y": 140,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscriptor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 101 },
+          { "names": ["nombre"],        "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 102 },
+          { "names": ["apellido"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 103 },
+          { "names": ["calle"],         "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 104 },
+          { "names": ["numero"],        "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 105 },
+          { "names": ["ciudad"],        "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 106 },
+          { "names": ["email"],         "order": 0, "pkMember": false, "optional": false, "soloUnique": true,  "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 107 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "PLAN_SUSCRIPCION",
+        "x": 780,
+        "y": 120,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Plan"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 201 },
+          { "names": ["nombre"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 202 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "CONTENIDO",
+        "x": 780,
+        "y": 360,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Contenido"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 301 },
+          { "names": ["nombre"],       "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 302 },
+          { "names": ["tipo"],         "order": 0, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 303 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "MEDIO_PAGO",
+        "x": 220,
+        "y": 360,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_MedioPago"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 401 },
+          { "names": ["descripcion"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 402 }
+        ],
+        "uniqueGroups": [],
+        "id": 4
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "TELEFONO",
+        "x": 480,
+        "y": 140,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscriptor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 501 },
+          { "names": ["telefono"],      "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 502 }
+        ],
+        "uniqueGroups": [],
+        "id": 5
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DISPOSITIVO",
+        "x": 480,
+        "y": 230,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscriptor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 601 },
+          { "names": ["dispositivo"],   "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 602 }
+        ],
+        "uniqueGroups": [],
+        "id": 6
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "SUSCRIPCION",
+        "x": 520,
+        "y": 360,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscripcion"],  "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 701 },
+          { "names": ["ID_Suscriptor"],   "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 702 },
+          { "names": ["ID_Plan"],         "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 703 },
+          { "names": ["fechaInicio"],     "order": 3, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 704 },
+          { "names": ["fechaCancelacion"],"order": 4, "pkMember": false, "optional": true,  "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 705 }
+        ],
+        "uniqueGroups": [],
+        "id": 7
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "VISUALIZACION",
+        "x": 520,
+        "y": 460,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscriptor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 801 },
+          { "names": ["ID_Contenido"],  "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301, "fkSubIndex": 0 } ], "id": 802 },
+          { "names": ["fechaHora"],     "order": 2, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 803 }
+        ],
+        "uniqueGroups": [],
+        "id": 8
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "SUSCRIPTOR_MEDIO_PAGO",
+        "x": 220,
+        "y": 460,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["ID_Suscriptor"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 901 },
+          { "names": ["ID_MedioPago"],  "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 902 }
+        ],
+        "uniqueGroups": [],
+        "id": 9
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 501, "id": 1001 }, "source": 5, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 601, "id": 1002 }, "source": 6, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 702, "id": 1003 }, "source": 7, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 703, "id": 1004 }, "source": 7, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 801, "id": 1005 }, "source": 8, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 802, "id": 1006 }, "source": 8, "destination": 3 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 901, "id": 1007 }, "source": 9, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 902, "id": 1008 }, "source": 9, "destination": 4 }
+  ],
+  "width": 2000,
+  "height": 1000
+}
