@@ -550,6 +550,15 @@ function highestFullYearApproved(){
   }
   return max;
 }
+function highestYearWithProgress(){
+  const arr=(plans[currentPlan].materias||[]);
+  let max=0;
+  arr.forEach(m=>{
+    const y=Number(m.anio);
+    if(getStatus(m.codigo)>0 && y>max) max=y;
+  });
+  return max;
+}
 function currentShareHash(){
   const payload={ plan: currentPlan, states };
   const json=JSON.stringify(payload);
@@ -576,7 +585,8 @@ function colorByPct(p){
   return '64748b';
 }
 function makeYearBadgeMarkdown(){
-  const year = highestFullYearApproved();
+const year = highestYearWithProgress();
+
   const files={
     0:'1er-año.png',
     1:'1er-año.png',
