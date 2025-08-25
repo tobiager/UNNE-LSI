@@ -39,7 +39,7 @@
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
   h1{margin:0 0 8px;font-size:1.7rem;letter-spacing:.2px}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  select,button,input[type="search"]{
+  select,button,input[type="search"],input[type="text"]{
     background:var(--panel);border:1px solid var(--border);color:var(--text);
     padding:8px 12px;border-radius:12px;font-weight:600
   }
@@ -96,6 +96,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .btn.off{background:#30343b}
   .btn.reg{background:#5e4a16}
   .btn.ok{background:#0f3a20}
+  .note{margin-top:8px;width:100%}
 
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
   .no     {border-color:#3b414c}
@@ -348,25 +349,42 @@ fetch('plans.json').then(r=>r.json()).then(data=>{
 
 function loadStates(){
   const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-  states=all[currentPlan]||{};
+  const raw=all[currentPlan]||{};
+  states={};
+  Object.entries(raw).forEach(([c,v])=>{
+    if(typeof v==='object') states[c]=v;
+    else states[c]={s:v,n:''};
+  });
 }
 function saveStates(){
   const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
   all[currentPlan]=states; localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
 }
+function getStatus(code){
+  const v=states[code];
+  return typeof v==='object'? (v.s||0) : (v||0);
+}
+function getNote(code){
+  const v=states[code];
+  return typeof v==='object'? (v.n||'') : '';
+}
 function setState(code,val){
-  const cur=states[code]||0;
+  const cur=getStatus(code);
   if(val>cur){
     if(val===1 && !canCursar(code)) return;
     if(val===2 && !canRendir(code)) return;
   }
-  states[code]=val; saveStates(); render();
+  states[code]={s:val,n:getNote(code)}; saveStates(); render();
+}
+function setNote(code,note){
+  states[code]={s:getStatus(code),n:note};
+  saveStates();
 }
 function getMateria(code){ return (plans[currentPlan].materias||[]).find(x=>x.codigo===code); }
 function needs(list){
   return (list||[]).map(([slug,need])=>{
     const m = getMateria(slug);
-    const st = states[slug]||0;
+    const st = getStatus(slug);
     const ok = !!m && st>=need;
     return {slug,need,exists:!!m,ok};
   });
@@ -411,7 +429,7 @@ function render(){
       const h3=document.createElement('h3'); h3.textContent=CUAT_LABEL[key]; col.appendChild(h3);
 
       arr.forEach(m=>{
-        const s=states[m.codigo]||0;
+        const s=getStatus(m.codigo);
         const reqC=needs(m.requisitos?.cursar), reqR=needs(m.requisitos?.rendir);
         const cls=['no','regular','aprobada'][s];
         const card=document.createElement('div'); card.className=`card ${cls}`;
@@ -442,12 +460,17 @@ function render(){
             <button class="btn reg ${s===1?'active':''}">Reg</button>
             <button class="btn ok ${s===2?'active':''}">Apro</button>
           </div>
+          <input type="text" class="note" placeholder="Notas/fecha de examen">
         `;
 
         const [b0,b1,b2]=card.querySelectorAll('.state .btn');
         b0.onclick=()=>setState(m.codigo,0);
         b1.onclick=()=>setState(m.codigo,1);
         b2.onclick=()=>setState(m.codigo,2);
+
+        const noteInput=card.querySelector('.note');
+        noteInput.value=getNote(m.codigo);
+        noteInput.addEventListener('input',e=>setNote(m.codigo,e.target.value));
 
         if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; }
         else if(!canRendir(m.codigo)){ b2.disabled=true; }
@@ -471,7 +494,7 @@ function prettyName(slug){
 function updateStats(){
   const arr=plans[currentPlan].materias||[];
   const counts={0:0,1:0,2:0};
-  arr.forEach(m=>{counts[states[m.codigo]||0]++;});
+  arr.forEach(m=>{counts[getStatus(m.codigo)]++;});
 
   document.getElementById('cAprob').textContent = counts[2];
   document.getElementById('cReg').textContent   = counts[1];
@@ -482,7 +505,7 @@ function updateStats(){
     ? new Set(ANALISTA_OVERRIDES[currentPlan])
     : new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
   const anaTotal = anaSet.size;
-  const anaAprob = Array.from(anaSet).filter(c=> (states[c]||0)===2).length;
+  const anaAprob = Array.from(anaSet).filter(c=> getStatus(c)===2).length;
   const anaPct = anaTotal ? Math.round(100*anaAprob/anaTotal) : 0;
 
   document.getElementById('mAnalista').style.width = anaPct + '%';
@@ -501,7 +524,7 @@ const BADGE_STYLE = 'for-the-badge';
 function computeLicPct(){
   const arr=plans[currentPlan].materias||[];
   const total=arr.length;
-  const aprob=arr.filter(m=>(states[m.codigo]||0)===2).length;
+  const aprob=arr.filter(m=>getStatus(m.codigo)===2).length;
   return total? Math.round(100*aprob/total) : 0;
 }
 function highestFullYearApproved(){
@@ -510,7 +533,7 @@ function highestFullYearApproved(){
   for(let y=1;y<=5;y++){
     const all = arr.filter(m=>Number(m.anio)===y);
     if(!all.length) break;
-    if(all.every(m => (states[m.codigo]||0)===2)) max=y; else break;
+    if(all.every(m => getStatus(m.codigo)===2)) max=y; else break;
   }
   return max;
 }
