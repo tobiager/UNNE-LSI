@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,28 +10,40 @@
     --bg:#0b0f14; --panel:#0f1625; --border:#1f2a36; --text:#e6edf3; --muted:#9fb0c2;
     --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa;
     --card:#0f1726; --card2:#0b1423;
+    --footer-h:56px;
+    --status-h:82px;
   }
   *{box-sizing:border-box}
   body{margin:0;color:var(--text);
-       background:radial-gradient(900px 360px at -10% -10%,#10233a 0,transparent 60%),
-                  radial-gradient(700px 480px at 110% -10%,#1b2a43 0,transparent 50%),
-                  var(--bg);
-       font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif}
-  header{position:sticky;top:0;z-index:20;background:rgba(11,15,20,.7);backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
+    background:
+      radial-gradient(900px 360px at -10% -10%,#10233a 0,transparent 60%),
+      radial-gradient(700px 480px at 110% -10%,#1b2a43 0,transparent 50%),
+      var(--bg);
+    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+  }
+  header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.7);
+    backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
   h1{margin:0 0 8px;font-size:1.7rem;letter-spacing:.2px}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  select,button,input[type="search"]{background:#0e1727;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:12px;font-weight:600}
+  select,button,input[type="search"]{
+    background:#0e1727;border:1px solid var(--border);color:var(--text);
+    padding:8px 12px;border-radius:12px;font-weight:600
+  }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
-  main{padding:10px 0 24px}
+  main{padding:10px 0 24px; /* espacio base */}
+  /* Aseguramos espacio para barra fija y footer */
+  main, body{padding-bottom:calc(var(--status-h) + var(--footer-h) + 24px)}
+
   #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
   .year{grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:14px;background:linear-gradient(180deg,var(--card),var(--card2))}
   .year>h2{margin:4px 0 12px;font-size:1.15rem;color:#cfe1ff}
   .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
   .cuat h3{margin:0 0 8px;color:#b6c6dc;font-size:1rem}
 
+  /* Card */
   .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,#101a2b,#0b1423);transition:transform .12s ease,box-shadow .12s ease;position:relative}
   .card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,0,0,.25)}
   .title{font-weight:800;margin:0 0 2px;font-size:1.02rem}
@@ -48,6 +61,7 @@
   .btn.reg{background:#5e4a16}
   .btn.ok{background:#0f3a20}
 
+  /* Estado badge (esquina) y borde por estado */
   .badge{position:absolute;top:8px;right:8px;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:700}
   .no     {border-color:#3b414c}
   .no .badge{background:#3b414c}
@@ -56,44 +70,42 @@
   .aprobada{border-color:#16a34a}
   .aprobada .badge{background:#16a34a}
 
-  /* Barra de progreso sticky */
-  .progress{
-    position:sticky; bottom:0; z-index:15;
+  /* ===== Barra de estado fija (sobre el footer) ===== */
+  .statusbar{
+    position:fixed; left:0; right:0; bottom:var(--footer-h);
+    z-index:20; background:rgba(11,15,20,.75); backdrop-filter:saturate(130%) blur(8px);
     border-top:1px solid var(--border);
-    background:linear-gradient(180deg,rgba(11,15,20,.65),rgba(11,15,20,.85));
-    backdrop-filter:saturate(130%) blur(8px);
-    box-shadow:0 -6px 24px rgba(0,0,0,.25);
-    padding:12px 16px; margin-top:24px;
   }
-  .stats-compact{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
-  .pbar{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}
-  .pbar .label{color:var(--muted);white-space:nowrap}
-  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
-  .meter.sm{height:8px}
+  .status-inner{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#0e1727;font-weight:700;font-size:.82rem}
+  .pill.green{border-color:#1f6d3c;background:#0f2717;color:#9df2c9}
+  .pill.yellow{border-color:#8b6a1b;background:#2a220d;color:#fde68a}
+  .pill.gray{border-color:#3b414c;background:#161a22;color:#cbd5e1}
+  .pill.dark{border-color:#2b3644;background:#0f1522;color:#cfe1ff}
+
+  .bar{flex:1;display:flex;align-items:center;gap:10px;min-width:280px}
+  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden;flex:1}
   .meter>span{display:block;height:100%;width:0%}
   .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
   .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
-  .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:700}
-  .small{color:var(--muted);margin-top:8px}
+  .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:800}
 
-  .counts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
-  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
-        border:1px solid var(--border);background:#0e1727;font-weight:700;font-size:.82rem}
-  .pill.ok{border-color:#1e6a39;background:#0f2717;color:#a7f3d0}
-  .pill.reg{border-color:#7c5a16;background:#2a1f0f;color:#fde68a}
-  .pill.no{border-color:#3b414c;background:#0f141d;color:#cbd5e1}
-
-  footer{border-top:1px solid var(--border);background:rgba(11,15,20,.6)}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-  footer a{color:#80c0ff;text-decoration:none}
-  footer a:hover{text-decoration:underline}
-  .foot-left,.foot-right{padding:12px 0}
-  .foot-right{opacity:.9}
+  /* ===== Footer sticky ===== */
+  footer{
+    position:fixed; left:0; right:0; bottom:0; height:var(--footer-h);
+    z-index:19; background:rgba(11,15,20,.85); backdrop-filter:saturate(130%) blur(8px);
+    border-top:1px solid var(--border); color:var(--muted);
+  }
+  .footer-inner{max-width:1180px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:.9rem}
+  .gh{display:inline-flex;align-items:center;gap:8px;color:#cfe1ff;text-decoration:none}
+  .gh svg{width:18px;height:18px;fill:#cfe1ff;opacity:.9}
+  .sep{opacity:.6;margin:0 .4rem}
+  a{color:#9cc9ff;text-decoration:none}
+  a:hover{text-decoration:underline}
 
   @media (max-width:900px){
     #materias{grid-template-columns:1fr}
     .year-grid{grid-template-columns:1fr}
-    .stats-compact{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -124,332 +136,308 @@
 
 <main class="wrap">
   <div id="materias"></div>
-
-  <section class="progress" id="progress">
-    <div class="counts" id="countChips"></div>
-    <div class="stats-compact">
-      <div class="pbar">
-        <span class="label">Analista Programador/a</span>
-        <div class="meter sm"><span id="mAnalista" class="m-blue"></span></div>
-        <span id="pAna" class="pct">0%</span>
-      </div>
-      <div class="pbar">
-        <span class="label">Licenciado/a en Sistemas</span>
-        <div class="meter sm"><span id="mLic" class="m-green"></span></div>
-        <span id="pLic" class="pct">0%</span>
-      </div>
-    </div>
-    <div id="stats" class="small"></div>
-    <div id="anaInfo" class="small"></div>
-  </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-left">
-      © <span id="yearNow"></span> Simulador de Avance — Todos los derechos reservados.
+<!-- ===== Barra de estado fija ===== -->
+<div class="statusbar">
+  <div class="status-inner">
+    <div class="pill green">✅ Aprobadas: <span id="cAprob">0</span></div>
+    <div class="pill yellow">🟡 Regulares: <span id="cReg">0</span></div>
+    <div class="pill gray">⚪ No cursadas: <span id="cNo">0</span></div>
+    <div class="pill dark">📚 Total: <span id="cTot">0</span></div>
+
+    <div class="bar" title="Avance Analista (años 1–3)">
+      <span style="white-space:nowrap;color:#9fb0c2">Analista</span>
+      <div class="meter"><span id="mAnalista" class="m-blue"></span></div>
+      <span id="pAna" class="pct">0%</span>
     </div>
-    <div class="foot-right">
-      Hecho por <a href="https://github.com/tobiager" target="_blank" rel="noopener">tobiager</a> •
-      Repo: <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">tobiager/UNNE-LSI</a> •
-      Licencia: MIT
+
+    <div class="bar" title="Avance Licenciado/a (total)">
+      <span style="white-space:nowrap;color:#9fb0c2">Licenciado/a</span>
+      <div class="meter"><span id="mLic" class="m-green"></span></div>
+      <span id="pLic" class="pct">0%</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Footer sticky ===== -->
+<footer>
+  <div class="footer-inner">
+    <div>© 2025 Simulador de Avance — Todos los derechos reservados.</div>
+    <div>
+      Hecho con pasión y dedicación por
+      <a class="gh" href="https://github.com/tobiager" target="_blank" rel="noopener">
+        <!-- GitHub icon -->
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Tobías
+      </a>
+      <span class="sep">·</span>
+      Repo: <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">tobiager/UNNE-LSI</a>
     </div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const STORAGE_KEY='simulador-avance';
-  let plans={}, currentPlan='', states={};
+const STORAGE_KEY='simulador-avance';
+let plans={}, currentPlan='', states={};
 
-  const ANALISTA_OVERRIDES = {};
+// (Opcional) overrides de "Analista" por plan (si no es solo años 1–3)
+const ANALISTA_OVERRIDES = {
+  // "2009": ["slug1","slug2"],
+  // "2023": ["slug..."]
+};
 
-  // Helpers seguros
-  const $ = s => document.querySelector(s);
-  const $id = s => document.getElementById(s);
+fetch('plans.json').then(r=>r.json()).then(data=>{
+  plans=data;
+  const sel=document.getElementById('plan');
+  Object.entries(plans).forEach(([k,p])=>{
+    const opt=document.createElement('option'); opt.value=k; opt.textContent=p.nombre||k; sel.appendChild(opt);
+  });
+  currentPlan = Object.keys(plans)[0]; sel.value=currentPlan;
+  sel.addEventListener('change',()=>{ currentPlan=sel.value; loadStates(); render(); });
+  document.getElementById('search').addEventListener('input',render);
+  document.getElementById('onlyEnabled').addEventListener('change',render);
+  loadStates(); render();
+});
 
-  // UTF-8 safe base64
-  function b64encode(str){
-    const bytes = new TextEncoder().encode(str);
-    let bin = '';
-    bytes.forEach(b => bin += String.fromCharCode(b));
-    return btoa(bin);
+function loadStates(){
+  const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+  states=all[currentPlan]||{};
+}
+function saveStates(){
+  const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+  all[currentPlan]=states; localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
+}
+function setState(code,val){
+  const cur=states[code]||0;
+  if(val>cur){
+    if(val===1 && !canCursar(code)) return;
+    if(val===2 && !canRendir(code)) return;
   }
+  states[code]=val; saveStates(); render();
+}
+function getMateria(code){ return (plans[currentPlan].materias||[]).find(x=>x.codigo===code); }
+function needs(list){
+  return (list||[]).map(([slug,need])=>{
+    const m = getMateria(slug);
+    const st = states[slug]||0;
+    const ok = !!m && st>=need;
+    return {slug,need,exists:!!m,ok};
+  });
+}
+function canCursar(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.cursar).every(x=>x.ok); }
+function canRendir(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.rendir).every(x=>x.ok); }
 
-  // --------- Carga de planes ----------
-  fetch('plans.json').then(r=>r.json()).then(data=>{
-    plans=data||{};
-    const sel=$id('plan');
-    sel.innerHTML='';
-    Object.entries(plans).forEach(([k,p])=>{
-      const opt=document.createElement('option');
-      opt.value=k; opt.textContent=p?.nombre||k; sel.appendChild(opt);
-    });
-    currentPlan = Object.keys(plans)[0] || '';
-    if (currentPlan) sel.value=currentPlan;
+// Etiquetas y orden (incluye anual y extracurricular)
+const CUAT_LABEL = { '1':'1° Cuatrimestre', '2':'2° Cuatrimestre', 'anual':'Anual', 'extra':'Extracurricular', 'otro':'Otros' };
+const CUAT_ORDER = ['1','2','anual','extra','otro'];
+function cuatKey(c){
+  const s = String(c).toLowerCase();
+  if (s==='1' || s==='2') return s;
+  if (s.includes('anual')) return 'anual';
+  if (s.includes('extra')) return 'extra';
+  return 'otro';
+}
 
-    sel.addEventListener('change',()=>{ currentPlan=sel.value; loadStates(); render(); });
-    $id('search').addEventListener('input',render);
-    $id('onlyEnabled').addEventListener('change',render);
+function render(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const only=document.getElementById('onlyEnabled').checked;
+  const box=document.getElementById('materias'); box.innerHTML='';
 
-    loadStates(); render();
-  }).catch(e=>{
-    console.error('Error cargando plans.json', e);
+  // agrupar por año + tipo de cuatrimestre
+  const grouped={};
+  (plans[currentPlan].materias||[]).forEach(m=>{
+    if(q && !(m.nombre.toLowerCase().includes(q))) return;
+    if(only && !canCursar(m.codigo)) return;
+    const key=cuatKey(m.cuatrimestre);
+    if(!grouped[m.anio]) grouped[m.anio]={};
+    if(!grouped[m.anio][key]) grouped[m.anio][key]=[];
+    grouped[m.anio][key].push(m);
   });
 
-  // --------- Estado ----------
-  function loadStates(){
-    try{
-      const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-      states=(all&&currentPlan)?(all[currentPlan]||{}):{};
-    }catch{ states={}; }
-  }
-  function saveStates(){
-    try{
-      const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-      all[currentPlan]=states; localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
-    }catch(e){ console.warn('No se pudo guardar', e); }
-  }
+  Object.keys(grouped).map(n=>+n).sort((a,b)=>a-b).forEach(anio=>{
+    const y=document.createElement('section'); y.className='year';
+    y.innerHTML=`<h2>${anio}° Año</h2>`;
+    const grid=document.createElement('div'); grid.className='year-grid';
 
-  function getPlanMaterias(){
-    return plans?.[currentPlan]?.materias || [];
-  }
+    CUAT_ORDER.forEach(key=>{
+      const arr = grouped[anio][key]||[];
+      if(!arr.length) return;
+      const col=document.createElement('div'); col.className='cuat';
+      const h3=document.createElement('h3'); h3.textContent=CUAT_LABEL[key]; col.appendChild(h3);
 
-  function getMateria(code){
-    // code puede ser string o número; normalizamos
-    const mats=getPlanMaterias();
-    return mats.find(x=> String(x.codigo)===String(code));
-  }
+      arr.forEach(m=>{
+        const s=states[m.codigo]||0;
+        const reqC=needs(m.requisitos?.cursar), reqR=needs(m.requisitos?.rendir);
+        const cls=['no','regular','aprobada'][s];
+        const card=document.createElement('div'); card.className=`card ${cls}`;
 
-  function needs(list){
-    return (list||[]).map(([code,need])=>{
-      const m = getMateria(code);
-      const st = (m && states[m.codigo]) || 0;
-      return {slug:code, need, exists:!!m, ok: !!m && st>=need};
-    });
-  }
-  function canCursar(code){
-    const m=getMateria(code); if(!m) return false;
-    return needs(m.requisitos?.cursar).every(x=>x.ok);
-  }
-  function canRendir(code){
-    const m=getMateria(code); if(!m) return false;
-    return needs(m.requisitos?.rendir).every(x=>x.ok);
-  }
+        card.innerHTML = `
+          <span class="badge">${['No','Regular','Aprobada'][s]}</span>
+          <h4 class="title">${m.nombre}</h4>
+          <div class="sub">${m.regimen} • ${m.carga_horaria}h</div>
+          <div class="meta">
+            <span class="chip">Año ${m.anio}</span>
+            <span class="chip">${CUAT_LABEL[key]}</span>
+          </div>
 
-  const CUAT_LABEL = { '1':'1° Cuatrimestre', '2':'2° Cuatrimestre', 'anual':'Anual', 'extra':'Extracurricular', 'otro':'Otros' };
-  const CUAT_ORDER = ['1','2','anual','extra','otro'];
-  function cuatKey(c){
-    const s = String(c??'').toLowerCase();
-    if (s==='1' || s==='2') return s;
-    if (s.includes('anual')) return 'anual';
-    if (s.includes('extra')) return 'extra';
-    return 'otro';
-  }
+          ${reqC.length?`<div class="reqs"><strong style="opacity:.8">Cursar:</strong> ${
+            reqC.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
+              ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
+            </span>`).join('')}
+          </div>`:''}
 
-  function setState(code,val){
-    const cur=states[code]||0;
-    if(val>cur){
-      if(val===1 && !canCursar(code)) return;
-      if(val===2 && !canRendir(code)) return;
-    }
-    states[code]=val; saveStates(); render();
-  }
+          ${reqR.length?`<div class="reqs"><strong style="opacity:.8">Rendir:</strong> ${
+            reqR.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
+              ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
+            </span>`).join('')}
+          </div>`:''}
 
-  function render(){
-    if(!currentPlan || !plans[currentPlan]) return;
-    const q=($id('search').value||'').toLowerCase();
-    const only=$id('onlyEnabled').checked;
-    const box=$id('materias'); box.innerHTML='';
+          <div class="state">
+            <button class="btn off ${s===0?'active':''}">No</button>
+            <button class="btn reg ${s===1?'active':''}">Reg</button>
+            <button class="btn ok ${s===2?'active':''}">Apro</button>
+          </div>
+        `;
 
-    const mats = getPlanMaterias();
-    const grouped={};
-    mats.forEach(m=>{
-      if(q && !(m.nombre||'').toLowerCase().includes(q)) return;
-      if(only && !canCursar(m.codigo)) return;
-      const key=cuatKey(m.cuatrimestre);
-      if(!grouped[m.anio]) grouped[m.anio]={};
-      if(!grouped[m.anio][key]) grouped[m.anio][key]=[];
-      grouped[m.anio][key].push(m);
-    });
+        const [b0,b1,b2]=card.querySelectorAll('.state .btn');
+        b0.onclick=()=>setState(m.codigo,0);
+        b1.onclick=()=>setState(m.codigo,1);
+        b2.onclick=()=>setState(m.codigo,2);
 
-    Object.keys(grouped).map(n=>+n).sort((a,b)=>a-b).forEach(anio=>{
-      const y=document.createElement('section'); y.className='year';
-      y.innerHTML=`<h2>${anio}° Año</h2>`;
-      const grid=document.createElement('div'); grid.className='year-grid';
+        if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; }
+        else if(!canRendir(m.codigo)){ b2.disabled=true; }
 
-      CUAT_ORDER.forEach(key=>{
-        const arr = grouped[anio][key]||[];
-        if(!arr.length) return;
-        const col=document.createElement('div'); col.className='cuat';
-        const h3=document.createElement('h3'); h3.textContent=CUAT_LABEL[key]; col.appendChild(h3);
-
-        arr.forEach(m=>{
-          const s=states[m.codigo]||0;
-          const reqC=needs(m.requisitos?.cursar), reqR=needs(m.requisitos?.rendir);
-          const cls=['no','regular','aprobada'][s];
-          const card=document.createElement('div'); card.className=`card ${cls}`;
-
-          card.innerHTML = `
-            <span class="badge">${['No','Regular','Aprobada'][s]}</span>
-            <h4 class="title">${m.nombre}</h4>
-            <div class="sub">${m.regimen||''} • ${m.carga_horaria||0}h</div>
-            <div class="meta">
-              <span class="chip">Año ${m.anio}</span>
-              <span class="chip">${CUAT_LABEL[key]}</span>
-            </div>
-
-            ${reqC.length?`<div class="reqs"><strong style="opacity:.8">Cursar:</strong> ${
-              reqC.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
-                ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
-              </span>`).join('')}
-            </div>`:''}
-
-            ${reqR.length?`<div class="reqs"><strong style="opacity:.8">Rendir:</strong> ${
-              reqR.map(r=>`<span class="req ${!r.exists?'unknown':(r.ok?'ok':'miss')}">
-                ${r.ok?'✅':'🔒'} ${prettyName(r.slug)} ${r.need===2?'(aprobar)':'(regular)'}
-              </span>`).join('')}
-            </div>`:''}
-
-            <div class="state">
-              <button class="btn off ${s===0?'active':''}">No</button>
-              <button class="btn reg ${s===1?'active':''}">Reg</button>
-              <button class="btn ok ${s===2?'active':''}">Apro</button>
-            </div>
-          `;
-
-          const [b0,b1,b2]=card.querySelectorAll('.state .btn');
-          b0.onclick=()=>setState(m.codigo,0);
-          b1.onclick=()=>setState(m.codigo,1);
-          b2.onclick=()=>setState(m.codigo,2);
-
-          if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; }
-          else if(!canRendir(m.codigo)){ b2.disabled=true; }
-
-          col.appendChild(card);
-        });
-
-        grid.appendChild(col);
+        col.appendChild(card);
       });
 
-      y.appendChild(grid); box.appendChild(y);
+      grid.appendChild(col);
     });
 
-    updateStats();
-  }
-
-  function prettyName(code){
-    const m=getMateria(code); return m?m.nombre:String(code);
-  }
-
-  function updateStats(){
-    const arr=getPlanMaterias();
-    const counts={0:0,1:0,2:0};
-    arr.forEach(m=>{counts[states[m.codigo]||0]++;});
-
-    $id('countChips').innerHTML = `
-      <span class="pill ok">✅ Aprobadas: ${counts[2]}</span>
-      <span class="pill reg">🟡 Regulares: ${counts[1]}</span>
-      <span class="pill no">⚫ No cursadas: ${counts[0]}</span>
-      <span class="pill">📚 Total: ${arr.length}</span>
-    `;
-    $id('stats').textContent =
-      `Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${arr.length}`;
-
-    const anaArr = arr.filter(m => Number(m.anio) <= 3);
-    const anaTotal = anaArr.length;
-    const anaAprob = anaArr.filter(m => (states[m.codigo]||0) === 2).length;
-    const anaPct = anaTotal ? Math.round(100 * anaAprob / anaTotal) : 0;
-    $id('mAnalista').style.width = anaPct + '%';
-    $id('pAna').textContent = anaPct + '%';
-
-    const anaMissing = anaArr.filter(m => (states[m.codigo]||0) !== 2);
-    $id('anaInfo').textContent =
-      anaMissing.length===0
-        ? `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • ✅ ¡Completado!`
-        : `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • Te faltan ${anaMissing.length}: ${anaMissing.map(m=>m.nombre).join(', ')}`;
-
-    const licTotal = arr.length;
-    const licAprob = counts[2];
-    const licPct = licTotal ? Math.round(100 * licAprob / licTotal) : 0;
-    $id('mLic').style.width = licPct + '%';
-    $id('pLic').textContent = licPct + '%';
-  }
-
-  // ====== Badges + Estado ======
-  const BADGE_STYLE = 'for-the-badge';
-  function computeLicPct(){
-    const arr=getPlanMaterias();
-    const total=arr.length;
-    const aprob=arr.filter(m=>(states[m.codigo]||0)===2).length;
-    return total? Math.round(100*aprob/total) : 0;
-  }
-  function highestFullYearApproved(){
-    const arr=getPlanMaterias().slice().sort((a,b)=>a.anio-b.anio);
-    let max=0;
-    for(let y=1;y<=6;y++){
-      const all = arr.filter(m=>Number(m.anio)===y);
-      if(!all.length) break;
-      if(all.every(m => (states[m.codigo]||0)===2)) max=y; else break;
-    }
-    return max;
-  }
-  function currentShareHash(){
-    const payload={ plan: currentPlan, states };
-    return b64encode(JSON.stringify(payload));
-  }
-  function shareUrl(){
-    const base = `${location.origin}${location.pathname.replace(/\/[^\/]*$/,'/')}`;
-    return `${base}estado.html#${currentShareHash()}`;
-  }
-  function copyToClipboard(text){
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(text).then(()=>alert('Copiado ✅'));
-    } else {
-      const ta=document.createElement('textarea'); ta.value=text;
-      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-      document.body.removeChild(ta); alert('Copiado ✅');
-    }
-  }
-  function colorByPct(p){
-    if(p>=90) return '16a34a';
-    if(p>=70) return '22c55e';
-    if(p>=50) return 'f59e0b';
-    if(p>=30) return 'f97316';
-    return '64748b';
-  }
-  function makeYearBadgeMarkdown(){
-    const year = highestFullYearApproved();
-    const label = encodeURIComponent('🎓 LSI');
-    const msg   = encodeURIComponent( year===0 ? 'Ingresante' : `${year}º año` );
-    const color = '16a34a';
-    const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
-    return `[![LSI · ${year===0?'Ingresante':year+'º año'}](${url})](${shareUrl()})`;
-  }
-  function makePctBadgeMarkdown(){
-    const pct = computeLicPct();
-    const label = encodeURIComponent('🎓 Avance LSI');
-    const msg   = encodeURIComponent(`${pct}%`);
-    const color = colorByPct(pct);
-    const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
-    return `[![Avance LSI ${pct}%](${url})](${shareUrl()})`;
-  }
-
-  // Listeners
-  $id('yearNow').textContent = new Date().getFullYear();
-  $id('share').onclick=()=>copyToClipboard(shareUrl());
-  $id('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
-  $id('badgePct').onclick=()=>copyToClipboard(makePctBadgeMarkdown());
-  $id('save').onclick=()=>{ saveStates(); const btn=$id('save'); const t=btn.textContent; btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900); };
-  $id('reset').onclick=()=>{ if(confirm('¿Reiniciar estados del plan actual?')){ states={}; saveStates(); render(); } };
-  $id('export').onclick=()=>{ const data=localStorage.getItem(STORAGE_KEY)||'{}'; const blob=new Blob([data],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='simulador.json'; a.click(); };
-  $id('import').onclick=()=> $id('fileInput').click();
-  $id('fileInput').addEventListener('change',e=>{
-    const file=e.target.files[0]; if(!file) return;
-    const reader=new FileReader();
-    reader.onload=ev=>{ try{ localStorage.setItem(STORAGE_KEY,ev.target.result); loadStates(); render(); }catch{ alert('JSON inválido'); } };
-    reader.readAsText(file);
+    y.appendChild(grid); box.appendChild(y);
   });
+
+  updateStats();
+}
+
+function prettyName(slug){
+  const m=getMateria(slug); return m?m.nombre:slug;
+}
+
+function updateStats(){
+  const arr=plans[currentPlan].materias||[];
+  const counts={0:0,1:0,2:0};
+  arr.forEach(m=>{counts[states[m.codigo]||0]++;});
+
+  // Píldoras
+  document.getElementById('cAprob').textContent = counts[2];
+  document.getElementById('cReg').textContent   = counts[1];
+  document.getElementById('cNo').textContent    = counts[0];
+  document.getElementById('cTot').textContent   = arr.length;
+
+  // Analista = años 1–3 (o override)
+  const anaSet = (ANALISTA_OVERRIDES[currentPlan]||[]).length
+    ? new Set(ANALISTA_OVERRIDES[currentPlan])
+    : new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
+  const anaTotal = anaSet.size;
+  const anaAprob = Array.from(anaSet).filter(c=> (states[c]||0)===2).length;
+  const anaPct = anaTotal ? Math.round(100*anaAprob/anaTotal) : 0;
+
+  document.getElementById('mAnalista').style.width = anaPct + '%';
+  document.getElementById('pAna').textContent      = anaPct + '%';
+
+  // Licenciado total
+  const licTotal = arr.length;
+  const licAprob = counts[2];
+  const licPct   = licTotal ? Math.round(100*licAprob/licTotal) : 0;
+
+  document.getElementById('mLic').style.width = licPct + '%';
+  document.getElementById('pLic').textContent = licPct + '%';
+}
+
+/* ===== Badges + Link de estado ===== */
+const BADGE_STYLE = 'for-the-badge';
+
+function computeLicPct(){
+  const arr=plans[currentPlan].materias||[];
+  const total=arr.length;
+  const aprob=arr.filter(m=>(states[m.codigo]||0)===2).length;
+  return total? Math.round(100*aprob/total) : 0;
+}
+function highestFullYearApproved(){
+  const arr=(plans[currentPlan].materias||[]).slice().sort((a,b)=>a.anio-b.anio);
+  let max=0;
+  for(let y=1;y<=5;y++){
+    const all = arr.filter(m=>Number(m.anio)===y);
+    if(!all.length) break;
+    if(all.every(m => (states[m.codigo]||0)===2)) max=y; else break;
+  }
+  return max;
+}
+function currentShareHash(){
+  const payload={ plan: currentPlan, states };
+  const json=JSON.stringify(payload);
+  return btoa(unescape(encodeURIComponent(json)));
+}
+function shareUrl(){
+  const base = `${location.origin}${location.pathname.replace(/\/[^\/]*$/,'/')}`;
+  return `${base}estado.html#${currentShareHash()}`;
+}
+function copyToClipboard(text){
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).then(()=>alert('Copiado ✅'));
+  } else {
+    const ta=document.createElement('textarea'); ta.value=text;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); alert('Copiado ✅');
+  }
+}
+function colorByPct(p){
+  if(p>=90) return '16a34a';
+  if(p>=70) return '22c55e';
+  if(p>=50) return 'f59e0b';
+  if(p>=30) return 'f97316';
+  return '64748b';
+}
+function makeYearBadgeMarkdown(){
+  const year = highestFullYearApproved();
+  const label = encodeURIComponent('🎓 LSI');
+  const msg   = encodeURIComponent( year===0 ? 'Ingresante' : `${year}º año` );
+  const color = '16a34a';
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![LSI · ${year===0?'Ingresante':year+'º año'}](${url})](${shareUrl()})`;
+}
+function makePctBadgeMarkdown(){
+  const pct = computeLicPct();
+  const label = encodeURIComponent('🎓 Avance LSI');
+  const msg   = encodeURIComponent(`${pct}%`);
+  const color = colorByPct(pct);
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![Avance LSI ${pct}%](${url})](${shareUrl()})`;
+}
+document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
+document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
+document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeMarkdown());
+
+/* acciones básicas */
+document.getElementById('save').onclick=()=>{
+  saveStates(); const btn=document.getElementById('save'); const t=btn.textContent;
+  btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900);
+};
+document.getElementById('reset').onclick=()=>{
+  if(confirm('¿Reiniciar estados del plan actual?')){ states={}; saveStates(); render(); }
+};
+document.getElementById('export').onclick=()=>{
+  const data=localStorage.getItem(STORAGE_KEY)||'{}';
+  const blob=new Blob([data],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='simulador.json'; a.click();
+};
+document.getElementById('import').onclick=()=>document.getElementById('fileInput').click();
+document.getElementById('fileInput').addEventListener('change',e=>{
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{ try{ localStorage.setItem(STORAGE_KEY,ev.target.result); loadStates(); render(); }catch{ alert('JSON inválido'); } };
+  reader.readAsText(file);
 });
 </script>
 </body>
