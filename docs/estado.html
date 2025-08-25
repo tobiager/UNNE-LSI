@@ -104,6 +104,7 @@ document.body.classList.add(savedTheme);
     }catch{ return null; }
   }
   const share=decodeHash();
+  function getStatus(code){ return share?.states?.[code] ?? 0; }
   if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
   const plans = await (await fetch('plans.json')).json();
   const plan = plans[share.plan];
@@ -112,7 +113,7 @@ document.body.classList.add(savedTheme);
   // stats
   const arr=plan.materias||[];
   const counts={0:0,1:0,2:0,3:0};
-  arr.forEach(m=>counts[share.states?.[m.codigo]||0]++);
+  arr.forEach(m=>counts[getStatus(m.codigo)]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
 
   const head=document.getElementById('head');
@@ -125,7 +126,7 @@ document.body.classList.add(savedTheme);
   // listado compacto
   const byYear={};
   arr.forEach(m=>{
-    const s=share.states?.[m.codigo]||0;
+    const s=getStatus(m.codigo);
     const year=byYear[m.anio] ||= {1:[],2:[]};
     const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
     year[cuat].push({...m, s});
