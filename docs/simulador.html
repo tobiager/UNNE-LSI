@@ -45,26 +45,29 @@
   }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .toolbar details.menu>summary{
-    cursor:pointer;
-    background:var(--panel);border:1px solid var(--border);color:var(--text);
-    padding:8px 12px;border-radius:12px;font-weight:600
-  }
-  .toolbar details.menu>.menu-content{flex-wrap:wrap;gap:10px;margin-top:8px}
-  .toolbar details.menu .legend{margin-left:0}
+    
+list-style:none;cursor:pointer;
+background:var(--panel);border:1px solid var(--border);color:var(--text);
+padding:8px 12px;border-radius:12px;font-weight:600
+}
+.toolbar details.menu>.menu-content{flex-wrap:wrap;gap:10px;margin-top:8px}
+.toolbar details.menu .legend{margin-left:0}
 
-  /* Mobile: show arrow and keep menu cerrado por defecto */
-  @media (max-width:699px){
-    .toolbar details.menu>.menu-content{display:none}
-    .toolbar details.menu[open]>.menu-content{display:flex}
-    .toolbar select,.toolbar input[type="search"]{flex:1 1 100%}
-    .toolbar details.menu{width:100%}
-  }
+/* Mobile: show arrow and keep menu cerrado por defecto */
+@media (max-width:699px){
+  .toolbar details.menu>.menu-content{display:none}
+  .toolbar details.menu[open]>.menu-content{display:flex}
+  .toolbar select,.toolbar input[type="search"]{flex:1 1 100%}
+  .toolbar details.menu{width:100%}
+}
 
-  /* Desktop: mostrar opciones siempre y ocultar el trigger */
-  @media (min-width:700px){
-    .toolbar details.menu>summary{display:none}
-    .toolbar details.menu{display:flex;flex-wrap:wrap;gap:10px}
-    .toolbar details.menu>.menu-content{display:flex !important;margin-top:0}
+/* Desktop: mostrar opciones siempre y ocultar el trigger */
+@media (min-width:700px){
+  .toolbar details.menu>summary{display:none}
+  .toolbar details.menu{display:flex;flex-wrap:wrap;gap:10px}
+  .toolbar details.menu>.menu-content{display:flex !important;margin-top:0}
+}
+
   }
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
@@ -107,7 +110,16 @@
     z-index:20; background:rgba(11,15,20,.75); backdrop-filter:saturate(130%) blur(8px);
     border-top:1px solid var(--border);
   }
+  .statusbar>summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);padding:4px 0;
+  }
+  .statusbar>summary::-webkit-details-marker{display:none}
+  .statusbar[open]>summary::after{content:'\25BC'}
+  .statusbar:not([open])>summary::after{content:'\25B2'}
   .status-inner{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .statusbar:not([open]) .status-inner{display:none}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--panel);font-weight:700;font-size:.82rem}
   .pill.green{border-color:#1f6d3c;background:#0f2717;color:#9df2c9}
   .pill.yellow{border-color:#8b6a1b;background:#2a220d;color:#fde68a}
@@ -133,7 +145,7 @@
   .footer-inner{
     max-width:1180px;margin:0 auto;height:100%;
     display:flex;align-items:center;justify-content:center;
-    gap:8px;flex-wrap:wrap;
+    gap:8px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;
     padding:0 24px;font-size:.9rem;text-align:center;
   }
   .gh-link{
@@ -210,7 +222,8 @@
   <div id="materias"></div>
 </main>
 
-<div class="statusbar">
+<details id="statusbar" class="statusbar" open>
+  <summary></summary>
   <div class="status-inner">
     <div class="pill green">Aprobadas: <span id="cAprob">0</span></div>
     <div class="pill yellow">Regulares: <span id="cReg">0</span></div>
@@ -229,7 +242,7 @@
       <span id="pLic" class="pct">0%</span>
     </div>
   </div>
-</div>
+</details>
 
 <footer>
   <div class="footer-inner">
@@ -247,12 +260,13 @@
       </svg>
       Tobías
     </a>
-    <span>y</span>
+    <span>·</span>
     <a class="gh-link no-icon" href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">
       Repositorio de LSI
     </a>
   </div>
 </footer>
+
 
 <div id="toast" class="toast"></div>
 <div id="confirm" class="confirm">
@@ -553,6 +567,14 @@ themeBtn.addEventListener('click',()=>{
   localStorage.setItem('theme',next);
   themeBtn.textContent=isDark?'🌜':'🌞';
 });
+
+const statusBar=document.getElementById('statusbar');
+function updateStatusHeight(){
+  const h=statusBar.open?statusBar.offsetHeight:statusBar.querySelector('summary').offsetHeight;
+  document.body.style.setProperty('--status-h',h+'px');
+}
+statusBar.addEventListener('toggle',updateStatusHeight);
+updateStatusHeight();
 </script>
 </body>
 </html>
