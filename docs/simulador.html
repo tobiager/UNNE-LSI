@@ -58,7 +58,7 @@
   .aprobada{border-color:#16a34a}
   .aprobada .badge{background:#16a34a}
 
-  /* Progreso sticky (siempre visible) */
+  /* Progreso sticky (SIEMPRE visible) */
   .progress{
     position:sticky; bottom:0; z-index:15;
     border-top:1px solid var(--border);
@@ -78,15 +78,7 @@
   .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:700}
   .small{color:var(--muted);margin-top:8px}
 
-  /* CHIPS de conteo */
-  .counts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
-  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
-        border:1px solid var(--border);background:#0e1727;font-weight:700;font-size:.82rem}
-  .pill.ok{border-color:#1e6a39;background:#0f2717;color:#a7f3d0}
-  .pill.reg{border-color:#7c5a16;background:#2a1f0f;color:#fde68a}
-  .pill.no{border-color:#3b414c;background:#0f141d;color:#cbd5e1}
-
-  /* Footer */
+  /* Footer nuevo */
   footer{border-top:1px solid var(--border);background:rgba(11,15,20,.6)}
   footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
   footer a{color:#80c0ff;text-decoration:none}
@@ -131,7 +123,7 @@
 
   <!-- PROGRESO STICKY (siempre visible) -->
   <section class="progress" id="progress">
-    <div class="counts" id="countChips"></div>
+    <div id="stats" class="small"></div>
     <div class="stats-compact">
       <div class="pbar">
         <span class="label">Analista Programador/a</span>
@@ -144,7 +136,6 @@
         <span id="pLic" class="pct">0%</span>
       </div>
     </div>
-    <div id="stats" class="small"></div>
     <div id="anaInfo" class="small"></div>
   </section>
 </main>
@@ -166,7 +157,11 @@
 const STORAGE_KEY='simulador-avance';
 let plans={}, currentPlan='', states={};
 
-const ANALISTA_OVERRIDES = { /* opcional por plan */ };
+// (Opcional) Si Analista NO es simplemente "hasta 3er año", podés listar slugs por plan acá.
+const ANALISTA_OVERRIDES = {
+  // "2009": ["algoritmos-estructuras-i", "..."],
+  // "2023": ["..."]
+};
 
 fetch('plans.json').then(r=>r.json()).then(data=>{
   plans=data;
@@ -181,6 +176,7 @@ fetch('plans.json').then(r=>r.json()).then(data=>{
   loadStates(); render();
 });
 
+// año footer
 document.getElementById('yearNow').textContent = new Date().getFullYear();
 
 function loadStates(){
@@ -211,6 +207,7 @@ function needs(list){
 function canCursar(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.cursar).every(x=>x.ok); }
 function canRendir(code){ const m=getMateria(code); if(!m) return false; return needs(m.requisitos?.rendir).every(x=>x.ok); }
 
+// Etiquetas y orden de cuatrimestres (incluye Anual y Extracurricular)
 const CUAT_LABEL = { '1':'1° Cuatrimestre', '2':'2° Cuatrimestre', 'anual':'Anual', 'extra':'Extracurricular', 'otro':'Otros' };
 const CUAT_ORDER = ['1','2','anual','extra','otro'];
 function cuatKey(c){
@@ -226,6 +223,7 @@ function render(){
   const only=document.getElementById('onlyEnabled').checked;
   const box=document.getElementById('materias'); box.innerHTML='';
 
+  // agrupar por año + tipo de cuatrimestre
   const grouped={};
   (plans[currentPlan].materias||[]).forEach(m=>{
     if(q && !(m.nombre.toLowerCase().includes(q))) return;
@@ -309,20 +307,10 @@ function updateStats(){
   const arr=plans[currentPlan].materias||[];
   const counts={0:0,1:0,2:0};
   arr.forEach(m=>{counts[states[m.codigo]||0]++;});
+  document.getElementById('stats').textContent=
+    `Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${arr.length}`;
 
-  // Chips de conteo
-  document.getElementById('countChips').innerHTML = `
-    <span class="pill ok">✅ Aprobadas: ${counts[2]}</span>
-    <span class="pill reg">🟡 Regulares: ${counts[1]}</span>
-    <span class="pill no">⚫ No cursadas: ${counts[0]}</span>
-    <span class="pill">📚 Total: ${arr.length}</span>
-  `;
-
-  // Texto resumen
-  document.getElementById('stats').textContent =
-    \`Aprobadas: \${counts[2]} | Regulares: \${counts[1]} | No cursadas: \${counts[0]} | Total: \${arr.length}\`;
-
-  // Analista
+  // Analista = TODAS las materias de 1º–3º aprobadas
   const anaArr = arr.filter(m => Number(m.anio) <= 3);
   const anaTotal = anaArr.length;
   const anaAprob = anaArr.filter(m => (states[m.codigo]||0) === 2).length;
@@ -330,16 +318,17 @@ function updateStats(){
   document.getElementById('mAnalista').style.width = anaPct + '%';
   document.getElementById('pAna').textContent = anaPct + '%';
 
+  // Texto + faltantes Analista
   const anaMissing = anaArr.filter(m => (states[m.codigo]||0) !== 2);
   const anaInfo = document.getElementById('anaInfo');
   if (anaMissing.length === 0) {
-    anaInfo.textContent = \`Analista: \${anaAprob}/\${anaTotal} (\${anaPct}%) • ✅ ¡Completado!\`;
+    anaInfo.textContent = `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • ✅ ¡Completado!`;
   } else {
     const nombres = anaMissing.map(m => m.nombre).join(', ');
-    anaInfo.textContent = \`Analista: \${anaAprob}/\${anaTotal} (\${anaPct}%) • Te faltan \${anaMissing.length}: \${nombres}\`;
+    anaInfo.textContent = `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • Te faltan ${anaMissing.length}: ${nombres}`;
   }
 
-  // Licenciado
+  // Licenciado = % sobre todas las materias aprobadas
   const licTotal = arr.length;
   const licAprob = counts[2];
   const licPct = licTotal ? Math.round(100 * licAprob / licTotal) : 0;
@@ -347,8 +336,11 @@ function updateStats(){
   document.getElementById('pLic').textContent = licPct + '%';
 }
 
-/* ====== BADGES + LINK DE ESTADO ====== */
+/* =======================
+   BADGES + LINK DE ESTADO
+   ======================= */
 const BADGE_STYLE = 'for-the-badge';
+
 function computeLicPct(){
   const arr=plans[currentPlan].materias||[];
   const total=arr.length;
@@ -371,8 +363,8 @@ function currentShareHash(){
   return btoa(unescape(encodeURIComponent(json)));
 }
 function shareUrl(){
-  const base = \`\${location.origin}\${location.pathname.replace(/\\/[^\\/]*$/,'/')}\`;
-  return \`\${base}estado.html#\${currentShareHash()}\`;
+  const base = `${location.origin}${location.pathname.replace(/\/[^\/]*$/,'/')}`;
+  return `${base}estado.html#${currentShareHash()}`;
 }
 function copyToClipboard(text){
   if (navigator.clipboard?.writeText) {
@@ -393,18 +385,18 @@ function colorByPct(p){
 function makeYearBadgeMarkdown(){
   const year = highestFullYearApproved();
   const label = encodeURIComponent('🎓 LSI');
-  const msg   = encodeURIComponent( year===0 ? 'Ingresante' : \`\${year}º año\` );
+  const msg   = encodeURIComponent( year===0 ? 'Ingresante' : `${year}º año` );
   const color = '16a34a';
-  const url = \`https://img.shields.io/badge/\${label}-\${msg}-\${color}?style=\${BADGE_STYLE}\`;
-  return \`[![LSI · \${year===0?'Ingresante':year+'º año'}](\${url})](\${shareUrl()})\`;
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![LSI · ${year===0?'Ingresante':year+'º año'}](${url})](${shareUrl()})`;
 }
 function makePctBadgeMarkdown(){
   const pct = computeLicPct();
   const label = encodeURIComponent('🎓 Avance LSI');
-  const msg   = encodeURIComponent(\`\${pct}%\`);
+  const msg   = encodeURIComponent(`${pct}%`);
   const color = colorByPct(pct);
-  const url = \`https://img.shields.io/badge/\${label}-\${msg}-\${color}?style=\${BADGE_STYLE}\`;
-  return \`[![Avance LSI \${pct}%](\${url})](\${shareUrl()})\`;
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![Avance LSI ${pct}%](${url})](${shareUrl()})`;
 }
 document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
 document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
