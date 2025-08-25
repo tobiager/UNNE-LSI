@@ -147,13 +147,14 @@ document.body.classList.add(savedTheme);
   const avg = grades.length ? (grades.reduce((a,b)=>a+b,0)/grades.length).toFixed(2) : null;
 
   const head=document.getElementById('head');
+  const barClass = pct === 100 ? 'm-green' : 'm-blue';
   head.innerHTML = `
     <div><strong>Plan:</strong> ${plan.nombre}</div>
     <div style="margin:6px 0">
       Aprobadas: ${counts[2]}${avg?` (Promedio: ${avg})`:''} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}
     </div>
     <div class="bar">
-      <div class="meter"><span style="width:${pct}%"></span></div>
+      <div class="meter"><span class="${barClass}" style="width:${pct}%"></span></div>
       <div class="pct">${pct}%</div>
     </div>
   `;
