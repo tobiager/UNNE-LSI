@@ -81,10 +81,28 @@
     #materias{grid-template-columns:1fr}
     .year-grid{grid-template-columns:1fr}
   }
+
+  /* Intro */
+  #intro{
+    position:fixed; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:20px;
+    background:var(--bg); text-align:center;
+  }
+  #intro h1{margin:0 0 20px 0;font-size:1.8rem}
+  #intro button{font-size:1.1rem; padding:12px 24px}
 </style>
 </head>
 
 <body>
+  <div id="intro">
+    <h1>Simulador de Avance</h1>
+    <div>
+      <button data-plan="2023">Plan 2023</button>
+      <button data-plan="2009">Plan 2009</button>
+    </div>
+  </div>
+
+  <div id="simulator" style="display:none">
   <header>
     <div class="wrap">
       <h1>Simulador de Avance</h1>
@@ -110,10 +128,12 @@
   </main>
 
   <footer class="wrap">Hecho con ❤️ para UNNE LSI • <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">Ver repo</a></footer>
+  </div>
 
 <script>
   const STORAGE_KEY='simulador-avance';
-  let plans={}, currentPlan='', states={};
+  const PLAN_KEY='simulador-plan';
+  let plans={}, currentPlan=localStorage.getItem(PLAN_KEY)||'', states={};
 
   // Carga de planes y setup
   fetch('plans.json')
@@ -126,11 +146,36 @@
         opt.value=key; opt.textContent=plan.nombre || key;
         sel.appendChild(opt);
       });
-      currentPlan = sel.value = Object.keys(plans)[0];
-      sel.addEventListener('change',()=>{currentPlan=sel.value;loadStates();render();});
-      loadStates(); render();
+      if(currentPlan && plans[currentPlan]){
+        sel.value=currentPlan;
+        showSim();
+        loadStates(); render();
+      }
+      sel.addEventListener('change',()=>{
+        currentPlan=sel.value;
+        localStorage.setItem(PLAN_KEY,currentPlan);
+        loadStates();render();
+      });
+      document.querySelectorAll('#intro button').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          currentPlan=btn.dataset.plan;
+          localStorage.setItem(PLAN_KEY,currentPlan);
+          const sel=document.getElementById('plan');
+          if(plans[currentPlan]){
+            sel.value=currentPlan;
+            showSim();
+            loadStates(); render();
+          }
+        });
+      });
     })
     .catch(()=>{ document.getElementById('materias').textContent='No se pudo cargar plans.json'; });
+
+  function showSim(){
+    document.getElementById('simulator').style.display='';
+    const intro=document.getElementById('intro');
+    if(intro) intro.remove();
+  }
 
   function loadStates(){
     const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
