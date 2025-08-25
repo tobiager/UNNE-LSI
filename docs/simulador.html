@@ -86,6 +86,7 @@
       <div id="stats"></div>
       <div>Progreso Analista</div>
       <div class="meter"><span id="mAnalista" class="m-blue"></span></div>
+      <div class="hint" id="anaInfo" style="color:#9fb0c2"></div><!-- NUEVO: info Analista -->
       <div>Progreso Licenciado</div>
       <div class="meter"><span id="mLic" class="m-green"></span></div>
     </div>
@@ -153,7 +154,7 @@ function render(){
   const box=document.getElementById('materias'); box.innerHTML='';
   const grouped={};
   (plans[currentPlan].materias||[]).forEach(m=>{
-    if(q && !(m.nombre.toLowerCase().includes(q))) return; // no mostramos slug
+    if(q && !(m.nombre.toLowerCase().includes(q))) return; // sin slug
     if(only && !canCursar(m.codigo)) return;
     if(!grouped[m.anio]) grouped[m.anio]={1:[],2:[]};
     grouped[m.anio][m.cuatrimestre]=grouped[m.anio][m.cuatrimestre]||[];
@@ -234,19 +235,28 @@ function updateStats(){
   document.getElementById('stats').textContent=
     `Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${arr.length}`;
 
-  // Progreso Analista y Licenciado
-  const analistaSet = ANALISTA_OVERRIDES[currentPlan] && ANALISTA_OVERRIDES[currentPlan].length
-    ? new Set(ANALISTA_OVERRIDES[currentPlan])
-    : new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
+  // === Analista: TODAS las materias con anio <= 3 aprobadas ===
+  const anaArr = arr.filter(m => Number(m.anio) <= 3);
+  const anaTotal = anaArr.length;
+  const anaAprob = anaArr.filter(m => (states[m.codigo]||0) === 2).length;
+  const anaPct = anaTotal ? Math.round(100 * anaAprob / anaTotal) : 0;
+  document.getElementById('mAnalista').style.width = anaPct + '%';
 
-  const anaTotal = Array.from(analistaSet).length;
-  const anaAprob = Array.from(analistaSet).filter(c=> (states[c]||0)===2).length;
+  // Texto + faltantes Analista
+  const anaMissing = anaArr.filter(m => (states[m.codigo]||0) !== 2);
+  const anaInfo = document.getElementById('anaInfo');
+  if (anaMissing.length === 0) {
+    anaInfo.textContent = `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • ✅ ¡Completado!`;
+  } else {
+    const nombres = anaMissing.map(m => m.nombre).join(', ');
+    anaInfo.textContent = `Analista: ${anaAprob}/${anaTotal} (${anaPct}%) • Te faltan ${anaMissing.length}: ${nombres}`;
+  }
 
+  // === Licenciado: todas las materias aprobadas ===
   const licTotal = arr.length;
   const licAprob = counts[2];
-
-  document.getElementById('mAnalista').style.width = (anaTotal? (100*anaAprob/anaTotal):0)+'%';
-  document.getElementById('mLic').style.width = (licTotal? (100*licAprob/licTotal):0)+'%';
+  const licPct = licTotal ? Math.round(100 * licAprob / licTotal) : 0;
+  document.getElementById('mLic').style.width = licPct + '%';
 }
 
 // acciones
