@@ -45,23 +45,29 @@
   }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
   .toolbar details.menu>summary{
-    list-style:none;cursor:pointer;
-    background:var(--panel);border:1px solid var(--border);color:var(--text);
-    padding:8px 12px;border-radius:12px;font-weight:600
-  }
-  .toolbar details.menu>summary::-webkit-details-marker{display:none}
-  .toolbar details.menu>.menu-content{flex-wrap:wrap;gap:10px;margin-top:8px}
+    
+list-style:none;cursor:pointer;
+background:var(--panel);border:1px solid var(--border);color:var(--text);
+padding:8px 12px;border-radius:12px;font-weight:600
+}
+.toolbar details.menu>.menu-content{flex-wrap:wrap;gap:10px;margin-top:8px}
+.toolbar details.menu .legend{margin-left:0}
+
+/* Mobile: show arrow and keep menu cerrado por defecto */
+@media (max-width:699px){
+  .toolbar details.menu>.menu-content{display:none}
   .toolbar details.menu[open]>.menu-content{display:flex}
-  .toolbar details.menu:not([open])>.menu-content{display:none}
-  .toolbar details.menu .legend{margin-left:0}
-  @media (min-width:700px){
-    .toolbar details.menu>summary{display:none}
-    .toolbar details.menu{display:flex;flex-wrap:wrap;gap:10px}
-    .toolbar details.menu>.menu-content{display:flex;margin-top:0}
-  }
-  @media (max-width:699px){
-    .toolbar select,.toolbar input[type="search"]{flex:1 1 100%}
-    .toolbar details.menu{width:100%}
+  .toolbar select,.toolbar input[type="search"]{flex:1 1 100%}
+  .toolbar details.menu{width:100%}
+}
+
+/* Desktop: mostrar opciones siempre y ocultar el trigger */
+@media (min-width:700px){
+  .toolbar details.menu>summary{display:none}
+  .toolbar details.menu{display:flex;flex-wrap:wrap;gap:10px}
+  .toolbar details.menu>.menu-content{display:flex !important;margin-top:0}
+}
+
   }
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
