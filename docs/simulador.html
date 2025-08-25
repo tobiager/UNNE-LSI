@@ -1,126 +1,255 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Simulador de Avance</title>
 
 <style>
-body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin:0;padding:1rem;}
-#controls{margin-bottom:1rem;}
-#materias{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.card{border:1px solid #444;border-radius:8px;padding:0.5rem;background:#333;flex:1 1 300px;cursor:pointer;}
-.card.no{background:#444;}
-.card.regular{background:#b59f3b;}
-.card.aprobada{background:#2e7d32;}
-.card.disabled{opacity:0.4;cursor:not-allowed;}
-.badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
-@media(max-width:600px){.card{flex:1 1 100%;}}
-footer{background:#121212;color:#eee;text-align:center;padding:1rem;margin-top:1rem;}
-footer a{color:#b59f3b;text-decoration:none;}
-@media(min-width:600px){footer{position:fixed;bottom:0;left:0;width:100%;}}
+  :root{
+    --bg:#0b0f14; --panel:#0f1625; --border:#1f2a36; --text:#e6edf3; --muted:#9fb0c2;
+    --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa;
+    --card:#0e1421; --card2:#121a2b;
+  }
+
+  /* Base */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; color:var(--text);
+    background: radial-gradient(1200px 600px at 10% -10%, #10233a 0%, rgba(16,35,58,0) 60%) ,
+                radial-gradient(800px 500px at 110% -10%, #1b2a43 0%, rgba(27,42,67,0) 50%) ,
+                var(--bg);
+    font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+  }
+
+  /* Header / Controls */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(11,15,20,.7); backdrop-filter:saturate(130%) blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:18px}
+  h1{margin:0 0 10px 0;font-size:1.6rem;letter-spacing:.3px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  select,button{
+    background:linear-gradient(180deg,var(--panel),#0c131f);
+    border:1px solid var(--border); color:var(--text);
+    padding:8px 12px; border-radius:12px; font-weight:600; cursor:pointer
+  }
+  button.secondary{background:#0b121e}
+  button:disabled{opacity:.6;cursor:not-allowed}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-left:auto;font-size:.9rem}
+  .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
+
+  /* Stats */
+  #stats{
+    margin-top:10px;color:var(--muted);font-size:.95rem
+  }
+
+  /* Grid */
+  #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
+  .year{grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:14px;background:linear-gradient(180deg,var(--card),var(--card2))}
+  .year > h2{margin:0 0 10px 0;font-size:1.2rem;color:#cfe1ff}
+  .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
+  .cuat h3{margin:0 0 8px 0;color:#b6c6dc;font-size:1rem}
+
+  /* Cards */
+  .card{
+    border:1px solid var(--border); border-radius:14px;
+    padding:12px; background:linear-gradient(180deg,#0f1726,#0c1422);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+    cursor:pointer
+  }
+  .card:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.25); border-color:#314359}
+  .card.disabled{opacity:.45; cursor:not-allowed; filter:grayscale(.1)}
+  .title{font-weight:700;margin-bottom:6px}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .badge{background:#0b1423;border:1px solid #223147;color:#b8c5d8;padding:2px 8px;border-radius:999px;font-size:.75rem}
+
+  /* State colors */
+  .no{background:linear-gradient(180deg,#171e2b,#131a27)}
+  .regular{background:linear-gradient(180deg,#2b2413,#1f1a0d); border-color:#6b5714}
+  .aprobada{background:linear-gradient(180deg,#0e2415,#0a1c10); border-color:#1b6a35}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);padding:16px;color:#97a7bd;text-align:center;margin-top:18px}
+  footer a{color:var(--accent);text-decoration:none}
+
+  /* Responsive */
+  @media (max-width: 900px){
+    #materias{grid-template-columns:1fr}
+    .year-grid{grid-template-columns:1fr}
+  }
 </style>
-
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans p-4">
-<h1 class="text-2xl mb-4">Simulador de Avance</h1>
-<div id="legend" class="flex gap-4 mb-4 text-sm">
-  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-gray-600 inline-block"></span><span>No cursada</span></div>
-  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-yellow-600 inline-block"></span><span>Regular</span></div>
-  <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-green-700 inline-block"></span><span>Aprobada</span></div>
-</div>
 
-<div id="stats"></div>
-<div id="materias"></div>
-<footer>Hecho por <a href="https://github.com/openai" target="_blank">ChatGPT</a></footer>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Simulador de Avance</h1>
+      <div class="controls">
+        <select id="plan"></select>
+        <button id="save">Guardar</button>
+        <button id="reset" class="secondary">Reiniciar</button>
+        <button id="export">Exportar JSON</button>
+        <button id="import" class="secondary">Importar JSON</button>
+        <input type="file" id="fileInput" accept="application/json" style="display:none" />
+        <div class="legend">
+          <span><span class="dot" style="background:var(--off)"></span>No cursada</span>
+          <span><span class="dot" style="background:var(--warn)"></span>Regular</span>
+          <span><span class="dot" style="background:var(--ok)"></span>Aprobada</span>
+        </div>
+      </div>
+      <div id="stats"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="materias"></div>
+  </main>
+
+  <footer class="wrap">Hecho con ❤️ para UNNE LSI • <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener">Ver repo</a></footer>
 
 <script>
-const STORAGE_KEY='simulador-avance';
-let plans={},currentPlan='2023',states={};
-fetch('plans.json').then(r=>r.json()).then(data=>{
-  plans=data;
-  const sel=document.getElementById('plan');
-  Object.entries(plans).forEach(([key,plan])=>{
-    const opt=document.createElement('option');
-    opt.value=key;opt.textContent=plan.nombre;sel.appendChild(opt);
+  const STORAGE_KEY='simulador-avance';
+  let plans={}, currentPlan='', states={};
+
+  // Carga de planes y setup
+  fetch('plans.json')
+    .then(r=>r.json())
+    .then(data=>{
+      plans=data;
+      const sel=document.getElementById('plan');
+      Object.entries(plans).forEach(([key,plan])=>{
+        const opt=document.createElement('option');
+        opt.value=key; opt.textContent=plan.nombre || key;
+        sel.appendChild(opt);
+      });
+      currentPlan = sel.value = Object.keys(plans)[0];
+      sel.addEventListener('change',()=>{currentPlan=sel.value;loadStates();render();});
+      loadStates(); render();
+    })
+    .catch(()=>{ document.getElementById('materias').textContent='No se pudo cargar plans.json'; });
+
+  function loadStates(){
+    const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+    states=all[currentPlan]||{};
+  }
+  function saveStates(){
+    const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+    all[currentPlan]=states;
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
+  }
+  function resetStates(){
+    states={}; saveStates(); render();
+  }
+  function toggleState(code){
+    const s=states[code]||0;
+    states[code]=(s+1)%3; // 0→1→2→0
+    saveStates(); render();
+  }
+  function allowed(code){
+    const mat=(plans[currentPlan].materias||[]).find(m=>m.codigo===code);
+    if(!mat) return false;
+    return (mat.correlativas||[]).every(c=>(states[c]||0)===2);
+  }
+
+  // Render agrupado por Año / Cuatrimestre
+  function render(){
+    const container=document.getElementById('materias');
+    container.innerHTML='';
+    const grouped={};
+    (plans[currentPlan].materias||[]).forEach(m=>{
+      if(!grouped[m.anio]) grouped[m.anio]={1:[],2:[]};
+      grouped[m.anio][m.cuatrimestre] = grouped[m.anio][m.cuatrimestre] || [];
+      grouped[m.anio][m.cuatrimestre].push(m);
+    });
+
+    Object.keys(grouped).map(n=>+n).sort((a,b)=>a-b).forEach(anio=>{
+      const box=document.createElement('section');
+      box.className='year';
+      const h2=document.createElement('h2');
+      h2.textContent=`${anio}° Año`;
+      box.appendChild(h2);
+
+      const g=document.createElement('div');
+      g.className='year-grid';
+
+      [1,2].forEach(cuat=>{
+        const col=document.createElement('div');
+        col.className='cuat';
+        const h3=document.createElement('h3');
+        h3.textContent=`${cuat}° Cuatrimestre`;
+        col.appendChild(h3);
+
+        (grouped[anio][cuat]||[]).forEach(m=>{
+          const card=document.createElement('div');
+          const state=states[m.codigo]||0;
+          card.className='card ' + (['no','regular','aprobada'][state]);
+          if(!allowed(m.codigo)) card.classList.add('disabled');
+
+          card.innerHTML =
+            `<div class="title">${m.codigo} — ${m.nombre}</div>` +
+            `<div class="badges">
+               <span class="badge">Régimen: ${m.regimen}</span>
+               <span class="badge">${m.carga_horaria}h</span>
+             </div>` +
+            (m.correlativas?.length
+              ? `<div class="badges" style="margin-top:8px">
+                   <span class="badge">Correlativas: ${m.correlativas.join(', ')}</span>
+                 </div>`
+              : '');
+
+          if(allowed(m.codigo)) card.addEventListener('click',()=>toggleState(m.codigo));
+          col.appendChild(card);
+        });
+
+        g.appendChild(col);
+      });
+
+      box.appendChild(g);
+      container.appendChild(box);
+    });
+
+    updateStats();
+  }
+
+  function updateStats(){
+    const counts={0:0,1:0,2:0};
+    (plans[currentPlan].materias||[]).forEach(m=>{counts[states[m.codigo]||0]++;});
+    document.getElementById('stats').textContent =
+      `Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${(plans[currentPlan].materias||[]).length}`;
+  }
+
+  // Botones
+  document.getElementById('save').addEventListener('click',()=>{
+    saveStates();
+    const btn=document.getElementById('save'); const old=btn.textContent;
+    btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=old,1200);
   });
-  sel.addEventListener('change',()=>{currentPlan=sel.value;loadStates();render();});
-  loadStates();render();
-});
-function loadStates(){
-  const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-  states=all[currentPlan]||{};
-}
-function saveStates(){
-  const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
-  all[currentPlan]=states;
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(all));
-}
-function resetStates(){
-  states={};
-  saveStates();
-  render();
-}
-function toggleState(code){
-  const s=states[code]||0;
-  states[code]=(s+1)%3;
-  saveStates();
-  render();
-}
-function allowed(code){
-  const mat=plans[currentPlan].materias.find(m=>m.codigo===code);
-  return mat.correlativas.every(c=>(states[c]||0)==2);
-}
-function render(){
-  const container=document.getElementById('materias');
-  container.innerHTML='';
-  const stateClasses=['bg-gray-700','bg-yellow-600','bg-green-700'];
-  plans[currentPlan].materias.forEach(m=>{
-    const card=document.createElement('div');
-    const state=states[m.codigo]||0;
-    card.className=`p-4 rounded-lg border border-gray-600 transition transform hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer ${stateClasses[state]}`;
-    if(!allowed(m.codigo))card.classList.add('opacity-40','cursor-not-allowed');
-    card.innerHTML=`<strong class="block mb-1">${m.codigo} — ${m.nombre}</strong>`+
-      `<div class="flex flex-wrap gap-2 text-xs">
-        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded">Año: ${m.anio}</span>
-        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded">Cuatr: ${m.cuatrimestre}</span>
-        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded"><span>📅</span>${m.regimen}</span>
-        <span class="inline-flex items-center gap-1 bg-gray-800 px-2 py-0.5 rounded"><span>⏱️</span>${m.carga_horaria}h</span>
-      </div>`+
-      (m.correlativas.length?`<div class="text-xs mt-2 flex items-center gap-1"><span>🔗</span>${m.correlativas.join(', ')}</div>`:'');
-    if(allowed(m.codigo))card.addEventListener('click',()=>toggleState(m.codigo));
-    container.appendChild(card);
+  document.getElementById('reset').addEventListener('click',()=>{
+    if(confirm('¿Reiniciar estados de este plan?')) resetStates();
   });
-  updateStats();
-}
-function updateStats(){
-  const counts={0:0,1:0,2:0};
-  plans[currentPlan].materias.forEach(m=>{counts[states[m.codigo]||0]++;});
-  document.getElementById('stats').textContent=`Aprobadas: ${counts[2]} | Regulares: ${counts[1]} | No cursadas: ${counts[0]} | Total: ${plans[currentPlan].materias.length}`;
-}
-document.getElementById('save').addEventListener('click',saveStates);
-document.getElementById('reset').addEventListener('click',resetStates);
-document.getElementById('export').addEventListener('click',()=>{
-  const data=localStorage.getItem(STORAGE_KEY)||'{}';
-  const blob=new Blob([data],{type:'application/json'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='simulador.json';
-  a.click();
-});
-document.getElementById('import').addEventListener('click',()=>document.getElementById('fileInput').click());
-document.getElementById('fileInput').addEventListener('change',e=>{
-  const file=e.target.files[0];
-  if(!file)return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    try{
-      localStorage.setItem(STORAGE_KEY,ev.target.result);
-      loadStates();
-      render();
-    }catch(err){alert('JSON inválido');}
-  };
-  reader.readAsText(file);
-});
+  document.getElementById('export').addEventListener('click',()=>{
+    const data=localStorage.getItem(STORAGE_KEY)||'{}';
+    const blob=new Blob([data],{type:'application/json'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='simulador.json'; a.click();
+  });
+  document.getElementById('import').addEventListener('click',()=>document.getElementById('fileInput').click());
+  document.getElementById('fileInput').addEventListener('change',e=>{
+    const file=e.target.files[0]; if(!file) return;
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      try{
+        localStorage.setItem(STORAGE_KEY,ev.target.result);
+        loadStates(); render();
+      }catch{ alert('JSON inválido'); }
+    };
+    reader.readAsText(file);
+  });
 </script>
 </body>
 </html>
