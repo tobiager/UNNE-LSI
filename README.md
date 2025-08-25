@@ -59,7 +59,6 @@ Decidí armar este repositorio para dejar un registro de mi recorrido y que tamb
 
 Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guías, parciales resueltos y tips de cursada** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
 
-👉 [Simulador de avance](./docs/simulador.html)
 
 > [!NOTE]
 > “El que estudia con parciales viejos, aprueba dos veces” — proverbio LSI
@@ -193,6 +192,8 @@ La carrera se dicta bajo dos planes vigentes:
     <img src="https://img.shields.io/badge/Plan-2023-22C55E?style=for-the-badge" alt="Plan 2023"/>
   </a>
 </p>
+
+👉 [Simulador de avance](./docs/simulador.html)
 
 ### 📌 Plan 2009 — Orden de cursada
 
