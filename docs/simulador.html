@@ -477,6 +477,9 @@ function render(){
         b2.onclick=()=>setState(m.codigo,1);
         b3.onclick=()=>setState(m.codigo,2);
 
+        const noteInput=card.querySelector('.note');
+        noteInput.value=getNote(m.codigo);
+        noteInput.addEventListener('change',e=>setNote(m.codigo,e.target.value));
 
         if(!canCursar(m.codigo)){ b1.disabled=true; b2.disabled=true; b3.disabled=true; }
         else if(!canRendir(m.codigo)){ b3.disabled=true; }

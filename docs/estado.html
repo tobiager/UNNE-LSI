@@ -129,6 +129,10 @@ document.body.classList.add(savedTheme);
   function escapeHtml(str){
     return str.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   }
+  function parseGrade(str){
+    const m=str.match(/\d+(?:\.\d+)?/);
+    return m?Number(m[0]):null;
+  }
 
   // stats
   const arr=plan.materias||[];
@@ -137,28 +141,23 @@ document.body.classList.add(savedTheme);
   arr.forEach(m=>counts[getStatus(m.codigo)]++);
   const total=arr.length, pct= total? Math.round(100*counts[2]/total):0;
 
-  const anaSet = new Set(arr.filter(m=>Number(m.anio)<=3).map(m=>m.codigo));
-  const anaTotal = anaSet.size;
-  const anaAprob = Array.from(anaSet).filter(c=> (share.states?.[c]||0)===2).length;
-  const anaPct = anaTotal ? Math.round(100*anaAprob/anaTotal) : 0;
-
-  const licTotal = arr.length;
-  const licAprob = counts[2];
-  const licPct   = licTotal ? Math.round(100*licAprob/licTotal) : 0;
+  const grades = arr
+    .filter(m=>getStatus(m.codigo)===2)
+    .map(m=>parseGrade(getNote(m.codigo)))
+    .filter(n=>n!==null);
+  const avg = grades.length ? (grades.reduce((a,b)=>a+b,0)/grades.length).toFixed(2) : null;
 
   const head=document.getElementById('head');
   head.innerHTML = `
     <div><strong>Plan:</strong> ${plan.nombre}</div>
-
-    <div style="margin:6px 0">Aprobadas: ${counts[2]} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}</div>
-    <div class="meter"><span style="width:${pct}%"></span></div>
-
+    <div style="margin:6px 0">
+      Aprobadas: ${counts[2]}${avg?` (Promedio: ${avg})`:''} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}
+    </div>
+    <div class="bar">
+      <div class="meter"><span style="width:${pct}%"></span></div>
+      <div class="pct">${pct}%</div>
+    </div>
   `;
-
-  document.getElementById('mAnalista').style.width = anaPct + '%';
-  document.getElementById('pAna').textContent      = anaPct + '%';
-  document.getElementById('mLic').style.width = licPct + '%';
-  document.getElementById('pLic').textContent = licPct + '%';
 
   // listado compacto
   const byYear={};
