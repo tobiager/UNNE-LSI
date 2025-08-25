@@ -193,7 +193,7 @@ La carrera se dicta bajo dos planes vigentes:
   </a>
 </p>
 
-👉 [Simulador de avance](./docs/simulador.html)
+<a href="https://tobiager.github.io/UNNE-LSI/simulador.html">Simulador de avance</a>
 
 ### 📌 Plan 2009 — Orden de cursada
 
