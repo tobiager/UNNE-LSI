@@ -7,17 +7,30 @@
 <title>Simulador de Avance</title>
 <style>
   :root{
-    --bg:#0b0f14; --panel:#0f1625; --border:#1f2a36; --text:#e6edf3; --muted:#9fb0c2;
+    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
+    --panel-light:#ffffff; --panel-dark:#0f1625;
+    --border-light:#d1d5db; --border-dark:#1f2a36;
+    --text-light:#1f2937; --text-dark:#e6edf3;
+    --muted-light:#6b7280; --muted-dark:#9fb0c2;
+    --card-light:#ffffff; --card-dark:#0f1726;
+    --card2-light:#f9fafb; --card2-dark:#0b1423;
+    --grad1-light:#ffffff; --grad1-dark:#10233a;
+    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
     --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa;
-    --card:#0f1726; --card2:#0b1423;
-    --footer-h:56px;
-    --status-h:82px;
+    --footer-h:56px; --status-h:82px;
+    /* valores por defecto (oscuro) */
+    --bg:var(--bg-dark); --panel:var(--panel-dark); --border:var(--border-dark);
+    --text:var(--text-dark); --muted:var(--muted-dark);
+    --card:var(--card-dark); --card2:var(--card2-dark);
+    --grad1:var(--grad1-dark); --grad2:var(--grad2-dark);
   }
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--card:var(--card-light);--card2:var(--card2-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--card:var(--card-dark);--card2:var(--card2-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
   *{box-sizing:border-box}
   body{margin:0;color:var(--text);
     background:
-      radial-gradient(900px 360px at -10% -10%,#10233a 0,transparent 60%),
-      radial-gradient(700px 480px at 110% -10%,#1b2a43 0,transparent 50%),
+      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
       var(--bg);
     font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
   }
@@ -27,7 +40,7 @@
   h1{margin:0 0 8px;font-size:1.7rem;letter-spacing:.2px}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
   select,button,input[type="search"]{
-    background:#0e1727;border:1px solid var(--border);color:var(--text);
+    background:var(--panel);border:1px solid var(--border);color:var(--text);
     padding:8px 12px;border-radius:12px;font-weight:600
   }
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
@@ -42,18 +55,18 @@
   .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
   .cuat h3{margin:0 0 8px;color:#b6c6dc;font-size:1rem}
 
-  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,#101a2b,#0b1423);transition:transform .12s ease,box-shadow .12s ease;position:relative}
+  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,var(--card),var(--card2));transition:transform .12s ease,box-shadow .12s ease;position:relative}
   .card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,0,0,.25)}
   .title{font-weight:800;margin:0 0 2px;font-size:1.02rem}
   .sub{color:#c8d7ea;margin:0 0 6px;font-size:.85rem}
   .meta,.reqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .chip{background:#0b1423;border:1px solid #223147;color:#b8c5d8;padding:2px 8px;border-radius:999px;font-size:.73rem}
-  .req{padding:2px 8px;border-radius:999px;font-size:.73rem;border:1px solid #294151}
+  .chip{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:2px 8px;border-radius:999px;font-size:.73rem}
+  .req{padding:2px 8px;border-radius:999px;font-size:.73rem;border:1px solid var(--border)}
   .req.ok{background:#0f2717;border-color:#1e6a39;color:#a7f3d0}
   .req.miss{background:#2a0f12;border-color:#7f1d1d;color:#fecaca}
   .req.unknown{background:#2a1f0f;border-color:#7c2d12;color:#fde68a}
   .state{display:inline-flex;gap:6px;margin-top:10px}
-  .btn{border:1px solid var(--border);background:#0e1524;color:#dbe6f4;padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer}
+  .btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer}
   .btn.active{outline:2px solid var(--accent)}
   .btn.off{background:#30343b}
   .btn.reg{background:#5e4a16}
@@ -73,14 +86,14 @@
     border-top:1px solid var(--border);
   }
   .status-inner{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#0e1727;font-weight:700;font-size:.82rem}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--panel);font-weight:700;font-size:.82rem}
   .pill.green{border-color:#1f6d3c;background:#0f2717;color:#9df2c9}
   .pill.yellow{border-color:#8b6a1b;background:#2a220d;color:#fde68a}
   .pill.gray{border-color:#3b414c;background:#161a22;color:#cbd5e1}
   .pill.dark{border-color:#2b3644;background:#0f1522;color:#cfe1ff}
 
   .bar{flex:1;display:flex;align-items:center;gap:10px;min-width:280px}
-  .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden;flex:1}
+  .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
   .meter>span{display:block;height:100%;width:0%}
   .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
   .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
@@ -155,6 +168,7 @@
       <button id="share">Link de estado</button>
       <button id="badgeYear">Copiar badge · Año</button>
       <button id="badgePct">Copiar badge · %</button>
+      <button id="themeToggle">Tema</button>
       <input type="file" id="fileInput" accept="application/json" style="display:none" />
       <div class="legend">
         <span><span class="dot" style="background:#3b414c"></span>No cursada</span>
@@ -225,6 +239,8 @@
 </div>
 
 <script>
+const savedTheme=localStorage.getItem('theme')||'theme-dark';
+document.body.classList.add(savedTheme);
 const STORAGE_KEY='simulador-avance';
 let plans={}, currentPlan='', states={};
 
@@ -498,6 +514,17 @@ document.getElementById('fileInput').addEventListener('change',e=>{
   const reader=new FileReader();
   reader.onload=ev=>{ try{ localStorage.setItem(STORAGE_KEY,ev.target.result); loadStates(); render(); }catch{ showToast('JSON inválido'); } };
   reader.readAsText(file);
+});
+
+const themeBtn=document.getElementById('themeToggle');
+themeBtn.textContent=document.body.classList.contains('theme-dark')?'🌞':'🌜';
+themeBtn.addEventListener('click',()=>{
+  const isDark=document.body.classList.contains('theme-dark');
+  const next=isDark?'theme-light':'theme-dark';
+  document.body.classList.remove('theme-dark','theme-light');
+  document.body.classList.add(next);
+  localStorage.setItem('theme',next);
+  themeBtn.textContent=isDark?'🌜':'🌞';
 });
 </script>
 </body>
