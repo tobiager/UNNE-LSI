@@ -114,21 +114,25 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 ## 📂 Estructura del repositorio
 
 ```text
-Materias/
-  ├── <Materia>/README.md   # apuntes, prácticas y consejos
-planes/
-  ├── 2009.md               # plan 2009 detallado
-  └── 2023.md               # plan 2023 detallado
-meta/
-  └── mapping-planes.yaml   # mapeo materia → {año, cuatri} por plan
-assets/
-  └── facena.png, stickers  # imágenes usadas en el repo
+.
+├── Materias/             # apuntes, prácticas y consejos por materia
+├── planes/               # planes 2009 y 2023 detallados
+├── meta/                 # correlatividades y mapeos auxiliares
+├── assets/               # imágenes usadas en el repo
+├── docs/                 # visualizaciones y sitio estático
+├── Roadmap.md            # avance completo de la carrera
+├── mkdocs.yml            # configuración de la documentación
+└── CONTRIBUTING.md       # cómo contribuir
 ```
 
-- **Materias/** → Cada carpeta tiene un `README.md` con apuntes, prácticos y consejos.  
-- **planes/** → Info detallada de cada plan vigente.  
-- **meta/** → Archivos auxiliares para correlatividades.  
-- **assets/** → Logos, banners y stickers de Jäger (modo estudiante).  
+- **Materias/** → Cada carpeta tiene un `README.md` con apuntes, prácticos y consejos.
+- **planes/** → Info detallada de cada plan vigente.
+- **meta/** → Archivos auxiliares para correlatividades y planes.
+- **assets/** → Logos, banners y stickers de Jäger (modo estudiante).
+- **docs/** → Páginas y visualizaciones generadas.
+- **Roadmap.md** → Progreso completo y plan de cursada.
+- **mkdocs.yml** → Configuración para generar la documentación del sitio.
+- **CONTRIBUTING.md** → Guía para colaborar con el proyecto.
 
 ---
 
