@@ -1,0 +1,747 @@
+{
+  "2023": {
+    "nombre": "Plan 2023",
+    "materias": [
+      {
+        "codigo": "algoritmos-estructuras-i",
+        "nombre": "Algoritmos y Estructuras de Datos I",
+        "anio": 1,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": []
+      },
+      {
+        "codigo": "algebra",
+        "nombre": "Álgebra",
+        "anio": 1,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": []
+      },
+      {
+        "codigo": "algoritmos-estructuras-ii",
+        "nombre": "Algoritmos y Estructuras de Datos II",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i"
+        ]
+      },
+      {
+        "codigo": "logica-matematica-computacional",
+        "nombre": "Lógica y Matemática Computacional",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algebra"
+        ]
+      },
+      {
+        "codigo": "sistemas-y-organizaciones",
+        "nombre": "Sistemas y Organizaciones",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": []
+      },
+      {
+        "codigo": "paradigmas-y-lenguajes",
+        "nombre": "Paradigmas y Lenguajes",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i",
+          "algoritmos-estructuras-ii"
+        ]
+      },
+      {
+        "codigo": "arquitectura-y-organizacion-de-computadoras",
+        "nombre": "Arquitectura y Organización de Computadoras",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i",
+          "logica-matematica-computacional"
+        ]
+      },
+      {
+        "codigo": "calculo-diferencial-e-integral",
+        "nombre": "Cálculo Diferencial e Integral",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algebra",
+          "logica-matematica-computacional"
+        ]
+      },
+      {
+        "codigo": "poo",
+        "nombre": "Programación Orientada a Objetos",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-ii",
+          "paradigmas-y-lenguajes"
+        ]
+      },
+      {
+        "codigo": "sistemas-operativos",
+        "nombre": "Sistemas Operativos",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras"
+        ]
+      },
+      {
+        "codigo": "base-de-datos-i",
+        "nombre": "Bases de Datos I",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras"
+        ]
+      },
+      {
+        "codigo": "programacion-web",
+        "nombre": "Programación Web",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "base-de-datos-i",
+          "paradigmas-y-lenguajes",
+          "poo"
+        ]
+      },
+      {
+        "codigo": "comunicaciones-de-datos",
+        "nombre": "Comunicaciones de Datos",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras",
+          "sistemas-operativos"
+        ]
+      },
+      {
+        "codigo": "ingenieria-de-software-i",
+        "nombre": "Ingeniería de Software I",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "base-de-datos-i",
+          "paradigmas-y-lenguajes",
+          "poo"
+        ]
+      },
+      {
+        "codigo": "probabilidad-y-estadistica",
+        "nombre": "Probabilidad y Estadística",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "calculo-diferencial-e-integral",
+          "logica-matematica-computacional"
+        ]
+      },
+      {
+        "codigo": "programacion-avanzada",
+        "nombre": "Programación Avanzada",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "programacion-web"
+        ]
+      },
+      {
+        "codigo": "ingenieria-de-software-ii",
+        "nombre": "Ingeniería de Software II",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "base-de-datos-i",
+          "ingenieria-de-software-i"
+        ]
+      },
+      {
+        "codigo": "inteligencia-artificial",
+        "nombre": "Inteligencia Artificial",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "calculo-diferencial-e-integral",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "teoria-de-la-computacion",
+        "nombre": "Teoría de la Computación",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "calculo-diferencial-e-integral",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "redes-de-datos",
+        "nombre": "Redes de Datos",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "comunicaciones-de-datos",
+          "sistemas-operativos"
+        ]
+      },
+      {
+        "codigo": "ingenieria-de-software-iii",
+        "nombre": "Ingeniería de Software III",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "ingenieria-de-software-i",
+          "ingenieria-de-software-ii"
+        ]
+      },
+      {
+        "codigo": "bases-de-datos-ii",
+        "nombre": "Bases de Datos II",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "base-de-datos-i",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "metodos-computacionales",
+        "nombre": "Métodos Computacionales",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "calculo-diferencial-e-integral",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "analisis-de-organizaciones-y-procesos",
+        "nombre": "Análisis de Organizaciones y Procesos",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "ingenieria-de-software-ii",
+          "sistemas-y-organizaciones"
+        ]
+      },
+      {
+        "codigo": "auditoria-y-seguridad-informatica",
+        "nombre": "Auditoría y Seguridad Informática",
+        "anio": 5,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "inteligencia-artificial",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "emprendedorismo-y-modelos-de-negocios",
+        "nombre": "Emprendedorismo y Modelos de Negocios",
+        "anio": 5,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "ingenieria-de-software-i",
+          "ingenieria-de-software-ii"
+        ]
+      },
+      {
+        "codigo": "optativa-i",
+        "nombre": "Optativa I",
+        "anio": 5,
+        "cuatrimestre": 1,
+        "regimen": "Bimestral",
+        "carga_horaria": 48,
+        "correlativas": [
+          "comunicaciones-de-datos",
+          "ingenieria-de-software-i",
+          "ingenieria-de-software-ii",
+          "probabilidad-y-estadistica",
+          "programacion-avanzada",
+          "programacion-web"
+        ]
+      },
+      {
+        "codigo": "introduccion-a-la-ciencia-de-datos",
+        "nombre": "Introducción a la Ciencia de Datos",
+        "anio": 5,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "ingenieria-de-software-iii",
+          "redes-de-datos"
+        ]
+      },
+      {
+        "codigo": "aspectos-profesionales-y-sociales",
+        "nombre": "Aspectos Profesionales y Sociales de la Informática",
+        "anio": 5,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "emprendedorismo-y-modelos-de-negocios",
+          "ingenieria-de-software-ii"
+        ]
+      },
+      {
+        "codigo": "optativa-ii",
+        "nombre": "Optativa II",
+        "anio": 5,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 48,
+        "correlativas": [
+          "comunicaciones-de-datos",
+          "ingenieria-de-software-i",
+          "ingenieria-de-software-ii",
+          "probabilidad-y-estadistica",
+          "programacion-avanzada",
+          "programacion-web"
+        ]
+      },
+      {
+        "codigo": "proyecto-integrador-de-carrera",
+        "nombre": "Proyecto Integrador de Carrera",
+        "anio": 5,
+        "cuatrimestre": "anual",
+        "regimen": "Anual",
+        "carga_horaria": 128,
+        "correlativas": [
+          "analisis-de-organizaciones-y-procesos",
+          "bases-de-datos-ii",
+          "ingenieria-de-software-ii",
+          "ingenieria-de-software-iii",
+          "inteligencia-artificial",
+          "metodos-computacionales",
+          "programacion-avanzada",
+          "redes-de-datos",
+          "teoria-de-la-computacion"
+        ]
+      }
+    ]
+  },
+  "2009": {
+    "nombre": "Plan 2009",
+    "materias": [
+      {
+        "codigo": "algoritmos-estructuras-i",
+        "nombre": "Algoritmos y Estructuras de Datos I",
+        "anio": 1,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": []
+      },
+      {
+        "codigo": "algebra",
+        "nombre": "Álgebra",
+        "anio": 1,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": []
+      },
+      {
+        "codigo": "algoritmos-estructuras-ii",
+        "nombre": "Algoritmos y Estructuras de Datos II",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i"
+        ]
+      },
+      {
+        "codigo": "logica-matematica-computacional",
+        "nombre": "Lógica y Matemática Computacional",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algebra"
+        ]
+      },
+      {
+        "codigo": "sistemas-y-organizaciones",
+        "nombre": "Sistemas y Organizaciones",
+        "anio": 1,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": []
+      },
+      {
+        "codigo": "paradigmas-y-lenguajes",
+        "nombre": "Paradigmas y Lenguajes",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i",
+          "algoritmos-estructuras-ii"
+        ]
+      },
+      {
+        "codigo": "arquitectura-y-organizacion-de-computadoras",
+        "nombre": "Arquitectura y Organización de Computadoras",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-i",
+          "logica-matematica-computacional"
+        ]
+      },
+      {
+        "codigo": "calculo-diferencial-e-integral",
+        "nombre": "Cálculo Diferencial e Integral",
+        "anio": 2,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algebra",
+          "logica-matematica-computacional"
+        ]
+      },
+      {
+        "codigo": "poo",
+        "nombre": "Programación Orientada a Objetos",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-ii",
+          "paradigmas-y-lenguajes"
+        ]
+      },
+      {
+        "codigo": "sistemas-operativos",
+        "nombre": "Sistemas Operativos",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "algoritmos-estructuras-ii",
+          "arquitectura-y-organizacion-de-computadoras"
+        ]
+      },
+      {
+        "codigo": "administracion-y-gestion-de-organizaciones",
+        "nombre": "Administración y Gestión de Organizaciones",
+        "anio": 2,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "sistemas-y-organizaciones"
+        ]
+      },
+      {
+        "codigo": "comunicaciones-de-datos",
+        "nombre": "Comunicaciones de Datos",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras",
+          "sistemas-operativos"
+        ]
+      },
+      {
+        "codigo": "ingenieria-de-software-i",
+        "nombre": "Ingeniería de Software I",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "administracion-y-gestion-de-organizaciones",
+          "poo",
+          "sistemas-y-organizaciones"
+        ]
+      },
+      {
+        "codigo": "taller-de-programacion-i",
+        "nombre": "Taller de Programación I",
+        "anio": 3,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "paradigmas-y-lenguajes",
+          "poo"
+        ]
+      },
+      {
+        "codigo": "base-de-datos-i",
+        "nombre": "Bases de Datos I",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras",
+          "ingenieria-de-software-i"
+        ]
+      },
+      {
+        "codigo": "probabilidad-y-estadistica",
+        "nombre": "Probabilidad y Estadística",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "calculo-diferencial-e-integral"
+        ]
+      },
+      {
+        "codigo": "taller-de-programacion-ii",
+        "nombre": "Taller de Programación II",
+        "anio": 3,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "ingenieria-de-software-i",
+          "poo",
+          "sistemas-operativos",
+          "taller-de-programacion-i"
+        ]
+      },
+      {
+        "codigo": "ingles-tecnico-informatico",
+        "nombre": "Inglés Técnico Informático (exigencia extracurricular para APU)",
+        "anio": 3,
+        "cuatrimestre": "extracurricular",
+        "regimen": "Extracurricular",
+        "carga_horaria": 0,
+        "correlativas": []
+      },
+      {
+        "codigo": "ingenieria-de-software-ii",
+        "nombre": "Ingeniería de Software II",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "administracion-y-gestion-de-organizaciones",
+          "ingenieria-de-software-i"
+        ]
+      },
+      {
+        "codigo": "teoria-de-la-computacion",
+        "nombre": "Teoría de la Computación",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "arquitectura-y-organizacion-de-computadoras",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "economia-aplicada",
+        "nombre": "Economía Aplicada",
+        "anio": 4,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "administracion-y-gestion-de-organizaciones",
+          "ingenieria-de-software-i"
+        ]
+      },
+      {
+        "codigo": "redes-de-datos",
+        "nombre": "Redes de Datos",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "comunicaciones-de-datos"
+        ]
+      },
+      {
+        "codigo": "bases-de-datos-ii",
+        "nombre": "Bases de Datos II",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "base-de-datos-i",
+          "ingenieria-de-software-i"
+        ]
+      },
+      {
+        "codigo": "metodos-computacionales",
+        "nombre": "Métodos Computacionales",
+        "anio": 4,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 128,
+        "correlativas": [
+          "calculo-diferencial-e-integral",
+          "probabilidad-y-estadistica"
+        ]
+      },
+      {
+        "codigo": "auditoria-y-seguridad-informatica",
+        "nombre": "Auditoría y Seguridad Informática",
+        "anio": 5,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "bases-de-datos-ii",
+          "ingenieria-de-software-ii",
+          "redes-de-datos"
+        ]
+      },
+      {
+        "codigo": "optativa-i",
+        "nombre": "Optativa I",
+        "anio": 5,
+        "cuatrimestre": 1,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "probabilidad-y-estadistica",
+          "teoria-de-la-computacion"
+        ]
+      },
+      {
+        "codigo": "optativa-ii",
+        "nombre": "Optativa II",
+        "anio": 5,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "comunicaciones-de-datos",
+          "redes-de-datos"
+        ]
+      },
+      {
+        "codigo": "optativa-iii",
+        "nombre": "Optativa III",
+        "anio": 5,
+        "cuatrimestre": 2,
+        "regimen": "Cuatrimestral",
+        "carga_horaria": 96,
+        "correlativas": [
+          "bases-de-datos-ii",
+          "ingenieria-de-software-ii"
+        ]
+      },
+      {
+        "codigo": "proyecto-integrador-de-carrera",
+        "nombre": "Proyecto Integrador de Carrera",
+        "anio": 5,
+        "cuatrimestre": "anual",
+        "regimen": "Anual",
+        "carga_horaria": 192,
+        "correlativas": [
+          "administracion-y-gestion-de-organizaciones",
+          "algebra",
+          "algoritmos-estructuras-i",
+          "algoritmos-estructuras-ii",
+          "arquitectura-y-organizacion-de-computadoras",
+          "auditoria-y-seguridad-informatica",
+          "base-de-datos-i",
+          "bases-de-datos-ii",
+          "calculo-diferencial-e-integral",
+          "comunicaciones-de-datos",
+          "economia-aplicada",
+          "ingenieria-de-software-i",
+          "ingenieria-de-software-ii",
+          "logica-matematica-computacional",
+          "metodos-computacionales",
+          "optativa-i",
+          "optativa-ii",
+          "optativa-iii",
+          "paradigmas-y-lenguajes",
+          "poo",
+          "probabilidad-y-estadistica",
+          "redes-de-datos",
+          "sistemas-operativos",
+          "sistemas-y-organizaciones",
+          "taller-de-programacion-i",
+          "taller-de-programacion-ii",
+          "teoria-de-la-computacion"
+        ]
+      }
+    ]
+  }
+}
