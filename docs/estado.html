@@ -10,15 +10,17 @@
   .wrap{max-width:900px;margin:0 auto;padding:16px}
   .panel{background:linear-gradient(180deg,#0f1625,#0b1423);border:1px solid var(--border);border-radius:14px;padding:16px}
   .meter{height:10px;border-radius:999px;background:#111a29;border:1px solid var(--border);overflow:hidden}
-  .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:12px;margin-top:12px}
-  .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:#0e1524}
-  .ttl{font-weight:800;margin:0 0 6px}
-  .badge{padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
-  .no .badge{background:#3b414c}
-  .reg .badge{background:#f59e0b;color:#1c1504}
-  .ok .badge{background:#16a34a;color:#04140a}
-</style>
+    .meter>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
+    .card{border:1px solid var(--border);border-radius:12px;padding:10px;background:#0e1524}
+    .ttl{font-weight:800;margin:0 0 6px}
+    .badge{padding:2px 8px;border-radius:999px;font-weight:700;font-size:.8rem}
+    .no .badge{background:#3b414c}
+    .reg .badge{background:#f59e0b;color:#1c1504}
+    .ok .badge{background:#16a34a;color:#04140a}
+    .col{display:flex;flex-direction:column;gap:12px}
+    .col-title{font-weight:700;margin-bottom:8px;color:var(--muted)}
+    </style>
 </head>
 <body>
 <div class="wrap">
@@ -55,24 +57,40 @@
   `;
 
   // listado compacto
-  const byYear={};
-  arr.forEach(m=>{
-    const s=share.states?.[m.codigo]||0;
-    (byYear[m.anio] ||= []).push({...m, s});
-  });
+    const byYear={};
+    arr.forEach(m=>{
+      const s=share.states?.[m.codigo]||0;
+      const year=byYear[m.anio] ||= {1:[],2:[]};
+      const cuat=m.cuatrimestre===1?1:(m.cuatrimestre===2?2:2);
+      year[cuat].push({...m, s});
+    });
 
-  const list=document.getElementById('list');
-  list.innerHTML = Object.keys(byYear).sort((a,b)=>a-b).map(y=>{
-    const cards = byYear[y].map(m=>{
-      const cls = m.s===2?'ok':(m.s===1?'reg':'no');
-      return `<div class="card ${cls}">
-        <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
-        <div>${m.regimen} · ${m.carga_horaria}h</div>
+    function renderCards(list){
+      return list.map(m=>{
+        const cls=m.s===2?'ok':(m.s===1?'reg':'no');
+        return `<div class="card ${cls}">
+          <div class="ttl">${m.nombre} <span class="badge">${m.s===2?'Aprobada':(m.s===1?'Regular':'No')}</span></div>
+          <div>${m.regimen} · ${m.carga_horaria}h</div>
+        </div>`;
+      }).join('');
+    }
+
+    const list=document.getElementById('list');
+    list.innerHTML = Object.keys(byYear).sort((a,b)=>a-b).map(y=>{
+      const year=byYear[y];
+      return `<h3>${y}° Año</h3>
+      <div class="grid">
+        <div class="col">
+          <div class="col-title">1° Cuatrimestre</div>
+          ${renderCards(year[1])}
+        </div>
+        <div class="col">
+          <div class="col-title">2° Cuatrimestre</div>
+          ${renderCards(year[2])}
+        </div>
       </div>`;
     }).join('');
-    return `<h3>${y}° Año</h3><div class="grid">${cards}</div>`;
-  }).join('');
-})();
-</script>
-</body>
-</html>
+  })();
+  </script>
+  </body>
+  </html>
