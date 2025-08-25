@@ -3,7 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Simulador de Avance</title>
-<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin:0;padding:1rem;}
+#controls{margin-bottom:1rem;}
+#materias{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.card{border:1px solid #444;border-radius:8px;padding:0.5rem;background:#333;flex:1 1 300px;cursor:pointer;}
+.card.no{background:#444;}
+.card.regular{background:#b59f3b;}
+.card.aprobada{background:#2e7d32;}
+.card.disabled{opacity:0.4;cursor:not-allowed;}
+.badges span{margin-right:0.3rem;background:#555;padding:0.1rem 0.3rem;border-radius:4px;font-size:0.8rem;}
+@media(max-width:600px){.card{flex:1 1 100%;}}
+footer{background:#121212;color:#eee;text-align:center;padding:1rem;margin-top:1rem;}
+footer a{color:#b59f3b;text-decoration:none;}
+@media(min-width:600px){footer{position:fixed;bottom:0;left:0;width:100%;}}
+</style>
+
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans p-4">
 <h1 class="text-2xl mb-4">Simulador de Avance</h1>
@@ -12,16 +28,11 @@
   <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-yellow-600 inline-block"></span><span>Regular</span></div>
   <div class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-green-700 inline-block"></span><span>Aprobada</span></div>
 </div>
-<div id="controls" class="flex flex-wrap gap-2 mb-4">
-  <select id="plan" class="bg-gray-800 border border-gray-600 rounded p-2"></select>
-  <button id="save" class="bg-blue-700 hover:bg-blue-600 active:bg-blue-800 px-3 py-2 rounded">Guardar</button>
-  <button id="reset" class="bg-red-700 hover:bg-red-600 active:bg-red-800 px-3 py-2 rounded">Reiniciar</button>
-  <button id="export" class="bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-3 py-2 rounded">Exportar JSON</button>
-  <button id="import" class="bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-3 py-2 rounded">Importar JSON</button>
-  <input type="file" id="fileInput" class="hidden" />
-</div>
-<div id="stats" class="mb-4"></div>
-<div id="materias" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+<div id="stats"></div>
+<div id="materias"></div>
+<footer>Hecho por <a href="https://github.com/openai" target="_blank">ChatGPT</a></footer>
+
 <script>
 const STORAGE_KEY='simulador-avance';
 let plans={},currentPlan='2023',states={};
