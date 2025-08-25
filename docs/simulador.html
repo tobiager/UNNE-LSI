@@ -84,6 +84,9 @@
       <button id="reset">Reiniciar</button>
       <button id="export">Exportar JSON</button>
       <button id="import">Importar JSON</button>
+      <button id="share">Link de estado</button>
+      <button id="badgeYear">Copiar badge · Año</button>
+      <button id="badgePct">Copiar badge · %</button>
       <input type="file" id="fileInput" accept="application/json" style="display:none" />
       <div class="legend">
         <span><span class="dot" style="background:#3b414c"></span>No cursada</span>
@@ -295,7 +298,90 @@ function updateStats(){
   document.getElementById('pLic').textContent = licPct + '%';
 }
 
-// acciones
+/* =======================
+   BADGES + LINK DE ESTADO
+   ======================= */
+
+// Estilo de shields: 'for-the-badge' | 'flat' | 'flat-square' | 'plastic'
+const BADGE_STYLE = 'for-the-badge';
+
+// % de avance a Licenciado
+function computeLicPct(){
+  const arr=plans[currentPlan].materias||[];
+  const total=arr.length;
+  const aprob=arr.filter(m=>(states[m.codigo]||0)===2).length;
+  return total? Math.round(100*aprob/total) : 0;
+}
+
+// Último año COMPLETO aprobado
+function highestFullYearApproved(){
+  const arr=(plans[currentPlan].materias||[]).slice().sort((a,b)=>a.anio-b.anio);
+  let max=0;
+  for(let y=1;y<=5;y++){
+    const all = arr.filter(m=>Number(m.anio)===y);
+    if(!all.length) break;
+    if(all.every(m => (states[m.codigo]||0)===2)) max=y; else break;
+  }
+  return max; // 0..5
+}
+
+// Hash y URL de estado.html
+function currentShareHash(){
+  const payload={ plan: currentPlan, states };
+  const json=JSON.stringify(payload);
+  return btoa(unescape(encodeURIComponent(json)));
+}
+function shareUrl(){
+  const base = `${location.origin}${location.pathname.replace(/\/[^\/]*$/,'/')}`;
+  return `${base}estado.html#${currentShareHash()}`;
+}
+
+// Copiar al portapapeles
+function copyToClipboard(text){
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).then(()=>alert('Copiado ✅'));
+  } else {
+    const ta=document.createElement('textarea'); ta.value=text;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta); alert('Copiado ✅');
+  }
+}
+
+// Color dinámico por %
+function colorByPct(p){
+  if(p>=90) return '16a34a';
+  if(p>=70) return '22c55e';
+  if(p>=50) return 'f59e0b';
+  if(p>=30) return 'f97316';
+  return '64748b';
+}
+
+// Badge Año (🎓 LSI · N° año / Ingresante)
+function makeYearBadgeMarkdown(){
+  const year = highestFullYearApproved(); // 0..5
+  const label = encodeURIComponent('🎓 LSI');
+  const msg   = encodeURIComponent( year===0 ? 'Ingresante' : `${year}º año` );
+  const color = '16a34a';
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![LSI · ${year===0?'Ingresante':year+'º año'}](${url})](${shareUrl()})`;
+}
+
+// Badge % (🎓 Avance LSI · XX%)
+function makePctBadgeMarkdown(){
+  const pct = computeLicPct();
+  const label = encodeURIComponent('🎓 Avance LSI');
+  const msg   = encodeURIComponent(`${pct}%`);
+  const color = colorByPct(pct);
+  const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
+  return `[![Avance LSI ${pct}%](${url})](${shareUrl()})`;
+}
+
+// Listeners
+document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
+document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeMarkdown());
+document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeMarkdown());
+
+// acciones base
 document.getElementById('save').onclick=()=>{
   saveStates(); const btn=document.getElementById('save'); const t=btn.textContent;
   btn.textContent='Guardado ✓'; setTimeout(()=>btn.textContent=t,900);
