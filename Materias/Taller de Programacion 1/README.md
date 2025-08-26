@@ -15,11 +15,11 @@
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Taller_I-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-# 🐲 Taller de Programación I - UNNE 2025
+# Taller de Programación I - UNNE 2025
 
 Este repositorio reúne todos los trabajos realizados durante la cursada de **Taller de Programación I** de la **Universidad Nacional del Nordeste - FaCENA**.
 
