@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
-# 📘 Inglés Técnico - UNNE 2024
+# Inglés Técnico - UNNE 2024
 
 Este espacio reúne todo el material de estudio, resúmenes, vocabulario y recursos de la materia **Inglés Técnico** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
 
