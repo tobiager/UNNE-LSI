@@ -187,12 +187,11 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 
 ## 🧪 Simulador de avance (web)
 
-<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/Badges.png" alt="Sticker Badges" width="300" align="right" style="margin-left:20px;"/>
-
 <div align="center">
   <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
-    <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
+    <img src="./assets/banner-simulador.png" alt="Simulador de Avance LSI — Web" width="1200">
   </a>
+  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/Badges.png" alt="Sticker Badges" width="300" align="right" style="margin-left:20px;"/>
   <p style="margin-top:12px;">
     <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
       <img src="https://img.shields.io/badge/Abrir%20Simulador-0a0a0a?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0a0a0a&color=0EA5E9" alt="Abrir simulador"/>
