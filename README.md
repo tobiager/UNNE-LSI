@@ -332,11 +332,13 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 📈 Avance aproximado:  
 
 <p align="left">
-  <img src="https://img.shields.io/badge/Avance-60%25-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Avance-38%25-black?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Aprobadas-11-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Regular-3-yellow?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/En%20curso-4-blue?style=for-the-badge"/>
 </p>
 
-Ver progreso completo [Roadmap](https://github.com/tobiager/UNNE-LSI/blob/main/Roadmap.md)
-
+ [Ver progreso completo — Estado de carrera](https://tobiager.github.io/UNNE-LSI/estado.html)  
 
 ### Materias en curso
 - ⏳ Taller de Programación II  
