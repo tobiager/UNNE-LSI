@@ -664,14 +664,14 @@ document.getElementById('fileInput').addEventListener('change',e=>{
 });
 
 const themeBtn=document.getElementById('themeToggle');
-themeBtn.textContent=document.body.classList.contains('theme-dark')?'🌞':'🌜';
+themeBtn.textContent=document.body.classList.contains('theme-dark')?'☀️':'🌙';
 themeBtn.addEventListener('click',()=>{
   const isDark=document.body.classList.contains('theme-dark');
   const next=isDark?'theme-light':'theme-dark';
   document.body.classList.remove('theme-dark','theme-light');
   document.body.classList.add(next);
   localStorage.setItem('theme',next);
-  themeBtn.textContent=isDark?'🌜':'🌞';
+  themeBtn.textContent=isDark?'🌙':'☀️';
 });
 
 const statusBar=document.getElementById('statusbar');
