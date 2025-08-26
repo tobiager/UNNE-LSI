@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/UNNE-Lógica-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2023-blue?style=for-the-badge"/>
 </p>
 
