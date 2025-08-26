@@ -121,7 +121,6 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 ├── meta/                 # correlatividades y mapeos auxiliares
 ├── assets/               # imágenes usadas en el repo
 ├── docs/                 # visualizaciones y sitio estático
-├── Roadmap.md            # avance completo de la carrera
 ├── mkdocs.yml            # configuración de la documentación
 └── CONTRIBUTING.md       # cómo contribuir
 ```
@@ -131,7 +130,6 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 - **meta/** → Archivos auxiliares para correlatividades y planes.
 - **assets/** → Logos, banners y stickers de Jäger (modo estudiante).
 - **docs/** → Páginas y visualizaciones generadas.
-- **Roadmap.md** → Progreso completo y plan de cursada.
 - **mkdocs.yml** → Configuración para generar la documentación del sitio.
 - **CONTRIBUTING.md** → Guía para colaborar con el proyecto.
 
