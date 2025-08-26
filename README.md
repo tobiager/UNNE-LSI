@@ -189,7 +189,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 
 <div align="center">
   <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
-    <img src="./assets/banner-simulador.jpg" alt="Simulador de Avance LSI — Web" width="1200">
+    <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
   </a>
   
   <!-- Imagen de badges alineada a la derecha -->
