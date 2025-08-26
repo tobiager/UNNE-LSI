@@ -195,7 +195,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
     <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
       <img src="https://img.shields.io/badge/Abrir%20Simulador-0a0a0a?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0a0a0a&color=0EA5E9" alt="Abrir simulador"/>
     </a>
-    <a href="#-cómo-usarlo">
+    <a href="#cómo-usarlo">
       <img src="https://img.shields.io/badge/Cómo%20usarlo-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=22C55E" alt="Cómo usarlo"/>
     </a>
   </p>
