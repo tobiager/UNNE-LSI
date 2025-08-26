@@ -184,6 +184,60 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 
 ---
 
+## 🧪 Simulador de avance (web)
+
+<div align="center">
+  <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
+    <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
+  </a>
+  <p style="margin-top:12px;">
+    <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
+      <img src="https://img.shields.io/badge/Abrir%20Simulador-0a0a0a?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0a0a0a&color=0EA5E9" alt="Abrir simulador"/>
+    </a>
+    <a href="#-como-usarlo">
+      <img src="https://img.shields.io/badge/Cómo%20usarlo-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=22C55E" alt="Cómo usarlo"/>
+    </a>
+  </p>
+</div>
+
+> Gestioná tu cursada desde el navegador: **elegí plan, marcá estados, guardá notas** y generá **badges** para tu README.
+
+### ✨ ¿Qué podés hacer?
+- **Elegir plan**: 2009 o 2023.
+- Marcar cada materia como **No**, **En curso**, **Regular** o **Aprobada**.
+- **Guardar notas** (final/promo) y ver observaciones (p. ej., “Promocionada con 9”).
+- Filtrar por **Solo habilitadas** y **buscar** materias.
+- Ver **progreso por año** y **% de carrera** con barras en vivo.
+- **Guardar** el avance en el navegador, **reiniciar**, **exportar** y **importar** tu estado en **JSON**.
+- Generar **Link de estado** (compartible) para mostrar tu progreso.
+- **Copiar badge – Año** o **Copiar badge – %** para pegar directo en tu README.
+
+> 🔒 Los datos se guardan **localmente** en tu navegador (LocalStorage). Si cambiás de dispositivo/navegador, usá **Exportar JSON** e **Importar JSON**.
+
+### 🧭 Cómo usarlo
+1. Entrá al simulador: **https://tobiager.github.io/UNNE-LSI/simulador.html**  
+2. Elegí tu **Plan** (2009 / 2023).  
+3. Marcá el **estado** de cada materia y cargá **notas** si corresponde.  
+4. Tocá **Guardar** para persistir tu avance en el navegador.  
+5. (Opcional) **Exportá JSON** para respaldar o mover tu progreso a otra PC.  
+6. Usá **Copiar badge – Año** o **Copiar badge – %** y pegalo en cualquier README/Markdown.
+
+> 💡 Tip: con **Link de estado** podés compartir tu avance exacto (ideal para CV/portfolio).
+
+<!-- Opcional: agregá capturas del simulador en /assets y descomentá estas líneas
+<p align="center">
+  <img src="./assets/simulador-cursada.png" alt="Simulador — vista de cursada" width="900"><br/>
+  <em>Vista de cursada y progreso por año.</em>
+</p>
+<p align="center">
+  <img src="./assets/simulador-estado.png" alt="Simulador — estado de carrera" width="900"><br/>
+  <em>Estado de carrera con % y listado por año.</em>
+</p>
+-->
+
+
+---
+
 ## 📜 Planes de estudio
 
 La carrera se dicta bajo dos planes vigentes:
