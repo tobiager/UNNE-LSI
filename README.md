@@ -192,12 +192,18 @@ Para más información consultá la [documentación oficial de GitHub](https://d
     <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
   </a>
   
-  <!-- Imagen de badges alineada a la derecha -->
-  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/Badges.png" 
+<!-- Imagen de badges: derecha en desktop, centrada en móvil -->
+<picture>
+  <!-- Desktop (mínimo 768px): flota a la derecha -->
+  <source media="(min-width: 768px)" srcset="./assets/Badges.png" />
+  <!-- Móvil: centrada en un renglón -->
+  <img src="./assets/Badges.png" 
        alt="Sticker Badges" 
        width="300" 
-       align="right" 
-       style="margin-left:20px; margin-top:20px;"/>
+       align="right"
+       style="margin-left:20px; margin-top:20px; display:block; margin:auto;" />
+</picture>
+
 </div>
 
 > [!IMPORTANT]  
