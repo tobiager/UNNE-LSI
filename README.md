@@ -198,19 +198,9 @@ Para más información consultá la [documentación oficial de GitHub](https://d
        width="300" 
        align="right" 
        style="margin-left:20px; margin-top:20px;"/>
-
-  <!-- Botones centrados -->
-  <div style="margin-top:15px; text-align:center;">
-    <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
-      <img src="https://img.shields.io/badge/Abrir%20Simulador-0a0a0a?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=0a0a0a&color=0EA5E9" alt="Abrir simulador"/>
-    </a>
-    <a href="#cómo-usarlo">
-      <img src="https://img.shields.io/badge/Cómo%20usarlo-0a0a0a?style=for-the-badge&labelColor=0a0a0a&color=22C55E" alt="Cómo usarlo"/>
-    </a>
-  </div>
 </div>
 
-
+> [!IMPORTANT]  
 > Gestioná tu cursada desde el navegador: **elegí plan, marcá estados, guardá notas** y generá **badges** para tu README.
 
 ###  ¿Qué podés hacer?
@@ -223,6 +213,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 - Generar **Link de estado** (compartible) para mostrar tu progreso.
 - **Copiar badge – Año** o **Copiar badge – %** para pegar directo en tu README.
 
+> [!NOTE]
 >  Los datos se guardan **localmente** en tu navegador (LocalStorage). Si cambiás de dispositivo/navegador, usá **Exportar JSON** e **Importar JSON**.
 
 ###  Cómo usarlo
@@ -233,7 +224,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 5. (Opcional) **Exportá JSON** para respaldar o mover tu progreso a otra PC.  
 6. Usá **Copiar badge – Año** o **Copiar badge – %** y pegalo en cualquier README/Markdown.
 
-> [!NOTE]
+> [!TIP]
 > Con **Link de estado** podés compartir tu avance exacto (ideal para CV/portfolio).
 <!-- Opcional: agregá capturas del simulador en /assets y descomentá estas líneas
 <p align="center">
