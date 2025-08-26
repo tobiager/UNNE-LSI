@@ -187,6 +187,8 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 
 ## 🧪 Simulador de avance (web)
 
+<img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/Badges.png" alt="Sticker Badges" width="300" align="right" style="margin-left:20px;"/>
+
 <div align="center">
   <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
     <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
@@ -236,7 +238,6 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 </p>
 -->
 
-
 ---
 
 ## 📜 Planes de estudio
@@ -260,9 +261,9 @@ La carrera se dicta bajo dos planes vigentes:
 - **4° año:** Ing. de Software II, Economía, Teoría de la Computación, Redes, Bases de Datos II, Métodos Computacionales  
 - **5° año:** Proyecto Final, Auditoría y Seguridad, Optativas I–III  
 
-> 🎓 Al aprobar 3° año + Inglés Técnico se obtiene el título intermedio de **Analista Programador Universitario (APU)**.  
+>  Al aprobar 3° año + Inglés Técnico se obtiene el título intermedio de **Analista Programador Universitario (APU)**.  
 
-👉 Ver detalle completo: [planes/2009.md](./planes/2009.md)  
+ Ver detalle completo: [planes/2009.md](./planes/2009.md)  
 
 ---
 
@@ -274,9 +275,9 @@ La carrera se dicta bajo dos planes vigentes:
 - **4° año:** IA, Teoría de la Computación, Redes, Ing. de Software III, Bases de Datos II, Métodos Computacionales, Análisis de Organizaciones y Procesos  
 - **5° año:** Auditoría y Seguridad, Emprendedorismo, Optativa I, Introducción a Ciencia de Datos, Aspectos Profesionales y Sociales, Optativa II, Proyecto Integrador de Carrera  
 
-> 🎓 Al aprobar 3° año + Inglés se obtiene el título de **Analista Programador Universitario (APU)**.  
+>  Al aprobar 3° año + Inglés se obtiene el título de **Analista Programador Universitario (APU)**.  
 
-👉 Ver detalle completo: [planes/2023.md](./planes/2023.md)
+ Ver detalle completo: [planes/2023.md](./planes/2023.md)
 
 ---
 
