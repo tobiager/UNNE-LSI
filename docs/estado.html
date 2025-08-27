@@ -36,7 +36,7 @@
   .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:16px}
   .bar{display:flex;align-items:center;gap:10px;min-width:280px}
   .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
-  .meter>span{display:block;height:100%;width:0%}
+  .meter>span{display:block;height:100%;width:0%;transition:width .6s ease}
   .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
   .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
   .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:800}
@@ -156,11 +156,11 @@ document.body.classList.add(savedTheme);
       Aprobadas: ${counts[2]}${avg?` (Promedio: ${avg})`:''} · En curso: ${counts[3]} · Regulares: ${counts[1]} · No: ${counts[0]} · Total: ${total}
     </div>
     <div class="bar">
-      <div class="meter"><span class="${barClass}" style="width:${pct}%"></span></div>
+      <div class="meter"><span class="${barClass}"></span></div>
       <div class="pct">${pct}%</div>
     </div>
   `;
-
+  requestAnimationFrame(()=>{head.querySelector('.meter span').style.width=pct+'%';});
   // listado compacto
   const byYear={};
   arr.forEach(m=>{

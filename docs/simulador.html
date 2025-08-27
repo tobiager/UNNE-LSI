@@ -152,7 +152,7 @@ padding:8px 12px;border-radius:12px;font-weight:600
 
   .bar{flex:1;display:flex;align-items:center;gap:10px;min-width:280px}
   .meter{height:10px;border-radius:999px;background:var(--panel);border:1px solid var(--border);overflow:hidden;flex:1}
-  .meter>span{display:block;height:100%;width:0%}
+  .meter>span{display:block;height:100%;width:0%;transition:width .6s ease}
   .m-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
   .m-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6)}
   .pct{min-width:3.5ch;text-align:right;color:#a7f3d0;font-weight:800}
@@ -312,6 +312,8 @@ padding:8px 12px;border-radius:12px;font-weight:600
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 function responsiveMenu(){
   const isDesktop = window.innerWidth >= 700;
@@ -359,6 +361,12 @@ function showConfirm(msg,onAccept){
   canc.addEventListener('click',onC);
 }
 
+function celebrate(color){
+  if(typeof confetti==='function'){
+    confetti({particleCount:80,spread:60,origin:{y:.6},colors:[color]});
+  }
+}
+
 fetch('plans.json').then(r=>r.json()).then(data=>{
   plans=data;
   const sel=document.getElementById('plan');
@@ -404,7 +412,13 @@ function setState(code,val){
     if(val===2 && !canRendir(code)) return;
     if(val===3 && !canCursar(code)) return;
   }
-  states[code]={s:val,n:getNote(code)}; saveStates(); render();
+  states[code]={s:val,n:getNote(code)}; saveStates();
+  if(val!==cur&&(val===1||val===2)){
+    const color=val===1?'#f59e0b':'#16a34a';
+    celebrate(color);
+    showToast(val===1?'¡Regular! 🎉':'¡Aprobada! 🎉');
+  }
+  render();
 }
 function setNote(code,note){
   states[code]={s:getStatus(code),n:note};
@@ -544,16 +558,36 @@ function updateStats(){
   const anaAprob = Array.from(anaSet).filter(c=> getStatus(c)===2).length;
   const anaPct = anaTotal ? Math.round(100*anaAprob/anaTotal) : 0;
 
-  document.getElementById('mAnalista').style.width = anaPct + '%';
-  document.getElementById('pAna').textContent      = anaPct + '%';
+  setBarWidth(document.getElementById('mAnalista'), anaPct);
+  document.getElementById('pAna').textContent = anaPct + '%';
 
   const licTotal = arr.length;
   const licAprob = counts[2];
   const licPct   = licTotal ? Math.round(100*licAprob/licTotal) : 0;
 
-  document.getElementById('mLic').style.width = licPct + '%';
+  setBarWidth(document.getElementById('mLic'), licPct);
   document.getElementById('pLic').textContent = licPct + '%';
 }
+
+function setBarWidth(el, pct) {
+  // Primera vez: forzamos que arranque en 0 y luego animamos
+  if (!el.dataset._ready) {
+    el.style.width = '0%';
+    // fuerza un reflow para que el 0% “tome”
+    void el.offsetWidth;
+    // doble RAF asegura que el cambio ocurra en un frame distinto
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.width = pct + '%';
+        el.dataset._ready = '1';
+      });
+    });
+  } else {
+    // Actualizaciones siguientes: animan normal
+    el.style.width = pct + '%';
+  }
+}
+
 
 const BADGE_STYLE = 'for-the-badge';
 

@@ -32,3 +32,13 @@
     align-items: stretch;
   }
 }
+
+/* Animación suave del ancho de la barra */
+.meter > span{
+  display: block;
+  height: 100%;
+  width: 0%; /* estado base */
+  transition: width .7s cubic-bezier(.22,.8,.26,.99);
+  will-change: width;
+}
+
