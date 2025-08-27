@@ -1,0 +1,18 @@
+<style>
+header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.7);backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
+.nav-bar{display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:1.3rem;color:var(--text);text-decoration:none}
+.brand-lsi{display:inline-block;background:linear-gradient(45deg,#4cc9f0,#4361ee,#f72585);background-size:200% 200%;color:transparent;-webkit-background-clip:text;animation:brandShift 4s linear infinite;font-weight:800}
+@keyframes brandShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+header nav a{color:var(--text);text-decoration:none;font-weight:600;margin-left:16px}
+header nav a:hover{text-decoration:underline}
+</style>
+<header>
+  <div class="wrap nav-bar">
+    <a href="index.html" class="brand"><span class="brand-lsi">LSI</span> Tools</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="simulador.html">Simulador de Avance</a>
+    </nav>
+  </div>
+</header>
