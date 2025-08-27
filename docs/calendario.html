@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calendario académico 2025</title>
+<style>
+  :root{
+    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
+    --panel-light:#ffffff; --panel-dark:#0f1625;
+    --border-light:#d1d5db; --border-dark:#1f2a36;
+    --text-light:#1f2937; --text-dark:#e6edf3;
+    --muted-light:#6b7280; --muted-dark:#9fb0c2;
+    --grad1-light:#ffffff; --grad1-dark:#10233a;
+    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
+    --footer-h:56px;
+  }
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+    padding-bottom:calc(var(--footer-h) + 24px);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:16px}
+  h1{text-align:center;font-size:2rem;margin:40px 0 24px;font-weight:800}
+  h2{font-size:1.4rem;margin:40px 0 16px;font-weight:700;text-align:center}
+  p{text-align:center;color:var(--muted)}
+  table{width:100%;max-width:800px;margin:0 auto 40px;border-collapse:collapse;background:var(--panel)}
+  th,td{padding:8px 12px;border:1px solid var(--border)}
+  th{background:var(--grad2);text-align:left}
+  section{padding:0 16px}
+  .btn{display:inline-block;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:10px 20px;border-radius:12px;font-weight:600;text-decoration:none;margin-bottom:24px}
+  .btn:hover{text-decoration:underline}
+  .center{text-align:center}
+</style>
+</head>
+<body>
+<div id="navbar"></div>
+<div class="wrap">
+  <h1>Calendario académico 2025</h1>
+  <p>
+    Consultá el cronograma completo en el documento oficial de la Facultad.
+  </p>
+  <div class="center">
+    <a class="btn" href="https://exa.unne.edu.ar/alumnos/docs/calendario-academico-2025-RES.%202024-837-CD-EXA.pdf" target="_blank" rel="noopener">Descargar PDF oficial</a>
+  </div>
+  <section>
+    <h2>Turnos de exámenes</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Fechas</th><th>Modalidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1°</td><td>17–21 de febrero</td><td>Mesa comprimida</td></tr>
+        <tr><td>2°</td><td>10–14 de marzo</td><td>Mesa comprimida</td></tr>
+        <tr><td>3°</td><td>25–31 de marzo</td><td>Mesa comprimida</td></tr>
+        <tr><td>4°</td><td>5–30 de mayo</td><td>Mesa expandida</td></tr>
+        <tr><td>5°</td><td>30 de junio–4 de julio</td><td>Mesa comprimida</td></tr>
+        <tr><td>6°</td><td>28 de julio–1 de agosto</td><td>Mesa comprimida</td></tr>
+        <tr><td>7°</td><td>1–26 de septiembre</td><td>Mesa expandida</td></tr>
+        <tr><td>8°</td><td>6–31 de octubre</td><td>Mesa expandida</td></tr>
+        <tr><td>9°</td><td>24 de noviembre–1 de diciembre</td><td>Mesa comprimida</td></tr>
+        <tr><td>10°</td><td>15–19 de diciembre</td><td>Mesa comprimida</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Calendario de clases</h2>
+    <table>
+      <tbody>
+        <tr><th colspan="2">Cuatrimestres y bimestres</th></tr>
+        <tr><td>1º Cuatrimestre – 1º año</td><td>10 de marzo al 4 de julio</td></tr>
+        <tr><td>1º Cuatrimestre – 2º año en adelante</td><td>17 de marzo al 4 de julio</td></tr>
+        <tr><td>1º Bimestre</td><td>10 de marzo al 2 de mayo</td></tr>
+        <tr><td>2º Bimestre</td><td>5 de mayo al 27 de junio</td></tr>
+        <tr><td>3º Bimestre</td><td>4 de agosto al 26 de septiembre</td></tr>
+        <tr><td>4º Bimestre</td><td>29 de septiembre al 21 de noviembre</td></tr>
+        <tr><td>1º Trimestre</td><td>10 de marzo al 30 de mayo</td></tr>
+        <tr><td>2º Trimestre</td><td>2 de junio al 22 de agosto</td></tr>
+        <tr><td>3º Trimestre</td><td>25 de agosto al 21 de noviembre</td></tr>
+        <tr><td>2º Cuatrimestre</td><td>4 de agosto al 21 de noviembre</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Inscripción a cursado</h2>
+    <table>
+      <tbody>
+        <tr><td>1º Cuatrimestre</td><td>17 al 28 de marzo</td></tr>
+        <tr><td>1º Bimestre</td><td>17 al 28 de marzo</td></tr>
+        <tr><td>2º Bimestre</td><td>5 al 9 de mayo</td></tr>
+        <tr><td>1º Trimestre</td><td>17 al 28 de marzo</td></tr>
+        <tr><td>2º Trimestre</td><td>2 al 6 de junio</td></tr>
+        <tr><td>2º Cuatrimestre</td><td>4 al 22 de agosto</td></tr>
+        <tr><td>3º Bimestre</td><td>4 al 8 de agosto</td></tr>
+        <tr><td>4º Bimestre</td><td>29 de septiembre al 3 de octubre</td></tr>
+        <tr><td>3º Trimestre</td><td>25 al 29 de agosto</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Receso e inscripciones especiales</h2>
+    <table>
+      <tbody>
+        <tr><td>Receso de invierno</td><td>14 al 27 de julio</td></tr>
+        <tr><td>Reinscripción anual</td><td>1 de febrero al 31 de marzo / 23 de junio al 29 de agosto</td></tr>
+        <tr><td>Readmisión (Res. Nº 316/19-CS-)</td><td>17 de febrero al 31 de marzo de 2025</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Feriados y asuetos 2025</h2>
+    <p>Resumen de feriados inamovibles, trasladables y días no laborables.</p>
+    <ul>
+      <li>1 de enero – Año Nuevo</li>
+      <li>3 y 4 de marzo – Carnaval</li>
+      <li>24 de marzo – Día Nacional de la Memoria por la Verdad y la Justicia</li>
+      <li>2 de abril – Día del Veterano y de los Caídos en la Guerra de Malvinas</li>
+      <li>18 de abril – Viernes Santo</li>
+      <li>1º de mayo – Día del trabajador</li>
+      <li>25 de mayo – Revolución de Mayo</li>
+      <li>20 de junio – Paso a la Inmortalidad del Gral. Manuel Belgrano</li>
+      <li>9 de julio – Día de la Independencia</li>
+      <li>8 de diciembre – Inmaculada Concepción de María</li>
+      <li>25 de diciembre – Navidad</li>
+    </ul>
+  </section>
+</div>
+<div id="footer"></div>
+<script src="layout/layout.js"></script>
+<script>
+const savedTheme=localStorage.getItem('theme')||'theme-dark';
+document.body.classList.add(savedTheme);
+</script>
+</body>
+</html>
