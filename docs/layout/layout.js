@@ -4,6 +4,16 @@ async function loadComponent(id, url) {
   try {
     const resp = await fetch(url);
     el.innerHTML = await resp.text();
+    if (id === 'footer') {
+      const updateFooterHeight = () => {
+        const footer = document.querySelector('footer');
+        if (footer) {
+          document.documentElement.style.setProperty('--footer-h', footer.offsetHeight + 'px');
+        }
+      };
+      updateFooterHeight();
+      window.addEventListener('resize', updateFooterHeight);
+    }
   } catch (e) {
     console.error('Error loading', url, e);
   }
