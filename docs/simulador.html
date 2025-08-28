@@ -283,6 +283,7 @@ const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);
 const STORAGE_KEY='simulador-avance';
 const NAME_KEY='simulador-nombre';
+const PLAN_KEY='simulador-plan';
 let plans={}, currentPlan='', states={}, studentName='';
 
 const ANALISTA_OVERRIDES = {};
@@ -323,8 +324,11 @@ fetch('plans.json').then(r=>r.json()).then(data=>{
   Object.entries(plans).forEach(([k,p])=>{
     const opt=document.createElement('option'); opt.value=k; opt.textContent=p.nombre||k; sel.appendChild(opt);
   });
-  currentPlan = Object.keys(plans)[0]; sel.value=currentPlan;
-  sel.addEventListener('change',()=>{ currentPlan=sel.value; loadStates(); render(); });
+  const savedPlan=localStorage.getItem(PLAN_KEY);
+  currentPlan = (savedPlan && plans[savedPlan]) ? savedPlan : Object.keys(plans)[0];
+  sel.value=currentPlan;
+  localStorage.setItem(PLAN_KEY,currentPlan);
+  sel.addEventListener('change',()=>{ currentPlan=sel.value; localStorage.setItem(PLAN_KEY,currentPlan); loadStates(); render(); });
   document.getElementById('search').addEventListener('input',render);
   document.getElementById('onlyEnabled').addEventListener('change',render);
   document.getElementById('studentName').addEventListener('input',e=>{ studentName=e.target.value; saveStates(); });

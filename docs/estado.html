@@ -80,7 +80,23 @@ document.body.classList.add(savedTheme);
       return JSON.parse(decodeURIComponent(escape(atob(h))));
     }catch{ return null; }
   }
-  const share=decodeHash();
+  function encodeHash(obj){
+    return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+  }
+  let share=decodeHash();
+  if(!share){
+    try{
+      const STORAGE_KEY='simulador-avance';
+      const NAME_KEY='simulador-nombre';
+      const PLAN_KEY='simulador-plan';
+      const plan=localStorage.getItem(PLAN_KEY);
+      const all=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+      if(plan && all[plan]){
+        share={ plan, states: all[plan], name: localStorage.getItem(NAME_KEY)||'' };
+        location.hash = encodeHash(share);
+      }
+    }catch{}
+  }
   if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
   document.getElementById('owner').textContent = share.name || '';
   const plans = await (await fetch('plans.json')).json();
