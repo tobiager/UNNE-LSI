@@ -53,7 +53,10 @@ async function load(){
 }
 function render(list){
   const tbody=document.querySelector('#results tbody');
-  tbody.innerHTML=list.map(m=>`<tr><td><a href="../${encodeURI(m.ruta)}" target="_blank">${m.nombre}</a></td></tr>`).join('');
+  const base='https://github.com/tobiager/UNNE-LSI/blob/main/';
+  tbody.innerHTML=list
+    .map(m=>`<tr><td><a href="${base}${encodeURI(m.ruta)}" target="_blank">${m.nombre}</a></td></tr>`)
+    .join('');
 }
 document.getElementById('search').addEventListener('input',e=>{
   const q=e.target.value.toLowerCase();
