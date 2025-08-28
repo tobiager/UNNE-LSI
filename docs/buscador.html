@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buscador de materias</title>
+<style>
+  :root{
+    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
+    --panel-light:#ffffff; --panel-dark:#0f1625;
+    --border-light:#d1d5db; --border-dark:#1f2a36;
+    --text-light:#1f2937; --text-dark:#e6edf3;
+    --muted-light:#6b7280; --muted-dark:#9fb0c2;
+    --grad1-light:#ffffff; --grad1-dark:#10233a;
+    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
+    --footer-h:56px;
+  }
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+    padding-bottom:calc(var(--footer-h) + 24px);
+    scroll-behavior:smooth;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:16px}
+  h1{font-size:2rem;margin:0 0 16px;font-weight:800;text-align:center}
+</style>
+<link rel="stylesheet" href="css/buscador.css">
+</head>
+<body>
+<div id="navbar"></div>
+<section class="wrap">
+  <h1>Buscador de materias</h1>
+  <input id="search" type="text" placeholder="Buscar..." autocomplete="off" />
+  <table id="results"><tbody></tbody></table>
+</section>
+<div id="footer"></div>
+<script src="layout/layout.js"></script>
+<script>
+let materias=[];
+async function load(){
+  try{
+    materias = await (await fetch('materias.json')).json();
+    render(materias);
+  }catch(e){console.error('No se pudo cargar el índice',e);}
+}
+function render(list){
+  const tbody=document.querySelector('#results tbody');
+  tbody.innerHTML=list.map(m=>`<tr><td><a href="../${encodeURI(m.ruta)}" target="_blank">${m.nombre}</a></td></tr>`).join('');
+}
+document.getElementById('search').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  render(materias.filter(m=>m.nombre.toLowerCase().includes(q)));
+});
+load();
+</script>
+<script>
+const savedTheme=localStorage.getItem('theme')||'theme-dark';
+document.body.classList.add(savedTheme);
+</script>
+</body>
+</html>

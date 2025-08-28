@@ -1,0 +1,78 @@
+[
+  {
+    "nombre": "Administracion y Gestion de Organizaciones",
+    "ruta": "Materias/Administracion y Gestion de Organizaciones/README.md"
+  },
+  {
+    "nombre": "Algebra",
+    "ruta": "Materias/Algebra/README.md"
+  },
+  {
+    "nombre": "Algoritmo y Estructura de datos 1",
+    "ruta": "Materias/Algoritmo y Estructura de datos 1/README.md"
+  },
+  {
+    "nombre": "Algoritmo y Estructura de datos 2",
+    "ruta": "Materias/Algoritmo y Estructura de datos 2/README.md"
+  },
+  {
+    "nombre": "Arquitectura de computadoras",
+    "ruta": "Materias/Arquitectura de computadoras/README.md"
+  },
+  {
+    "nombre": "Bases de Datos 1",
+    "ruta": "Materias/Bases de Datos 1/README.md"
+  },
+  {
+    "nombre": "Bases de Datos 2",
+    "ruta": "Materias/Bases de Datos 2/README.md"
+  },
+  {
+    "nombre": "Calculo",
+    "ruta": "Materias/Calculo/README.md"
+  },
+  {
+    "nombre": "Comunicacion de datos 1",
+    "ruta": "Materias/Comunicacion de datos 1/README.md"
+  },
+  {
+    "nombre": "Ingenieria de Software 1",
+    "ruta": "Materias/Ingenieria de Software 1/README.md"
+  },
+  {
+    "nombre": "Ingenieria de Software 2",
+    "ruta": "Materias/Ingenieria de Software 2/README.md"
+  },
+  {
+    "nombre": "Ingles Tecnico",
+    "ruta": "Materias/Ingles Tecnico/README.md"
+  },
+  {
+    "nombre": "Logica y Matematica Computacional",
+    "ruta": "Materias/Logica y Matematica Computacional/README.md"
+  },
+  {
+    "nombre": "Paradigmas y Lenguajes",
+    "ruta": "Materias/Paradigmas y Lenguajes/README.md"
+  },
+  {
+    "nombre": "Programacion Orientada a Objetos",
+    "ruta": "Materias/Programacion Orientada a Objetos/README.md"
+  },
+  {
+    "nombre": "Sistemas Operativos",
+    "ruta": "Materias/Sistemas Operativos/README.md"
+  },
+  {
+    "nombre": "Sistemas y Organizaciones",
+    "ruta": "Materias/Sistemas y Organizaciones/README.md"
+  },
+  {
+    "nombre": "Taller de Programacion 1",
+    "ruta": "Materias/Taller de Programacion 1/README.md"
+  },
+  {
+    "nombre": "Taller de Programacion 2",
+    "ruta": "Materias/Taller de Programacion 2/README.md"
+  }
+]

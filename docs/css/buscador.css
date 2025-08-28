@@ -1,0 +1,7 @@
+section.wrap{margin-top:40px;text-align:center}
+#search{width:100%;max-width:480px;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text)}
+#results{width:100%;max-width:800px;margin:20px auto;border-collapse:collapse}
+#results td{padding:8px;border-bottom:1px solid var(--border);text-align:left}
+#results a{color:var(--text);text-decoration:none}
+#results a:hover{text-decoration:underline}
+@media (max-width:600px){#search{max-width:none}}
