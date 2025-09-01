@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Herramientas LSI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
+    --panel-light:#ffffff; --panel-dark:#0f1625;
+    --border-light:#d1d5db; --border-dark:#1f2a36;
+    --text-light:#1f2937; --text-dark:#e6edf3;
+    --muted-light:#6b7280; --muted-dark:#9fb0c2;
+    --grad1-light:#ffffff; --grad1-dark:#10233a;
+    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
+    --footer-h:56px;
+  }
+  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
+  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
+  *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+        radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+      scroll-behavior:smooth;
+    }
+  .wrap{max-width:1180px;margin:0 auto;padding:16px}
+  .hero{text-align:center;padding:80px 16px 60px}
+  .hero h1{font-size:2.4rem;margin:0 0 16px;font-weight:800}
+  .hero p{max-width:640px;margin:0 auto 24px;color:var(--muted)}
+  @keyframes fadeInUp{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  .btn{display:inline-block;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:10px 20px;border-radius:12px;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15);background:var(--border)}
+  section{padding:40px 16px;opacity:0;animation:fadeInUp .8s ease forwards}
+  .hero{animation-delay:.1s}
+  .features{animation-delay:.3s}
+  .start{animation-delay:.5s}
+  .calendar{animation-delay:.7s}
+  h2{font-size:1.6rem;margin:0 0 16px;text-align:center}
+  .features ul{max-width:800px;margin:0 auto;padding-left:20px}
+  .start ol{max-width:800px;margin:0 auto;padding-left:20px}
+</style>
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<section class="hero">
+  <h1>Planificá tu carrera</h1>
+  <p>Explorá herramientas para simular tu avance en la Licenciatura en Sistemas de Información y compartir tu progreso con quien quieras.</p>
+  <a href="http://localhost:8080/index.html#simulador" target="_parent" class="btn">Probar el simulador</a>
+</section>
+<section class="features">
+  <h2>Funcionalidades</h2>
+  <ul>
+    <li>Simulador interactivo para marcar materias cursadas y aprobadas.</li>
+    <li>Generación de enlaces para compartir tu estado de carrera.</li>
+    <li>Visualización clara de requisitos y progreso por año.</li>
+    <li><a href="http://localhost:8080/index.html#buscador" target="_parent">Buscador de materias y recursos</a>.</li>
+  </ul>
+</section>
+<section class="start">
+  <h2>Cómo empezar</h2>
+  <ol>
+    <li>Entrá al <a href="http://localhost:8080/index.html#simulador" target="_parent">Simulador de Avance</a>.</li>
+    <li>Seleccioná tu plan y marcá las materias según tu situación.</li>
+    <li>Compartí tu estado o consultalo desde cualquier dispositivo.</li>
+  </ol>
+  <div style="text-align:center;margin-top:24px">
+    <a href="http://localhost:8080/index.html#simulador" target="_parent" class="btn">Ir al simulador</a>
+    <a href="http://localhost:8080/index.html#estado" target="_parent" class="btn" style="margin-left:12px" id="viewState">Ver estado</a>
+  </div>
+</section>
+<section class="calendar">
+  <h2>Calendario académico</h2>
+  <p style="max-width:800px;margin:0 auto 24px;text-align:center">Consultá las fechas de cursado, exámenes y feriados del ciclo lectivo.</p>
+  <div style="text-align:center">
+    <a href="http://localhost:8080/index.html#calendario" target="_parent" class="btn">Ver calendario 2025</a>
+  </div>
+</section>
+<script>
+const savedTheme=localStorage.getItem('theme')||'theme-dark';
+document.body.classList.add(savedTheme);
+const baseUrl='http://localhost:8080/index.html';
+const stateHash=localStorage.getItem('estado-link');
+const viewBtn=document.getElementById('viewState');
+if(stateHash){
+  viewBtn.href=baseUrl+'#estado:'+stateHash;
+}else{
+  viewBtn.addEventListener('click',e=>{
+    e.preventDefault();
+    parent.location.href=baseUrl+'#estado';
+    if(parent.showAlert) parent.showAlert('No hay un estado guardado');
+  });
+}
+</script>
+</body>
+</html>

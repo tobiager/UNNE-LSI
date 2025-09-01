@@ -29,67 +29,24 @@
       var(--bg);
     color:var(--text);
     font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-    padding-bottom:calc(var(--footer-h) + 24px);
-    scroll-behavior:smooth;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    padding-bottom:var(--footer-h);
   }
-  .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  .hero{text-align:center;padding:80px 16px 60px}
-  .hero h1{font-size:2.4rem;margin:0 0 16px;font-weight:800}
-  .hero p{max-width:640px;margin:0 auto 24px;color:var(--muted)}
-  @keyframes fadeInUp{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-  .btn{display:inline-block;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:10px 20px;border-radius:12px;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15);background:var(--border)}
-  section{padding:40px 16px;opacity:0;animation:fadeInUp .8s ease forwards}
-  .hero{animation-delay:.1s}
-  .features{animation-delay:.3s}
-  .start{animation-delay:.5s}
-  .calendar{animation-delay:.7s}
-  h2{font-size:1.6rem;margin:0 0 16px;text-align:center}
-  .features ul{max-width:800px;margin:0 auto;padding-left:20px}
-  .start ol{max-width:800px;margin:0 auto;padding-left:20px}
+  #content{flex:1;border:none;width:100%;}
+  #alerts{position:fixed;left:0;right:0;bottom:var(--footer-h);padding:8px;display:flex;flex-direction:column;align-items:center;z-index:20;}
+  .alert{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;max-width:640px;margin-bottom:8px;text-align:center;}
 </style>
 <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div id="navbar"></div>
-<section class="hero">
-  <h1>Planificá tu carrera</h1>
-  <p>Explorá herramientas para simular tu avance en la Licenciatura en Sistemas de Información y compartir tu progreso con quien quieras.</p>
-  <a href="simulador.html" class="btn">Probar el simulador</a>
-</section>
-<section class="features">
-  <h2>Funcionalidades</h2>
-  <ul>
-    <li>Simulador interactivo para marcar materias cursadas y aprobadas.</li>
-    <li>Generación de enlaces para compartir tu estado de carrera.</li>
-    <li>Visualización clara de requisitos y progreso por año.</li>
-    <li><a href="buscador.html">Buscador de materias y recursos</a>.</li>
-  </ul>
-</section>
-<section class="start">
-  <h2>Cómo empezar</h2>
-  <ol>
-    <li>Entrá al <a href="simulador.html">Simulador de Avance</a>.</li>
-    <li>Seleccioná tu plan y marcá las materias según tu situación.</li>
-    <li>Compartí tu estado o consultalo desde cualquier dispositivo.</li>
-  </ol>
-  <div style="text-align:center;margin-top:24px">
-    <a href="simulador.html" class="btn">Ir al simulador</a>
-    <a href="estado.html" class="btn" style="margin-left:12px">Ver estado</a>
-  </div>
-</section>
-<section class="calendar">
-  <h2>Calendario académico</h2>
-  <p style="max-width:800px;margin:0 auto 24px;text-align:center">Consultá las fechas de cursado, exámenes y feriados del ciclo lectivo.</p>
-  <div style="text-align:center">
-    <a href="calendario.html" class="btn">Ver calendario 2025</a>
-  </div>
-</section>
+<iframe id="content" src="home.html"></iframe>
+<div id="alerts"></div>
 <div id="footer"></div>
 <script src="layout/layout.js"></script>
+<script src="app.js"></script>
 <script>
 const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);

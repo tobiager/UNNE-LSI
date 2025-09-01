@@ -26,7 +26,6 @@
       var(--bg);
     color:var(--text);
     font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-    padding-bottom:calc(var(--footer-h) + 24px);
   }
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
   h1{text-align:center;font-size:2rem;margin:40px 0 24px;font-weight:800}
@@ -42,7 +41,6 @@
 </style>
 </head>
 <body>
-<div id="navbar"></div>
 <div class="wrap">
   <h1>Calendario académico 2025</h1>
   <p>
@@ -133,8 +131,6 @@
     </ul>
   </section>
 </div>
-<div id="footer"></div>
-<script src="layout/layout.js"></script>
 <script>
 const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);

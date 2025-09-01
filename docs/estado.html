@@ -20,16 +20,15 @@
   body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--card:var(--card-light);--card2:var(--card2-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
   body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--card:var(--card-dark);--card2:var(--card2-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
   *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:
-      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-      var(--bg);
-    color:var(--text);
-    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto;
-    padding-bottom:calc(var(--footer-h) + 24px);
-  }
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+        radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto;
+    }
   .wrap{max-width:900px;margin:0 auto;padding:16px}
   h1{margin:0 0 16px;font-size:1.8rem}
   .owner{font-family:Georgia,serif;color:#3b82f6}
@@ -63,12 +62,10 @@
 <body>
 <div class="wrap">
   <h1>Estado de carrera <span id="owner" class="owner"></span></h1>
-  <a href="simulador.html" class="btn back-link">Volver al simulador</a>
+  <a href="http://localhost:8080/index.html#simulador" target="_parent" class="btn back-link">Volver al simulador</a>
   <div id="head" class="panel"></div>
   <div id="list" class="panel"></div>
 </div>
-<div id="footer"></div>
-<script src="layout/layout.js"></script>
 <script>
 const savedTheme = localStorage.getItem('theme') || 'theme-dark';
 document.body.classList.add(savedTheme);
@@ -97,7 +94,7 @@ document.body.classList.add(savedTheme);
       }
     }catch{}
   }
-  if(!share){ document.getElementById('head').textContent='Sin datos.'; return; }
+  if(!share){ document.getElementById('head').textContent='No hay un estado guardado.'; return; }
   document.getElementById('owner').textContent = share.name || '';
   const plans = await (await fetch('plans.json')).json();
   const plan = plans[share.plan];

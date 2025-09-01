@@ -81,8 +81,8 @@ padding:8px 12px;border-radius:12px;font-weight:600
   
   .dot{width:12px;height:12px;border-radius:999px;display:inline-block;margin-right:6px}
 
-  main{padding:10px 0 24px}
-  main, body{padding-bottom:calc(var(--status-h) + var(--footer-h) + 24px)}
+    main{padding:10px 0 24px}
+    main, body{padding-bottom:calc(var(--status-h) + 24px)}
 
   #materias{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:14px;margin-top:16px}
   .year{grid-column:1 / -1;border:1px solid var(--border);border-radius:16px;padding:14px;background:linear-gradient(180deg,var(--card),var(--card2))}
@@ -119,11 +119,11 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .aprobada{border-color:#16a34a}
   .aprobada .badge{background:#16a34a}
 
-  .statusbar{
-    position:fixed; left:0; right:0; bottom:var(--footer-h);
-    z-index:20; background:rgba(11,15,20,.75); backdrop-filter:saturate(130%) blur(8px);
-    border-top:1px solid var(--border);
-  }
+    .statusbar{
+      position:fixed; left:0; right:0; bottom:0;
+      z-index:20; background:rgba(11,15,20,.75); backdrop-filter:saturate(130%) blur(8px);
+      border-top:1px solid var(--border);
+    }
   .statusbar>summary{
     list-style:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
@@ -158,14 +158,14 @@ padding:8px 12px;border-radius:12px;font-weight:600
   a{color:#9cc9ff;text-decoration:none}
   a:hover{text-decoration:underline}
 
-  .toast{
-    position:fixed;left:50%;bottom:calc(var(--footer-h) + 16px);
-    transform:translateX(-50%) translateY(100%);
-    background:rgba(15,23,42,.95);
-    border:1px solid var(--border);color:var(--text);
-    padding:12px 20px;border-radius:12px;z-index:999;
-    opacity:0;transition:transform .3s ease,opacity .3s ease;
-  }
+    .toast{
+      position:fixed;left:50%;bottom:16px;
+      transform:translateX(-50%) translateY(100%);
+      background:rgba(15,23,42,.95);
+      border:1px solid var(--border);color:var(--text);
+      padding:12px 20px;border-radius:12px;z-index:999;
+      opacity:0;transition:transform .3s ease,opacity .3s ease;
+    }
   .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 
   .confirm{
@@ -185,7 +185,6 @@ padding:8px 12px;border-radius:12px;font-weight:600
 </style>
 </head>
 <body>
-<div id="navbar"></div>
 <div class="wrap top-bar">
   <h1>Simulador de Avance <span class="brand-lsi">LSI</span></h1>
   <div class="toolbar">
@@ -247,7 +246,6 @@ padding:8px 12px;border-radius:12px;font-weight:600
   </div>
 </details>
 
-<div id="footer"></div>
 
 
 <div id="toast" class="toast"></div>
@@ -261,7 +259,6 @@ padding:8px 12px;border-radius:12px;font-weight:600
   </div>
 </div>
 
-<script src="layout/layout.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
@@ -627,7 +624,11 @@ function makePctBadgeHtml(){
   const url = `https://img.shields.io/badge/${label}-${msg}-${color}?style=${BADGE_STYLE}`;
   return `<p align="center">\n  <a href="${shareUrl()}">\n    <img src="${url}" alt="Avance LSI ${pct}%" width="200"/>\n  </a>\n</p>`;
 }
-document.getElementById('share').onclick=()=>copyToClipboard(shareUrl());
+document.getElementById('share').onclick=()=>{
+  const url=shareUrl();
+  copyToClipboard(url);
+  localStorage.setItem('estado-link',currentShareHash());
+};
 document.getElementById('badgeYear').onclick=()=>copyToClipboard(makeYearBadgeHtml());
 document.getElementById('badgePct').onclick=()=>copyToClipboard(makePctBadgeHtml());
 

@@ -4,6 +4,9 @@ async function loadComponent(id, url) {
   try {
     const resp = await fetch(url);
     el.innerHTML = await resp.text();
+    if (id === 'navbar') {
+      document.dispatchEvent(new Event('navbarLoaded'));
+    }
     if (id === 'footer') {
       const updateFooterHeight = () => {
         const footer = document.querySelector('footer');

@@ -18,31 +18,27 @@
   body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
   body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
   *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:
-      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-      var(--bg);
-    color:var(--text);
-    font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-    padding-bottom:calc(var(--footer-h) + 24px);
-    scroll-behavior:smooth;
-  }
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
+        radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
+        var(--bg);
+      color:var(--text);
+      font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+      scroll-behavior:smooth;
+    }
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
   h1{font-size:2rem;margin:0 0 16px;font-weight:800;text-align:center}
 </style>
 <link rel="stylesheet" href="css/buscador.css">
 </head>
 <body>
-<div id="navbar"></div>
 <section class="wrap">
   <h1>Buscador de materias</h1>
   <input id="search" type="text" placeholder="Buscar..." autocomplete="off" />
   <table id="results"><tbody></tbody></table>
 </section>
-<div id="footer"></div>
-<script src="layout/layout.js"></script>
 <script>
 let materias=[];
 async function load(){
