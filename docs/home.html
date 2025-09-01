@@ -67,32 +67,32 @@
     <li>Simulador interactivo para marcar materias cursadas y aprobadas.</li>
     <li>Generación de enlaces para compartir tu estado de carrera.</li>
     <li>Visualización clara de requisitos y progreso por año.</li>
-    <li><a href="http://localhost:8080/index.html#buscador" target="_parent">Buscador de materias y recursos</a>.</li>
+    <li><a href="https://tobiager.github.io/UNNE-LSI/index.html#buscador" target="_parent">Buscador de materias y recursos</a>.</li>
   </ul>
 </section>
 <section class="start">
   <h2>Cómo empezar</h2>
   <ol>
-    <li>Entrá al <a href="http://localhost:8080/index.html#simulador" target="_parent">Simulador de Avance</a>.</li>
+    <li>Entrá al <a href="https://tobiager.github.io/UNNE-LSI/index.html#simulador" target="_parent">Simulador de Avance</a>.</li>
     <li>Seleccioná tu plan y marcá las materias según tu situación.</li>
     <li>Compartí tu estado o consultalo desde cualquier dispositivo.</li>
   </ol>
   <div style="text-align:center;margin-top:24px">
-    <a href="http://localhost:8080/index.html#simulador" target="_parent" class="btn">Ir al simulador</a>
-    <a href="http://localhost:8080/index.html#estado" target="_parent" class="btn" style="margin-left:12px" id="viewState">Ver estado</a>
+    <a href=https://tobiager.github.io/UNNE-LSI/index.html#simulador" target="_parent" class="btn">Ir al simulador</a>
+    <a href="https://tobiager.github.io/UNNE-LSI/estado.html" target="_parent" class="btn" style="margin-left:12px" id="viewState">Ver estado</a>
   </div>
 </section>
 <section class="calendar">
   <h2>Calendario académico</h2>
   <p style="max-width:800px;margin:0 auto 24px;text-align:center">Consultá las fechas de cursado, exámenes y feriados del ciclo lectivo.</p>
   <div style="text-align:center">
-    <a href="http://localhost:8080/index.html#calendario" target="_parent" class="btn">Ver calendario 2025</a>
+    <a href="https://tobiager.github.io/UNNE-LSI/index.html#calendario" target="_parent" class="btn">Ver calendario 2025</a>
   </div>
 </section>
 <script>
 const savedTheme=localStorage.getItem('theme')||'theme-dark';
 document.body.classList.add(savedTheme);
-const baseUrl='http://localhost:8080/index.html';
+const baseUrl='https://tobiager.github.io/UNNE-LSI/index.html';
 const stateHash=localStorage.getItem('estado-link');
 const viewBtn=document.getElementById('viewState');
 if(stateHash){
