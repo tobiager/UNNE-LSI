@@ -74,5 +74,13 @@
   {
     "nombre": "Taller de Programacion 2",
     "ruta": "Materias/Taller de Programacion 2/README.md"
+  },
+  {
+    "nombre": "Probabilidad y Estadistica",
+    "ruta": "Materias/Probabilidad y Estadistica/README.md"
+  },
+  {
+    "nombre": "Ingles Tecnico",
+    "ruta": "Materias/Ingles Tecnico/README.md"
   }
 ]

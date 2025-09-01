@@ -306,6 +306,7 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - [Taller de Programación I](./Materias/Taller%20de%20Programacion%201/) — ✅ Aprobada
 - [Taller de Programación II](./Materias/Taller%20de%20Programacion%202/) — ⏳ En curso
 - [Bases de Datos 1](./Materias/Bases%20de%20Datos%201/) - ⏳ En curso
+- [Probabilidad y Estadistica](./Materias/Probabilidad%20y%20Estadistica/) - ⏳ En curso
 - [Ingles Tecnico](./Materias/Ingles%20Tecnico/) - ⏳ En curso
 
 ---
