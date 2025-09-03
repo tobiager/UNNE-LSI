@@ -186,7 +186,7 @@ Para más información consultá la [documentación oficial de GitHub](https://d
 ## 🧪 Simulador de avance (web)
 
 <div align="center">
-  <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">
+  <a href="https://tobiager.github.io/UNNE-LSI/index.html#simulador">
     <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
   </a>
   
