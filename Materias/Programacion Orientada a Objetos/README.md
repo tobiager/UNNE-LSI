@@ -30,7 +30,7 @@ El punto culminante del curso fue el **Proyecto Integrador**, donde apliqué tod
 | `Cuadernillo Java/` | Guía principal con teoría y ejercicios de Java |
 | `material del 2023/` | Recursos y apuntes de una cursada anterior |
 | `practica/` | Trabajos prácticos y ejercicios resueltos |
-| `Planificacion Grupo Pratico_2.pdf` | Cronograma y planificación de la cursada 2024 |
+| `apunte-teoria.pdf` | Apunte de toda la teoria de la materia (2024) |
 | `ProgramaPOO_Res0395_23.pdf` | Programa oficial de la materia |
 | `Final POO.docx` | Enunciado del proyecto del examen final |
 
