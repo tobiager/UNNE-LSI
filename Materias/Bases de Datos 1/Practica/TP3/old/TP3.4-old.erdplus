@@ -1,0 +1,128 @@
+{
+  "version": 2,
+  "www": "erdplus.com",
+  "shapes": [
+    {
+      "type": "Table",
+      "details": {
+        "name": "Cliente",
+        "x": 180,
+        "y": 80,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IdCliente"],   "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null,  "id": 101 },
+          { "names": ["Nombre"],      "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "100", "id": 102 },
+          { "names": ["Apellido"],    "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "100", "id": 104 },
+          { "names": ["IdCategoria"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",     "dataTypeSize": null,  "references": [ { "tableId": 2, "attributeId": 201, "fkSubIndex": 0 } ], "id": 103 }
+        ],
+        "uniqueGroups": [],
+        "id": 1
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "Categoria",
+        "x": 140,
+        "y": 260,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IdCategoria"],      "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null,  "id": 201 },
+          { "names": ["Nombre_categoria"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "100", "id": 202 }
+        ],
+        "uniqueGroups": [],
+        "id": 2
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "Pedido",
+        "x": 480,
+        "y": 60,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IdPedido"],  "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 301 },
+          { "names": ["Fecha"],     "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "",   "id": 302 },
+          { "names": ["IdCliente"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101, "fkSubIndex": 0 } ], "id": 303 }
+        ],
+        "uniqueGroups": [],
+        "id": 3
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "Plato",
+        "x": 760,
+        "y": 140,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IDPlato"],      "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null,  "id": 401 },
+          { "names": ["Nombre_plato"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "100", "id": 402 }
+        ],
+        "uniqueGroups": [],
+        "id": 4
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DetallePedido",
+        "x": 520,
+        "y": 160,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IDDetallePedido"], "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 501 },
+          { "names": ["Cantidad"],        "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 502 },
+          { "names": ["Precio_unitario"], "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int",  "dataTypeSize": null, "id": 503 },
+          { "names": ["IdPedido"],        "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301, "fkSubIndex": 0 } ], "id": 504 },
+          { "names": ["IDPlato"],         "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true,  "dataType": "int",  "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 505 }
+        ],
+        "uniqueGroups": [],
+        "id": 5
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "Agregado",
+        "x": 820,
+        "y": 340,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["IDAgregado"],       "order": 0, "pkMember": true,  "optional": false, "soloUnique": false, "fk": false, "dataType": "int",     "dataTypeSize": null,  "id": 601 },
+          { "names": ["Nombre_agregado"],  "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "100", "id": 602 }
+        ],
+        "uniqueGroups": [],
+        "id": 6
+      }
+    },
+    {
+      "type": "Table",
+      "details": {
+        "name": "DetalleAgregado",
+        "x": 560,
+        "y": 320,
+        "sort": "automatic",
+        "attributes": [
+          { "names": ["Cantidad"],         "order": 0, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 702 },
+          { "names": ["IDAgregado"],       "order": 1, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 6, "attributeId": 601, "fkSubIndex": 0 } ], "id": 703 },
+          { "names": ["IDDetallePedido"],  "order": 2, "pkMember": true,  "optional": false, "soloUnique": false, "fk": true,  "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 5, "attributeId": 501, "fkSubIndex": 0 } ], "id": 704 }
+        ],
+        "uniqueGroups": [],
+        "id": 7
+      }
+    }
+  ],
+  "connectors": [
+    { "type": "TableConnector", "details": { "fkAttributeId": 103, "id": 9001 }, "source": 1, "destination": 2 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 303, "id": 9002 }, "source": 3, "destination": 1 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 504, "id": 9003 }, "source": 5, "destination": 3 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 505, "id": 9004 }, "source": 5, "destination": 4 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 703, "id": 9005 }, "source": 7, "destination": 6 },
+    { "type": "TableConnector", "details": { "fkAttributeId": 704, "id": 9006 }, "source": 7, "destination": 5 }
+  ],
+  "width": 1600,
+  "height": 900
+}

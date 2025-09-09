@@ -1,0 +1,605 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "530c0134-7831-4f7a-9a32-e098283c304d",
+        "type": "Table",
+        "position": {
+          "x": 74,
+          "y": 156
+        },
+        "data": {
+          "label": "empleado",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "4bbdd322-5715-4387-8be5-a692ea1081eb",
+              "name": "id_empleado",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "1422d6b9-da2f-4223-bf22-5741d62b5033",
+              "name": "nombre_completo",
+              "type": "VARCHAR(100)",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "12f98f12-54b3-4edb-a645-33707fddbede",
+              "name": "id_cargo",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "fk_511d1103-69d0-4bdd-83d4-8269bb3a1157",
+              "name": "fk_cargo",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "b5762c31-62d2-483e-9114-6604b3aa61e8",
+                "sourceTableId": "5b998233-c34f-4861-a312-07f01600f011",
+                "columns": [
+                  {
+                    "id": "fk_170c94b1-cf1b-484c-b2bd-62eb98aa4f42",
+                    "name": "id_cargo",
+                    "type": "INT"
+                  }
+                ]
+              }
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 127
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "5b998233-c34f-4861-a312-07f01600f011",
+        "type": "Table",
+        "position": {
+          "x": 682,
+          "y": 152
+        },
+        "data": {
+          "label": "cargo",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "170c94b1-cf1b-484c-b2bd-62eb98aa4f42",
+              "name": "id_cargo",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "39eda949-7e42-483d-8772-f9d96dc6bcf7",
+              "name": "nombre",
+              "type": "VARCHAR(60)",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 76
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+        "type": "Table",
+        "position": {
+          "x": 121,
+          "y": 375
+        },
+        "data": {
+          "label": "proyecto",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "03d45329-df94-4829-a357-6086e63f3f75",
+              "name": "id_proyecto",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "abe1d3cf-b859-4f23-a117-83206ce34e28",
+              "name": "nombre_proyecto",
+              "type": "VARCHAR(120)",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 76
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02",
+        "type": "Table",
+        "position": {
+          "x": 633,
+          "y": 386
+        },
+        "data": {
+          "label": "tag",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "d31e52c3-e3fc-402c-a651-33587e0ed5a7",
+              "name": "id_tag",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "a06f41f8-e433-49d8-aa2b-4bfa4e0f6b56",
+              "name": "nombre",
+              "type": "VARCHAR(60)",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": false,
+              "isUnique": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 76
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+        "type": "Table",
+        "position": {
+          "x": 389,
+          "y": 273
+        },
+        "data": {
+          "label": "proyecto_tag",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "18548086-ebf3-4ba2-8405-fac2881b5396",
+              "name": "id_proyecto",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "cb702c34-cb5a-490b-a549-85928c01331a",
+              "name": "id_tag",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "fk_133335f9-8ea2-4724-a7a1-fca3f79a7ad3",
+              "name": "fk_proyecto",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "88b575ca-02d0-4bb6-a152-a13b7014a563",
+                "sourceTableId": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+                "columns": [
+                  {
+                    "id": "fk_03d45329-df94-4829-a357-6086e63f3f75",
+                    "name": "id_proyecto",
+                    "type": "INT"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fk_be9780c2-ac29-4e54-a5ef-2a210bd6c174",
+              "name": "fk_tag",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "7582f0ff-afe8-4cd0-a242-74f1b334d9ad",
+                "sourceTableId": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02",
+                "columns": [
+                  {
+                    "id": "fk_d31e52c3-e3fc-402c-a651-33587e0ed5a7",
+                    "name": "id_tag",
+                    "type": "INT"
+                  }
+                ]
+              }
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 127
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "058a70a0-890a-456d-8287-5efe48c63df5",
+        "type": "Table",
+        "position": {
+          "x": 366,
+          "y": 78
+        },
+        "data": {
+          "label": "asigna_en",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "dcd60b7d-a068-4034-9bf3-8a3327fb3b22",
+              "name": "id_empleado",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "0fa85111-8e27-4d67-887c-b441f805bde4",
+              "name": "id_proyecto",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "246cacee-a30a-41bc-a1a9-67bd288d65f0",
+              "name": "fecha_inicio",
+              "type": "DATE",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "59af7d8b-5a51-49bb-8939-1ea715683d1c",
+              "name": "fecha_fin",
+              "type": "DATE",
+              "position": 0,
+              "isPrimaryKey": false,
+              "isOptional": true,
+              "isUnique": false
+            },
+            {
+              "id": "fk_ab6e98f8-aafc-42e9-8ad4-4f4562980778",
+              "name": "fk_empleado",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "a2715dc3-50fc-478c-9687-6798ba85d544",
+                "sourceTableId": "530c0134-7831-4f7a-9a32-e098283c304d",
+                "columns": [
+                  {
+                    "id": "fk_4bbdd322-5715-4387-8be5-a692ea1081eb",
+                    "name": "id_empleado",
+                    "type": "INT"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fk_eff84330-d64f-4f22-9623-16556a96acce",
+              "name": "fk_proyecto",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "850b69b6-df9f-4bd7-b5a6-003ffd83ef5b",
+                "sourceTableId": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+                "columns": [
+                  {
+                    "id": "fk_03d45329-df94-4829-a357-6086e63f3f75",
+                    "name": "id_proyecto",
+                    "type": "INT"
+                  }
+                ]
+              }
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 177
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "530c0134-7831-4f7a-9a32-e098283c304d->5b998233-c34f-4861-a312-07f01600f011_2ad61172-62c1-4d3f-a627-41b852e819d0",
+        "type": "Relational",
+        "source": "530c0134-7831-4f7a-9a32-e098283c304d",
+        "targetHandle": "foreign-key-handle-2ad61172-62c1-4d3f-a627-41b852e819d0",
+        "target": "5b998233-c34f-4861-a312-07f01600f011",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "2ad61172-62c1-4d3f-a627-41b852e819d0",
+            "sourceTableId": "530c0134-7831-4f7a-9a32-e098283c304d",
+            "columns": [
+              {
+                "id": "3c51bb21-d0ec-4a02-97d0-65e1aef6ef82",
+                "name": "id_cargo",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "9b0713c1-3dcd-43ec-a713-8e62fda76055->f2f30d14-1b30-4d3b-b92b-519affc070ca_c8170df1-f117-42f9-8332-8de43ec2dddf",
+        "type": "Relational",
+        "source": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+        "targetHandle": "foreign-key-handle-c8170df1-f117-42f9-8332-8de43ec2dddf",
+        "target": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "c8170df1-f117-42f9-8332-8de43ec2dddf",
+            "sourceTableId": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+            "columns": [
+              {
+                "id": "773b4e10-3ad3-44e6-92ce-84cc6057c15c",
+                "name": "id_proyecto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "9b0713c1-3dcd-43ec-a713-8e62fda76055->94c6feeb-b32a-46f3-86b8-ebbc0bce9e02_eeaab8c6-3c92-4411-a8ed-ec905c67e6e3",
+        "type": "Relational",
+        "source": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+        "targetHandle": "foreign-key-handle-eeaab8c6-3c92-4411-a8ed-ec905c67e6e3",
+        "target": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "eeaab8c6-3c92-4411-a8ed-ec905c67e6e3",
+            "sourceTableId": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+            "columns": [
+              {
+                "id": "308e1156-e03a-4c58-bb3d-46ab43ef0d6d",
+                "name": "id_tag",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "058a70a0-890a-456d-8287-5efe48c63df5->530c0134-7831-4f7a-9a32-e098283c304d_baaaff6e-6f7e-4145-8a24-b4d613c15463",
+        "type": "Relational",
+        "source": "058a70a0-890a-456d-8287-5efe48c63df5",
+        "targetHandle": "foreign-key-handle-baaaff6e-6f7e-4145-8a24-b4d613c15463",
+        "target": "530c0134-7831-4f7a-9a32-e098283c304d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "baaaff6e-6f7e-4145-8a24-b4d613c15463",
+            "sourceTableId": "058a70a0-890a-456d-8287-5efe48c63df5",
+            "columns": [
+              {
+                "id": "638f2477-93ea-47da-8202-bef1e234cdd5",
+                "name": "id_empleado",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "058a70a0-890a-456d-8287-5efe48c63df5->f2f30d14-1b30-4d3b-b92b-519affc070ca_92297390-aea1-4378-947c-110b91e0c764",
+        "type": "Relational",
+        "source": "058a70a0-890a-456d-8287-5efe48c63df5",
+        "targetHandle": "foreign-key-handle-92297390-aea1-4378-947c-110b91e0c764",
+        "target": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "92297390-aea1-4378-947c-110b91e0c764",
+            "sourceTableId": "058a70a0-890a-456d-8287-5efe48c63df5",
+            "columns": [
+              {
+                "id": "30968622-128e-47c5-b750-6f7c4c289248",
+                "name": "id_proyecto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "530c0134-7831-4f7a-9a32-e098283c304d->058a70a0-890a-456d-8287-5efe48c63df5_a2715dc3-50fc-478c-9687-6798ba85d544",
+        "type": "Relational",
+        "source": "530c0134-7831-4f7a-9a32-e098283c304d",
+        "targetHandle": "foreign-key-handle-a2715dc3-50fc-478c-9687-6798ba85d544",
+        "target": "058a70a0-890a-456d-8287-5efe48c63df5",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "a2715dc3-50fc-478c-9687-6798ba85d544",
+            "sourceTableId": "530c0134-7831-4f7a-9a32-e098283c304d",
+            "columns": [
+              {
+                "id": "fk_4bbdd322-5715-4387-8be5-a692ea1081eb",
+                "name": "id_empleado",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "5b998233-c34f-4861-a312-07f01600f011->530c0134-7831-4f7a-9a32-e098283c304d_b5762c31-62d2-483e-9114-6604b3aa61e8",
+        "type": "Relational",
+        "source": "5b998233-c34f-4861-a312-07f01600f011",
+        "targetHandle": "foreign-key-handle-b5762c31-62d2-483e-9114-6604b3aa61e8",
+        "target": "530c0134-7831-4f7a-9a32-e098283c304d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "b5762c31-62d2-483e-9114-6604b3aa61e8",
+            "sourceTableId": "5b998233-c34f-4861-a312-07f01600f011",
+            "columns": [
+              {
+                "id": "fk_170c94b1-cf1b-484c-b2bd-62eb98aa4f42",
+                "name": "id_cargo",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "f2f30d14-1b30-4d3b-b92b-519affc070ca->058a70a0-890a-456d-8287-5efe48c63df5_850b69b6-df9f-4bd7-b5a6-003ffd83ef5b",
+        "type": "Relational",
+        "source": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+        "targetHandle": "foreign-key-handle-850b69b6-df9f-4bd7-b5a6-003ffd83ef5b",
+        "target": "058a70a0-890a-456d-8287-5efe48c63df5",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "850b69b6-df9f-4bd7-b5a6-003ffd83ef5b",
+            "sourceTableId": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+            "columns": [
+              {
+                "id": "fk_03d45329-df94-4829-a357-6086e63f3f75",
+                "name": "id_proyecto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "f2f30d14-1b30-4d3b-b92b-519affc070ca->9b0713c1-3dcd-43ec-a713-8e62fda76055_88b575ca-02d0-4bb6-a152-a13b7014a563",
+        "type": "Relational",
+        "source": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+        "targetHandle": "foreign-key-handle-88b575ca-02d0-4bb6-a152-a13b7014a563",
+        "target": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "88b575ca-02d0-4bb6-a152-a13b7014a563",
+            "sourceTableId": "f2f30d14-1b30-4d3b-b92b-519affc070ca",
+            "columns": [
+              {
+                "id": "fk_03d45329-df94-4829-a357-6086e63f3f75",
+                "name": "id_proyecto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02->9b0713c1-3dcd-43ec-a713-8e62fda76055_7582f0ff-afe8-4cd0-a242-74f1b334d9ad",
+        "type": "Relational",
+        "source": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02",
+        "targetHandle": "foreign-key-handle-7582f0ff-afe8-4cd0-a242-74f1b334d9ad",
+        "target": "9b0713c1-3dcd-43ec-a713-8e62fda76055",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "7582f0ff-afe8-4cd0-a242-74f1b334d9ad",
+            "sourceTableId": "94c6feeb-b32a-46f3-86b8-ebbc0bce9e02",
+            "columns": [
+              {
+                "id": "fk_d31e52c3-e3fc-402c-a651-33587e0ed5a7",
+                "name": "id_tag",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": 464,
+      "y": 169.5,
+      "zoom": 1
+    }
+  },
+  "name": "TP3.3",
+  "folder": {
+    "name": "Diagrams",
+    "folderType": 1,
+    "depth": 0,
+    "id": 13263
+  },
+  "id": 8992,
+  "updatedAtTimestamp": 1756410985
+}

@@ -1,0 +1,152 @@
+{
+"version": 2,
+"www": "erdplus.com",
+"shapes": [
+{
+"type": "Table",
+"details": {
+"name": "SUCURSAL",
+"x": 240,
+"y": 140,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_sucursal"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 101 },
+{ "names": ["nombre"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120", "id": 102 },
+{ "names": ["ciudad"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120", "id": 103 }
+],
+"uniqueGroups": [],
+"id": 1
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "VENDEDOR",
+"x": 240,
+"y": 320,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_vendedor"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 201 },
+{ "names": ["nombre"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120", "id": 202 },
+{ "names": ["id_sucursal"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101 } ], "id": 203 }
+],
+"uniqueGroups": [],
+"id": 2
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "METODOPAGO",
+"x": 600,
+"y": 120,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_metodo"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 301 },
+{ "names": ["descripcion"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "80", "id": 302 }
+],
+"uniqueGroups": [],
+"id": 3
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "TICKET",
+"x": 600,
+"y": 300,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_ticket"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 401 },
+{ "names": ["fecha"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "date", "dataTypeSize": "", "id": 402 },
+{ "names": ["id_vendedor"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 2, "attributeId": 201 } ], "id": 403 },
+{ "names": ["id_metodo"], "order": 3, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 3, "attributeId": 301 } ], "id": 404 },
+{ "names": ["id_sucursal"], "order": 4, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 1, "attributeId": 101 } ], "id": 405 }
+],
+"uniqueGroups": [],
+"id": 4
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "RUBRO",
+"x": 970,
+"y": 120,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_rubro"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 501 },
+{ "names": ["descripcion"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "80", "id": 502 }
+],
+"uniqueGroups": [],
+"id": 5
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "PROVEEDOR",
+"x": 970,
+"y": 300,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_proveedor"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 601 },
+{ "names": ["nombre"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120", "id": 602 },
+{ "names": ["telefono"], "order": 2, "pkMember": false, "optional": true, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "30", "id": 603 },
+{ "names": ["direccion"], "order": 3, "pkMember": false, "optional": true, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "180", "id": 604 }
+],
+"uniqueGroups": [],
+"id": 6
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "ARTICULO",
+"x": 1230,
+"y": 210,
+"sort": "automatic",
+"attributes": [
+{ "names": ["codigo_articulo"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 701 },
+{ "names": ["nombre"], "order": 1, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "varchar", "dataTypeSize": "120", "id": 702 },
+{ "names": ["stock"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 703 },
+{ "names": ["precio_unitario"], "order": 3, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "decimal", "dataTypeSize": "10,2", "id": 704 },
+{ "names": ["id_rubro"], "order": 4, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 5, "attributeId": 501 } ], "id": 705 },
+{ "names": ["id_proveedor"], "order": 5, "pkMember": false, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 6, "attributeId": 601 } ], "id": 706 }
+],
+"uniqueGroups": [],
+"id": 7
+}
+},
+{
+"type": "Table",
+"details": {
+"name": "LINEATICKET",
+"x": 600,
+"y": 500,
+"sort": "automatic",
+"attributes": [
+{ "names": ["id_ticket"], "order": 0, "pkMember": true, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 4, "attributeId": 401, "fkSubIndex": 0 } ], "id": 801 },
+{ "names": ["codigo_articulo"], "order": 1, "pkMember": true, "optional": false, "soloUnique": false, "fk": true, "dataType": "int", "dataTypeSize": null, "references": [ { "tableId": 7, "attributeId": 701, "fkSubIndex": 0 } ], "id": 802 },
+{ "names": ["cantidad"], "order": 2, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "int", "dataTypeSize": null, "id": 803 },
+{ "names": ["precio_unitario"], "order": 3, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "decimal", "dataTypeSize": "10,2", "id": 804 },
+{ "names": ["precio_total"], "order": 4, "pkMember": false, "optional": false, "soloUnique": false, "fk": false, "dataType": "decimal", "dataTypeSize": "10,2", "id": 805 }
+],
+"uniqueGroups": [],
+"id": 8
+}
+}
+],
+"connectors": [
+{ "type": "TableConnector", "details": { "fkAttributeId": 203, "id": 9001 }, "source": 1, "destination": 2 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 403, "id": 9002 }, "source": 2, "destination": 4 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 404, "id": 9003 }, "source": 3, "destination": 4 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 405, "id": 9004 }, "source": 1, "destination": 4 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 705, "id": 9005 }, "source": 5, "destination": 7 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 706, "id": 9006 }, "source": 6, "destination": 7 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 801, "id": 9007 }, "source": 4, "destination": 8 },
+{ "type": "TableConnector", "details": { "fkAttributeId": 802, "id": 9008 }, "source": 7, "destination": 8 }
+],
+"width": 2000,
+"height": 1600
+}
