@@ -1,0 +1,194 @@
+
+CREATE DATABASE veterinaria;
+
+USE veterinaria;
+
+
+CREATE TABLE dueno
+(
+  id_dueno INT NOT NULL,
+  dni INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  direccion VARCHAR(100) NOT NULL,
+  telefono VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_dueno PRIMARY KEY (id_dueno),
+  CONSTRAINT UQ_dueno_email UNIQUE (email)
+);
+
+CREATE TABLE especie
+(
+  id_especie INT NOT NULL,
+  especie VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_especie PRIMARY KEY (id_especie)
+);
+
+CREATE TABLE raza
+(
+  raza VARCHAR(100) NOT NULL,
+  id_especie INT NOT NULL,
+  CONSTRAINT PK_raza PRIMARY KEY (raza, id_especie),
+  CONSTRAINT FK_especie_id_especie FOREIGN KEY (id_especie) REFERENCES especie(id_especie)
+);
+
+CREATE TABLE laboratorio
+(
+  id_laboratorio INT NOT NULL,
+  nombre_lab VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_laboratorio PRIMARY KEY (id_laboratorio)
+);
+
+CREATE TABLE especialidad
+(
+  id_especialidad INT NOT NULL,
+  especialidad VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_especialidad PRIMARY KEY (id_especialidad)
+);
+
+CREATE TABLE mascota
+(
+  id_mascota INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  peso INT NOT NULL,
+  condicion_medica_especial VARCHAR(100) NOT NULL,
+  id_dueno INT NOT NULL,
+  id_especie INT NOT NULL,
+  CONSTRAINT PK_mascota PRIMARY KEY (id_mascota),
+  CONSTRAINT FK_dueno_id_dueno FOREIGN KEY (id_dueno) REFERENCES dueno(id_dueno),
+  CONSTRAINT FK_especie_id_especie FOREIGN KEY (id_especie) REFERENCES especie(id_especie)
+);
+
+CREATE TABLE veterinario
+(
+  nro_licencia_profesional INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  apellido VARCHAR(100) NOT NULL,
+  horario_entrada DATE NOT NULL,
+  horario_salida DATE NOT NULL,
+  id_especialidad INT NOT NULL,
+  CONSTRAINT PK_veterinario PRIMARY KEY (nro_licencia_profesional),
+  CONSTRAINT FK_especialidad_id_especialidad FOREIGN KEY (id_especialidad) REFERENCES especialidad(id_especialidad),
+);
+
+CREATE TABLE cita_medica
+(
+  id_cita INT NOT NULL,
+  motivo VARCHAR(100) NOT NULL,
+  id_mascota INT NOT NULL,
+  nro_licencia_profesional INT NOT NULL,
+  cita_fecha DATE NOT NULL,
+  usuario VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_cita_medica PRIMARY KEY (id_cita),
+  CONSTRAINT FK_mascota_id_mascota FOREIGN KEY (id_mascota) REFERENCES mascota(id_mascota),
+  CONSTRAINT FK_veterinario_nro_licencia_profesional FOREIGN KEY (nro_licencia_profesional) REFERENCES veterinario(nro_licencia_profesional)
+
+);
+
+CREATE TABLE tratamiento
+(
+  id_tratamiento INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  duracion INT NOT NULL,
+  otra_indicacion VARCHAR(100) NOT NULL,
+  id_cita INT NOT NULL,
+  CONSTRAINT PK_tratamiento PRIMARY KEY (id_tratamiento),
+  CONSTRAINT FK_cita_medica_id_cita FOREIGN KEY (id_cita) REFERENCES cita_medica(id_cita)
+);
+
+CREATE TABLE medicamento
+(
+  id_medicamento INT NOT NULL,
+  nombre_medicamento VARCHAR(100) NOT NULL,
+  monodrogra VARCHAR(100) NOT NULL,
+  presentacion VARCHAR(100) NOT NULL,
+  id_tratamiento INT NOT NULL,
+  id_laboratorio INT NOT NULL,
+  CONSTRAINT PK_medicamento PRIMARY KEY (id_medicamento),
+  CONSTRAINT FK_tratamiento_id_tratamiento FOREIGN KEY (id_tratamiento) REFERENCES tratamiento(id_tratamiento),
+  CONSTRAINT FK_laboratorio_id_laboratorio FOREIGN KEY (id_laboratorio) REFERENCES laboratorio(id_laboratorio)
+);
+
+--RESTRICCIONES
+
+ALTER TABLE dueno ADD CONSTRAINT CK_dueno_dni CHECK (LEN(dni) <= 8 AND isnumeric(dni) = 1);
+
+ALTER TABLE mascota ADD CONSTRAINT CK_mascota_edad CHECK (DATEDIFF(YEAR, fecha_nacimiento, GETDATE()) <= 30);
+
+ALTER TABLE cita_medica ADD CONSTRAINT DF_cita_medica_cita_fecha DEFAULT getdate() FOR cita_fecha;
+
+ALTER TABLE cita_medica ADD CONSTRAINT DF_cita_usuario DEFAULT  SUSER_SNAME() FOR usuario;
+
+
+
+--https://learn.microsoft.com/es-es/sql/t-sql/functions/suser-sname-transact-sql?view=sql-server-ver16
+
+--DATOS PRUEBAS
+
+-- Datos de prueba para la tabla 'dueno'
+INSERT INTO dueno (id_dueno, dni, nombre, direccion, telefono, email) VALUES
+(1, 12345678, 'Juan Perez', 'Calle Falsa 123', '1234-5678', 'juan.perez@example.com'),
+(2, 87654321, 'Maria Gomez', 'Avenida Siempre Viva 742', '8765-4321', 'maria.gomez@example.com');
+
+-- Datos de prueba para la tabla 'especie'
+INSERT INTO especie (id_especie, especie) VALUES
+(1, 'Perro'),
+(2, 'Gato');
+
+-- Datos de prueba para la tabla 'raza'
+INSERT INTO raza (raza, id_especie) VALUES
+('Labrador', 1),
+('Siames', 2);
+
+-- Datos de prueba para la tabla 'laboratorio'
+INSERT INTO laboratorio (id_laboratorio, nombre_lab) VALUES
+(1, 'LabVet'),
+(2, 'AnimalCare');
+
+-- Datos de prueba para la tabla 'especialidad'
+INSERT INTO especialidad (id_especialidad, especialidad) VALUES
+(1, 'Cirugía'),
+(2, 'Dermatología');
+
+-- Datos de prueba para la tabla 'mascota'
+INSERT INTO mascota (id_mascota, nombre, fecha_nacimiento, peso, condicion_medica_especial, id_dueno, id_especie) VALUES
+(1, 'Firulais', '2020-01-01', 20, 'Ninguna', 1, 1),
+(2, 'Michi', '2019-05-05', 5, 'Alergia', 2, 2);
+
+-- Datos de prueba para la tabla 'veterinario'
+INSERT INTO veterinario (nro_licencia_profesional, nombre, apellido, horario_entrada, horario_salida, id_especialidad) VALUES
+(1, 'Carlos', 'Lopez', '2024-09-23 08:00:00', '2024-09-23 16:00:00', 1),
+(2, 'Ana', 'Martinez', '2024-09-23 09:00:00', '2024-09-23 17:00:00', 2);
+
+-- Datos de prueba para la tabla 'cita_medica'
+INSERT INTO cita_medica (id_cita, motivo, id_mascota, nro_licencia_profesional, cita_fecha, usuario) VALUES
+(1, 'Chequeo general', 1, 1, '2024-09-23', 'usuario1'),
+(2, 'Vacunación', 2, 2, '2024-09-24', 'usuario2');
+
+-- Datos de prueba para la tabla 'tratamiento'
+INSERT INTO tratamiento (id_tratamiento, nombre, duracion, otra_indicacion, id_cita) VALUES
+(1, 'Antibiótico', 7, 'Tomar con comida', 1),
+(2, 'Desparasitante', 1, 'Aplicar cada 3 meses', 2);
+
+-- Datos de prueba para la tabla 'medicamento'
+INSERT INTO medicamento (id_medicamento, nombre_medicamento, monodrogra, presentacion, id_tratamiento, id_laboratorio) VALUES
+(1, 'Amoxicilina', 'Amoxicilina', 'Tabletas', 1, 1),
+(2, 'Ivermectina', 'Ivermectina', 'Inyectable', 2, 2);
+
+
+--SELECTS
+
+SELECT * FROM dueno;
+SELECT * FROM especie;
+SELECT * FROM raza;
+SELECT * FROM laboratorio;
+SELECT * FROM especialidad;
+SELECT * FROM mascota;
+SELECT * FROM veterinario;
+SELECT * FROM cita_medica;
+SELECT * FROM tratamiento;
+SELECT * FROM medicamento;
+
+
+--PRUEBA RESTRICCIONES
+

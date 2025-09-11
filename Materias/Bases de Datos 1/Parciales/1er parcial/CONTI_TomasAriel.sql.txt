@@ -1,0 +1,107 @@
+--Conti, Tomas Ariel DNI: 44573012 Version BD: 20
+
+-- Crear la base de datos
+CREATE DATABASE primer_parcial;
+
+GO
+
+-- Ubicarse en la BD a trabajar
+USE primer_parcial;
+
+GO
+
+CREATE TABLE Vendedores
+(
+  nombre INT NOT NULL,
+  apellido INT NOT NULL,
+  CUIT INT NOT NULL,
+  fecha_nacimiento INT NOT NULL,
+  correo_electronico INT NOT NULL,
+  CONSTRAINT PK_Vendedores PRIMARY KEY (CUIT),
+);
+
+ALTER TABLE Vendedores
+	ADD CONSTRAINT UQ_Vendedores_correo_electronico UNIQUE (correo_electronico);
+
+CREATE TABLE Ventas
+(
+  numero_venta_unico INT NOT NULL,
+  cantidad_producto INT NOT NULL,
+  fecha_venta INT NOT NULL,
+  numero_facturacion INT NOT NULL,
+  CONSTRAINT PK_Ventas PRIMARY KEY (numero_venta_unico),
+);
+
+CREATE TABLE Clientes
+(
+  DNI INT NOT NULL,
+  apellido INT NOT NULL,
+  nombre INT NOT NULL,
+  calle INT NOT NULL,
+  numero INT NOT NULL,
+  ciudad INT NOT NULL,
+  correo_electronico INT NOT NULL,
+  telefono INT,
+  CONSTRAINT PK_Clientes PRIMARY KEY (DNI),
+);
+
+ALTER TABLE Clientes
+	ADD CONSTRAINT UQ_Clientes_correo_electronico UNIQUE (correo_electronico);
+
+CREATE TABLE Resenas
+(
+  id_resena INT NOT NULL,
+  calificacion INT NOT NULL,
+  comentario INT NOT NULL,
+  numero_venta_unico INT NOT NULL,
+  CONSTRAINT PK_Resenas PRIMARY KEY (id_resena),
+  CONSTRAINT FK_Resenas_numero_venta_unico FOREIGN KEY (numero_venta_unico) REFERENCES Ventas(numero_venta_unico)
+);
+
+CREATE TABLE Medios_Pagos
+(
+  id_medio_pago INT NOT NULL,
+  descripcion INT NOT NULL,
+  CONSTRAINT PK_Medios_Pagos PRIMARY KEY (id_medio_pago),
+);
+
+CREATE TABLE informacion_monto_pagado
+(
+  id_monto_pagado INT NOT NULL,
+  monto INT NOT NULL,
+  id_medio_pago INT NOT NULL,
+  numero_venta_unico INT NOT NULL,
+
+  CONSTRAINT PK_informacion_monto_pagado PRIMARY KEY (id_monto_pagado),
+
+  CONSTRAINT FK_informacion_monto_pagado_id_medio_pago FOREIGN KEY (id_medio_pago) REFERENCES Medios_Pagos(id_medio_pago),
+  CONSTRAINT FK_informacion_monto_pagado_numero_venta_unico FOREIGN KEY (numero_venta_unico) REFERENCES Ventas(numero_venta_unico),
+);
+
+CREATE TABLE Productos
+(
+  nombre_producto INT NOT NULL,
+  descripcion INT,
+  precio INT NOT NULL,
+  categoria INT NOT NULL,
+  status_publicacion INT NOT NULL,
+  fecha_Publicacion INT NOT NULL,
+  id_producto INT NOT NULL,
+  CUIT INT NOT NULL,
+  DNI INT NOT NULL,
+  numero_venta_unico INT NOT NULL,
+  CONSTRAINT PK_Productos PRIMARY KEY (id_producto),
+  CONSTRAINT FK_Vendedores_CUIT FOREIGN KEY (CUIT) REFERENCES Vendedores(CUIT),
+  CONSTRAINT FK_Clientes_DNI FOREIGN KEY (CUIT) REFERENCES Clientes(DNI),
+  CONSTRAINT FK_Ventas_numero_venta_unico FOREIGN KEY (numero_venta_unico) REFERENCES Ventas(numero_venta_unico)
+);
+
+CREATE TABLE Productos_materiales_fabricacion
+(
+  materiales_fabricacion INT NOT NULL,
+  id_producto INT NOT NULL,
+  CONSTRAINT PK_Productos_materiales_fabricacion PRIMARY KEY (materiales_fabricacion, id_producto),
+  CONSTRAINT FK_Productos_id_producto FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
+);
+
+
