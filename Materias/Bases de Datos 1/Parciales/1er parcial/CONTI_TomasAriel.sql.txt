@@ -1,4 +1,4 @@
---Conti, Tomas Ariel DNI: 44573012 Version BD: 20
+ Version BD: 20
 
 -- Crear la base de datos
 CREATE DATABASE primer_parcial;

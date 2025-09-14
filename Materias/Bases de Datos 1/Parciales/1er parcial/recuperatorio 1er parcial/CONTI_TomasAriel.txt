@@ -1,4 +1,4 @@
---Conti, Tomas Ariel DNI: 44573012 Version base de datos sql: 2022
+Version base de datos sql: 2022
 
 CREATE DATABASE playa_estacionamiento;
 GO
