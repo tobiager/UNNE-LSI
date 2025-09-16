@@ -1,0 +1,176 @@
+Explicación del diseño SQL
+
+El siguiente script implementa un sistema de gestión de proyectos siguiendo principios de normalización, consistencia y buenas prácticas de SQL Server. A continuación, se explica la razón de cada tabla, restricción y decisión de diseño.
+
+1. Catálogos (tablas de tipificación)
+
+Se crearon tablas de catálogo (roles, estados_tarea) para evitar duplicación de datos y errores de escritura.
+
+Ejemplo: en vez de escribir “pendiente / Pendiente / PENDIENTE” en cada tarea, se guarda un número (estado_id) que apunta al catálogo estados_tarea.
+
+Esto asegura consistencia y evita redundancia.
+
+CREATE TABLE roles (
+  rol_id INT NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
+  CONSTRAINT PK_roles PRIMARY KEY (rol_id),
+  CONSTRAINT UQ_roles_nombre UNIQUE (nombre)
+);
+
+
+📌 Aquí se define:
+
+PK_roles: clave primaria.
+
+UQ_roles_nombre: evita nombres de roles duplicados.
+
+2. Empleados y Proyectos
+
+Los empleados y proyectos son entidades fuertes.
+
+Empleados: se registran con nombre y correo electrónico. El correo es único para evitar duplicados.
+
+Proyectos: tienen nombre, fecha de inicio y fecha de fin opcional.
+
+CREATE TABLE empleados (
+  empleado_id INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  correo VARCHAR(100) NOT NULL,
+  CONSTRAINT PK_empleados PRIMARY KEY (empleado_id),
+  CONSTRAINT UQ_empleados_correo UNIQUE (correo)
+);
+
+
+📌 Justificación:
+
+UQ_empleados_correo: un mismo correo no puede repetirse en la base.
+
+Evita registrar a la misma persona dos veces con correos idénticos.
+
+CREATE TABLE proyectos (
+  proyecto_id INT NOT NULL,
+  nombre VARCHAR(120) NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NULL,
+  CONSTRAINT PK_proyectos PRIMARY KEY (proyecto_id),
+  CONSTRAINT UQ_proyectos_nombre UNIQUE (nombre),
+  CONSTRAINT CK_proyectos_fechas CHECK (fecha_fin IS NULL OR fecha_fin >= fecha_inicio)
+);
+
+
+📌 Justificación:
+
+UQ_proyectos_nombre: no puede haber dos proyectos con el mismo nombre.
+
+CK_proyectos_fechas: garantiza que la fecha de fin sea mayor o igual a la fecha de inicio (o nula si aún sigue activo).
+
+3. Asignaciones (relación M:N)
+
+Un empleado puede estar en varios proyectos, y cada proyecto tiene varios empleados.
+
+Para resolver esta relación M:N, se usa la tabla asignaciones.
+
+Además, se incluye el rol de cada empleado dentro del proyecto.
+
+CREATE TABLE asignaciones (
+  proyecto_id INT NOT NULL,
+  empleado_id INT NOT NULL,
+  rol_id INT NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NULL,
+  CONSTRAINT PK_asignaciones PRIMARY KEY (proyecto_id, empleado_id),
+  CONSTRAINT FK_asig_proyectos FOREIGN KEY (proyecto_id) REFERENCES proyectos(proyecto_id),
+  CONSTRAINT FK_asig_empleados FOREIGN KEY (empleado_id) REFERENCES empleados(empleado_id),
+  CONSTRAINT FK_asig_roles FOREIGN KEY (rol_id) REFERENCES roles(rol_id),
+  CONSTRAINT CK_asig_fechas CHECK (fecha_fin IS NULL OR fecha_fin >= fecha_inicio)
+);
+
+
+📌 Justificación:
+
+PK_asignaciones: evita que un mismo empleado se repita en el mismo proyecto.
+
+FK_asig_roles: asegura que el rol existe en la tabla roles.
+
+CK_asig_fechas: mantiene coherencia temporal (la fecha de fin debe ser posterior).
+
+4. Tareas (relación 1:N dentro de un proyecto)
+
+Cada proyecto se descompone en tareas.
+
+Las tareas tienen descripción, fechas y estado.
+
+Se identifican dentro del proyecto por un número de orden.
+
+CREATE TABLE tareas (
+  tarea_id INT NOT NULL,
+  proyecto_id INT NOT NULL,
+  orden INT NOT NULL,
+  descripcion VARCHAR(300) NOT NULL,
+  fecha_inicio DATE NOT NULL,
+  fecha_fin DATE NULL,
+  estado_id INT NOT NULL,
+  CONSTRAINT PK_tareas PRIMARY KEY (tarea_id),
+  CONSTRAINT FK_tareas_proyectos FOREIGN KEY (proyecto_id) REFERENCES proyectos(proyecto_id),
+  CONSTRAINT FK_tareas_estado FOREIGN KEY (estado_id) REFERENCES estados_tarea(estado_id),
+  CONSTRAINT UQ_tareas_orden_x_proy UNIQUE (proyecto_id, orden),
+  CONSTRAINT CK_tareas_orden_pos CHECK (orden > 0),
+  CONSTRAINT CK_tareas_fechas CHECK (fecha_fin IS NULL OR fecha_fin >= fecha_inicio)
+);
+
+
+📌 Justificación:
+
+UQ_tareas_orden_x_proy: dentro de un proyecto, el número de orden no se puede repetir.
+
+CK_tareas_orden_pos: garantiza que el orden sea positivo.
+
+FK_tareas_estado: obliga a que cada tarea tenga un estado válido del catálogo.
+
+5. Restricciones de integridad
+
+El diseño incluye distintos tipos de restricciones:
+
+PRIMARY KEY: asegura unicidad en cada tabla.
+
+FOREIGN KEY: mantiene integridad referencial.
+
+UNIQUE: evita datos duplicados.
+
+CHECK: valida condiciones lógicas.
+
+DEFAULT: asigna valores iniciales, como estado “pendiente” en tareas nuevas.
+
+Ejemplo de DEFAULT:
+
+ALTER TABLE tareas
+  ADD CONSTRAINT DF_tareas_estado DEFAULT (1) FOR estado_id;
+
+
+📌 Esto asigna automáticamente el estado “pendiente” a las nuevas tareas si no se especifica otro.
+
+6. Pruebas de restricciones
+
+Para validar el diseño, se insertaron datos que generan errores controlados:
+
+Insertar un correo repetido en empleados → viola UQ_empleados_correo.
+
+Insertar una tarea con orden negativo → viola CK_tareas_orden_pos.
+
+Intentar asignar dos veces el mismo empleado al mismo proyecto → viola PK_asignaciones.
+
+👉 Esto demuestra que la base de datos se protege sola de inconsistencias, sin depender únicamente de la aplicación.
+
+Conclusión
+
+El modelo cumple con:
+
+Normalización hasta 3FN (sin redundancias).
+
+Integridad referencial (PK y FK bien definidas).
+
+Consistencia lógica (CHECK, UNIQUE, DEFAULT).
+
+Buenas prácticas en SQL Server (snake_case, tipos de datos adecuados, NULL vs NOT NULL).
+
+Gracias a esto, el sistema garantiza información confiable, ordenada y fácil de mantener.

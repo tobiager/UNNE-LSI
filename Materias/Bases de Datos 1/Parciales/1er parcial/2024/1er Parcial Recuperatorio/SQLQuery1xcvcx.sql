@@ -1,4 +1,4 @@
---Conti, Tomas Ariel DNI:44573012 Version base de datos sql: 2022
+Version base de datos sql: 2022
 
 CREATE DATABASE playa_estacionamiento;
 GO
@@ -112,8 +112,8 @@ INSERT INTO tipo (id_tipo, tipo_vehiculo) VALUES
 
 -- Datos para la tabla conductor_habilitado
 INSERT INTO conductor_habilitado (dni, nombre, apellido, fecha_nacimiento, direccion, telefono) VALUES
-(12345678, 'Juan', 'Pérez', '1980-01-01', 'Calle Falsa 123', '123-4567'),
-(87654321, 'Ana', 'García', '1990-02-02', 'Avenida Siempre Viva 456', '765-4321');
+(12345678, 'Juan', 'Pï¿½rez', '1980-01-01', 'Calle Falsa 123', '123-4567'),
+(87654321, 'Ana', 'Garcï¿½a', '1990-02-02', 'Avenida Siempre Viva 456', '765-4321');
 
 -- Datos para la tabla Nivel
 INSERT INTO Nivel (id_nivel, numero, ubicacion) VALUES
@@ -166,11 +166,11 @@ SELECT * FROM conductor_vehiculo;
 --PRUEBA RESTRICCIONES
 --pk
 INSERT INTO conductor_habilitado (dni, nombre, apellido, fecha_nacimiento, direccion, telefono) VALUES
-(12345678, 'Juan', 'Pérez', '1980-01-01', 'Calle Falsa 123', '123-4567');
+(12345678, 'Juan', 'Pï¿½rez', '1980-01-01', 'Calle Falsa 123', '123-4567');
 
 --UQ otro cliente con mismo telefono
 INSERT INTO conductor_habilitado (dni, nombre, apellido, fecha_nacimiento, direccion, telefono) VALUES
-(54345678, 'Lucas', 'Pérez', '1980-01-01', 'Calle Falsa 123', '123-4567');
+(54345678, 'Lucas', 'Pï¿½rez', '1980-01-01', 'Calle Falsa 123', '123-4567');
 
 --NULL
 INSERT INTO conductor_habilitado (dni, nombre, apellido, fecha_nacimiento, direccion, telefono) VALUES
