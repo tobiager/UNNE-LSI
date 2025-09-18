@@ -1,0 +1,202 @@
+------------------------------------------------
+-- BECK, ANA PAULA / 56663 / 43747677 / SQL SERVER 2022
+------------------------------------------------
+
+------------------------------------------------
+-- CREACION DE LA BASE DE DATOS
+------------------------------------------------
+CREATE DATABASE Parcial1_BECK_AP;
+------------------------------------------------
+-- Ubicarse en la BD a trabajar
+USE Parcial1_BECK_AP;
+------------------------------------------------
+
+------------------------------------------------
+-- CREACION DE LAS TABLAS
+------------------------------------------------
+
+-- Tabla Vendedor
+CREATE TABLE Vendedor
+(
+  CUIT_vendedor NUMERIC NOT NULL,
+  apellido_vendedor VARCHAR(100) NOT NULL,
+  nombre_vendedor VARCHAR(100) NOT NULL,
+  fecha_nacimiento DATETIME CONSTRAINT DF_Vendedor_fecha_nacim DEFAULT GETDATE(),   -- LA FECHA DE NACIMIENTO DEL VENDEDOR SERA POR DEFECTO SI NO SE ESPECIFICA
+  correo_vendedor VARCHAR(100) NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Vendedor_id PRIMARY KEY (CUIT_vendedor),
+
+  -- RESTRICCION UNIQUE (CAMPOS DE VALOR UNICO)
+  CONSTRAINT UQ_Vendedor_cuit UNIQUE (CUIT_vendedor),
+  CONSTRAINT UQ_Vendedor_correo UNIQUE (correo_vendedor), 
+
+  -- RESTRICCION CHECK -> LA EDAD DEL VENDEDOR DEBE SER IGUAL O MAYOR A 18 AÑOS
+  CONSTRAINT CK_Vendedor_edad CHECK (DATEDIFF(YEAR,fecha_nacimiento,GETDATE()) >= 18),
+);
+
+-- Tabla Ciudad
+CREATE TABLE Ciudad
+(
+  id_ciudad INT NOT NULL,
+  nombre_ciudad VARCHAR(100) NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Ciudad_id PRIMARY KEY (id_ciudad)
+);
+
+-- Tabla Domicilio
+CREATE TABLE Domicilio
+(
+  id_domicilio INT NOT NULL,
+  calle VARCHAR(100) NOT NULL,
+  nro INT NOT NULL,
+  id_ciudad INT NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Domicilio_id PRIMARY KEY (id_domicilio),
+
+  -- RESTRICCION CLAVE FORANEA
+  CONSTRAINT FK_Domicilio_ciudad FOREIGN KEY (id_ciudad) REFERENCES Ciudad(id_ciudad)
+);
+
+-- Tabla Cliente
+CREATE TABLE Cliente
+(
+  DNI_cliente NUMERIC NOT NULL,
+  apellido_cliente VARCHAR(100) NOT NULL,
+  nombre_cliente VARCHAR(100) NOT NULL,
+  correo VARCHAR(100) NOT NULL,
+  telefono NUMERIC NULL, -- TEL OPCIONAL
+  id_domicilio INT NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Cliente_id PRIMARY KEY (DNI_cliente),
+
+  -- RESTRICCION CLAVE FORANEA
+  CONSTRAINT FK_Cliente_domicilio FOREIGN KEY (id_domicilio) REFERENCES Domicilio(id_domicilio),
+
+  -- RESTRICCION UNIQUE (CAMPOS DE VALOR UNICO)
+  CONSTRAINT UQ_Cliente_dni UNIQUE (DNI_cliente),
+  CONSTRAINT UQ_Cliente_correo UNIQUE (correo),
+  CONSTRAINT UQ_Cliente_telefono UNIQUE (telefono),
+);
+
+-- Tabla Categoria
+CREATE TABLE Categoria
+(
+  id_categoria INT NOT NULL,
+  descripcion_cat VARCHAR(50) NOT NULL,
+  
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Categoria_id PRIMARY KEY (id_categoria)
+);
+
+-- Tabla Producto_Status
+CREATE TABLE Producto_Status
+(
+  id_status INT NOT NULL,
+  descripcion_status VARCHAR(50) NOT NULL,
+
+ -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Producto_Status_id PRIMARY KEY (id_status)
+);
+
+-- Tabla Material
+CREATE TABLE Material
+(
+  id_material INT NOT NULL,
+  componente_material VARCHAR(100) NOT NULL,
+  porcentaje_material INT NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Material_id PRIMARY KEY (id_material)
+);
+
+-- Tabla Producto
+CREATE TABLE Producto
+(
+  nombre_prod VARCHAR(100) NOT NULL,
+  descripcion_prod VARCHAR(100) NULL, -- OPCIONAL
+  precio_unitario_prod INT NOT NULL,
+  fecha_publicacion_prod DATETIME CONSTRAINT DF_Producto_fecha_publicacion_prod DEFAULT GETDATE(),
+  id_producto INT NOT NULL,
+  id_categoria INT NOT NULL,
+  id_status INT NOT NULL,
+
+  -- RESTRICCION CLAVE PRIMARIA
+  CONSTRAINT PK_Producto_id PRIMARY KEY (id_producto),
+
+  -- RESTRICCION CLAVE FORANEA
+  CONSTRAINT FK_Producto_categoria FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria),
+  CONSTRAINT FK_Producto_status FOREIGN KEY (id_status) REFERENCES Producto_Status(id_status)
+);
+
+-- Tabla Producto_material
+CREATE TABLE Producto_material
+(
+  id_producto INT NOT NULL,
+  id_material INT NOT NULL,
+  PRIMARY KEY (id_producto, id_material),
+  FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+  FOREIGN KEY (id_material) REFERENCES Material(id_material)
+);
+
+CREATE TABLE Reseña
+(
+  id_reseña INT NOT NULL,
+  calificacion INT NOT NULL,
+  comentario VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id_reseña)
+);
+
+CREATE TABLE Metodo_pago
+(
+  id_metodo_pago INT NOT NULL,
+  descripcion VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id_metodo_pago)
+);
+
+
+CREATE TABLE Venta
+(
+  cod_venta INT NOT NULL,
+  fecha_venta DATE NOT NULL,
+  nro_facturacion INT NOT NULL,
+  total_venta INT NOT NULL,
+  CUIT_vendedor NUMERIC NOT NULL,
+  DNI_cliente NUMERIC NOT NULL,
+  PRIMARY KEY (cod_venta),
+  FOREIGN KEY (CUIT_vendedor) REFERENCES Vendedor(CUIT_vendedor),
+  FOREIGN KEY (DNI_cliente) REFERENCES Cliente(DNI_cliente)
+);
+
+CREATE TABLE Detalle_venta
+(
+  cantidad_prod INT NOT NULL,
+  subtotal INT NOT NULL,
+  id_producto INT NOT NULL,
+  cod_venta INT NOT NULL,
+  PRIMARY KEY (id_producto, cod_venta),
+  FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
+  FOREIGN KEY (cod_venta) REFERENCES Venta(cod_venta)
+);
+
+CREATE TABLE Venta_metodo
+(
+  cod_venta INT NOT NULL,
+  id_metodo_pago INT NOT NULL,
+  PRIMARY KEY (cod_venta, id_metodo_pago),
+  FOREIGN KEY (cod_venta) REFERENCES Venta(cod_venta),
+  FOREIGN KEY (id_metodo_pago) REFERENCES Metodo_pago(id_metodo_pago)
+);
+
+CREATE TABLE Prod_Reseña
+(
+  id_reseña INT NOT NULL,
+  id_producto INT NOT NULL,
+  cod_venta INT NOT NULL,
+  PRIMARY KEY (id_reseña, id_producto, cod_venta),
+  FOREIGN KEY (id_reseña) REFERENCES Reseña(id_reseña),
+  FOREIGN KEY (id_producto, cod_venta) REFERENCES Detalle_venta(id_producto, cod_venta)
+);

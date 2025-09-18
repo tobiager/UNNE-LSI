@@ -1,0 +1,229 @@
+-- --------------------------------
+-- Resolucion
+-- Recuperatorio 1er Parcial 20024
+-----------------------------------
+
+CREATE DATABASE parcial_estacionamiento;
+-- DROP DATABASE parcial_estacionamiento;
+USE parcial_estacionamiento;
+
+-- Tabla Conductor_Asignado
+CREATE TABLE conductor
+(
+  id_conductor INT NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  dni INT NOT NULL,
+  direccion VARCHAR (30) NOT NULL,
+  telefono INT NOT NULL,
+  constraint PK_conductor PRIMARY KEY (id_conductor)
+);
+
+--Tabla Tipo de Veh culo
+CREATE TABLE tipo_vehiculo
+(
+  id_tipo_vehiculo INT NOT NULL,
+  nombre VARCHAR(250) NOT NULL,
+  Constraint Pk_Tipo_Vehic PRIMARY KEY (id_tipo_vehiculo)
+);
+
+--Tabla Nivel
+CREATE TABLE nivel
+(
+  id_nivel INT NOT NULL,
+  nombre VARCHAR(200) NOT NULL,
+  Constraint Pk_nivel PRIMARY KEY (id_nivel)
+);
+
+--Tabla Lugar
+CREATE TABLE lugar
+(
+  id_nivel INT NOT NULL, 
+  nro_lugar INT NOT NULL,
+  id_tipo_vehiculo INT NOT NULL,
+  Constraint PK_lugar PRIMARY KEY (id_nivel, nro_lugar),
+  Constraint Fk_lugar_nivel FOREIGN KEY (id_nivel) REFERENCES nivel(id_nivel),
+  Constraint Fk_lugar_TipoVehiculo FOREIGN KEY (id_tipo_vehiculo) REFERENCES tipo_vehiculo(id_tipo_vehiculo)
+);
+
+--Tabla Fraccion_tiempo
+CREATE TABLE fraccion_tiempo
+(
+  id_fraccion INT NOT NULL,
+  nombre varchar (30) NOT NULL,
+  constraint PK_fraccion_tiempo PRIMARY KEY (id_fraccion)
+);
+
+--Tabla color
+CREATE TABLE color
+(
+  id_color INT NOT NULL,
+  nombre varchar(30) NOT NULL,
+  constraint Pk_color PRIMARY KEY (id_color)
+);
+
+--Tabla Vehiculo
+CREATE TABLE vehiculo
+(
+  patente VARCHAR (8) NOT NULL,
+  id_tipo_vehiculo INT NOT NULL,
+  id_color INT NOT NULL,
+  constraint Pk_vehiculo PRIMARY KEY (patente),
+  constraint Fk_vehiculo_TipoVehic FOREIGN KEY (id_tipo_vehiculo) REFERENCES tipo_vehiculo(id_tipo_vehiculo),
+  constraint Fk_vehiculo_color FOREIGN KEY (id_color) REFERENCES color(id_color)
+);
+
+--Tabla Vehiculo_conductor
+CREATE TABLE vehiculo_conductor
+(
+  id_conductor INT NOT NULL,
+  patente VARCHAR (8) NOT NULL,
+  constraint PK_vehiculo_conductor PRIMARY KEY (id_conductor, patente),
+  Constraint Fk_VehiConductor_Conductor FOREIGN KEY (id_conductor) REFERENCES conductor(id_conductor),
+  Constraint FK_VehiConductor_Vehiculo FOREIGN KEY (patente) REFERENCES vehiculo(patente)
+);
+
+
+--Tabla Registro
+CREATE TABLE registro
+(
+  id_registro INT NOT NULL,
+  hora_ingreso DATE NOT NULL,
+  fecha_ingreso DATE NOT NULL,
+  hora_salida DATE,
+  fecha_salida DATE,
+  tiempo_estimado INT NOT NULL,
+  id_nivel INT NOT NULL,
+  nro_lugar INT NOT NULL,
+  id_conductor INT NOT NULL,
+  patente VARCHAR (8)NOT NULL,
+  id_fraccion INT NOT NULL,
+  constraint Pk_registro PRIMARY KEY (id_registro),
+  constraint Fk_registro_lugar FOREIGN KEY (nro_lugar, id_nivel) REFERENCES lugar(id_nivel,nro_lugar),
+  constraint fk_registro_vehiculo_conductor FOREIGN KEY (id_conductor, patente) REFERENCES vehiculo_conductor(id_conductor,patente),
+  constraint fk_registro_fracTiemp FOREIGN KEY (id_fraccion) REFERENCES fraccion_tiempo(id_fraccion)
+);
+
+-- ---------------------------
+-- RESTRICCIONES UQ - CK - DF
+-- ---------------------------
+
+-- El n mero de tel fono del cliente no se puede repetir para otro cliente
+ALTER TABLE conductor
+  ADD CONSTRAINT UQ_conductor_Telefono UNIQUE (telefono);
+
+-- La fecha de salida del veh culo debe ser igual o superior a la fecha de ingreso
+-- Controla que puede ingresar valores nulos:
+-- La hora y la fecha de salida deben ser opcionales al ingresar un nuevo registro
+ALTER TABLE registro
+ADD CONSTRAINT CK_fecha_egreso CHECK (fecha_salida IS NULL OR fecha_salida >= fecha_ingreso);
+
+
+-- La fecha de ingreso por defecto es la fecha actual del sistema
+ALTER TABLE registro
+ADD CONSTRAINT DF_fecha_ingreso DEFAULT GETDATE() FOR fecha_ingreso;
+
+
+
+-- -------------------------------
+-- Lote de datos -----------------
+-- -------------------------------
+
+-- datos en la tabla tipo_vehiculo
+INSERT INTO tipo_vehiculo (id_tipo_vehiculo, nombre)
+VALUES
+(1, 'Autom vil'),
+(2, 'Motocicleta'),
+(3, 'Bicicleta');
+
+-- datos en la tabla nivel
+INSERT INTO nivel (id_nivel, nombre)
+VALUES
+(1, 'Planta Baja'),
+(2, 'Primer Piso');
+
+-- datos en la tabla lugar
+INSERT INTO lugar (id_nivel, nro_lugar, id_tipo_vehiculo)
+VALUES
+(1, 1, 1), -- Autom vil en Planta Baja
+(1, 2, 2), -- Motocicleta en Planta Baja
+(2, 1, 3); -- Bicicleta en Primer Piso
+
+--  datos en la tabla fraccion_tiempo
+INSERT INTO fraccion_tiempo (id_fraccion, nombre)
+VALUES
+(1, 'Hora'),
+(2, 'D a'),
+(3, 'Semana');
+
+-- datos en la tabla color
+INSERT INTO color (id_color, nombre)
+VALUES
+(1, 'Rojo'),
+(2, 'Azul'),
+(3, 'Negro');
+
+-- datos en la tabla conductor
+INSERT INTO conductor (id_conductor, apellido, nombre, dni, direccion, telefono)
+VALUES
+(1, 'Perez', 'Juan', 12345678, 'Calle Falsa 123', 1122334455),
+(2, 'Gomez', 'Ana', 23456789, 'Av. Siempreviva 742', 1133445566),
+(3, 'Lopez', 'Carlos', 34567890, 'Calle Corrientes 987', 1144556677);
+
+-- datos en la tabla vehiculo
+INSERT INTO vehiculo (patente, id_tipo_vehiculo, id_color)
+VALUES
+('ABC123', 1,  1),  -- Autom vil rojo
+('XYZ789', 2,  2),  -- Motocicleta azul
+('JKL456', 3,  3);  -- Bicicleta negra
+
+INSERT INTO vehiculo_conductor(id_conductor, patente)
+VALUES
+(1, 'ABC123'),
+(2, 'XYZ789'),
+(3, 'JKL456'),
+(2, 'ABC123');
+
+-- datos en la tabla registro
+INSERT INTO registro (id_registro, hora_ingreso, fecha_ingreso, hora_salida, fecha_salida, tiempo_estimado, id_nivel, nro_lugar, id_conductor,patente, id_fraccion)
+VALUES
+(1, '08:00', '2024-09-23', '10:00', '2024-09-23', 2, 1, 1,1, 'ABC123', 1),  -- Autom vil, 2 horas, planta baja
+(2, '09:00', '2024-09-23', NULL, NULL, 1, 1, 2, 2,'XYZ789', 1),             -- Motocicleta, sin hora de salida
+(3, '09:30', '2024-09-23', '10:30', '2024-09-23', 1, 2, 1, 3,'JKL456', 1);  -- Bicicleta, 1 hora, primer piso
+
+
+
+-- ---------------------------------
+-- Lote de prueba ------------------
+-- ---------------------------------
+
+-- no genera error porque la hora y fecha de salida son opcionales
+INSERT INTO registro (id_registro, hora_ingreso, fecha_ingreso, tiempo_estimado, id_nivel, nro_lugar, id_conductor, patente, id_fraccion)
+VALUES
+(8, '12:00', '2024-09-24', 2, 1, 1, 1,'ABC123', 1);
+
+-- Error: fecha_salida < fecha_ingreso
+INSERT INTO registro (id_registro, hora_ingreso, fecha_ingreso, hora_salida, fecha_salida, tiempo_estimado, id_nivel, nro_lugar, id_conductor, patente, id_fraccion)
+VALUES
+(9, '10:00', '2024-09-24', '12:00', '2024-09-23', 2, 1, 2, 2,'XYZ789', 1);  
+-- The INSERT statement conflicted with the CHECK constraint "CK_fecha_egreso".
+
+-- No genera error, se usa la fecha del sistema como fecha de ingreso
+-- (la fecha de salida no se ingresa)
+INSERT INTO registro (id_registro, hora_ingreso, tiempo_estimado, id_nivel, nro_lugar, id_conductor, patente, id_fraccion)
+VALUES
+(10, '08:00', 2, 1, 1, 1, 'ABC123', 1);
+
+
+-- error porque el tel fono ya existe (violaci n de UNIQUE)
+INSERT INTO conductor (id_conductor, apellido, nombre, dni, direccion, telefono)
+VALUES
+(6, 'Fernandez', 'Laura', 56789012, 'Calle Central 987', 1122334455);  -- tel fono 1122334455 ya existe para otro cliente
+-- Violation of UNIQUE KEY constraint 'UQ_cliente_telefono'.
+
+
+-- error porque no se permite NULL en fecha_ingreso
+INSERT INTO registro (id_registro, hora_ingreso, fecha_ingreso, hora_salida, fecha_salida, tiempo_estimado, id_nivel, nro_lugar, id_conductor, patente, id_fraccion)
+VALUES
+(11, '12:00', NULL, '14:00', '2024-09-24', 2, 1, 1, 1,'ABC123', 1);  -- Error: fecha_ingreso no puede ser NULL
+-- Cannot insert the value NULL into column 'fecha_ingreso'; column does not allow nulls.
