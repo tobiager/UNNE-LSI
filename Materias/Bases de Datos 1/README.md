@@ -35,7 +35,7 @@ Esta carpeta reúne **modelos ER**, **scripts SQL**, **prácticos**, **material 
 |-----------------|-----------|
 | `practicos/`    | Enunciados y resoluciones de trabajos prácticos |
 | `parciales/`    | Guías de repaso, simulacros y soluciones |
-| `apuntes/`      | Resúmenes: normalización, claves, restricciones, transacciones |
+| `teoria/`      | Material teorico de la materia |
 
 ---
 
