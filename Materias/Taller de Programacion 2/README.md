@@ -63,6 +63,12 @@ Cuando tengamos el repositorio del **proyecto grupal**, acá voy a dejar el enla
 - Enfoque en el desarrollo de proyectos completos.  
 - El link al **repo del proyecto** será agregado cuando esté disponible.  
 
+## 🔗 Link del Proyecto
+
+<a href="https://github.com/tobiager/TeoAccesorios">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=tobiager&repo=TeoAccesorios&theme=transparent&hide_border=true" alt="TeoAccesorios repo card"/>
+</a>
+
 <h1 align="center" style="font-size:60px; color:#ff6600;">
    CURSANDO
 </h1>
