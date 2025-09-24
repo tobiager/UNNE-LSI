@@ -1,0 +1,60 @@
+CREATE DATABASE primer_parcial_2025;
+GO
+USE primer_parcial_2025;
+GO
+
+
+CREATE TABLE lugares
+(
+  lugar VARCHAR(40) NOT NULL,
+  id_lugar INT NOT NULL,
+  nombre VARCHAR(40) NOT NULL,
+  direccion VARCHAR(40) NOT NULL,
+  capacidad_maxima INT NOT NULL,
+  pais VARCHAR(40) NOT NULL,
+  categoria VARCHAR(40) NOT NULL  CHECK (categoria IN ('Nacional','Exterior')),
+  CONSTRAINT PK_id_lugar PRIMARY KEY (id_lugar),
+  CONSTRAINT UQ_lugar_nombre UNIQUE (nombre)
+);
+
+CREATE TABLE actuaciones
+(
+  hora_inicio DATETIME NOT NULL,
+  duracion TIME NOT NULL,
+  id_actuacion INT NOT NULL,
+  CONSTRAINT PK_id_actuacion PRIMARY KEY (id_actuacion)
+);
+
+CREATE TABLE eventos
+(
+  id_evento INT NOT NULL,
+  nombre VARCHAR(40) NOT NULL,
+  fecha_inicio DATE NOT NULL DEFAULT GETDATE(),
+  fecha_fin DATE NOT NULL CHECK (fecha_inicio <= fecha_fin),
+  total_entradas INT NOT NULL CHECK(total_entradas > 0),
+  id_lugar INT NOT NULL,
+  id_actuacion INT NOT NULL,
+  CONSTRAINT PK_id_evento PRIMARY KEY (id_evento),
+  CONSTRAINT FK_id_lugar FOREIGN KEY (id_lugar) REFERENCES lugares(id_lugar),
+  CONSTRAINT FK_id_actuacion FOREIGN KEY (id_actuacion) REFERENCES actuaciones(id_actuacion)
+);
+
+CREATE TABLE artistas
+(
+  id_artista INT NOT NULL,
+  nombre VARCHAR(40) NOT NULL,
+  genero_musical VARCHAR(40) NOT NULL,
+  pais VARCHAR(40) NOT NULL,
+  CONSTRAINT PK_id_artista PRIMARY KEY (id_artista)
+);
+
+CREATE TABLE asignar_artistas
+(
+  cantidad INT NOT NULL CHECK (cantidad >= 1),
+  tipo VARCHAR(40) NOT NULL CHECK (cantidad = 1 IN 'Solista' OR cantidad > 1 IN 'Banda'),
+  id_actuacion INT NOT NULL,
+  id_artista INT NOT NULL,
+  CONSTRAINT FK_id_actuacion FOREIGN KEY (id_actuacion) REFERENCES actuaciones(id_actuacion),
+  CONSTRAINT FK_id_artista FOREIGN KEY (id_artista) REFERENCES artistas(id_artista),
+  CONSTRAINT UQ_actuaciones_artistas UNIQUE (id_actuacion, id_artista)
+);
