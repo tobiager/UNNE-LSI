@@ -1,60 +1,97 @@
-CREATE DATABASE primer_parcial_2025;
+﻿CREATE DATABASE solucion_primer_parcial_2025;
 GO
-USE primer_parcial_2025;
+USE solucion_primer_parcial_2025;
 GO
 
-
-CREATE TABLE lugares
-(
-  lugar VARCHAR(40) NOT NULL,
-  id_lugar INT NOT NULL,
-  nombre VARCHAR(40) NOT NULL,
-  direccion VARCHAR(40) NOT NULL,
-  capacidad_maxima INT NOT NULL,
-  pais VARCHAR(40) NOT NULL,
-  categoria VARCHAR(40) NOT NULL  CHECK (categoria IN ('Nacional','Exterior')),
-  CONSTRAINT PK_id_lugar PRIMARY KEY (id_lugar),
-  CONSTRAINT PK_lugar_nombre UNIQUE (nombre)
+-- catálogos
+CREATE TABLE continente (
+  continente_id INT PRIMARY KEY,
+  nombre        VARCHAR(40) NOT NULL UNIQUE
 );
 
-CREATE TABLE actuaciones
-(
-  hora_inicio DATETIME NOT NULL,
-  duracion TIME NOT NULL,
-  id_actuacion INT NOT NULL,
-  CONSTRAINT PK_id_actuacion PRIMARY KEY (id_actuacion)
+CREATE TABLE pais (
+  pais_id       INT PRIMARY KEY,
+  nombre        VARCHAR(40) NOT NULL UNIQUE,
+  continente_id INT NOT NULL,
+  CONSTRAINT FK_pais_continente
+    FOREIGN KEY (continente_id) REFERENCES continente(continente_id)
 );
 
-CREATE TABLE eventos
-(
-  id_evento INT NOT NULL,
-  nombre VARCHAR(40) NOT NULL,
-  fecha_inicio DATE NOT NULL DEFAULT GETDATE(),
-  fecha_fin DATE NOT NULL CHECK (fecha_inicio <= fecha_fin),
-  total_entradas INT NOT NULL CHECK(total_entradas > 0),
-  id_lugar INT NOT NULL,
-  id_actuacion INT NOT NULL,
-  CONSTRAINT PK_id_evento PRIMARY KEY (id_evento),
-  CONSTRAINT FK_id_lugar FOREIGN KEY (id_lugar) REFERENCES lugares(id_lugar),
-  CONSTRAINT FK_id_actuacion FOREIGN KEY (id_actuacion) REFERENCES actuaciones(id_actuacion)
+CREATE TABLE genero (
+  genero_id INT PRIMARY KEY,
+  nombre    VARCHAR(40) NOT NULL UNIQUE
 );
 
-CREATE TABLE artistas
-(
-  id_artista INT NOT NULL,
-  nombre VARCHAR(40) NOT NULL,
-  genero_musical VARCHAR(40) NOT NULL,
-  pais VARCHAR(40) NOT NULL,
-  CONSTRAINT PK_id_artista PRIMARY KEY (id_artista)
+CREATE TABLE tipo_evento (
+  tipo_evento_id INT PRIMARY KEY,
+  nombre         VARCHAR(40) NOT NULL UNIQUE
 );
 
-CREATE TABLE asignar_artistas
-(
-  cantidad INT NOT NULL CHECK (cantidad >= 1),
-  tipo VARCHAR(40) NOT NULL CHECK (cantidad = 1 IN 'Solista' OR cantidad > 1 IN 'Banda'),
-  id_actuacion INT NOT NULL,
-  id_artista INT NOT NULL,
-  CONSTRAINT FK_id_actuacion FOREIGN KEY (id_actuacion) REFERENCES actuaciones(id_actuacion),
-  CONSTRAINT FK_id_artista FOREIGN KEY (id_artista) REFERENCES artistas(id_artista),
-  CONSTRAINT UQ_actuaciones_artistas UNIQUE (id_actuacion, id_artista)
+CREATE TABLE tipo_lugar (
+  tipo_lugar_id INT PRIMARY KEY,
+  nombre        VARCHAR(40) NOT NULL UNIQUE
+);
+
+CREATE TABLE categoria_lugar (
+  categoria_lugar_id INT PRIMARY KEY,
+  nombre             VARCHAR(40) NOT NULL UNIQUE
+);
+
+-- lugar 
+CREATE TABLE lugar (
+  lugar_id           INT PRIMARY KEY,
+  nombre             VARCHAR(40) NOT NULL UNIQUE,
+  direccion          VARCHAR(80) NOT NULL,
+  capacidad_max      INT NOT NULL CHECK (capacidad_max > 0),
+  tipo_lugar_id      INT NOT NULL,
+  categoria_lugar_id INT NOT NULL,
+  pais_id            INT NOT NULL,
+  CONSTRAINT FK_lugar_tipo
+    FOREIGN KEY (tipo_lugar_id) REFERENCES tipo_lugar(tipo_lugar_id),
+  CONSTRAINT FK_lugar_categoria
+    FOREIGN KEY (categoria_lugar_id) REFERENCES categoria_lugar(categoria_lugar_id),
+  CONSTRAINT FK_lugar_pais
+    FOREIGN KEY (pais_id) REFERENCES pais(pais_id),
+  -- restricción Argentina/Exterior
+  CONSTRAINT CK_categoria_arg_ext
+    CHECK ((pais_id = 1 AND categoria_lugar_id = 1) OR (pais_id <> 1 AND categoria_lugar_id = 2)
+);
+
+-- artista 
+CREATE TABLE artista (
+  artista_id INT PRIMARY KEY,
+  nombre     VARCHAR(40) NOT NULL UNIQUE,
+  cantidad   INT NOT NULL CHECK (cantidad >= 1),
+  tipo       VARCHAR(10) NOT NULL,
+  genero_id  INT NOT NULL,
+  pais_id    INT NOT NULL,
+  CONSTRAINT FK_artista_genero FOREIGN KEY (genero_id) REFERENCES genero(genero_id),
+  CONSTRAINT FK_artista_pais   FOREIGN KEY (pais_id)   REFERENCES pais(pais_id),
+  -- restricción solista/banda
+  CONSTRAINT CK_artista_solista_bandaCHECK ((cantidad = 1 AND tipo = 'Solista') OR (cantidad > 1 AND tipo = 'Banda'))
+);
+
+-- evento 
+CREATE TABLE evento (
+  evento_id      INT PRIMARY KEY,
+  nombre         VARCHAR(40) NOT NULL,
+  fecha_inicio   DATE NOT NULL DEFAULT CAST(GETDATE() AS DATE),
+  fecha_fin      DATE NULL,
+  total_entradas INT NULL CHECK (total_entradas IS NULL OR total_entradas > 0),
+  tipo_evento_id INT NOT NULL,
+  lugar_id       INT NOT NULL,
+  CONSTRAINT CK_evento_fechas CHECK (fecha_fin IS NULL OR fecha_inicio <= fecha_fin),
+  CONSTRAINT FK_evento_tipo  FOREIGN KEY (tipo_evento_id) REFERENCES tipo_evento(tipo_evento_id),
+  CONSTRAINT FK_evento_lugar FOREIGN KEY (lugar_id)       REFERENCES lugar(lugar_id)
+);
+
+-- actuacion 
+CREATE TABLE actuacion (
+  evento_id   INT NOT NULL,
+  artista_id  INT NOT NULL,
+  hora_inicio TIME NOT NULL,
+  duracion    TIME NOT NULL,
+  CONSTRAINT PK_actuacion PRIMARY KEY (evento_id, artista_id),
+  CONSTRAINT FK_actuacion_evento  FOREIGN KEY (evento_id)  REFERENCES evento(evento_id),
+  CONSTRAINT FK_actuacion_artista FOREIGN KEY (artista_id) REFERENCES artista(artista_id)
 );
