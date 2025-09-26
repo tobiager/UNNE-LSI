@@ -1,0 +1,65 @@
+CREATE DATABASE recuperatorio_primer_parcial_2025;
+GO
+USE recuperatorio_primer_parcial_2025;
+GO
+
+CREATE TABLE especie
+(
+  raza VARCHAR(40) NOT NULL,
+  especie VARCHAR(40) NOT NULL,
+  id_especie INT NOT NULL,
+  CONSTRAINT PK_id_especie PRIMARY KEY (id_especie),
+  CONSTRAINT UQ_especie UNIQUE (especie)
+);
+
+CREATE TABLE mascotas
+(
+  año_nacimiento DATE NOT NULL,
+  estado_actual INT NOT NULL DEFAULT '1-no disponible' CHECK (estado_actual IN ('1-no disponible','2-disponible','”3- en adopción','4-adoptado')),
+  fecha_alta DATE NOT NULL,
+  nombre VARCHAR(40),
+  id_mascota INT NOT NULL,
+  id_especie INT NOT NULL,
+  CONSTRAINT PK_id_mascota PRIMARY KEY (id_mascota),
+  CONSTRAINT FK_id_especie FOREIGN KEY (id_especie) REFERENCES especie(id_especie)
+);
+
+CREATE TABLE adoptantes
+(
+  dni VARCHAR(8) NOT NULL,
+  nombre VARCHAR(40) NOT NULL,
+  apelldio VARCHAR(40) NOT NULL,
+  domicilio VARCHAR(40) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  edad INT NOT NULL,
+  fecha_inscripcion DATE NOT NULL DEFAULT GETDATE() CHECK (fecha_inscripcion <= CAST(GETDATE() AS DATE)),
+  id_adoptantes INT NOT NULL,
+  CONSTRAINT PK_id_adoptante PRIMARY KEY (id_adoptantes)
+);
+
+CREATE TABLE empleados
+(
+  dni INT NOT NULL,
+  nombre VARCHAR(40) NOT NULL,
+  apellido VARCHAR(40) NOT NULL,
+  direccion VARCHAR(40) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  fecha_ingreso DATE NOT NULL,
+  cargo VARCHAR(40) NOT NULL,
+  id_empleado INT NOT NULL,
+  CONSTRAINT PK_id_empleado PRIMARY KEY (id_empleado)
+);
+
+CREATE TABLE adopcion
+(
+  fecha_adopcion DATE NOT NULL,
+  id_adopcion TINYINT IDENTITY NOT NULL,
+  id_adoptantes INT NOT NULL,
+  id_mascota INT NOT NULL,
+  id_empleado INT NOT NULL,
+  CONSTRAINT PK_id_adopcion PRIMARY KEY (id_adopcion),
+  CONSTRAINT FK_id_adoptantes FOREIGN KEY (id_adoptantes) REFERENCES adoptantes(id_adoptantes),
+  CONSTRAINT FK_id_mascota FOREIGN KEY (id_mascota) REFERENCES mascotas(id_mascota),
+  FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado)
+);
