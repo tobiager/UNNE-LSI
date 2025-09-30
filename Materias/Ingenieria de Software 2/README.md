@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/Metodologías%20Ágiles-FF6600?style=for-the-badge"/>
    <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
  <img src="https://img.shields.io/badge/Estado-Por%20cursar-orange?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Cursada-2026-blue?style=for-the-badge"/>
 </p>
 
 # Ingeniería de Software II – UNNE 2025
