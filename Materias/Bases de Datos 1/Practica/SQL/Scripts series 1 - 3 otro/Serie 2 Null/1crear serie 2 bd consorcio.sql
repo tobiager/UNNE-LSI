@@ -1,14 +1,14 @@
-/*
+
 use master
 go
 -------------------
 IF (select name from sys.databases where name ='base_consorcio_2025') is not null  
-    DROP DATABASE base_consorcio_2025;
+    DROP DATABASE consorcio_test_update;
 go
-CREATE DATABASE base_consorcio_2025;
-*/
+CREATE DATABASE consorcio_test_update;
+
 go
-USE base_consorcio_2025;
+USE consorcio_test_update;
 go
 
 -------------------
