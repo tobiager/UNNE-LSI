@@ -153,33 +153,42 @@ pip install mkdocs mkdocs-material
 mkdocs serve
 ```
 
-## ❓ Si no sabés cómo usar GitHub
+## ❓ ¿No sabés cómo usar GitHub?
 
 <details>
-<summary>📥 Descarga rápida (la forma más fácil)</summary>
+<summary>📥 Descarga rápida (recomendado — sin cuenta y sin Git)</summary>
 
-1. Hacé clic en el botón verde **Code** (arriba a la derecha de este repositorio).  
-2. Elegí la opción **Download ZIP**.  
-3. Se va a descargar un archivo `.zip` con **todo el contenido del repositorio (≈4 GB)**.  
-4. Descomprimilo en tu computadora y listo: vas a ver todas las carpetas de materiales. 🎓  
+1) Entrá al repo: **tobiager/UNNE-LSI**  
+   👉 https://github.com/tobiager/UNNE-LSI
 
+2) Hacé clic en el botón verde **Code** (arriba a la derecha) → **Download ZIP**.
+
+3) Se va a descargar un `.zip` con **todo el material (≈ 4 GB)**.  
+   📌 Consejo: dejá **+8 GB** libres para bajar y descomprimir.
+
+4) Cuando termine, **extraé** el `.zip`  
+   - Windows: clic derecho → *Extraer todo*  
+   - macOS: doble clic
+
+5) Abrí la carpeta extraída y listo: ahí están **todas las carpetas de materiales**. 🎓
+
+—  
+ **Actualizaciones:** si el repo cambia, **tenés que volver a descargar el ZIP** (no se actualiza solo).
+
+ **Problemas comunes:**
+- Descarga lenta o cortada → probá otra red o un gestor de descargas.  
+- “No se puede abrir el ZIP” → verificá que se bajó completo; si falla, probá con **7-Zip** o **WinRAR**.
 </details>
 
 ---
 
 <details>
-<summary>💻 Para usuarios con Git (opcional)</summary>
+<summary>🎥 ¿Querés aprender Git y GitHub? (opcional)</summary>
 
-1. **Creá una cuenta** en [github.com](https://github.com/).  
-2. **Instalá Git**: [git-scm.com](https://git-scm.com/).  
-3. **Cloná** este repositorio:  
-   ```bash
-   git clone https://github.com/tobiager/UNNE-LSI.git
-Explorá las carpetas desde tu navegador de archivos o la terminal.
-
-Para más información consultá la [documentación oficial de GitHub](https://docs.github.com/es).
-
+Si te interesa entender cómo funciona Git/GitHub y clonar el repo como desarrollador, mirá este video paso a paso:  
+▶️ **Curso breve de Git/GitHub**: https://www.youtube.com/watch?v=niPExbK8lSw&t=518s
 </details>
+
 
 ---
 
