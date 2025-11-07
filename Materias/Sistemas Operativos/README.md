@@ -28,7 +28,7 @@ Material teórico, prácticos y evaluaciones de **Sistemas Operativos** de la **
 | `Practicos/` | Ejercicios y guías de laboratorio |
 | `Parciales/` | Evaluaciones 2024 y modelos anteriores |
 | `resumenes/` | Resúmenes y cuestionarios |
-| `Infome de laboratorio ` | Informe presentado en 2025 |
+| `Informes Laboratorio 1,2,3,4,5,6,7,8_OrbanTobias.pdf` | Informe presentado en 2024 |
 | `final/` | Material de preparación para el examen final |
 | `RES. 0408-23 CD - Aprob. Prog. SO.pdf` | Programa oficial de la cátedra |
 | `tema 19 monografia 2024.pdf` | Monografía presentada en 2024 |
