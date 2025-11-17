@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white"/>
   <img src="https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white"/>
   <img src="https://img.shields.io/badge/UNNE-Taller%20II-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20progreso-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
@@ -22,16 +22,14 @@
 
 Ejercicios y material de **Taller de Programación II** de la **UNNE - FaCENA**.  
 
-Cuando tengamos el repositorio del **proyecto grupal**, acá voy a dejar el enlace directo. 
-
 ---
 
 ## 📦 Estructura del Repositorio
 
 | Carpeta | Contenido |
 | ------- | --------- |
-| 👤 Material | Apuntes y recursos de la cursada |
-| 📝 practicos | Trabajos prácticos |
+| Material | Apuntes y recursos de la cursada |
+| practicos | Trabajos prácticos |
 
 
 ---
@@ -61,7 +59,6 @@ Cuando tengamos el repositorio del **proyecto grupal**, acá voy a dejar el enla
 
 - Contiene material utilizado en la cursada 2025.  
 - Enfoque en el desarrollo de proyectos completos.  
-- El link al **repo del proyecto** será agregado cuando esté disponible.  
 
 ## 🔗 Link del Proyecto
 
