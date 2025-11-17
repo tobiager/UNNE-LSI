@@ -11,12 +11,14 @@ GO
    E1. Total de gastos por tipo de gasto
 --------------------------------------------------------------------- */
 SELECT * FROM tipo_gasto
+
 SELECT  t.nombre,
         SUM(g.importe) AS [Importe Acumulado]
 FROM gasto AS g
 INNER JOIN tipo_gasto AS t
     ON t.tipo_gasto_id = g.tipo_gasto_id
-GROUP BY t.nombre;
+GROUP BY t.nombre
+ORDER BY [Importe Acumulado] DESC;
 
 /* ---------------------------------------------------------------------
    E2. Edificio + Provincia + Localidad (ordenado)
