@@ -28,7 +28,7 @@ Material, prácticos y proyectos de la materia **Ingeniería de Software I** de 
 |  Teoria | Apuntes y presentaciones teóricas |
 |  Practica | Ejercicios y guías prácticas |
 |  Materiales | Recursos adicionales |
-|  Sistema Hospitalario | Proyecto seleccionado aplicado a gestión hospitalaria |
+|  Trabajo de Campo | Proyecto seleccionado aplicado a gestión hospitalaria |
 |  Parciales Viejos | Exámenes de años anteriores |
 
 ---
