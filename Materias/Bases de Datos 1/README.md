@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQL%20Server-0078D7?style=for-the-badge&logo=microsoft-sql-server&logoColor=white"/>
   <img src="https://img.shields.io/badge/Modelado-ERDPlus-6A5ACD?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/UNNE-Inform%C3%A1tica-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Estado-En%20curso-orange?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
@@ -20,16 +20,11 @@
 
 <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/database1.png" alt="Sticker database" width="300" align="right" style="margin-left:20px;"/>
 
-Esta carpeta reúne **modelos ER**, **scripts SQL**, **prácticos**, **material de estudio** y **mini-proyectos** desarrollados en la materia **Bases de Datos** de la **UNNE – FaCENA** (cursada 2025), trabajando principalmente con **MySQL** y **ERDPlus**.
+Este repositorio reúne material de la materia **Bases de Datos (BD1)** de la **UNNE – FaCENA** (cursada 2025): modelos ER, scripts SQL, prácticos, parciales y material de estudio. En esta cursada trabajamos con **Microsoft SQL Server (T‑SQL)** y **ERDPlus** para modelado.
 
+---
 
-<br><br> <!-- 👈 Espaciado extra antes de la siguiente sección -->
-
-
-
-<br><br> <!-- 👈 Espaciado extra antes de la siguiente sección -->
-
-## 📦 Estructura del Repositorio
+## Estructura del Repositorio
 
 | Carpeta/Archivo | Contenido |
 |-----------------|-----------|
@@ -39,139 +34,74 @@ Esta carpeta reúne **modelos ER**, **scripts SQL**, **prácticos**, **material 
 
 ---
 
-## 🚀 Temario (enfoque práctico)
+## ¿Qué se espera en los entregables principales?
 
-- **Modelado conceptual (ER)**: entidades, atributos, **claves**, **cardinalidades**, **identificadores débiles**.
-- **Paso ER → Relacional**: mapeo de relaciones 1:1, 1:N, N:M (tablas intermedias).
-- **Normalización**: 1FN, 2FN, 3FN, BCNF + detección de dependencias funcionales.
-- **SQL (MySQL)**:
-  - DDL: `CREATE/ALTER/DROP`, restricciones (`PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `CHECK`).
-  - DML: `INSERT/UPDATE/DELETE`, `SELECT`, **JOIN** (INNER/LEFT/RIGHT), **GROUP BY/HAVING**.
-  - **Vistas**, **Índices**, **Funciones de agregación**.
-  - **Stored Procedures**, **Triggers**, **Funciones definidas por el usuario**.
-- **Transacciones & ACID**: `START TRANSACTION`, `COMMIT`, `ROLLBACK`, niveles de aislamiento.
-- **Performance básico**: índices, `EXPLAIN`, tipos de datos adecuados.
+- Primer parcial (entrega individual):
+  - DER (archivo de ERDPlus + imagen PNG/PDF) con el modelo conceptual completo.
+  - Script SQL de creación (DDL) con las tablas mapeadas y restricciones básicas: 
+    - NOT NULL / NULL (atributos obligatorios y opcionales).
+    - UNIQUE.
+    - CHECK (validaciones de dominio).
+    - DEFAULT.
+    - PRIMARY KEY (con nombre de constraint).
+    - FOREIGN KEY (con nombre de constraint y ON DELETE / ON UPDATE definidos).
+  - Se evaluará que los constraints estén nombrados (ej.: CONSTRAINT pk_alumno PRIMARY KEY (...)) y que las restricciones implementen reglas reales del dominio.
+  - Formato de entrega: carpeta con DER (PNG + archivo ERDPlus), y archivo `01_creacion.sql`. Opcional: `README_parcial1.md` explicando decisiones de modelado.
 
----
+- Segundo parcial (consultas - T‑SQL, individual):
+  - Archivo `02_consultas.sql` con todas las consultas pedidas en el enunciado, escritas en T‑SQL (compatibles con SQL Server).
+  - Se pide uso correcto de JOINs, GROUP BY/HAVING, subconsultas, funciones escalares/ agregadas y manejo de NULLs.
+  - Incluir comentarios en el .sql con explicación de cada consulta y un ejemplo de salida cuando corresponda.
 
-## 🧪 Cómo levantar el entorno (opcional con Docker)
+- Integrador (trabajo en grupo):
+  - Crear un repositorio de grupo siguiendo la organización propuesta o similar.
+  - En el repo grupal presentar: DER final, scripts (creación, poblado y consultas), informe y una carpeta `investigacion/` con 4 temas investigados (ver sugerencias abajo).
+  - Cada grupo debe entregar el enlace al repo, y en el README del repo grupal indicar integrantes y roles.
 
-`docker/docker-compose.yml`:
-
-```yaml
-services:
-  mysql:
-    image: mysql:8
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: universidad
-      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./data/mysql:/var/lib/mysql
-      - ../scripts-sql:/docker-entrypoint-initdb.d
-  adminer:
-    image: adminer
-    ports:
-      - "8080:8080"
-```
-
-- Levantar: `docker compose up -d`
-- Adminer: http://localhost:8080 (Server: `mysql`, User: `root`, Pass: `root`)
-- Al iniciar, MySQL ejecuta automáticamente los `.sql` de `scripts-sql/` en orden alfabético.
+<a href="https://github.com/tobiager/BD1-proyecto">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=tobiager&repo=bd1-proyecto&theme=transparent&hide_border=true" alt="BD1-proyecto repo card"/>
+</a>
 
 ---
 
-## 🧰 Herramientas que uso
-
-- **ERDPlus** para modelado ER (exporto PNG/PDF y el archivo del editor).
-- **MySQL** 8.x (local con Docker o nativo).
-- **Clientes SQL**: MySQL Workbench / **DBeaver** / Adminer (simple y liviano).
-
----
-
-## 🧩 Convenciones del repo
+## Convenciones y buenas prácticas (obligatorias)
 
 - Archivos SQL numerados para ejecución secuencial:
   - `01_creacion.sql` → tablas + constraints.
-  - `02_poblado.sql` → datos base.
-  - `03_consultas.sql` → consultas pedidas en los prácticos.
-- Cada TP tiene su **DER** en `modelos-er/` y su **mapeo** a tablas documentado al inicio del SQL.
-- Comentarios en SQL con `--` explicando decisiones de diseño.
+  - `02_poblado.sql` → inserts base (datos mínimos para probar consultas).
+  - `03_consultas.sql` → queries solicitadas.
+- Nombre de constraints legible: usar el prefijo (pk_, fk_, uq_, ck_).
+- Evitar tipos genéricos: elegir tipos SQL Server adecuados (INT, BIGINT, NVARCHAR(n), DATETIME2, DECIMAL(p,s), BIT).
+- Comentarios en SQL con `--` para explicar decisiones.
+- Incluir transacciones cuando una secuencia de inserts/deletes deba ser atómica en `02_poblado.sql`.
 
 ---
 
-## 🧱 Mini ejemplo (DER → Relacional → SQL)
+## Herramientas recomendadas
 
-**Relación N:M** `Alumno` — `Materia` con atributo `nota`:
-
-- Tablas: `alumno(id_alumno PK, ...)`, `materia(id_materia PK, ...)`
-- Intermedia: `alumno_materia(id_alumno FK, id_materia FK, nota, PRIMARY KEY(id_alumno,id_materia))`
-
-```sql
-CREATE TABLE alumno (
-  id_alumno INT PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(80) NOT NULL
-);
-
-CREATE TABLE materia (
-  id_materia INT PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE alumno_materia (
-  id_alumno INT NOT NULL,
-  id_materia INT NOT NULL,
-  nota DECIMAL(4,2),
-  PRIMARY KEY (id_alumno, id_materia),
-  CONSTRAINT fk_am_alumno  FOREIGN KEY (id_alumno)  REFERENCES alumno(id_alumno),
-  CONSTRAINT fk_am_materia FOREIGN KEY (id_materia) REFERENCES materia(id_materia)
-);
-```
-
-**Consulta típica**: promedio por materia (solo aprobados ≥ 6)
-
-```sql
-SELECT m.nombre AS materia, ROUND(AVG(am.nota),2) AS promedio_aprobados
-FROM alumno_materia am
-JOIN materia m ON m.id_materia = am.id_materia
-WHERE am.nota >= 6
-GROUP BY m.id_materia, m.nombre
-ORDER BY promedio_aprobados DESC;
-```
+- Microsoft SQL Server (Express o Developer) — servidor local.
+- SQL Server Management Studio (SSMS) y/o Azure Data Studio — clientes para ejecutar scripts.
+- ERDPlus para modelado ER (archivo del editor + export PNG/PDF).
+- DBeaver (opcional) o cualquier cliente que soporte SQL Server.
+- Git + GitHub para control de versiones y entrega de integrador.
 
 ---
 
-## ✅ Checklist rápido de normalización
+## Cómo entrego / subo los archivos
 
-- [ ] ¿Cada columna es **atómica**? (1FN)
-- [ ] ¿Atributos no clave dependen **toda** la clave? (2FN en claves compuestas)
-- [ ] ¿No hay dependencias transitivas atributo-no-clave → atributo-no-clave? (3FN)
-- [ ] ¿Claves candidatas identificadas? ¿Elegiste una **PK** adecuada?
-- [ ] ¿N:M mapeadas con tablas intermedias? ¿FK con ON DELETE/UPDATE pensados?
+- Entregas parciales individuales: subir a tu repositorio personal en la carpeta `Materias/Bases de Datos 1/parciales/<parcialX>/apellidos_nombre/`.
+- Entregas integrador: crear repo grupal público o privado según indicaciones del cátedra y compartir el link.
+- Incluir en cada entrega un `README.md` corto con lo esencial: cómo ejecutar los scripts (versión de SQL Server), orden de ejecución y errores conocidos.
 
 ---
 
-## 📚 Practicidad para la cursada
+## Recursos y bibliografía rápida
 
-- **ERDPlus**: guardo el archivo del editor y exporto imagen para el informe.
-- Entrego **DER + mapeo + SQL** y, si piden, un **PDF** con capturas de `EXPLAIN`.
-- Para cada práctico, incluyo `README.md` corto con:
-  - DER final, decisiones (opcional: alternativas descartadas).
-  - Cómo correr el SQL (`docker`/Workbench).
-  - Consultas pedidas y resultado esperado (captura o ejemplo).
-
+- Documentación oficial SQL Server (T‑SQL) — Microsoft Docs.
+- Materiales de clase y apuntes de FaCENA.
+- ERDPlus (https://erdplus.com).
+- StackOverflow / SQLServerCentral para dudas puntuales.
 
 ---
 
-<h1 align="center" style="font-size:60px; color:#ff6600;">
-   CURSANDO
-</h1>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/cursando.png" alt="Cursando" width="400"/>
-</p>
-
-<p align="center"><b>❤️🐔 Hecho con dedicacion y pasion por Tobias</b></p>
-
+<p align="center"><b>❤️🐔 Hecho con dedicación y pasión por Tobias </b></p>
