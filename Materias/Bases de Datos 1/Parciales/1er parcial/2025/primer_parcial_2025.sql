@@ -54,7 +54,7 @@ CREATE TABLE lugar (
     FOREIGN KEY (pais_id) REFERENCES pais(pais_id),
   -- restricción Argentina/Exterior
   CONSTRAINT CK_categoria_arg_ext
-    CHECK ((pais_id = 1 AND categoria_lugar_id = 1) OR (pais_id <> 1 AND categoria_lugar_id = 2)
+    CHECK ((pais_id = 1 AND categoria_lugar_id = 1) OR (pais_id <> 1 AND categoria_lugar_id = 2))
 );
 
 -- artista 
