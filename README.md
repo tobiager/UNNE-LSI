@@ -299,24 +299,25 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 
 <img src="./assets/libros.png" alt="Sticker libros" width="400" align="right"/>
 
-- [Administración y Gestión de Organizaciones](./Materias/Administracion%20y%20Gestion%20de%20Organizaciones/) — ⏳ Me falta el final
-- [Álgebra](./Materias/Algebra/) — ✅ Aprobada
-- [Algoritmos y Estructura de Datos I](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201/) — ✅ Aprobada
-- [Algoritmos y Estructura de Datos II](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) — ✅ Aprobada
-- [Arquitectura de Computadoras](./Materias/Arquitectura%20de%20computadoras/) — ✅ Aprobada
-- [Cálculo](./Materias/Calculo/) — ⏳ Me falta el final 
-- [Comunicación de Datos I](./Materias/Comunicacion%20de%20datos%201/) — ✅ Aprobada
-- [Ingeniería de Software I](./Materias/Ingenieria%20de%20Software%201/) — ⏳ Me falta el final 
-- [Lógica y Matemática Computacional](./Materias/Logica%20y%20Matematica%20Computacional/) — ✅ Aprobada
-- [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes/) — ✅ Aprobada
-- [Programación Orientada a Objetos](./Materias/Programacion%20Orientada%20a%20Objetos/) — ✅ Aprobada
-- [Sistemas Operativos](./Materias/Sistemas%20Operativos/) — ✅ Aprobada
-- [Sistemas y Organizaciones](./Materias/Sistemas%20y%20Organizaciones/) — ✅ Aprobada
-- [Taller de Programación I](./Materias/Taller%20de%20Programacion%201/) — ✅ Aprobada
-- [Taller de Programación II](./Materias/Taller%20de%20Programacion%202/) — ⏳ En curso
-- [Bases de Datos 1](./Materias/Bases%20de%20Datos%201/) - ⏳ En curso
-- [Probabilidad y Estadistica](./Materias/Probabilidad%20y%20Estadistica/) - ⏳ En curso
-- [Ingles Tecnico](./Materias/Ingles%20Tecnico/) - ⏳ En curso
+- [Administración y Gestión de Organizaciones](./Materias/Administracion%20y%20Gestion%20de%20Organizaciones/)
+- [Álgebra](./Materias/Algebra/)
+- [Algoritmos y Estructura de Datos I](./Materias/Algoritmo%20y%20Estructura%20de%20datos%201/)
+- [Algoritmos y Estructura de Datos II](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) 
+- [Arquitectura de Computadoras](./Materias/Arquitectura%20de%20computadoras/)
+- [Bases de Datos I](./Materias/Bases%20de%20Datos%201/) 
+- [Cálculo](./Materias/Calculo/) 
+- [Comunicación de Datos I](./Materias/Comunicacion%20de%20datos%201/)
+- [Ingeniería de Software I](./Materias/Ingenieria%20de%20Software%201/) 
+- [Ingles Tecnico](./Materias/Ingles%20Tecnico/) 
+- [Lógica y Matemática Computacional](./Materias/Logica%20y%20Matematica%20Computacional/) 
+- [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes/)
+- [Probabilidad y Estadistica](./Materias/Probabilidad%20y%20Estadistica/) 
+- [Programación Orientada a Objetos](./Materias/Programacion%20Orientada%20a%20Objetos/) 
+- [Sistemas Operativos](./Materias/Sistemas%20Operativos/) 
+- [Sistemas y Organizaciones](./Materias/Sistemas%20y%20Organizaciones/)
+- [Taller de Programación I](./Materias/Taller%20de%20Programacion%201/)
+- [Taller de Programación II](./Materias/Taller%20de%20Programacion%202/) 
+
 
 ---
 
@@ -330,39 +331,6 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - **Resumí con tus palabras** → más útil que copiar PDF de 200 páginas.  
 - **Consultá a los profes** → suelen dar pistas de examen.  
 - **Hack** → resolvé parciales anteriores como si fueran mocks.  
-
-
----
-
-## 📊 Estado actual del repo
-
-📌 Actualmente cursando: **3er Año — 2° Cuatrimestre**  
-📍 Plan: **2009**  
-
-📈 Avance aproximado:  
-
-<p align="left">
-  <img src="https://img.shields.io/badge/Avance-38%25-black?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Aprobadas-11-success?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Regular-3-yellow?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/En%20curso-4-blue?style=for-the-badge"/>
-</p>
-
- [Ver progreso completo — Estado de carrera](https://tobiager.github.io/UNNE-LSI/estado.html#eyJwbGFuIjoiMjAwOSIsInN0YXRlcyI6eyJhbGdvcml0bW9zLWVzdHJ1Y3R1cmFzLWkiOnsicyI6MiwibiI6IlByb21vY2lvbmFkYSBjb24gOSJ9LCJhbGdlYnJhIjp7InMiOjIsIm4iOiJGaW5hbCBjb24gNiJ9LCJhbGdvcml0bW9zLWVzdHJ1Y3R1cmFzLWlpIjp7InMiOjIsIm4iOiJQcm9tb2Npb25hZGEgY29uIDgifSwibG9naWNhLW1hdGVtYXRpY2EtY29tcHV0YWNpb25hbCI6eyJzIjoyLCJuIjoiRmluYWwgY29uIDkifSwic2lzdGVtYXMteS1vcmdhbml6YWNpb25lcyI6eyJzIjoyLCJuIjoiUHJvbW9jaW9uYWRhIGNvbiA3In0sInBhcmFkaWdtYXMteS1sZW5ndWFqZXMiOnsicyI6MiwibiI6IkZpbmFsIGNvbiA2In0sImFycXVpdGVjdHVyYS15LW9yZ2FuaXphY2lvbi1kZS1jb21wdXRhZG9yYXMiOnsicyI6MiwibiI6IlByb21vY2lvbmFkYSBjb24gOSJ9LCJjYWxjdWxvLWRpZmVyZW5jaWFsLWUtaW50ZWdyYWwiOnsicyI6MSwibiI6IiJ9LCJwb28iOnsicyI6MiwibiI6IkZpbmFsIGNvbiA3In0sInNpc3RlbWFzLW9wZXJhdGl2b3MiOnsicyI6MiwibiI6IkZpbmFsIGNvbiA3In0sImFkbWluaXN0cmFjaW9uLXktZ2VzdGlvbi1kZS1vcmdhbml6YWNpb25lcyI6eyJzIjoxLCJuIjoiIn0sImNvbXVuaWNhY2lvbmVzLWRlLWRhdG9zIjp7InMiOjIsIm4iOiJQcm9tb2Npb25hZGEgY29uIDkifSwiaW5nZW5pZXJpYS1kZS1zb2Z0d2FyZS1pIjp7InMiOjEsIm4iOiIifSwidGFsbGVyLWRlLXByb2dyYW1hY2lvbi1pIjp7InMiOjIsIm4iOiJQcm9tb2Npb25hZGEgY29uIDkifSwidGFsbGVyLWRlLXByb2dyYW1hY2lvbi1paSI6eyJzIjozLCJuIjoiIn0sInByb2JhYmlsaWRhZC15LWVzdGFkaXN0aWNhIjp7InMiOjMsIm4iOiIifSwiaW5nbGVzLXRlY25pY28taW5mb3JtYXRpY28iOnsicyI6MywibiI6IiJ9LCJiYXNlLWRlLWRhdG9zLWkiOnsicyI6MywibiI6IiJ9fSwibmFtZSI6IlRvYmlhcyBPcmJhbiJ9)
-
-### Materias en curso
-- ⏳ Taller de Programación II  
-- ⏳ Probabilidad y Estadística  
-- ⏳ Bases de Datos I  
-- ⏳ Inglés Técnico Informático  
-
-
-
-<p align="center">
-  <img src="./assets/cemento.png" alt="Cemento" height="240"/>
-  <img src="./assets/construccion.png" alt="En construcción" height="240"/>
-</p>
-
 
 ---
 
@@ -427,5 +395,5 @@ Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes 
 
 [![Star History Chart](https://api.star-history.com/svg?repos=tobiager/UNNE-LSI&type=Date)](https://star-history.com/#tobiager/UNNE-LSI&Date)
 
-<p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Que le sirva a alguien más.</b></p>
+<p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Para que le sirva a alguien más.</b></p>
 

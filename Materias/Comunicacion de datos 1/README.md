@@ -30,6 +30,8 @@ Recursos, prácticos y evaluaciones de la materia **Comunicación de Datos I** d
 
 ---
 
+<a href="https://notebooklm.google.com/notebook/bcccf29c-289a-4b2a-b01b-eb8256cde9a9?authuser=3">Cuaderno con teoria NOOTEBOKLM</a>
+
 ## 🚀 Temas principales y conceptos aplicados
 
 - Modelo OSI y arquitectura de redes.
@@ -40,7 +42,6 @@ Recursos, prácticos y evaluaciones de la materia **Comunicación de Datos I** d
 ---
 
 ## 📌 Notas
-
 - Contiene reportes y prácticas de laboratorio realizadas en 2024.
 - Incluye guías de estudio para parciales.
 
