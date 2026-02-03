@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/SQL%20Server-0078D7?style=for-the-badge&logo=microsoft-sql-server&logoColor=white"/>
   <img src="https://img.shields.io/badge/Modelado-ERDPlus-6A5ACD?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/UNNE-Inform%C3%A1tica-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20curso-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 

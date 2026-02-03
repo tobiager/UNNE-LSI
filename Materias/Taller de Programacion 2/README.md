@@ -66,13 +66,6 @@ Ejercicios y material de **Taller de Programación II** de la **UNNE - FaCENA**.
   <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=tobiager&repo=TeoAccesorios&theme=transparent&hide_border=true" alt="TeoAccesorios repo card"/>
 </a>
 
-<h1 align="center" style="font-size:60px; color:#ff6600;">
-   CURSANDO
-</h1>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/cursando.png" alt="Cursando" width="400"/>
-</p>
 
 <p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
 

@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/UNNE-Probabilidad%20y%20Estadística-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-En%20curso-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2025-blue?style=for-the-badge"/>
 </p>
 
@@ -74,13 +74,5 @@ Repositorio con **apuntes**, **trabajos prácticos**, **modelos de parciales** y
 - **Examen final**: modalidad oral o escrita sobre el programa vigente.  
 
 ---
-
-<h1 align="center" style="font-size:60px; color:#ff6600;">
-   CURSANDO
-</h1>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/cursando.png" alt="Cursando" width="400"/>
-</p>
 
 <p align="center"><b>❤️🐔 Hecho con dedicación y pasión por Tobias</b></p>
