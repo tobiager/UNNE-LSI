@@ -1,0 +1,30 @@
+A continuación te presento un ejemplo práctico para ilustrar la diferencia entre una visión y una épica en el contexto de un proyecto ágil.
+
+Imagina que estamos desarrollando una aplicación móvil de gestión de finanzas personales.
+
+----------------------------------------
+Ejemplo de Visión
+
+"La visión de nuestra aplicación es empoderar a las personas para que alcancen la libertad financiera con herramientas intuitivas y personalizadas que les permitan comprender y gestionar sus finanzas de forma sencilla y efectiva."
+
+Esta visión responde al "por qué" se crea el producto.  
+- Marca el fin último: ayudar a los usuarios a lograr una libertad financiera.  
+- Inspira al equipo, pues define un propósito a largo plazo y global.  
+- Comunica el valor que se quiere entregar (herramientas intuitivas y personalizadas).
+
+----------------------------------------
+Ejemplo de Épica
+
+Épica: "Implementar el módulo de control y análisis de gastos."
+
+Esta épica es una gran iniciativa derivada de la visión global y está orientada a cumplir un aspecto específico que contribuye a dicha visión.  
+- Se enfoca en un área concreta del producto: la gestión de gastos.  
+- Es lo suficientemente grande como para requerir su subdivisión en historias de usuario más pequeñas (por ejemplo: "Como usuario, quiero registrar mis gastos diarios", "Como usuario, quiero ver un resumen gráfico de mis gastos mensuales").
+
+----------------------------------------
+Resumen Visual
+
+- Visión (gran propósito): Empoderar a las personas para que alcancen la libertad financiera mediante herramientas intuitivas y personalizadas.  
+- Épica (iniciativa concreta): Creación de un módulo que permita a los usuarios controlar y analizar de manera efectiva sus gastos.
+
+Este ejemplo muestra cómo una visión inspira el proyecto y, a partir de ella, se crean épicas que, al ser divididas en tareas o historias de usuario, permiten avanzar de manera incremental hacia el objetivo mayor.
