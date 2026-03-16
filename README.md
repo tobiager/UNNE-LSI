@@ -54,7 +54,7 @@
 
 # LSI UNNE — Apuntes, prácticos y guías por materia
 
-Hola! Soy **Tobias**, ingresé a la carrera en **2023** bajo el **plan 2009** y actualmente estoy en **3er año**.  
+Hola! Soy **Tobias**, ingresé a la carrera en **2023** bajo el **plan 2009** y actualmente estoy en **4to año**.  
 Decidí armar este repositorio para dejar un registro de mi recorrido y que también le sirva a quien venga detrás.
 
 Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guías, parciales resueltos y tips de cursada** de la **Licenciatura en Sistemas de Información (FaCENA – UNNE)**.
