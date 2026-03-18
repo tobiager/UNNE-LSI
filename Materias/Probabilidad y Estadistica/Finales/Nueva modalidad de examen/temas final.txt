@@ -1,0 +1,64 @@
+1)
+Boxplot
+Rango intercuartilico formula definición calcular según los datos del boxplot e interpretación de acuerdo al contexto
+Coeficiente de asimétrica formula definición e interpretación de acuerdo al contexto y pregunta si es mayor menor o igual a 0
+Pregunta si hay Rangos atípicos interpretación en el contexto  1.5
+Puntos 
+2) probabilidad total, ejemplo
+Definición axiomatica de probabilidad
+Marcar como v o f y justificar
+P(avb)=p(a/b).p(b)
+P(a^b)=p(a) + p(b) + p(avb)
+P(a^b)=p(a).p(b)
+Todo esto valía 4 puntos
+
+V.a bidimencionales
+Como se puede calcular p(x=>a)
+Dado una funcion de densidad de probabilidad conjunta, si kas variables x e y la covarianza siempre es igual a 0? justificar
+1 punto
+
+Test de hipótesis para diferencia de muestras con p-valor hacer todos los pasos 
+Te da un intervalo de confianza y tenes que interpretarlo en el contexto del test de hipotesis
+2.5 puntos
+
+
+1- Boxplot
+2- particion aleatoria y probabilidad total
+3- Esperanza matematica de va continuas y discretas. Propiedades
+4- VA bidimensionales, demostrar proposicion 
+5- Un caso practico, determinar va y distribucion
+6- Test de hipotesis e intervalo de confianza para un caso practico, interpretacion
+
+
+
+Regulares, sin tablas porque la profesora magdalena confeccionó el examen para que a priori no necesitemos tablas:
+1. Estadística Descriptiva. Tipos de variables. Escalas de Medición. Cuando usar intervalos y supuestos. Como definir número de intervalos a usar. Definir fi y ri. 2,5 pts 
+2. Enunciar y ejemplo de Ley de Probabilidad Total. 1 punto
+3. Definir espacio muestral y variable aleatoria. Caso continuo ejemplificar. Definir esperanza matemática. Hallar P (a <X <=b) conociendo sólo f (x). 1 punto. 
+4. Elegir el modelo de distribución adecuado para 2 escenarios dados. Seleccionar uno de ellos y desarrollarlos exhaustivamente. 2,5 puntos
+5. Enunciar al menos un TCL y donde se uso en la materia. 1 punto
+6. Prueba de Hipótesis unilateral. Casos y supuestos. Nivel de significancia. Forma de la hipótesis nula y alternativa en unilaterales. Cuando usar Student y cuando usar z.  Desarrollar ejemplo con pasos en el contexto del ejemplo. No calcular. 2 puntos.
+
+
+Cuando desarrollen binomial pongan que las n repeticiones son repeticiones del experimento aleatorio
+A mi me desconto medio punto por eso kjjj
+
+
+
+
+
+
+Examen de Probabilidad y Estadistica 18/12/2025
+1)	Se mide el tamaño en MB de la carga de archivos por usuarios.
+Media: 58 Mediana: 32 Moda: 12 Rango: 308 Desvio Estandar: 42
+a)	Que indican las medidas de tendencia central, con estos datos
+b)	Rango y desvio estándar. 
+c)	Para que sirven las medidas de variabilidad asociadas a las medidas de tendencia central.
+
+2)	Defina espacio muestral. De un ejemplo de continuo y discreto.
+3)	Defina variable aleatoria. De un ejemplo de variable aleatoria bidimensional.
+4)	Explique la relación entre binomial y poisson.
+5)	De la formula de intervalo de confianza, sabiendo que tiene distribución normal y varianza conocida.
+6)	Definir los pasos de test de hipótesis de acuerdo al problema y dar una conclusión. El nivel de significancia era 0.05 y p-valor 0,035
+7)	Dar la definición de probabilidad condicional, demostrar que P(A/B) + P(A'/B) = 1
+8)	Dar la definición de eventos independientes. Demostrar que P(A) > 0 P(A') > 0 NO son independientes.
