@@ -1,0 +1,18 @@
+1. definir drecuencias simples y relativas
+a) definir tipos de variables 
+b) definir intervalos de clases y cuando se utilizaria 
+c) definir las escalas de medicion 
+
+2. definir la regla de la probabilidad total, dar un ejemplo 
+
+3. 
+a) definir lo que es un evento aleatorio un espacio muestral y dar un ejemplo del mismo 
+b) definir que es la esperanza y como calcular la esperanza para una variable x,
+
+4) identifiques ciertos modelos que pueden ser continuos o discretos del caso y que desarrolle un completo 
+
+5) definir una de las teorias que tiene el teorema central del limite y explicar en que parte de la asignatura se volvio a ocupar el teorema central del limite 
+
+6)
+a) definir cuando se ocupan los estadisticos z t, del test de hipotesis
+b) dar un ejemplo de test de hipotesis de una sola cola inferior o superior  

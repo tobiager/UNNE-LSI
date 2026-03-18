@@ -269,8 +269,8 @@ La carrera se dicta bajo dos planes vigentes:
 
 - **1° año:** AED I, Álgebra, AED II, Lógica, SyO  
 - **2° año:** Paradigmas, Arquitectura, Cálculo, POO, SO, Adm. y Gestión  
-- **3° año:** Taller I, Comunicaciones, Ing. de Software I, Taller II (cursando), Probabilidad y Estadística (cursando), Bases de Datos I (cursando), Inglés Técnico Informático (pendiente)  
-- **4° año:** Ing. de Software II, Economía, Teoría de la Computación, Redes, Bases de Datos II, Métodos Computacionales  
+- **3° año:** Taller I, Comunicaciones, Ing. de Software I, Taller II, Probabilidad y Estadística, Bases de Datos I, Inglés Técnico Informático.
+- **4° año:** Ing. de Software II, Economía, Teoría de la Computación, Redes, Bases de Datos II, Métodos Computacionales.
 - **5° año:** Proyecto Final, Auditoría y Seguridad, Optativas I–III  
 
 >  Al aprobar 3° año + Inglés Técnico se obtiene el título intermedio de **Analista Programador Universitario (APU)**.  
