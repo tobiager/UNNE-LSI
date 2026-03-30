@@ -36,6 +36,10 @@
     "ruta": "Materias/Comunicacion de datos 1/README.md"
   },
   {
+    "nombre": "Economia Aplicada",
+    "ruta": "Materias/Economia Aplicada/README.md"
+  },
+  {
     "nombre": "Ingenieria de Software 1",
     "ruta": "Materias/Ingenieria de Software 1/README.md"
   },
@@ -54,6 +58,10 @@
   {
     "nombre": "Paradigmas y Lenguajes",
     "ruta": "Materias/Paradigmas y Lenguajes/README.md"
+  },
+  {
+    "nombre": "Probabilidad y Estadistica",
+    "ruta": "Materias/Probabilidad y Estadistica/README.md"
   },
   {
     "nombre": "Programacion Orientada a Objetos",
@@ -76,7 +84,7 @@
     "ruta": "Materias/Taller de Programacion 2/README.md"
   },
   {
-    "nombre": "Probabilidad y Estadistica",
-    "ruta": "Materias/Probabilidad y Estadistica/README.md"
+    "nombre": "Teoria de la Computacion",
+    "ruta": "Materias/Teoria de la Computacion/README.md"
   }
 ]
