@@ -305,9 +305,12 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - [Algoritmos y Estructura de Datos II](./Materias/Algoritmo%20y%20Estructura%20de%20datos%202/) 
 - [Arquitectura de Computadoras](./Materias/Arquitectura%20de%20computadoras/)
 - [Bases de Datos I](./Materias/Bases%20de%20Datos%201/) 
+- [Bases de Datos II](./Materias/Bases%20de%20Datos%202/)
 - [Cálculo](./Materias/Calculo/) 
 - [Comunicación de Datos I](./Materias/Comunicacion%20de%20datos%201/)
+- [Economía Aplicada](./Materias/Economia%20Aplicada/)
 - [Ingeniería de Software I](./Materias/Ingenieria%20de%20Software%201/) 
+- [Ingeniería de Software II](./Materias/Ingenieria%20de%20Software%202/)
 - [Ingles Tecnico](./Materias/Ingles%20Tecnico/) 
 - [Lógica y Matemática Computacional](./Materias/Logica%20y%20Matematica%20Computacional/) 
 - [Paradigmas y Lenguajes](./Materias/Paradigmas%20y%20Lenguajes/)
@@ -317,6 +320,7 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - [Sistemas y Organizaciones](./Materias/Sistemas%20y%20Organizaciones/)
 - [Taller de Programación I](./Materias/Taller%20de%20Programacion%201/)
 - [Taller de Programación II](./Materias/Taller%20de%20Programacion%202/) 
+- [Teoría de la Computación](./Materias/Teoria%20de%20la%20Computacion/)
 
 
 ---
