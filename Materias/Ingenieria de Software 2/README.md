@@ -23,7 +23,7 @@ Incluye recursos para la cursada 2026 y material de años anteriores.
 
 ---
 
-## 📦 Estructura del Repositorio
+## Estructura del Repositorio
 
 | Carpeta/Archivo | Contenido |
 |---|---|
@@ -37,7 +37,7 @@ Incluye recursos para la cursada 2026 y material de años anteriores.
 
 ---
 
-## 📌 Material rápido
+## Material rápido
 
 - Teoría: [Teoria/](Teoria/)
 - Práctica: [Practica/](Practica/)
@@ -47,7 +47,7 @@ Incluye recursos para la cursada 2026 y material de años anteriores.
 
 ---
 
-## 🚀 Temas principales y conceptos aplicados
+## Temas principales y conceptos aplicados
 
 - **Procesos de software avanzados**
 - **Requerimientos, especificación y documentación**
@@ -58,7 +58,7 @@ Incluye recursos para la cursada 2026 y material de años anteriores.
 
 ---
 
-## 📚 Practicidad
+## Practicidad
 
 Este material contiene **parciales con enunciados e imágenes** y recursos útiles para preparar parciales/finales.
 Si todavía faltan subidas o está incompleto, se irá actualizando durante la cursada.

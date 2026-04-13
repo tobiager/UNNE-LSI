@@ -10,37 +10,32 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/UNNE-Econom%C3%ADa%20Aplicada-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-Por%20cursar-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-Cursando-yellow?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2026-blue?style=for-the-badge"/>
 </p>
 
 # Economía Aplicada - UNNE 2026
 
-Material recopilado de **Economía Aplicada** (FaCENA – UNNE).
+Esta carpeta reúne todos los ejercicios, materiales de estudio, teoría y apuntes correspondientes a la materia **Economía Aplicada** de la **UNNE - Facultad de Ciencias Exactas y Naturales y Agrimensura (FaCENA)**.
 
 ---
 
-## 📦 Estructura del Repositorio
+##  Estructura del Repositorio
 
-| Archivo | Contenido |
-|---|---|
-| [Apuntes de Economía.pdf](Apuntes%20de%20Econom%C3%ADa.pdf) | Apuntes/material principal |
-| [Formulero de Economía.pdf](Formulero%20de%20Econom%C3%ADa.pdf) | Formulario (PDF) |
-| [Formulero de Economía.docx](Formulero%20de%20Econom%C3%ADa.docx) | Formulario (DOCX) |
-
----
-
-## 📌 Material rápido
-
-- Apuntes: [Apuntes de Economía.pdf](Apuntes%20de%20Econom%C3%ADa.pdf)
-- Formulero: [Formulero de Economía.pdf](Formulero%20de%20Econom%C3%ADa.pdf)
+| Archivo/Carpeta | Contenido |
+| ---------------- | --------- |
+| `Apuntes/` | Apuntes, notas y material teórico principal de la materia |
+| `Filminas/` | Diapositivas y presentaciones utilizadas en las clases |
+| `Parciales/` | Modelos de exámenes parciales y resoluciones |
+| `Practica/` | Guías de trabajos prácticos y ejercicios resueltos |
 
 ---
 
-## 📝 Notas
+## Notas
 
-- Si falta material o está incompleto, se va actualizando con el tiempo.
+- Todos los materiales recopilados corresponden a la cursada de **Economía Aplicada - UNNE (FaCENA)** en el año 2026.
+- Al estar la asignatura en curso, el material de teoría, práctica y exámenes continuará actualizándose a medida que avanza el cuatrimestre.
 
 ---
 
-<p align="center"><b>❤️ Hecho con dedicación por Tobias</b></p>
+<p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias</b></p>
