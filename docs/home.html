@@ -1,109 +1,1007 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Herramientas LSI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
-    --panel-light:#ffffff; --panel-dark:#0f1625;
-    --border-light:#d1d5db; --border-dark:#1f2a36;
-    --text-light:#1f2937; --text-dark:#e6edf3;
-    --muted-light:#6b7280; --muted-dark:#9fb0c2;
-    --grad1-light:#ffffff; --grad1-dark:#10233a;
-    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
-    --footer-h:56px;
-  }
-  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
-  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
-  *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:
-        radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-        radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-        var(--bg);
-      color:var(--text);
-      font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-      scroll-behavior:smooth;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Herramientas LSI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --text: #ffffff;
+      --muted: #a6a6a6;
+      --accent: #0099ff;
+      --accent-glow: rgba(0, 153, 255, 0.15);
+      --frosted: rgba(255, 255, 255, 0.1);
+      --panel: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.07);
+      --card-ring: rgba(0, 153, 255, 0.12) 0px 0px 0px 1px;
+      --card-ring-hover: rgba(0, 153, 255, 0.3) 0px 0px 0px 1px;
     }
-  .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  .hero{text-align:center;padding:80px 16px 60px}
-  .hero h1{font-size:2.4rem;margin:0 0 16px;font-weight:800}
-  .hero p{max-width:640px;margin:0 auto 24px;color:var(--muted)}
-  @keyframes fadeInUp{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
-  }
-  .btn{display:inline-block;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:10px 20px;border-radius:12px;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15);background:var(--border)}
-  section{padding:40px 16px;opacity:0;animation:fadeInUp .8s ease forwards}
-  .hero{animation-delay:.1s}
-  .features{animation-delay:.3s}
-  .start{animation-delay:.5s}
-  .calendar{animation-delay:.7s}
-  h2{font-size:1.6rem;margin:0 0 16px;text-align:center}
-  .features ul{max-width:800px;margin:0 auto;padding-left:20px}
-  .start ol{max-width:800px;margin:0 auto;padding-left:20px}
-</style>
-<link rel="stylesheet" href="css/index.css">
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+      scrollbar-width: thin;
+      scrollbar-color: #333333 #000000;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0099ff;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 0 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+    /* subtle ambient glow behind hero */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0, 153, 255, 0.06), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* hero content wrapper — takes all available space, centers children */
+    .hero-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SCROLL HINT ── */
+    @keyframes bounce-down {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.75;
+      }
+
+      50% {
+        transform: translateY(9px);
+        opacity: 1;
+      }
+    }
+
+    .scroll-hint {
+      padding-bottom: 38px;
+      color: #0099ff;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 0;
+      position: relative;
+      z-index: 1;
+      animation: bounce-down 1.8s ease-in-out infinite;
+      transition: color 0.15s ease;
+      filter: drop-shadow(0 0 8px rgba(0, 153, 255, 0.5));
+    }
+
+    .scroll-hint:hover {
+      color: #33aaff;
+      filter: drop-shadow(0 0 12px rgba(0, 153, 255, 0.8));
+    }
+
+    .scroll-hint svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: #a6a6a6;
+      margin-bottom: 32px;
+      font-weight: 500;
+      letter-spacing: -0.1px;
+    }
+
+    .hero-badge svg {
+      width: 13px;
+      height: 13px;
+      fill: #0099ff;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7.5vw, 80px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: clamp(-2px, -0.05em, -3.5px);
+      color: #ffffff;
+      margin-bottom: 20px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #a6a6a6;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.55;
+      font-weight: 400;
+      letter-spacing: -0.01px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #000000;
+      padding: 12px 22px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: opacity 0.3s ease, transform 0.15s ease;
+      letter-spacing: -0.2px;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      user-select: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.95);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 15px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background 0.3s ease, transform 0.15s ease;
+      letter-spacing: -0.2px;
+      font-family: inherit;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .btn-secondary:active {
+      transform: scale(0.95);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #a6a6a6;
+      padding: 10px 18px;
+      border-radius: 100px;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent;
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+      letter-spacing: -0.1px;
+      font-family: inherit;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn-ghost:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-ghost:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes shimmer-gold {
+      0% {
+        transform: translateX(-250%);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      25% {
+        transform: translateX(400%);
+        opacity: 1;
+      }
+
+      26% {
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(400%);
+        opacity: 0;
+      }
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #FFD700;
+      padding: 10px 18px;
+      border-radius: 100px;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      background: rgba(255, 215, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+      letter-spacing: -0.1px;
+      font-family: inherit;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn-gold::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: 0;
+      width: 30%;
+      height: 200%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255, 215, 0, 0.45), transparent 80%);
+      animation: shimmer-gold 3s ease 1.5s infinite;
+      pointer-events: none;
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      border-color: rgba(255, 215, 0, 0.7);
+    }
+
+    .btn-gold:active {
+      transform: scale(0.95);
+    }
+
+    .btn-gold svg {
+      fill: #FFD700;
+      flex-shrink: 0;
+    }
+
+    .btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    /* ── HERO STATS ── */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: #a6a6a6;
+      font-weight: 400;
+      letter-spacing: -0.1px;
+    }
+
+    .hero-stat svg {
+      width: 15px;
+      height: 15px;
+      fill: #a6a6a6;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      scroll-snap-align: start;
+    }
+
+    /* subtle blue radial glow behind each section */
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 153, 255, 0.03), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0099ff;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 700;
+      letter-spacing: clamp(-1.5px, -0.04em, -2px);
+      line-height: 1.05;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: #a6a6a6;
+      text-align: center;
+      max-width: 460px;
+      margin: 0 auto 52px;
+      line-height: 1.55;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    /* Repository feature cards */
+    .card {
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: var(--card-ring);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: var(--card-ring-hover);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 153, 255, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #0099ff;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #a6a6a6;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .card-link {
+      font-size: 13px;
+      color: #0099ff;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s ease, color 0.2s ease;
+      margin-top: auto;
+    }
+
+    .card-link::after {
+      content: "→";
+    }
+
+    .card-link:hover {
+      gap: 8px;
+      color: #33aaff;
+    }
+
+    /* Tool cards variant */
+    .tool-card .card-icon {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .tool-card .card-icon svg {
+      fill: #ffffff;
+    }
+
+    /* Featured tool card */
+    .tool-card.featured {
+      box-shadow: rgba(0, 153, 255, 0.22) 0px 0px 0px 1px;
+    }
+
+    .tool-card.featured .card-icon {
+      background: rgba(0, 153, 255, 0.15);
+    }
+
+    .tool-card.featured .card-icon svg {
+      fill: #0099ff;
+    }
+
+    .tool-card.featured h3 {
+      color: #0099ff;
+    }
+
+    /* ── COMMUNITY SECTION ── */
+    .community {
+      text-align: center;
+      padding: 80px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+      scroll-snap-align: start;
+    }
+
+    .community::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0, 153, 255, 0.04), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .community>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .community h2 {
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 700;
+      letter-spacing: clamp(-1.5px, -0.04em, -2px);
+      margin-bottom: 12px;
+      line-height: 1.05;
+    }
+
+    .community>p {
+      font-size: 15px;
+      color: #a6a6a6;
+      max-width: 460px;
+      margin: 0 auto 36px;
+      line-height: 1.55;
+    }
+
+    .community-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    /* ── STATS GRID ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 20px 12px;
+      text-align: center;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.02);
+      box-shadow: rgba(0, 153, 255, 0.15) 0px 0px 0px 1px;
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-value.accent {
+      color: #0099ff;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #a6a6a6;
+      font-weight: 400;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* staggered card reveals */
+    .cards .card:nth-child(2).reveal {
+      transition-delay: 0.1s;
+    }
+
+    .cards .card:nth-child(3).reveal {
+      transition-delay: 0.2s;
+    }
+
+    .stats-grid .stat-card:nth-child(2).reveal {
+      transition-delay: 0.07s;
+    }
+
+    .stats-grid .stat-card:nth-child(3).reveal {
+      transition-delay: 0.14s;
+    }
+
+    .stats-grid .stat-card:nth-child(4).reveal {
+      transition-delay: 0.21s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 0 16px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-stats {
+        gap: 16px;
+      }
+
+      .section {
+        padding: 60px 16px;
+      }
+
+      .community {
+        padding: 60px 16px;
+      }
+
+      .section-subtitle {
+        margin-bottom: 36px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-<section class="hero">
-  <h1>Planificá tu carrera</h1>
-  <p>Explorá herramientas para simular tu avance en la Licenciatura en Sistemas de Información y compartir tu progreso con quien quieras.</p>
-  <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="btn" style="display:inline-flex;align-items:center;gap:8px">
-    <svg role="img" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.404c1.02.005 2.045.138 3 .404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.81 1.096.81 2.21 0 1.594-.015 2.877-.015 3.27 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
-    Dar estrella en GitHub
-  </a>
-</section>
-<section class="features">
-  <h2>Funcionalidades</h2>
-  <ul>
-    <li>Simulador interactivo para marcar materias cursadas y aprobadas.</li>
-    <li>Generación de enlaces para compartir tu estado de carrera.</li>
-    <li>Visualización clara de requisitos y progreso por año.</li>
-    <li><a href="https://tobiager.github.io/UNNE-LSI/index.html#buscador" target="_parent">Buscador de materias y recursos</a>.</li>
-  </ul>
-</section>
-<section class="start">
-  <h2>Cómo empezar</h2>
-  <ol>
-    <li>Entrá al <a href="https://tobiager.github.io/UNNE-LSI/index.html#simulador" target="_parent">Simulador de Avance</a>.</li>
-    <li>Seleccioná tu plan y marcá las materias según tu situación.</li>
-    <li>Compartí tu estado o consultalo desde cualquier dispositivo.</li>
-  </ol>
-  <div style="text-align:center;margin-top:24px">
-    <a href=https://tobiager.github.io/UNNE-LSI/index.html#simulador target="_parent" class="btn">Ir al simulador</a>
-    <a href="https://tobiager.github.io/UNNE-LSI/estado.html" target="_parent" class="btn" style="margin-left:12px" id="viewState">Ver estado</a>
-  </div>
-</section>
-<section class="calendar">
-  <h2>Calendario académico</h2>
-  <p style="max-width:800px;margin:0 auto 24px;text-align:center">Consultá las fechas de cursado, exámenes y feriados del ciclo lectivo.</p>
-  <div style="text-align:center">
-    <a href="https://tobiager.github.io/UNNE-LSI/index.html#calendario" target="_parent" class="btn">Ver calendario 2026</a>
-  </div>
-</section>
-<script>
-const savedTheme=localStorage.getItem('theme')||'theme-dark';
-document.body.classList.add(savedTheme);
-const baseUrl='https://tobiager.github.io/UNNE-LSI/index.html';
-const stateHash=localStorage.getItem('estado-link');
-const viewBtn=document.getElementById('viewState');
-if(stateHash){
-  viewBtn.href=baseUrl+'#estado:'+stateHash;
-}else{
-  viewBtn.addEventListener('click',e=>{
-    e.preventDefault();
-    parent.location.href=baseUrl+'#estado';
-    if(parent.showAlert) parent.showAlert('No hay un estado guardado');
-  });
-}
-</script>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="hero-badge">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+        Open Source
+      </div>
+
+      <h1>Todo lo que necesitas para aprobar LSI</h1>
+      <p>El repositorio colaborativo de la UNNE con apuntes, parciales resueltos y guías prácticas actualizadas al Plan
+        2023 y 2009.</p>
+
+      <div class="hero-actions">
+        <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="btn-primary btn">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          Explorar Repositorio
+        </a>
+        <a href="#herramientas" class="btn-secondary btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z" />
+          </svg>
+          Ver Herramientas
+        </a>
+        <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="btn-gold btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+          Apoyá el proyecto con una estrella
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+          </svg>
+          Comunidad activa
+        </div>
+        <div class="hero-stat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z" />
+          </svg>
+          +20 materias
+        </div>
+        <div class="hero-stat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+          Contribuciones abiertas
+        </div>
+      </div>
+    </div><!-- end .hero-body -->
+
+    <a href="#herramientas" class="scroll-hint" aria-label="Ver herramientas">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+      </svg>
+    </a>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ── REPOSITORIO ── -->
+  <section class="section">
+    <div class="section-label reveal">Repositorio</div>
+    <h2 class="section-title reveal">Todo lo que encontrarás</h2>
+    <p class="section-subtitle reveal">Recursos organizados y actualizados por la comunidad estudiantil</p>
+
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+          </svg>
+        </div>
+        <h3>Parciales Corregidos</h3>
+        <p>Colección extensa de exámenes parciales de años anteriores con resoluciones detalladas. Ideal para entender
+          qué tipo de preguntas toman los profesores.</p>
+        <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="card-link">Explorar materiales</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z" />
+          </svg>
+        </div>
+        <h3>Apuntes Teóricos</h3>
+        <p>Resúmenes y apuntes creados por estudiantes que ya aprobaron. Desde conceptos fundamentales hasta temas
+          avanzados.<br><br>Diagramas, ejemplos prácticos y explicaciones alternativas.</p>
+        <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="card-link">Ver apuntes</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+          </svg>
+        </div>
+        <h3>Guías de TPs</h3>
+        <p>Ejercicios resueltos paso a paso de los trabajos prácticos más comunes. Técnicas y metodologías para
+          aprobar.<br><br>Desde ejercicios básicos hasta problemas complejos.</p>
+        <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="card-link">Ver guías</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ── HERRAMIENTAS ── -->
+  <section class="section" id="herramientas">
+    <div class="section-label reveal">Herramientas</div>
+    <h2 class="section-title reveal">Herramientas Interactivas</h2>
+    <p class="section-subtitle reveal">Más que un repositorio: un ecosistema para optimizar tu carrera</p>
+
+    <div class="cards">
+      <div class="card tool-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z" />
+          </svg>
+        </div>
+        <h3>Simulador de Avance</h3>
+        <p>Trackeá tu progreso académico y planificá qué materias cursar el próximo cuatrimestre.</p>
+        <a href="#" class="card-link nav-link" data-hash="#simulador">Abrir simulador</a>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
+        </div>
+        <h3>Buscador de Materias</h3>
+        <p>Busca la materia de la que necesites el material.</p>
+        <a href="#" class="card-link nav-link" data-hash="#buscador">Buscar materias</a>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" />
+          </svg>
+        </div>
+        <h3>Calendario 2026</h3>
+        <p>Fechas de finales, inscripciones y eventos de la facultad.</p>
+        <a href="#" class="card-link nav-link" data-hash="#calendario">Ver calendario</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMMUNITY ── -->
+  <section class="community">
+    <h2 class="reveal">Construido por la comunidad</h2>
+    <p class="reveal">LSI Tools es mantenido por estudiantes de la Licenciatura en Sistemas de Información. Cualquiera
+      puede contribuir.</p>
+
+    <div class="community-actions reveal">
+      <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="btn-primary btn">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+        Contribuir en GitHub
+      </a>
+      <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" class="btn-gold btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+        Dar una estrella
+      </a>
+      <a href="https://tobiager.github.io/UNNE-LSI/index.html#estado" target="_parent" class="btn-ghost btn"
+        id="viewState">
+        Ver estado de carrera
+      </a>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Gratuito</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value">MIT</div>
+        <div class="stat-label">Licencia</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value">+20</div>
+        <div class="stat-label">Materias</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value accent gh-stars-count">44</div>
+        <div class="stat-label">GitHub Stars</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // ── Theme ──────────────────────────────────────────────────────
+    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
+    document.body.classList.add(savedTheme);
+
+    // ── Parent navigation (works local + production) ───────────────
+    function navParent(hash) {
+      try { parent.location.hash = hash; }
+      catch (e) { location.href = 'index.html' + hash; }
+    }
+
+    // Card + section links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        navParent(link.dataset.hash);
+      });
+    });
+
+    // ── Ver estado de carrera ──────────────────────────────────────
+    const stateHash = localStorage.getItem('estado-link');
+    const viewBtn = document.getElementById('viewState');
+
+    if (stateHash) {
+      viewBtn.addEventListener('click', e => {
+        e.preventDefault();
+        navParent('#estado:' + stateHash);
+      });
+    } else {
+      viewBtn.addEventListener('click', e => {
+        e.preventDefault();
+        if (parent.showAlert) parent.showAlert('No tenés un estado de carrera guardado. Crealo en el Simulador.');
+        navParent('#simulador');
+      });
+    }
+
+    // ── Scroll Reveal (Intersection Observer) ─────────────────────
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Smooth scroll for "Ver Herramientas" ──────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

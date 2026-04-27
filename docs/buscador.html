@@ -1,68 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Buscador de materias</title>
-<style>
-  :root{
-    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
-    --panel-light:#ffffff; --panel-dark:#0f1625;
-    --border-light:#d1d5db; --border-dark:#1f2a36;
-    --text-light:#1f2937; --text-dark:#e6edf3;
-    --muted-light:#6b7280; --muted-dark:#9fb0c2;
-    --grad1-light:#ffffff; --grad1-dark:#10233a;
-    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
-    --footer-h:56px;
-  }
-  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
-  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
-  *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:
-        radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-        radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-        var(--bg);
-      color:var(--text);
-      font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-      scroll-behavior:smooth;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buscador de materias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a6a6a6;
+      --accent: #0099ff;
+      --frosted: rgba(255, 255, 255, 0.05);
+      --footer-h: 48px;
     }
-  .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  h1{font-size:2rem;margin:0 0 16px;font-weight:800;text-align:center}
-</style>
-<link rel="stylesheet" href="css/buscador.css">
+
+    /* light theme compat */
+    body.theme-light {
+      --bg: #f8f9fa;
+      --panel: #ffffff;
+      --border: rgba(0, 0, 0, 0.1);
+      --text: #111111;
+      --muted: #6b7280;
+      --frosted: rgba(0, 0, 0, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #333333 #000000;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0099ff;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv11", "ss03";
+      scroll-behavior: smooth;
+      padding-bottom: var(--footer-h);
+    }
+
+    body.theme-light {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ── PAGE ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+
+    /* ── HERO HEADER ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .page-header::before {
+      content: "";
+      position: absolute;
+      inset: -40px -100px;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-header>* {
+      position: relative;
+    }
+
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    body.theme-light .page-header h1 {
+      color: var(--text);
+    }
+
+    .page-header p {
+      font-size: 14px;
+      color: #a6a6a6;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── SEARCH INPUT ── */
+    .search-wrap {
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #search {
+      width: 100%;
+      max-width: 480px;
+      padding: 12px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-size: 15px;
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv11";
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      letter-spacing: -0.1px;
+    }
+
+    body.theme-light #search {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.15);
+      color: #111111;
+    }
+
+    #search::placeholder {
+      color: #a6a6a6;
+    }
+
+    body.theme-light #search::placeholder {
+      color: #9ca3af;
+    }
+
+    #search:focus {
+      border-color: #0099ff;
+      box-shadow: rgba(0, 153, 255, 0.15) 0px 0px 0px 3px;
+    }
+
+    /* ── RESULTS TABLE ── */
+    .results-container {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: rgba(0, 153, 255, 0.08) 0px 0px 0px 1px;
+    }
+
+    body.theme-light .results-container {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: none;
+    }
+
+    #results {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #results td {
+      padding: 13px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: left;
+      font-size: 14px;
+      color: #a6a6a6;
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv11";
+      transition: background 0.15s ease;
+    }
+
+    body.theme-light #results td {
+      color: #6b7280;
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    #results tr:last-child td {
+      border-bottom: none;
+    }
+
+    #results tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    body.theme-light #results tr:hover td {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    #results td a {
+      color: #0099ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+      transition: color 0.15s ease;
+    }
+
+    #results td a:hover {
+      color: #33aaff;
+      text-decoration: underline;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 20px;
+      color: #a6a6a6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding: 40px 16px 24px;
+      }
+
+      #search {
+        border-radius: 12px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="css/buscador.css">
 </head>
+
 <body>
-<section class="wrap">
-  <h1>Buscador de materias</h1>
-  <input id="search" type="text" placeholder="Buscar..." autocomplete="off" />
-  <table id="results"><tbody></tbody></table>
-</section>
-<script>
-let materias=[];
-async function load(){
-  try{
-    materias = await (await fetch('materias.json')).json();
-    render(materias);
-  }catch(e){console.error('No se pudo cargar el índice',e);}
-}
-function render(list){
-  const tbody=document.querySelector('#results tbody');
-  const base='https://github.com/tobiager/UNNE-LSI/blob/main/';
-  tbody.innerHTML=list
-    .map(m=>`<tr><td><a href="${base}${encodeURI(m.ruta)}" target="_blank">${m.nombre}</a></td></tr>`)
-    .join('');
-}
-document.getElementById('search').addEventListener('input',e=>{
-  const q=e.target.value.toLowerCase();
-  render(materias.filter(m=>m.nombre.toLowerCase().includes(q)));
-});
-load();
-</script>
-<script>
-const savedTheme=localStorage.getItem('theme')||'theme-dark';
-document.body.classList.add(savedTheme);
-</script>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <h1>Buscador de materias</h1>
+      <p>Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
+    </div>
+
+    <div class="search-wrap">
+      <input id="search" type="text" placeholder="Buscar materia..." autocomplete="off" />
+    </div>
+
+    <div class="results-container">
+      <table id="results">
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let materias = [];
+
+    async function load() {
+      try {
+        materias = await (await fetch('materias.json')).json();
+        render(materias);
+      } catch (e) { console.error('No se pudo cargar el índice', e); }
+    }
+
+    function render(list) {
+      const tbody = document.querySelector('#results tbody');
+      const base = 'https://github.com/tobiager/UNNE-LSI/blob/main/';
+      if (list.length === 0) {
+        tbody.innerHTML = '<tr><td><div class="no-results">No se encontraron materias.</div></td></tr>';
+        return;
+      }
+      tbody.innerHTML = list
+        .map(m => `<tr><td><a href="${base}${encodeURI(m.ruta)}" target="_blank">${m.nombre}</a></td></tr>`)
+        .join('');
+    }
+
+    document.getElementById('search').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      render(materias.filter(m => m.nombre.toLowerCase().includes(q)));
+    });
+
+    load();
+  </script>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
+    document.body.classList.add(savedTheme);
+  </script>
 </body>
+
 </html>

@@ -1,55 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Herramientas LSI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
-    --panel-light:#ffffff; --panel-dark:#0f1625;
-    --border-light:#d1d5db; --border-dark:#1f2a36;
-    --text-light:#1f2937; --text-dark:#e6edf3;
-    --muted-light:#6b7280; --muted-dark:#9fb0c2;
-    --grad1-light:#ffffff; --grad1-dark:#10233a;
-    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
-    --footer-h:56px;
-  }
-  body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
-  body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:
-      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-      var(--bg);
-    color:var(--text);
-    font:16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
-    display:flex;
-    flex-direction:column;
-    min-height:100vh;
-    padding-bottom:var(--footer-h);
-  }
-  #content{flex:1;border:none;width:100%;}
-  #alerts{position:fixed;left:0;right:0;bottom:var(--footer-h);padding:8px;display:flex;flex-direction:column;align-items:center;z-index:20;}
-  .alert{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;max-width:640px;margin-bottom:8px;text-align:center;}
-</style>
-<link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Herramientas LSI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #0a0a0a;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a6a6a6;
+      --accent: #0099ff;
+      --accent-glow: rgba(0, 153, 255, 0.15);
+      --frosted: rgba(255, 255, 255, 0.1);
+      --footer-h: 48px;
+    }
+
+    body.theme-dark {
+      --bg: #000000;
+      --panel: #0a0a0a;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a6a6a6;
+      --grad1: #000000;
+      --grad2: #000000;
+    }
+
+    body.theme-light {
+      --bg: #f8f9fa;
+      --panel: #ffffff;
+      --border: rgba(0, 0, 0, 0.1);
+      --text: #111111;
+      --muted: #6b7280;
+      --grad1: #f0f4ff;
+      --grad2: #e8f0fe;
+    }
+
+    /* ── CUSTOM SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0099ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: #333333 #000000;
+    }
+
+    body {
+      margin: 0;
+      background: #000000;
+      color: #ffffff;
+      font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv11";
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-bottom: var(--footer-h);
+    }
+
+    #content {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+
+    #alerts {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: var(--footer-h);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .alert {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: saturate(130%) blur(12px);
+      -webkit-backdrop-filter: saturate(130%) blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 100px;
+      max-width: 640px;
+      margin-bottom: 8px;
+      text-align: center;
+      font-size: 13px;
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      box-shadow: rgba(0, 153, 255, 0.15) 0px 0px 0px 1px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
-<div id="navbar"></div>
-<iframe id="content" src="home.html"></iframe>
-<div id="alerts"></div>
-<div id="footer"></div>
-<script src="layout/layout.js"></script>
-<script src="app.js"></script>
-<script>
-const savedTheme=localStorage.getItem('theme')||'theme-dark';
-document.body.classList.add(savedTheme);
-</script>
+  <div id="navbar"></div>
+  <iframe id="content" src="home.html"></iframe>
+  <div id="alerts"></div>
+  <div id="footer"></div>
+  <script src="layout/layout.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
+    document.body.classList.add(savedTheme);
+
+    // ── GitHub Stars: fetch once, update navbar pill ──────────────
+    (async () => {
+      try {
+        const cached = sessionStorage.getItem('gh-stars');
+        const count = cached || await fetch('https://api.github.com/repos/tobiager/UNNE-LSI')
+          .then(r => r.ok ? r.json() : null)
+          .then(d => d ? String(d.stargazers_count) : null);
+        if (!count) return;
+        sessionStorage.setItem('gh-stars', count);
+        // Update navbar star count (navbar is in parent DOM)
+        document.querySelectorAll('#gh-stars-count').forEach(el => el.textContent = count);
+        // Also try to update inside the iframe if loaded
+        const iframe = document.getElementById('content');
+        if (iframe && iframe.contentDocument) {
+          iframe.contentDocument.querySelectorAll('.gh-stars-count').forEach(el => el.textContent = count);
+        }
+        iframe && iframe.addEventListener('load', () => {
+          try {
+            iframe.contentDocument.querySelectorAll('.gh-stars-count').forEach(el => el.textContent = count);
+          } catch (e) { }
+        }, { once: false });
+      } catch (e) { }
+    })();
+  </script>
 </body>
+
 </html>

@@ -1,42 +1,14 @@
+/* Responsive overrides — loaded by index.html (shell) and home.html (iframe) */
+
 @media (max-width: 600px) {
-  body {
-    font-size: 14px;
-    padding-bottom: calc(var(--footer-h) + 16px);
-  }
+  body { font-size: 14px; }
 
-  section {
-    padding: 24px 12px;
-  }
+  .hero { padding: 64px 16px 52px; }
+  .section { padding: 52px 16px; }
+  .community { padding: 52px 16px; }
 
-  .hero {
-    padding: 60px 12px 40px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-  }
-
-  .features ul,
-  .start ol {
-    padding-left: 16px;
-  }
-
-  .features li,
-  .start li {
-    margin-bottom: 12px;
-    padding: 14px 0;
-    min-height: 44px;
-  }
-
-  .btn {
-    padding: 14px 24px;
-    min-width: 44px;
-    min-height: 44px;
-  }
+  /* ensure pill buttons stack nicely */
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost { width: 100%; justify-content: center; }
 }

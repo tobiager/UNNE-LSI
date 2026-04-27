@@ -1,8 +1,8 @@
-/* Responsive layout for simulador */
+/* Simulador — layout & Framer polish */
 
 #materias {
   display: grid;
-  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 14px;
   margin-top: 16px;
 }
@@ -14,14 +14,30 @@
   align-items: center;
 }
 
-/* Adjust layout for medium screens */
+/* Framer blue-ring glow on materia cards */
+#materias > div,
+#materias > article,
+.materia-card,
+[class*="card"] {
+  box-shadow: rgba(0, 153, 255, 0.1) 0px 0px 0px 1px !important;
+  transition: box-shadow 0.2s !important;
+}
+
+#materias > div:hover,
+#materias > article:hover,
+.materia-card:hover,
+[class*="card"]:hover {
+  box-shadow: rgba(0, 153, 255, 0.22) 0px 0px 0px 1px !important;
+}
+
+/* Tablet */
 @media (max-width: 1200px) {
   #materias {
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
   }
 }
 
-/* Stack content on small screens */
+/* Mobile */
 @media (max-width: 600px) {
   #materias {
     grid-template-columns: 1fr;
@@ -33,12 +49,11 @@
   }
 }
 
-/* Animación suave del ancho de la barra */
-.meter > span{
+/* Smooth progress bar width transition */
+.meter > span {
   display: block;
   height: 100%;
-  width: 0%; /* estado base */
-  transition: width .7s cubic-bezier(.22,.8,.26,.99);
+  width: 0%;
+  transition: width 0.7s cubic-bezier(0.22, 0.8, 0.26, 0.99);
   will-change: width;
 }
-

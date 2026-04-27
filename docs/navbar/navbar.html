@@ -1,21 +1,175 @@
 <style>
-header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.7);backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid var(--border)}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-.nav-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.brand{font-weight:800;font-size:1.3rem;color:var(--text);text-decoration:none}
-.brand-lsi{display:inline-block;background:linear-gradient(45deg,#4cc9f0,#4361ee,#f72585);background-size:200% 200%;color:transparent;-webkit-background-clip:text;animation:brandShift 4s linear infinite;font-weight:800}
-@keyframes brandShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-header nav a{color:var(--text);text-decoration:none;font-weight:600;margin-left:16px;padding:12px 0;display:inline-block}
-header nav a:hover{text-decoration:underline}
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap');
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: saturate(130%) blur(20px);
+  -webkit-backdrop-filter: saturate(130%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 16px;
+}
+
+.brand {
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.3px;
+  font-feature-settings: "cv11", "ss03";
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 26px;
+  height: 26px;
+  background: #0099ff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-icon svg { width: 14px; height: 14px; fill: #ffffff; }
+
+.brand-lsi {
+  display: inline;
+  background: none;
+  color: #ffffff;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  animation: none;
+  font-weight: 600;
+}
+
+/* Center nav */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+header nav a {
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  color: #a6a6a6;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+  font-feature-settings: "cv06", "cv11", "ss03";
+  letter-spacing: -0.15px;
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+header nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+
+/* GitHub repo pill */
+.gh-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(0, 153, 255, 0.08);
+  border: 1px solid rgba(0, 153, 255, 0.22);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+}
+
+.gh-pill:hover {
+  background: rgba(0, 153, 255, 0.15);
+  border-color: rgba(0, 153, 255, 0.4);
+  text-decoration: none;
+}
+
+.gh-pill .gh-logo { width: 15px; height: 15px; fill: #0099ff; flex-shrink: 0; }
+
+.gh-pill .gh-sep { color: rgba(255, 255, 255, 0.2); font-weight: 300; }
+
+.gh-pill .gh-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #FFD700;
+  font-size: 12px;
+}
+
+.gh-pill .gh-stars svg { width: 11px; height: 11px; fill: #FFD700; flex-shrink: 0; }
+
+@media (max-width: 860px) {
+  header nav a:nth-child(n+3) { display: none; }
+}
+
+@media (max-width: 640px) {
+  header nav a:nth-child(n+2) { display: none; }
+  .nav-bar { gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .gh-pill .gh-sep,
+  .gh-pill .gh-stars { display: none; }
+}
 </style>
+
 <header>
   <div class="wrap nav-bar">
-    <a href="#home" class="brand"><span class="brand-lsi">LSI</span> Tools</a>
+    <a href="#home" class="brand">
+      <span class="brand-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+        </svg>
+      </span>
+      <span><span class="brand-lsi">LSI</span> Tools</span>
+    </a>
+
     <nav>
       <a href="#home">Inicio</a>
       <a href="#simulador">Simulador de Avance</a>
       <a href="#buscador">Buscador</a>
       <a href="#calendario">Calendario académico</a>
     </nav>
+
+    <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener" class="gh-pill">
+      <svg class="gh-logo" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+      UNNE-LSI
+      <span class="gh-sep">·</span>
+      <span class="gh-stars">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <span id="gh-stars-count">44</span>
+      </span>
+    </a>
   </div>
 </header>

@@ -5,19 +5,23 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Simulador de Avance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-light:#f3f4f6; --bg-dark:#0b0f14;
-    --panel-light:#ffffff; --panel-dark:#0f1625;
-    --border-light:#d1d5db; --border-dark:#1f2a36;
-    --text-light:#1f2937; --text-dark:#e6edf3;
-    --muted-light:#6b7280; --muted-dark:#9fb0c2;
-    --card-light:#ffffff; --card-dark:#0f1726;
-    --card2-light:#f9fafb; --card2-dark:#0b1423;
-    --grad1-light:#ffffff; --grad1-dark:#10233a;
-    --grad2-light:#e5e7eb; --grad2-dark:#1b2a43;
-    --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#60a5fa;
-    --footer-h:56px; --status-h:82px;
+    /* Framer dark tokens */
+    --bg-light:#f8f9fa; --bg-dark:#000000;
+    --panel-light:#ffffff; --panel-dark:#0a0a0a;
+    --border-light:rgba(0,0,0,0.1); --border-dark:rgba(255,255,255,0.08);
+    --text-light:#111111; --text-dark:#ffffff;
+    --muted-light:#6b7280; --muted-dark:#a6a6a6;
+    --card-light:#ffffff; --card-dark:#080808;
+    --card2-light:#f9fafb; --card2-dark:#050505;
+    --grad1-light:#f0f4ff; --grad1-dark:#000000;
+    --grad2-light:#e8f0fe; --grad2-dark:#000000;
+    --ok:#16a34a; --warn:#f59e0b; --off:#4b5563; --accent:#0099ff;
+    --footer-h:48px; --status-h:82px;
     /* valores por defecto (oscuro) */
     --bg:var(--bg-dark); --panel:var(--panel-dark); --border:var(--border-dark);
     --text:var(--text-dark); --muted:var(--muted-dark);
@@ -27,20 +31,41 @@
   body.theme-light{--bg:var(--bg-light);--panel:var(--panel-light);--border:var(--border-light);--text:var(--text-light);--muted:var(--muted-light);--card:var(--card-light);--card2:var(--card2-light);--grad1:var(--grad1-light);--grad2:var(--grad2-light)}
   body.theme-dark{--bg:var(--bg-dark);--panel:var(--panel-dark);--border:var(--border-dark);--text:var(--text-dark);--muted:var(--muted-dark);--card:var(--card-dark);--card2:var(--card2-dark);--grad1:var(--grad1-dark);--grad2:var(--grad2-dark)}
   *{box-sizing:border-box}
-  body{margin:0;color:var(--text);
-    background:
-      radial-gradient(900px 360px at -10% -10%,var(--grad1) 0,transparent 60%),
-      radial-gradient(700px 480px at 110% -10%,var(--grad2) 0,transparent 50%),
-      var(--bg);
-    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #333333 #000000;
   }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #000000; }
+  ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0099ff; }
+
+  body{margin:0;color:var(--text);
+    background: var(--bg);
+    font:15px/1.5 "Inter",-apple-system,system-ui,sans-serif;
+    font-feature-settings:"cv11","ss03";
+  }
+  /* subtle blue radial glow — dark only */
+  body.theme-dark::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(ellipse 80% 40% at 50% -5%,rgba(0,153,255,0.04),transparent 60%);
+  }
+  body.theme-dark .wrap,body.theme-dark main{position:relative;z-index:1}
   .wrap{max-width:1180px;margin:0 auto;padding:16px}
-  h1{margin:0 0 8px;font-size:1.8rem;letter-spacing:.2px;font-weight:800;text-shadow:0 2px 4px rgba(0,0,0,.4)}
+  h1{margin:0 0 8px;font-size:clamp(22px,3vw,32px);letter-spacing:-1.5px;font-weight:700;line-height:1.1;font-family:"Inter",-apple-system,system-ui,sans-serif}
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
   select,button,input[type="search"],input[type="text"]{
     background:var(--panel);border:1px solid var(--border);color:var(--text);
-    padding:8px 12px;border-radius:12px;font-weight:600
+    padding:8px 14px;border-radius:100px;font-weight:500;
+    font-family:"Inter",-apple-system,system-ui,sans-serif;font-size:14px;
+    transition:border-color 0.3s ease,box-shadow 0.2s ease,transform 0.15s ease;
   }
+  select:focus,button:focus,input[type="search"]:focus,input[type="text"]:focus{
+    border-color:#0099ff;box-shadow:rgba(0,153,255,0.15) 0px 0px 0px 2px;outline:none;
+  }
+  button:active{transform:scale(0.95)}
   .input-name{display:flex;flex-direction:column;gap:4px;font-weight:600}
   .input-name input{
     padding:8px 12px;border-radius:12px;border:1px solid var(--border);
@@ -90,8 +115,8 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .year-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:12px}
   .cuat h3{margin:0 0 8px;color:#b6c6dc;font-size:1rem}
 
-  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,var(--card),var(--card2));transition:transform .12s ease,box-shadow .12s ease;position:relative}
-  .card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,0,0,.25)}
+  .card{border:1px solid var(--border);border-radius:14px;padding:12px;background:linear-gradient(180deg,var(--card),var(--card2));transition:transform .22s ease,box-shadow .22s ease;position:relative;box-shadow:rgba(0,153,255,0.08) 0px 0px 0px 1px}
+  .card:hover{transform:scale(1.02);box-shadow:rgba(0,153,255,0.28) 0px 0px 0px 1px}
   .title{font-weight:800;margin:0 0 2px;font-size:1.02rem}
   .sub{color:#c8d7ea;margin:0 0 6px;font-size:.85rem}
   .meta,.reqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -101,7 +126,8 @@ padding:8px 12px;border-radius:12px;font-weight:600
   .req.miss{background:#2a0f12;border-color:#7f1d1d;color:#fecaca}
   .req.unknown{background:#2a1f0f;border-color:#7c2d12;color:#fde68a}
   .state{display:inline-flex;gap:6px;margin-top:10px}
-  .btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer}
+  .btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:4px 8px;border-radius:10px;font-size:.8rem;cursor:pointer;transition:background 0.3s ease,border-color 0.3s ease,transform 0.15s ease;font-family:"Inter",-apple-system,system-ui,sans-serif}
+  .btn:active{transform:scale(0.95)}
   .btn.active{outline:2px solid var(--accent)}
   .btn.off{background:#30343b}
   .btn.cur{background:#1e3a5f}
