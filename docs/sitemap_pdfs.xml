@@ -3553,6 +3553,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Tema%204/00004067_ModeladoAmenazas.pdf</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Tema%204/ISII_TEMA4.pdf</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Tema%204/ISII_Unidad1T4Ejemplo%20.pdf</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Material%20PFC%20TFA/formato%20ieee.pdf</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
