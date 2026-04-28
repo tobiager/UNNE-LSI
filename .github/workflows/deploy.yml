@@ -3,6 +3,8 @@ name: Build & Deploy LSI Tools
 on:
   push:
     branches: [main]
+  watch:
+    types: [started]
   workflow_dispatch:
 
 permissions:
