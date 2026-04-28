@@ -9711,16 +9711,6 @@
                     "keywords": [],
                     "categorias": [],
                     "categoria": null
-                  },
-                  {
-                    "tipo": "archivo",
-                    "nombre": "WhatsApp Unknown 2023-04-03 at 6.22.21 PM.zip",
-                    "extension": "zip",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Arquitectura%20de%20computadoras/Material/Tema%202/ejercicios/WhatsApp%20Unknown%202023-04-03%20at%206.22.21%20PM.zip",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Arquitectura%20de%20computadoras/Material/Tema%202/ejercicios/WhatsApp%20Unknown%202023-04-03%20at%206.22.21%20PM.zip",
-                    "keywords": [],
-                    "categorias": [],
-                    "categoria": null
                   }
                 ]
               },
@@ -10400,7 +10390,7 @@
       "categorias": {
         "Parcial": 84,
         "Examen": 2,
-        "TP": 46
+        "TP": 45
       },
       "top_categorias": [
         "Parcial",
@@ -12458,10 +12448,10 @@
                   },
                   {
                     "tipo": "archivo",
-                    "nombre": "TP3.10.sql",
+                    "nombre": "TP3.10.SQL",
                     "extension": "sql",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.sql",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.sql",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.SQL",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.SQL",
                     "keywords": [
                       "tp"
                     ],
@@ -12639,20 +12629,6 @@
                     "categoria": "TP"
                   }
                 ]
-              },
-              {
-                "tipo": "archivo",
-                "nombre": "Grupo39-TP3.rar",
-                "extension": "rar",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/Grupo39-TP3.rar",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/Grupo39-TP3.rar",
-                "keywords": [
-                  "tp"
-                ],
-                "categorias": [
-                  "TP"
-                ],
-                "categoria": "TP"
               },
               {
                 "tipo": "archivo",
@@ -19023,26 +18999,6 @@
                 ]
               }
             ]
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "Derivadas-Diferencial.zip",
-            "extension": "zip",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/Apuntes%20y%20fotos/Derivadas-Diferencial.zip",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/Apuntes%20y%20fotos/Derivadas-Diferencial.zip",
-            "keywords": [],
-            "categorias": [],
-            "categoria": null
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "Funciones-Limites-Continuidad.zip",
-            "extension": "zip",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/Apuntes%20y%20fotos/Funciones-Limites-Continuidad.zip",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/Apuntes%20y%20fotos/Funciones-Limites-Continuidad.zip",
-            "keywords": [],
-            "categorias": [],
-            "categoria": null
           },
           {
             "tipo": "archivo",
@@ -32317,16 +32273,6 @@
                 "extension": "pdf",
                 "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Tabla%20Normal%20Estándar.pdf",
                 "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Tabla%20Normal%20Estándar.pdf",
-                "keywords": [],
-                "categorias": [],
-                "categoria": null
-              },
-              {
-                "tipo": "archivo",
-                "nombre": "Teoría-20231106.zip",
-                "extension": "zip",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Teoría-20231106.zip",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Teoría-20231106.zip",
                 "keywords": [],
                 "categorias": [],
                 "categoria": null
