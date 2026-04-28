@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /buscador/
 
 Sitemap: https://tobiager.github.io/UNNE-LSI/sitemap.xml
+

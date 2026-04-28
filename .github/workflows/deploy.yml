@@ -29,15 +29,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python dependencies (if any)
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Run build_data.py
         run: python scripts/build_data.py
 
-      - name: Commit updated materias.json and sitemap.xml
+      - name: Commit updated materias.json, sitemap.xml and robots.txt
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/materias.json docs/sitemap.xml
-          git diff --cached --quiet || git commit -m "chore: auto-update materias.json & sitemap.xml [skip ci]"
+          git add docs/materias.json docs/sitemap.xml docs/robots.txt
+          git diff --cached --quiet || git commit -m "chore: auto-update site data (materias/sitemap/robots) [skip ci]"
           git push
 
   # ── 2. Deploy a GitHub Pages ─────────────────────────────────────────────────

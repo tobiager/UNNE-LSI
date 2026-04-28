@@ -384,6 +384,25 @@
       white-space: nowrap;
     }
 
+    .kw-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent2);
+      border: 1px solid rgba(0, 153, 255, .25);
+      margin-left: 8px;
+      flex-shrink: 0;
+    }
+
+    .tree-row.match {
+      background: rgba(0, 153, 255, .06);
+      box-shadow: inset 0 0 0 1px rgba(0, 153, 255, .22);
+    }
+
     .tree-chevron {
       font-size: 10px;
       color: var(--muted);
@@ -714,6 +733,77 @@
     const BASE_TITLE = 'LSI Tools';
     let MATERIAS = [];
 
+    const KW_TO_LABEL = {
+      final: 'Finales',
+      parcial: 'Parciales',
+      resumen: 'Resúmenes',
+      guia: 'Guías',
+      tp: 'TPs',
+      examen: 'Exámenes'
+    };
+
+    const KW_TO_BADGE = {
+      final: 'Final',
+      parcial: 'Parcial',
+      resumen: 'Resumen',
+      guia: 'Guía',
+      tp: 'TP',
+      examen: 'Examen'
+    };
+
+    let ACTIVE_KW = null;
+
+    function normalizeText(s) {
+      return (s || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function detectKwFromQuery(query) {
+      const q = normalizeText(query);
+      if (!q) return null;
+
+      // Mantenerlo simple: solo 1 keyword activa (la primera que matchee)
+      if (/\bfinal(es)?\b/.test(q)) return 'final';
+      if (/\bparcial(es)?\b/.test(q)) return 'parcial';
+      if (/\bresumen(es)?\b/.test(q)) return 'resumen';
+      if (/\bguia(s)?\b/.test(q)) return 'guia';
+      if (/\bexamen(es)?\b/.test(q)) return 'examen';
+      // TP: tp, tp1, tp-2, tps, trabajo practico
+      if (/\btp\b|\btp\d+\b|\btps\b/.test(q) || /\btrabajo\s*practico\b/.test(q)) return 'tp';
+
+      return null;
+    }
+
+    function scoreMateria(materia, query) {
+      const q = normalizeText(query);
+      if (!q) return 0;
+
+      const name = normalizeText(materia.nombre);
+      const slug = normalizeText((materia.slug || '').replace(/-/g, ' '));
+
+      // Si el query contiene el nombre completo o el slug, es un match fuerte.
+      if (name && q.includes(name)) return 100;
+      if (slug && q.includes(slug)) return 90;
+
+      // Score por tokens (ignorando stop-words comunes)
+      const stop = new Set(['de', 'del', 'la', 'el', 'y', 'en', 'a', 'para', 'por', 'los', 'las', 'un', 'una']);
+      const tokens = q.split(' ').filter(t => t && !stop.has(t));
+      if (!tokens.length) return 0;
+
+      let score = 0;
+      for (const t of tokens) {
+        if (t.length < 2) continue;
+        if (name.includes(t)) score += 6;
+        else if (slug.includes(t)) score += 4;
+      }
+
+      return score;
+    }
+
     // ── Helpers ──────────────────────────────────────────────────
     const ICONS = { pdf: '📄', md: '📝', txt: '📃', jpg: '🖼', jpeg: '🖼', png: '🖼', gif: '🖼', svg: '🖼', zip: '🗜', rar: '🗜', pptx: '📊', ppt: '📊', docx: '📝', doc: '📝', xlsx: '📊', xls: '📊', mp4: '🎬', mp3: '🎵', py: '🐍', js: '📜', java: '☕', c: '🔧', cpp: '🔧', cs: '🔷', json: '{}', xml: '📋', html: '🌐' };
     function getIcon(ext) { return ICONS[(ext || '').toLowerCase()] || '📎' }
@@ -736,8 +826,17 @@
     // ── List view ─────────────────────────────────────────────────
     function renderList(filter = '') {
       const tbody = document.getElementById('results-body');
-      const q = filter.toLowerCase().trim();
-      const list = q ? MATERIAS.filter(m => m.nombre.toLowerCase().includes(q) || (m.slug || '').includes(q)) : MATERIAS;
+      const q = normalizeText(filter);
+
+      let list = MATERIAS.slice();
+      if (q) {
+        list = list
+          .map(m => ({ m, score: scoreMateria(m, q) }))
+          .filter(x => x.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .map(x => x.m);
+      }
+
       if (!list.length) {
         tbody.innerHTML = '<tr><td><div class="no-results">No se encontraron materias 🔍</div></td></tr>';
         return;
@@ -753,6 +852,7 @@
         document.getElementById('detail-view').style.display = 'none';
         document.getElementById('list-view').style.display = '';
       }, 300);
+      ACTIVE_KW = null;
       setMeta(`Buscador de Materias — ${BASE_TITLE}`,
         'Encontrá apuntes, parciales y guías de cualquier materia de LSI UNNE.',
         'https://tobiager.github.io/UNNE-LSI/buscador/');
@@ -760,16 +860,31 @@
     }
 
     // ── Detail view ───────────────────────────────────────────────
-    function showDetail(materia) {
+    function showDetail(materia, opts = {}) {
       document.getElementById('list-view').style.display = 'none';
       const dv = document.getElementById('detail-view');
       dv.style.display = 'block';   // ← explícito, no '' (que hereda display:none del CSS)
       requestAnimationFrame(() => requestAnimationFrame(() => dv.classList.add('visible')));
 
-      setMeta(`Apuntes de ${materia.nombre} — ${BASE_TITLE}`,
-        `Recursos, apuntes y parciales de ${materia.nombre} — LSI UNNE.`,
-        materia.url_buscador);
-      history.pushState({ slug: materia.slug }, '', `${window.location.pathname}?materia=${materia.slug}`);
+      ACTIVE_KW = (opts.kw || null);
+      if (ACTIVE_KW && !KW_TO_LABEL[ACTIVE_KW]) ACTIVE_KW = null;
+
+      const kwLabel = ACTIVE_KW && KW_TO_LABEL[ACTIVE_KW] ? KW_TO_LABEL[ACTIVE_KW] : null;
+      const title = kwLabel
+        ? `${kwLabel} de ${materia.nombre} — ${BASE_TITLE}`
+        : `Apuntes de ${materia.nombre} — ${BASE_TITLE}`;
+      const desc = kwLabel
+        ? `${kwLabel}, guías y recursos de ${materia.nombre} — LSI UNNE.`
+        : `Recursos, apuntes y parciales de ${materia.nombre} — LSI UNNE.`;
+      const canonical = ACTIVE_KW
+        ? `https://tobiager.github.io/UNNE-LSI/buscador/?materia=${materia.slug}&kw=${ACTIVE_KW}`
+        : materia.url_buscador;
+
+      setMeta(title, desc, canonical);
+      const nextUrl = ACTIVE_KW
+        ? `${window.location.pathname}?materia=${materia.slug}&kw=${ACTIVE_KW}`
+        : `${window.location.pathname}?materia=${materia.slug}`;
+      history.pushState({ slug: materia.slug, kw: ACTIVE_KW }, '', nextUrl);
 
       document.getElementById('detail-title').textContent = materia.nombre;
       document.getElementById('btn-dl-all').href = materia.url_downgit || '#';
@@ -785,9 +900,9 @@
       loadReadme(materia);
     }
 
-    function openMateria(slug) {
+    function openMateria(slug, opts = {}) {
       const m = MATERIAS.find(x => x.slug === slug);
-      if (m) showDetail(m);
+      if (m) showDetail(m, opts);
     }
 
     // ── README ────────────────────────────────────────────────────
@@ -843,23 +958,41 @@
 
     // ── Sidebar tree renderer ─────────────────────────────────────
     function renderTree(items, depth = 0) {
-      return items.map(item => {
+      const kw = ACTIVE_KW;
+      const list = (items || []).slice();
+
+      if (kw) {
+        const hasKw = (it) => Array.isArray(it.keywords) && it.keywords.includes(kw);
+        list.sort((a, b) => {
+          if (a.tipo !== b.tipo) return a.tipo === 'carpeta' ? -1 : 1;
+          const am = hasKw(a) ? 1 : 0;
+          const bm = hasKw(b) ? 1 : 0;
+          if (am !== bm) return bm - am;
+          return (a.nombre || '').localeCompare((b.nombre || ''), 'es', { sensitivity: 'base' });
+        });
+      }
+
+      return list.map(item => {
         if (item.tipo === 'carpeta') {
           const id = 'sf-' + Math.random().toString(36).slice(2);
           const childrenHtml = item.hijos && item.hijos.length
             ? `<ul class="tree-children" id="${id}">${renderTree(item.hijos, depth + 1)}</ul>` : '';
+          const match = kw && Array.isArray(item.keywords) && item.keywords.includes(kw);
+          const badge = match && KW_TO_BADGE[kw] ? `<span class="kw-badge">${KW_TO_BADGE[kw]}</span>` : '';
           return `<li class="tree-item">
-        <div class="tree-row" onclick="toggleFolder('${id}',this)">
+        <div class="tree-row ${match ? 'match' : ''}" onclick="toggleFolder('${id}',this)">
           <span class="tree-icon">📁</span>
-          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>
+          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>${badge}
           ${item.hijos && item.hijos.length ? '<span class="tree-chevron">▶</span>' : ''}
         </div>${childrenHtml}</li>`;
         } else {
           const icon = getIcon(item.extension);
+          const match = kw && Array.isArray(item.keywords) && item.keywords.includes(kw);
+          const badge = match && KW_TO_BADGE[kw] ? `<span class="kw-badge">${KW_TO_BADGE[kw]}</span>` : '';
           return `<li class="tree-item">
-        <div class="tree-row" onclick="openFile('${item.url_raw}','${item.url_blob}',this)">
+        <div class="tree-row ${match ? 'match' : ''}" onclick="openFile('${item.url_raw}','${item.url_blob}',this)">
           <span class="tree-icon">${icon}</span>
-          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>
+          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>${badge}
         </div></li>`;
         }
       }).join('');
@@ -886,9 +1019,24 @@
 
     // ── Back ──────────────────────────────────────────────────────
     document.getElementById('btn-back').addEventListener('click', showList);
-    document.getElementById('search').addEventListener('input', e => renderList(e.target.value));
+
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', e => renderList(e.target.value));
+    searchInput.addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      const q = e.target.value || '';
+      const kw = detectKwFromQuery(q);
+      const ranked = MATERIAS
+        .map(m => ({ m, score: scoreMateria(m, q) }))
+        .sort((a, b) => b.score - a.score);
+      const best = ranked[0];
+      if (best && best.score > 0) {
+        openMateria(best.m.slug, { kw });
+      }
+    });
+
     window.addEventListener('popstate', e => {
-      if (e.state && e.state.slug) openMateria(e.state.slug);
+      if (e.state && e.state.slug) openMateria(e.state.slug, { kw: e.state.kw || null });
       else showList();
     });
 
@@ -906,10 +1054,13 @@
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
         // Deep-link
-        const slug = new URLSearchParams(window.location.search).get('materia');
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('materia');
+        let kw = (params.get('kw') || '').toLowerCase().trim() || null;
+        if (kw && !KW_TO_LABEL[kw]) kw = null;
         if (slug) {
           const m = MATERIAS.find(x => x.slug === slug);
-          if (m) { showDetail(m); return; }
+          if (m) { showDetail(m, { kw }); return; }
         }
         showList();
       } catch (err) {
