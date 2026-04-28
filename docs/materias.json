@@ -21789,10 +21789,20 @@
         "hijos": [
           {
             "tipo": "archivo",
-            "nombre": "Economía Aplicada 2026.pdf",
+            "nombre": "Modulo 1.pdf",
             "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Filminas/Economía%20Aplicada%202026.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Filminas/Economía%20Aplicada%202026.pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Filminas/Modulo%201.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Filminas/Modulo%201.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Modulo 2.pptx",
+            "extension": "pptx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Filminas/Modulo%202.pptx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Filminas/Modulo%202.pptx",
             "keywords": [],
             "categorias": [],
             "categoria": null
