@@ -116,22 +116,29 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 
 ```text
 .
-├── Materias/             # apuntes, prácticas y consejos por materia
-├── planes/               # planes 2009 y 2023 detallados
-├── meta/                 # correlatividades y mapeos auxiliares
-├── assets/               # imágenes usadas en el repo
-├── docs/                 # visualizaciones y sitio estático
-├── mkdocs.yml            # configuración de la documentación
-└── CONTRIBUTING.md       # cómo contribuir
+├── Materias/              # apuntes, prácticas y consejos por materia
+├── planes/                # planes 2009 y 2023 detallados
+├── meta/                  # correlatividades, mapeos y utilidades auxiliares
+├── scripts/               # scripts para generar/actualizar datos
+├── docs/                  # sitio estático (GitHub Pages) y visualizaciones
+├── assets/                # imágenes usadas en el repo
+├── .github/               # configs del repo (templates/workflows)
+├── mkdocs.yml             # configuración de MkDocs
+├── CONTRIBUTING.md        # cómo contribuir
+├── LICENSE                # licencias del repositorio
+└── README.md              # este archivo
 ```
 
 - **Materias/** → Cada carpeta tiene un `README.md` con apuntes, prácticos y consejos.
 - **planes/** → Info detallada de cada plan vigente.
-- **meta/** → Archivos auxiliares para correlatividades y planes.
-- **assets/** → Logos, banners y stickers de Jäger (modo estudiante).
-- **docs/** → Páginas y visualizaciones generadas.
-- **mkdocs.yml** → Configuración para generar la documentación del sitio.
+- **meta/** → Archivos auxiliares para correlatividades/planes.
+- **scripts/** → Scripts internos (p. ej. generación de `docs/*.json`).
+- **docs/** → Sitio estático (GitHub Pages) y recursos web (buscador, calendario, simulador).
+- **assets/** → Imágenes/banners/stickers usados en el repo.
+- **.github/** → Configuración de GitHub (issues/PR templates, workflows, etc.).
+- **mkdocs.yml** → Configuración para generar documentación con MkDocs.
 - **CONTRIBUTING.md** → Guía para colaborar con el proyecto.
+- **LICENSE** → Licencia del repositorio.
 
 ---
 
@@ -143,7 +150,7 @@ Para trabajar con este repositorio en tu máquina:
 git clone https://github.com/tobiager/UNNE-LSI.git
 cd UNNE-LSI
 # Ejemplo: navegar a la carpeta de una materia
-cd Materias/AED1
+cd "Materias/Algoritmo y Estructura de datos 1"
 ```
 
 Para generar y previsualizar la documentación del sitio:
@@ -230,7 +237,7 @@ Si te interesa entender cómo funciona Git/GitHub y clonar el repo como desarrol
 >  Los datos se guardan **localmente** en tu navegador (LocalStorage). Si cambiás de dispositivo/navegador, usá **Exportar JSON** e **Importar JSON**.
 
 ###  Cómo usarlo
-1. Entrá al <a href="https://tobiager.github.io/UNNE-LSI/simulador.html">Simulador</a> 
+1. Entrá al <a href="https://tobiager.github.io/UNNE-LSI/simulador/">Simulador</a> 
 2. Elegí tu **Plan** (2009 / 2023).  
 3. Marcá el **estado** de cada materia y cargá **notas** si corresponde.  
 4. Tocá **Guardar** para persistir tu avance en el navegador.  
