@@ -166,29 +166,7 @@
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
 
-    // ── GitHub Stars: fetch once, update navbar pill ──────────────
-    (async () => {
-      try {
-        const cached = sessionStorage.getItem('gh-stars');
-        const count = cached || await fetch('https://api.github.com/repos/tobiager/UNNE-LSI')
-          .then(r => r.ok ? r.json() : null)
-          .then(d => d ? String(d.stargazers_count) : null);
-        if (!count) return;
-        sessionStorage.setItem('gh-stars', count);
-        // Update navbar star count (navbar is in parent DOM)
-        document.querySelectorAll('#gh-stars-count').forEach(el => el.textContent = count);
-        // Also try to update inside the iframe if loaded
-        const iframe = document.getElementById('content');
-        if (iframe && iframe.contentDocument) {
-          iframe.contentDocument.querySelectorAll('.gh-stars-count').forEach(el => el.textContent = count);
-        }
-        iframe && iframe.addEventListener('load', () => {
-          try {
-            iframe.contentDocument.querySelectorAll('.gh-stars-count').forEach(el => el.textContent = count);
-          } catch (e) { }
-        }, { once: false });
-      } catch (e) { }
-    })();
+
 
     // ── Sync SEO meta with iframe (same-origin) ───────────────────
     (() => {

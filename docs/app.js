@@ -47,4 +47,45 @@
     // Navbar/footer are injected dynamically; label them too.
     ensureLinkButtonLabels(document);
   });
+
+  // ── GitHub Stars: fetch once, update everywhere ──────────────
+  (async () => {
+    try {
+      const cached = sessionStorage.getItem('gh-stars');
+      const fetchStars = async () => {
+        if (cached) return cached;
+        const res = await fetch('https://api.github.com/repos/tobiager/UNNE-LSI');
+        if (!res.ok) throw new Error('API Error');
+        const data = await res.json();
+        return String(data.stargazers_count);
+      };
+      
+      const count = await fetchStars().catch(() => null);
+      if (!count) return; // Mantener valor por defecto si falla
+      
+      sessionStorage.setItem('gh-stars', count);
+
+      const applyStars = (doc) => {
+        if (!doc) return;
+        try {
+          doc.querySelectorAll('.gh-stars-count').forEach(el => {
+            el.textContent = count;
+          });
+        } catch (e) {}
+      };
+
+      // Apply to main document
+      applyStars(document);
+
+      // Apply when navbar loads (since navbar has a star count)
+      document.addEventListener('navbarLoaded', () => applyStars(document));
+
+      // Apply to iframe if it exists (for index.html wrapping home.html)
+      const iframe = document.getElementById('content');
+      if (iframe) {
+        applyStars(iframe.contentDocument);
+        iframe.addEventListener('load', () => applyStars(iframe.contentDocument), { once: false });
+      }
+    } catch (e) {}
+  })();
 })();

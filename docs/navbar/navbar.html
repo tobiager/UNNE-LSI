@@ -1,203 +1,229 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap');
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: saturate(130%) blur(20px);
-  -webkit-backdrop-filter: saturate(130%) blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.nav-wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-  gap: 16px;
-}
-
-.brand {
-  font-family: "Inter", -apple-system, system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  color: #ffffff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: -0.3px;
-  font-feature-settings: "cv11", "ss03";
-  flex-shrink: 0;
-}
-
-.brand-icon {
-  width: 26px;
-  height: 26px;
-  background: #0099ff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.brand-icon svg { width: 14px; height: 14px; fill: #ffffff; }
-
-.brand-lsi {
-  display: inline;
-  background: none;
-  color: #ffffff;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  animation: none;
-  font-weight: 600;
-}
-
-/* Center nav */
-header nav {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex: 1;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex: 1;
-}
-
-.nav-links a {
-  font-family: "Inter", -apple-system, system-ui, sans-serif;
-  color: #a6a6a6;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: color 0.15s, background 0.15s;
-  font-feature-settings: "cv06", "cv11", "ss03";
-  letter-spacing: -0.15px;
-  margin-left: 0;
-  white-space: nowrap;
-}
-
-.nav-links a:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-  text-decoration: none;
-}
-
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: #a6a6a6;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 8px;
-  transition: color 0.15s, background 0.15s;
-}
-
-.hamburger:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.hamburger svg {
-  width: 22px;
-  height: 22px;
-}
-
-/* GitHub repo pill */
-.gh-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(0, 153, 255, 0.08);
-  border: 1px solid rgba(0, 153, 255, 0.22);
-  border-radius: 100px;
-  padding: 7px 14px;
-  font-family: "Inter", -apple-system, system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #ffffff;
-  text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  flex-shrink: 0;
-  letter-spacing: -0.15px;
-  white-space: nowrap;
-}
-
-.gh-pill:hover {
-  background: rgba(0, 153, 255, 0.15);
-  border-color: rgba(0, 153, 255, 0.4);
-  text-decoration: none;
-}
-
-.gh-pill .gh-logo { width: 15px; height: 15px; fill: #0099ff; flex-shrink: 0; }
-
-.gh-pill .gh-sep { color: rgba(255, 255, 255, 0.2); font-weight: 300; }
-
-.gh-pill .gh-stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: #FFD700;
-  font-size: 12px;
-}
-
-.gh-pill .gh-stars svg { width: 11px; height: 11px; fill: #FFD700; flex-shrink: 0; }
-
-@media (max-width: 860px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.72);
     backdrop-filter: saturate(130%) blur(20px);
     -webkit-backdrop-filter: saturate(130%) blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    flex-direction: column;
-    padding: 16px;
-    gap: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
-  .nav-links.active {
+  .nav-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .nav-bar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
   }
 
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
+  .brand {
+    font-family: "Inter", -apple-system, system-ui, sans-serif;
+    font-weight: 600;
     font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.3px;
+    font-feature-settings: "cv11", "ss03";
+    flex-shrink: 0;
   }
 
-  .hamburger {
+  .brand-icon {
+    width: 26px;
+    height: 26px;
+    background: #0099ff;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
-}
 
-@media (max-width: 640px) {
-  .nav-bar { gap: 8px; }
-}
+  .brand-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+  }
 
-@media (max-width: 480px) {
-  .gh-pill .gh-sep,
-  .gh-pill .gh-stars { display: none; }
-}
+  .brand-lsi {
+    display: inline;
+    background: none;
+    color: #ffffff;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    animation: none;
+    font-weight: 600;
+  }
+
+  /* Center nav */
+  header nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .nav-links a {
+    font-family: "Inter", -apple-system, system-ui, sans-serif;
+    color: #a6a6a6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: color 0.15s, background 0.15s;
+    font-feature-settings: "cv06", "cv11", "ss03";
+    letter-spacing: -0.15px;
+    margin-left: 0;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    text-decoration: none;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #a6a6a6;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .hamburger:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .hamburger svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* GitHub repo pill */
+  .gh-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(0, 153, 255, 0.08);
+    border: 1px solid rgba(0, 153, 255, 0.22);
+    border-radius: 100px;
+    padding: 7px 14px;
+    font-family: "Inter", -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+    letter-spacing: -0.15px;
+    white-space: nowrap;
+  }
+
+  .gh-pill:hover {
+    background: rgba(0, 153, 255, 0.15);
+    border-color: rgba(0, 153, 255, 0.4);
+    text-decoration: none;
+  }
+
+  .gh-pill .gh-logo {
+    width: 15px;
+    height: 15px;
+    fill: #0099ff;
+    flex-shrink: 0;
+  }
+
+  .gh-pill .gh-sep {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
+  }
+
+  .gh-pill .gh-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #FFD700;
+    font-size: 12px;
+  }
+
+  .gh-pill .gh-stars svg {
+    width: 11px;
+    height: 11px;
+    fill: #FFD700;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 860px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: saturate(130%) blur(20px);
+      -webkit-backdrop-filter: saturate(130%) blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      flex-direction: column;
+      padding: 16px;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links a {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    .hamburger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-bar {
+      gap: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .gh-pill .gh-sep,
+    .gh-pill .gh-stars {
+      display: none;
+    }
+  }
 </style>
 
 <header>
@@ -205,7 +231,7 @@ header nav {
     <a href="/UNNE-LSI/" class="brand" title="Apuntes LSI UNNE " aria-label="Ir a Apuntes LSI UNNE ">
       <span class="brand-icon">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
         </svg>
       </span>
       <span><span class="brand-lsi">LSI</span> Tools</span>
@@ -213,28 +239,36 @@ header nav {
 
     <nav>
       <button class="hamburger" id="mobile-menu-btn" aria-label="Abrir menú">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
       <div class="nav-links" id="nav-links">
-        <a href="/UNNE-LSI/simulador/" title="Simulador de avance de la carrera" aria-label="Abrir simulador de avance">Simulador de Avance</a>
-        <a href="/UNNE-LSI/buscador/" title="Buscador de apuntes y parciales por materia" aria-label="Abrir buscador de materias">Buscador</a>
-        <a href="/UNNE-LSI/calendario/" title="Calendario académico de LSI" aria-label="Abrir calendario académico">Calendario académico</a>
+        <a href="/UNNE-LSI/simulador/" title="Simulador de avance de la carrera"
+          aria-label="Abrir simulador de avance">Simulador de Avance</a>
+        <a href="/UNNE-LSI/buscador/" title="Buscador de apuntes y parciales por materia"
+          aria-label="Abrir buscador de materias">Buscador</a>
+        <a href="/UNNE-LSI/calendario/" title="Calendario académico de LSI"
+          aria-label="Abrir calendario académico">Calendario académico</a>
       </div>
     </nav>
 
-    <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener" class="gh-pill" title="Abrir repositorio UNNE-LSI en GitHub" aria-label="Abrir repositorio UNNE-LSI en GitHub">
+    <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener" class="gh-pill"
+      title="Abrir repositorio UNNE-LSI en GitHub" aria-label="Abrir repositorio UNNE-LSI en GitHub">
       <svg class="gh-logo" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        <path
+          d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
       </svg>
       UNNE-LSI
       <span class="gh-sep">·</span>
       <span class="gh-stars">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-        <span id="gh-stars-count">44</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+        <span id="gh-stars-count" class="gh-stars-count">44</span>
       </span>
     </a>
   </div>
