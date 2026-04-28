@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <link rel="icon" href="../../assets/lsi.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estado de carrera</title>
@@ -473,6 +474,7 @@
             transform: translateY(16px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
@@ -481,7 +483,7 @@
 </head>
 
 <body>
-  <div id="navbar"></div>
+    <div id="navbar"></div>
     <div class="page-wrap">
         <div class="page-header">
             <h1 class="reveal">Estado de carrera <span id="owner" class="owner"></span></h1>
@@ -525,7 +527,7 @@
             }
             if (!share) { document.getElementById('head').textContent = 'No hay un estado guardado.'; return; }
             document.getElementById('owner').textContent = share.name ? `· ${share.name}` : '';
-            const plans = await (await fetch('plans.json')).json();
+            const plans = await (await fetch('../plans.json')).json();
             const plan = plans[share.plan];
             if (!plan) { document.getElementById('head').textContent = 'Plan no encontrado.'; return; }
 
@@ -622,9 +624,9 @@
         );
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
-  <div id="footer"></div>
-  <script src="../layout/layout.js"></script>
-  <script src="../app.js"></script>
+    <div id="footer"></div>
+    <script src="../layout/layout.js"></script>
+    <script src="../app.js"></script>
 </body>
 
 </html>
