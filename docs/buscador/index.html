@@ -5,11 +5,31 @@
   <link rel="icon" href="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title id="page-title">Buscador de Materias — LSI Tools</title>
+  <title id="page-title">Buscador de materias — Apuntes LSI UNNE</title>
   <meta name="description" id="page-desc"
-    content="Encontrá apuntes, parciales y guías de cualquier materia de la Licenciatura en Sistemas de Información de la UNNE." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/buscador/" id="canonical-link" />
+
+  <!-- Open Graph (Facebook/WhatsApp/Discord) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="UNNE-LSI" />
+  <meta property="og:title" id="og-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta property="og:description" id="og-desc"
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+  <meta property="og:url" id="og-url" content="https://tobiager.github.io/UNNE-LSI/buscador/" />
+  <meta property="og:image" id="og-image"
+    content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" />
+  <meta property="og:image:alt" content="Apuntes LSI UNNE" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" id="tw-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta name="twitter:description" id="tw-desc"
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+  <meta name="twitter:image" id="tw-image"
+    content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -814,6 +834,17 @@
       if (dm) dm.setAttribute('content', desc);
       const cl = document.getElementById('canonical-link');
       if (cl && canonical) cl.setAttribute('href', canonical);
+
+      // Update OG/Twitter if tags exist
+      const setOg = (id, value) => {
+        const el = document.getElementById(id);
+        if (el && value) el.setAttribute('content', value);
+      };
+      setOg('og-title', title);
+      setOg('og-desc', desc);
+      setOg('og-url', canonical);
+      setOg('tw-title', title);
+      setOg('tw-desc', desc);
     }
 
     // ── Fetch ─────────────────────────────────────────────────────
@@ -853,8 +884,8 @@
         document.getElementById('list-view').style.display = '';
       }, 300);
       ACTIVE_KW = null;
-      setMeta(`Buscador de Materias — ${BASE_TITLE}`,
-        'Encontrá apuntes, parciales y guías de cualquier materia de LSI UNNE.',
+      setMeta(`Buscador de materias — Apuntes LSI UNNE`,
+        'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido.',
         'https://tobiager.github.io/UNNE-LSI/buscador/');
       history.pushState({}, '', window.location.pathname);
     }
@@ -874,8 +905,8 @@
         ? `${kwLabel} de ${materia.nombre} — ${BASE_TITLE}`
         : `Apuntes de ${materia.nombre} — ${BASE_TITLE}`;
       const desc = kwLabel
-        ? `${kwLabel}, guías y recursos de ${materia.nombre} — LSI UNNE.`
-        : `Recursos, apuntes y parciales de ${materia.nombre} — LSI UNNE.`;
+        ? `Apuntes LSI UNNE de Sistemas: ${kwLabel.toLowerCase()}, guías y recursos de ${materia.nombre}.`
+        : `Apuntes LSI UNNE de Sistemas: recursos, parciales y material de estudio de ${materia.nombre}.`;
       const canonical = ACTIVE_KW
         ? `https://tobiager.github.io/UNNE-LSI/buscador/?materia=${materia.slug}&kw=${ACTIVE_KW}`
         : materia.url_buscador;

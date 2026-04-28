@@ -340,9 +340,14 @@ def generate_sitemap(materias: list):
 def generate_robots():
     """Genera robots.txt asegurando que /buscador/ no esté bloqueado y que el sitemap sea visible."""
     lines = [
+        "User-agent: Googlebot",
+        "Allow: /",
+        "",
+        "User-agent: Bingbot",
+        "Allow: /",
+        "",
         "User-agent: *",
         "Allow: /",
-        "Allow: /buscador/",
         "",
         f"Sitemap: {BASE_URL}/sitemap.xml",
         "",

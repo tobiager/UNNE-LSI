@@ -5,7 +5,31 @@
   <link rel="icon" href="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Herramientas LSI</title>
+  <title id="page-title">Apuntes LSI UNNE (Plan 2023) — Sistemas</title>
+  <meta name="description" id="page-desc"
+    content="Apuntes LSI UNNE (Plan 2023) de Sistemas: parciales, finales y material de estudio. Buscador de materias y simulador de avance." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/" />
+
+  <!-- Open Graph (Facebook/WhatsApp/Discord) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="UNNE-LSI" />
+  <meta property="og:title" id="og-title" content="Apuntes LSI UNNE (Plan 2023) — Sistemas" />
+  <meta property="og:description" id="og-desc"
+    content="Apuntes LSI UNNE (Plan 2023) de Sistemas: parciales, finales y material de estudio. Buscador de materias y simulador de avance." />
+  <meta property="og:url" id="og-url" content="https://tobiager.github.io/UNNE-LSI/" />
+  <meta property="og:image" id="og-image"
+    content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" />
+  <meta property="og:image:alt" content="Apuntes LSI UNNE" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" id="tw-title" content="Apuntes LSI UNNE (Plan 2023) — Sistemas" />
+  <meta name="twitter:description" id="tw-desc"
+    content="Apuntes LSI UNNE (Plan 2023) de Sistemas: parciales, finales y material de estudio. Buscador de materias y simulador de avance." />
+  <meta name="twitter:image" id="tw-image"
+    content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -114,12 +138,25 @@
       font-family: "Inter", -apple-system, system-ui, sans-serif;
       box-shadow: rgba(0, 153, 255, 0.15) 0px 0px 0px 1px;
     }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
   <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
   <div id="navbar"></div>
+  <h1 class="sr-only">Apuntes LSI UNNE (Plan 2023) — Sistemas</h1>
   <iframe id="content" src="home.html"></iframe>
   <div id="alerts"></div>
   <div id="footer"></div>
@@ -151,6 +188,41 @@
           } catch (e) { }
         }, { once: false });
       } catch (e) { }
+    })();
+
+    // ── Sync SEO meta with iframe (same-origin) ───────────────────
+    (() => {
+      const iframe = document.getElementById('content');
+      if (!iframe) return;
+
+      const setIfPresent = (id, value) => {
+        const el = document.getElementById(id);
+        if (el && value) el.setAttribute('content', value);
+      };
+
+      const update = () => {
+        try {
+          const doc = iframe.contentDocument;
+          if (!doc) return;
+          const title = (doc.title || '').trim();
+          const desc = doc.querySelector('meta[name="description"]')?.getAttribute('content')?.trim();
+
+          if (title) {
+            document.title = title;
+            setIfPresent('og-title', title);
+            setIfPresent('tw-title', title);
+          }
+          if (desc) {
+            const dm = document.getElementById('page-desc');
+            if (dm) dm.setAttribute('content', desc);
+            setIfPresent('og-desc', desc);
+            setIfPresent('tw-desc', desc);
+          }
+        } catch (e) { }
+      };
+
+      iframe.addEventListener('load', update);
+      update();
     })();
   </script>
 </body>
