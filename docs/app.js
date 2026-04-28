@@ -49,7 +49,7 @@
   });
 
   // ── GitHub Stars: fetch once, update everywhere ──────────────
-  (async () => {
+  (() => {
     try {
       const cached = sessionStorage.getItem('gh-stars');
       const fetchStars = async () => {
@@ -60,18 +60,19 @@
         return String(data.stargazers_count);
       };
       
-      const count = await fetchStars().catch(() => null);
-      if (!count) return; // Mantener valor por defecto si falla
-      
-      sessionStorage.setItem('gh-stars', count);
+      const starsPromise = fetchStars().catch(() => null);
 
       const applyStars = (doc) => {
         if (!doc) return;
-        try {
-          doc.querySelectorAll('.gh-stars-count').forEach(el => {
-            el.textContent = count;
-          });
-        } catch (e) {}
+        starsPromise.then(count => {
+          if (!count) return; // Mantener valor por defecto si falla
+          sessionStorage.setItem('gh-stars', count);
+          try {
+            doc.querySelectorAll('.gh-stars-dynamic').forEach(el => {
+              el.textContent = count;
+            });
+          } catch (e) {}
+        });
       };
 
       // Apply to main document
@@ -84,7 +85,7 @@
       const iframe = document.getElementById('content');
       if (iframe) {
         applyStars(iframe.contentDocument);
-        iframe.addEventListener('load', () => applyStars(iframe.contentDocument), { once: false });
+        iframe.addEventListener('load', () => applyStars(iframe.contentDocument));
       }
     } catch (e) {}
   })();
