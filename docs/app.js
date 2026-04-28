@@ -51,42 +51,58 @@
   // ── GitHub Stars: fetch once, update everywhere ──────────────
   (() => {
     try {
-      const cached = sessionStorage.getItem('gh-stars');
       const fetchStars = async () => {
-        if (cached) return cached;
+        const cached = sessionStorage.getItem('gh-stars');
+        if (cached) {
+          console.log('[Stars] Valor en caché:', cached);
+          return cached;
+        }
         const res = await fetch('https://api.github.com/repos/tobiager/UNNE-LSI');
-        if (!res.ok) throw new Error('API Error');
+        if (!res.ok) throw new Error(`API ${res.status}`);
         const data = await res.json();
-        return String(data.stargazers_count);
+        const count = String(data.stargazers_count);
+        console.log('[Stars] API devolvió:', count);
+        return count;
       };
-      
-      const starsPromise = fetchStars().catch(() => null);
 
-      const applyStars = (doc) => {
+      const starsPromise = fetchStars().catch(e => {
+        console.warn('[Stars] Fetch falló:', e.message);
+        return null;
+      });
+
+      const applyStars = (doc, label) => {
         if (!doc) return;
         starsPromise.then(count => {
-          if (!count) return; // Mantener valor por defecto si falla
+          if (!count) return;
           sessionStorage.setItem('gh-stars', count);
           try {
-            doc.querySelectorAll('.gh-stars-dynamic').forEach(el => {
-              el.textContent = count;
-            });
+            const els = doc.querySelectorAll('.gh-stars-dynamic');
+            console.log(`[Stars] ${label}: encontró ${els.length} elemento(s), aplicando ${count}`);
+            els.forEach(el => { el.textContent = count; });
           } catch (e) {}
         });
       };
 
       // Apply to main document
-      applyStars(document);
+      applyStars(document, 'document');
 
       // Apply when navbar loads (since navbar has a star count)
-      document.addEventListener('navbarLoaded', () => applyStars(document));
+      document.addEventListener('navbarLoaded', () => applyStars(document, 'document@navbarLoaded'));
 
-      // Apply to iframe if it exists (for index.html wrapping home.html)
+      // Apply to iframe — check readyState to handle already-loaded (cached) iframes
       const iframe = document.getElementById('content');
       if (iframe) {
-        applyStars(iframe.contentDocument);
-        iframe.addEventListener('load', () => applyStars(iframe.contentDocument));
+        const tryIframe = () => {
+          const doc = iframe.contentDocument;
+          if (doc && doc.readyState !== 'loading') {
+            applyStars(doc, 'iframe@ready');
+          }
+        };
+        tryIframe();
+        iframe.addEventListener('load', () => applyStars(iframe.contentDocument, 'iframe@load'));
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error('[Stars] Error inesperado:', e);
+    }
   })();
 })();
