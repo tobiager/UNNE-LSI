@@ -15,9 +15,10 @@ from pathlib import Path
 REPO_ROOT   = Path(__file__).resolve().parent.parent
 MATERIAS_DIR = REPO_ROOT / "Materias"
 DOCS_DIR    = REPO_ROOT / "docs"
-OUTPUT_JSON  = DOCS_DIR / "materias.json"
-SITEMAP_OUT  = DOCS_DIR / "sitemap.xml"
-ROBOTS_OUT   = DOCS_DIR / "robots.txt"
+OUTPUT_JSON      = DOCS_DIR / "materias.json"
+SITEMAP_OUT      = DOCS_DIR / "sitemap.xml"
+PDF_SITEMAP_OUT  = DOCS_DIR / "sitemap_pdfs.xml"
+ROBOTS_OUT       = DOCS_DIR / "robots.txt"
 
 BASE_URL     = "https://tobiager.github.io/UNNE-LSI"
 GITHUB_RAW   = "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main"
@@ -337,6 +338,75 @@ def generate_sitemap(materias: list):
     print(f"[OK] Sitemap generado → {SITEMAP_OUT}  ({len(materias)} materias + {len(STATIC_PAGES)} páginas estáticas)")
 
 
+def collect_pdfs(contenido: list) -> list:
+    """Recorre recursivamente el árbol de contenido y devuelve todos los archivos PDF."""
+    pdfs = []
+    for item in contenido or []:
+        if item.get("tipo") == "archivo" and item.get("extension", "").lower() == "pdf":
+            pdfs.append(item)
+        elif item.get("tipo") == "carpeta":
+            pdfs.extend(collect_pdfs(item.get("hijos") or []))
+    return pdfs
+
+
+def generate_pdf_sitemap(materias: list):
+    """
+    Genera sitemap_pdfs.xml con las URLs raw de cada PDF del repositorio.
+
+    Nota: estos archivos residen en raw.githubusercontent.com (no en GitHub Pages)
+    porque el deploy solo sirve el directorio /docs.  Google indexa contenido de
+    raw.githubusercontent.com para repos públicos, así que incluirlos aquí ayuda
+    a que Googlebot los descubra y los indexe directamente.
+    Podés someter este sitemap por separado en Google Search Console.
+    """
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
+        '        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9',
+        '          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
+        '',
+        '  <!-- PDFs del repositorio UNNE-LSI (raw.githubusercontent.com) -->',
+        '  <!-- Submití este sitemap en Google Search Console para indexar el contenido de cada PDF -->',
+    ]
+
+    total_pdfs = 0
+    for m in materias:
+        pdfs = collect_pdfs(m.get("contenido") or [])
+        if not pdfs:
+            continue
+
+        lines.append(f'\n  <!-- {m["nombre"]} -->')
+        for pdf in pdfs:
+            url = pdf.get("url_raw")
+            if not url:
+                continue
+            # Prioridad según categoría del archivo
+            categoria = pdf.get("categoria") or ""
+            if categoria == "Final":
+                priority = "0.8"
+            elif categoria in ("Parcial", "Examen"):
+                priority = "0.7"
+            else:
+                priority = "0.6"
+
+            lines += [
+                '  <url>',
+                f'    <loc>{xml_escape_loc(url)}</loc>',
+                f'    <lastmod>{today}</lastmod>',
+                '    <changefreq>monthly</changefreq>',
+                f'    <priority>{priority}</priority>',
+                '  </url>',
+            ]
+            total_pdfs += 1
+
+    lines.append('</urlset>')
+    PDF_SITEMAP_OUT.write_text('\n'.join(lines) + '\n', encoding="utf-8")
+    print(f"[OK] PDF Sitemap generado → {PDF_SITEMAP_OUT}  ({total_pdfs} PDFs)")
+
+
 def generate_robots():
     """Genera robots.txt asegurando que /buscador/ no esté bloqueado y que el sitemap sea visible."""
     lines = [
@@ -350,6 +420,7 @@ def generate_robots():
         "Allow: /",
         "",
         f"Sitemap: {BASE_URL}/sitemap.xml",
+        f"Sitemap: {BASE_URL}/sitemap_pdfs.xml",
         "",
     ]
     ROBOTS_OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -366,6 +437,8 @@ if __name__ == "__main__":
     materias = generate_json()
     print(f"\n🗺️  Generando sitemap …")
     generate_sitemap(materias)
+    print(f"\n📄 Generando sitemap de PDFs …")
+    generate_pdf_sitemap(materias)
     print(f"\n🤖 Generando robots.txt …")
     generate_robots()
     print("\n✅ Build completo.\n")

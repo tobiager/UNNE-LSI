@@ -37,11 +37,11 @@ jobs:
       - name: Run build_data.py
         run: python scripts/build_data.py
 
-      - name: Commit updated materias.json, sitemap.xml and robots.txt
+      - name: Commit updated materias.json, sitemap.xml, sitemap_pdfs.xml and robots.txt
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/materias.json docs/sitemap.xml docs/robots.txt
+          git add docs/materias.json docs/sitemap.xml docs/sitemap_pdfs.xml docs/robots.txt
           git diff --cached --quiet || git commit -m "chore: auto-update site data (materias/sitemap/robots) [skip ci]"
           git push
 
