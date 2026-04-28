@@ -66,7 +66,14 @@ header nav {
   flex: 1;
 }
 
-header nav a {
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.nav-links a {
   font-family: "Inter", -apple-system, system-ui, sans-serif;
   color: #a6a6a6;
   text-decoration: none;
@@ -81,10 +88,31 @@ header nav a {
   white-space: nowrap;
 }
 
-header nav a:hover {
+.nav-links a:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.06);
   text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #a6a6a6;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.hamburger:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hamburger svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* GitHub repo pill */
@@ -128,11 +156,41 @@ header nav a:hover {
 .gh-pill .gh-stars svg { width: 11px; height: 11px; fill: #FFD700; flex-shrink: 0; }
 
 @media (max-width: 860px) {
-  header nav a:nth-child(n+3) { display: none; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: saturate(130%) blur(20px);
+    -webkit-backdrop-filter: saturate(130%) blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: column;
+    padding: 16px;
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 640px) {
-  header nav a:nth-child(n+2) { display: none; }
   .nav-bar { gap: 8px; }
 }
 
@@ -154,10 +212,18 @@ header nav a:hover {
     </a>
 
     <nav>
-      <a href="#home">Inicio</a>
-      <a href="#simulador">Simulador de Avance</a>
-      <a href="#buscador">Buscador</a>
-      <a href="#calendario">Calendario académico</a>
+      <button class="hamburger" id="mobile-menu-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#simulador">Simulador de Avance</a>
+        <a href="#buscador">Buscador</a>
+        <a href="#calendario">Calendario académico</a>
+      </div>
     </nav>
 
     <a href="https://github.com/tobiager/UNNE-LSI" target="_blank" rel="noopener" class="gh-pill">

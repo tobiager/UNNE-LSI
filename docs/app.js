@@ -12,6 +12,14 @@
   document.addEventListener('navbarLoaded', () => {
     const frame = document.getElementById('content');
     const links = document.querySelectorAll('header nav a, header a.brand');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navLinksContainer = document.getElementById('nav-links');
+
+    if (mobileBtn && navLinksContainer) {
+      mobileBtn.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+      });
+    }
 
     const routes = {
       '#home': 'home.html',
@@ -31,6 +39,9 @@
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
+        if (navLinksContainer && navLinksContainer.classList.contains('active')) {
+          navLinksContainer.classList.remove('active');
+        }
         history.pushState(null, '', link.getAttribute('href'));
         loadFromHash();
       });
