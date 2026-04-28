@@ -2,80 +2,72 @@
 <html lang="es">
 
 <head>
-  <link rel="icon" href="../../assets/lsi.ico" type="image/x-icon">
+  <link rel="icon" href="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.ico" type="image/x-icon">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Buscador de materias</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title id="page-title">Buscador de Materias — LSI Tools</title>
+  <meta name="description" id="page-desc"
+    content="Encontrá apuntes, parciales y guías de cualquier materia de la Licenciatura en Sistemas de Información de la UNNE." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/buscador/" id="canonical-link" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
     rel="stylesheet">
+  <!-- marked.js moved to end of body to avoid Tracking Prevention -->
   <style>
     :root {
-      --bg: #000000;
-      --panel: rgba(255, 255, 255, 0.04);
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #ffffff;
-      --muted: #a6a6a6;
+      --bg: #000;
       --accent: #0099ff;
-      --frosted: rgba(255, 255, 255, 0.05);
+      --accent2: rgba(0, 153, 255, .12);
+      --border: rgba(255, 255, 255, .05);
+      --panel: rgba(255, 255, 255, .04);
+      --text: #fff;
+      --muted: #a0a0a0;
+      --radius: 14px;
       --footer-h: 48px;
-    }
-
-    body.theme-light {
-      --bg: #f8f9fa;
-      --panel: #ffffff;
-      --border: rgba(0, 0, 0, 0.1);
-      --text: #111111;
-      --muted: #6b7280;
-      --frosted: rgba(0, 0, 0, 0.03);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0
     }
 
     html {
       scrollbar-width: thin;
-      scrollbar-color: #333333 #000000;
+      scrollbar-color: #333 #000
     }
 
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px
     }
 
     ::-webkit-scrollbar-track {
-      background: #000000;
+      background: #000
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #333333;
-      border-radius: 4px;
+      background: #333;
+      border-radius: 3px
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #0099ff;
+      background: var(--accent)
     }
 
     body {
-      background: #000000;
-      color: #ffffff;
+      background: #000;
+      color: #fff;
       font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv11", "ss03";
-      scroll-behavior: smooth;
       padding-bottom: var(--footer-h);
+      overflow-x: hidden;
     }
 
-    body.theme-light {
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    body:not(.theme-light)::before {
+    body::before {
       content: "";
       position: fixed;
       top: 68px;
@@ -84,52 +76,42 @@
       bottom: 0;
       pointer-events: none;
       z-index: 0;
-      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 60%);
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, .05), transparent 60%);
     }
 
     /* ── PAGE ── */
     .page-wrap {
-      max-width: 860px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 80px 24px 40px;
+      padding: 80px 20px 40px;
       position: relative;
       z-index: 1;
     }
 
-    /* ── HERO HEADER ── */
+    /* ── HEADER ── */
     .page-header {
       text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .page-header>* {
-      position: relative;
+      margin-bottom: 36px;
     }
 
     .page-header h1 {
-      font-size: clamp(28px, 4vw, 44px);
+      font-size: clamp(26px, 4vw, 42px);
       font-weight: 700;
       letter-spacing: -2px;
       line-height: 1.05;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-
-    body.theme-light .page-header h1 {
-      color: var(--text);
+      margin-bottom: 8px;
     }
 
     .page-header p {
       font-size: 14px;
-      color: #a6a6a6;
-      max-width: 380px;
+      color: var(--muted);
+      max-width: 400px;
       margin: 0 auto;
     }
 
-    /* ── SEARCH INPUT ── */
+    /* ── SEARCH ── */
     .search-wrap {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: center;
     }
@@ -138,129 +120,530 @@
       width: 100%;
       max-width: 480px;
       padding: 12px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, .1);
       border-radius: 100px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
+      background: rgba(255, 255, 255, .05);
+      color: #fff;
       font-size: 15px;
-      font-family: "Inter", -apple-system, system-ui, sans-serif;
-      font-feature-settings: "cv11";
+      font-family: inherit;
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      letter-spacing: -0.1px;
-    }
-
-    body.theme-light #search {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.15);
-      color: #111111;
+      transition: border-color .2s, box-shadow .2s;
     }
 
     #search::placeholder {
-      color: #a6a6a6;
-    }
-
-    body.theme-light #search::placeholder {
-      color: #9ca3af;
+      color: var(--muted)
     }
 
     #search:focus {
-      border-color: #0099ff;
-      box-shadow: rgba(0, 153, 255, 0.15) 0px 0px 0px 3px;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 153, 255, .15)
     }
 
-    /* ── RESULTS TABLE ── */
+    /* ── LIST ── */
     .results-container {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 15px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: rgba(0, 153, 255, 0.08) 0px 0px 0px 1px;
-    }
-
-    body.theme-light .results-container {
-      background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.08);
-      box-shadow: none;
+      box-shadow: 0 0 0 1px rgba(0, 153, 255, .07);
     }
 
     #results {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: collapse
     }
 
     #results td {
       padding: 13px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
       font-size: 14px;
-      color: #a6a6a6;
-      font-family: "Inter", -apple-system, system-ui, sans-serif;
-      font-feature-settings: "cv11";
-      transition: background 0.15s ease;
-    }
-
-    body.theme-light #results td {
-      color: #6b7280;
-      border-bottom-color: rgba(0, 0, 0, 0.06);
+      color: var(--muted);
+      transition: background .15s;
     }
 
     #results tr:last-child td {
-      border-bottom: none;
+      border-bottom: none
     }
 
     #results tr:hover td {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, .03)
     }
 
-    body.theme-light #results tr:hover td {
-      background: rgba(0, 0, 0, 0.02);
-    }
-
-    #results td a {
-      color: #0099ff;
+    .materia-link {
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
-      letter-spacing: -0.2px;
-      transition: color 0.15s ease;
+      letter-spacing: -.2px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      transition: color .15s;
     }
 
-    #results td a:hover {
+    .materia-link:hover {
       color: #33aaff;
-      text-decoration: underline;
+      text-decoration: underline
     }
 
     .no-results {
       text-align: center;
       padding: 40px 20px;
-      color: #a6a6a6;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* ── DETAIL: two-column layout ── */
+    #detail-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    #detail-view.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .detail-topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .05);
+      color: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .detail-title {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn-dl-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--accent2);
+      border: 1px solid rgba(0, 153, 255, .3);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-dl-all:hover {
+      background: rgba(0, 153, 255, .22);
+      transform: translateY(-1px)
+    }
+
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .04);
+      color: #ccc;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-github:hover {
+      background: rgba(255, 255, 255, .08);
+      color: #fff
+    }
+
+    /* two columns */
+    .explorer {
+      display: grid;
+      grid-template-columns: 25% 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      background: rgba(5, 5, 5, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .4);
+      overflow: hidden;
+      max-height: calc(100vh - 120px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 14px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .sidebar-tree {
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* tree items */
+    .tree-list {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .tree-item {
+      border-bottom: 1px solid rgba(255, 255, 255, .03)
+    }
+
+    .tree-item:last-child {
+      border-bottom: none
+    }
+
+    .tree-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
       font-size: 14px;
+      color: #a0a0a0;
+      user-select: none;
+      border-left: 2px solid transparent;
     }
 
-    @media (max-width: 600px) {
-      .page-wrap {
-        padding: 40px 16px 24px;
+    .tree-row:hover {
+      background: rgba(0, 153, 255, .05);
+      color: #fff;
+      border-left: 2px solid var(--accent);
+    }
+
+    .tree-row.active {
+      background: var(--accent2);
+      color: var(--accent);
+      border-left: 2px solid var(--accent);
+    }
+
+    .tree-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      width: 18px;
+      text-align: center
+    }
+
+    .tree-label {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .tree-chevron {
+      font-size: 10px;
+      color: var(--muted);
+      transition: transform .2s;
+      flex-shrink: 0
+    }
+
+    .tree-chevron.open {
+      transform: rotate(90deg)
+    }
+
+    .tree-children {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background: rgba(0, 0, 0, .15);
+      display: none;
+    }
+
+    .tree-children.open {
+      display: block
+    }
+
+    .tree-children .tree-row {
+      padding-left: 32px;
+    }
+
+    .tree-children .tree-children .tree-row {
+      padding-left: 48px;
+    }
+
+    /* ── MAIN AREA ── */
+    .main-area {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* README panel */
+    .readme-panel {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      min-height: 70vh;
+    }
+
+    .readme-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 60px 0;
+    }
+
+    .top-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      z-index: 9999;
+      animation: loading-bar 1.5s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    @keyframes loading-bar {
+      0% {
+        left: -30%;
+        width: 30%;
       }
 
-      #search {
-        border-radius: 12px;
+      50% {
+        width: 50%;
+      }
+
+      100% {
+        left: 100%;
+        width: 30%;
       }
     }
 
-    /* ── SCROLL REVEAL ── */
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 13px;
+      background: rgba(255, 100, 100, .06);
+      border: 1px solid rgba(255, 100, 100, .2);
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+
+    .error-msg a {
+      color: var(--accent)
+    }
+
+    /* Markdown styles */
+    .md-body {
+      color: #ddd;
+      line-height: 1.75;
+      font-size: 14.5px
+    }
+
+    .md-body h1,
+    .md-body h2,
+    .md-body h3,
+    .md-body h4 {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 1.3em 0 .5em;
+      border-bottom: 1px solid rgba(0, 153, 255, .15);
+      padding-bottom: .3em
+    }
+
+    .md-body h1 {
+      font-size: 1.55em
+    }
+
+    .md-body h2 {
+      font-size: 1.25em
+    }
+
+    .md-body h3 {
+      font-size: 1.05em
+    }
+
+    .md-body h1:first-child,
+    .md-body h2:first-child {
+      margin-top: 0
+    }
+
+    .md-body p {
+      margin: .75em 0
+    }
+
+    .md-body a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .md-body a:hover {
+      text-decoration: underline
+    }
+
+    .md-body ul,
+    .md-body ol {
+      padding-left: 1.5em;
+      margin: .6em 0
+    }
+
+    .md-body li {
+      margin: .25em 0
+    }
+
+    .md-body code {
+      background: rgba(255, 255, 255, .08);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 12.5px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      color: #a8d8ff
+    }
+
+    .md-body pre {
+      background: rgba(0, 0, 0, .5);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 1em 0
+    }
+
+    .md-body pre code {
+      background: none;
+      padding: 0;
+      color: #e0e0e0
+    }
+
+    .md-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin: 1em 0;
+      color: var(--muted);
+      font-style: italic
+    }
+
+    .md-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 13px
+    }
+
+    .md-body th {
+      background: rgba(0, 153, 255, .1);
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      border: 1px solid rgba(0, 153, 255, .2)
+    }
+
+    .md-body td {
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, .06);
+      color: #ccc
+    }
+
+    .md-body img {
+      max-width: 100%;
+      border-radius: 8px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .md-body hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      margin: 1.5em 0
+    }
+
+    /* ── ANIM ── */
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(14px);
+      transition: opacity .5s ease, transform .5s ease
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0)
+    }
+
+    @media(max-width:700px) {
+      .explorer {
+        grid-template-columns: 1fr
+      }
+
+      .sidebar {
+        position: static;
+        max-height: 260px
+      }
+
+      .page-wrap {
+        padding: 52px 14px 32px
+      }
+
+      .readme-panel {
+        padding: 18px 16px
+      }
+
+      .detail-topbar {
+        flex-wrap: wrap
+      }
     }
   </style>
-  <link rel="stylesheet" href="../css/buscador.css">
 </head>
 
 <body>
@@ -268,173 +651,277 @@
   <div id="navbar"></div>
 
   <div class="page-wrap">
-    <div class="page-header">
-      <h1 class="reveal">Buscador de materias</h1>
-      <p class="reveal">Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
+
+    <!-- ── LIST VIEW ── -->
+    <div id="list-view">
+      <div class="page-header">
+        <h1 class="reveal">Buscador de materias</h1>
+        <p class="reveal">Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
+      </div>
+      <div class="search-wrap reveal">
+        <input id="search" type="text" placeholder="Buscar materia…" autocomplete="off" aria-label="Buscar materia" />
+      </div>
+      <div class="results-container reveal">
+        <table id="results">
+          <tbody id="results-body">
+            <tr>
+              <td style="text-align:center;padding:40px;color:var(--muted);font-size:13px">Cargando materias…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="search-wrap reveal">
-      <input id="search" type="text" placeholder="Buscar materia..." autocomplete="off" />
-    </div>
+    <!-- ── DETAIL VIEW ── -->
+    <div id="detail-view" aria-live="polite">
 
-    <div class="results-container reveal">
-      <table id="results">
-        <tbody>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Administracion%20y%20Gestion%20de%20Organizaciones/README.md"
-                target="_blank">Administracion y Gestion de Organizaciones</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Algebra/README.md"
-                target="_blank">Algebra</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%201/README.md"
-                target="_blank">Algoritmo y Estructura de datos 1</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%202/README.md"
-                target="_blank">Algoritmo y Estructura de datos 2</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Arquitectura%20de%20computadoras/README.md"
-                target="_blank">Arquitectura de computadoras</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/README.md"
-                target="_blank">Bases de Datos 1</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%202/README.md"
-                target="_blank">Bases de Datos 2</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/README.md"
-                target="_blank">Calculo</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Comunicacion%20de%20datos%201/README.md"
-                target="_blank">Comunicacion de datos 1</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/README.md"
-                target="_blank">Economia Aplicada</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%201/README.md"
-                target="_blank">Ingenieria de Software 1</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/README.md"
-                target="_blank">Ingenieria de Software 2</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingles%20Tecnico/README.md"
-                target="_blank">Ingles Tecnico</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Logica%20y%20Matematica%20Computacional/README.md"
-                target="_blank">Logica y Matematica Computacional</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Paradigmas%20y%20Lenguajes/README.md"
-                target="_blank">Paradigmas y Lenguajes</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/README.md"
-                target="_blank">Probabilidad y Estadistica</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Programacion%20Orientada%20a%20Objetos/README.md"
-                target="_blank">Programacion Orientada a Objetos</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Sistemas%20Operativos/README.md"
-                target="_blank">Sistemas Operativos</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Sistemas%20y%20Organizaciones/README.md"
-                target="_blank">Sistemas y Organizaciones</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Taller%20de%20Programacion%201/README.md"
-                target="_blank">Taller de Programacion 1</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Taller%20de%20Programacion%202/README.md"
-                target="_blank">Taller de Programacion 2</a></td>
-          </tr>
-          <tr class="materia-row">
-            <td><a
-                href="https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Teoria%20de%20la%20Computacion/README.md"
-                target="_blank">Teoria de la Computacion</a></td>
-          </tr>
-          <tr id="no-results-row" style="display: none;">
-            <td>
-              <div class="no-results">No se encontraron materias.</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="detail-topbar">
+        <button class="btn-back" id="btn-back">← Volver</button>
+        <h2 class="detail-title" id="detail-title">—</h2>
+        <a class="btn-github" id="btn-github" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-dl-all" id="btn-dl-all" href="#" target="_blank" rel="noopener">⬇ Descargar todo</a>
+      </div>
+
+      <div class="explorer">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-header">📁 Archivos</div>
+          <nav class="sidebar-tree">
+            <ul class="tree-list" id="sidebar-tree"></ul>
+          </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-area">
+          <div class="readme-panel" id="readme-panel">
+            <div class="readme-loading" id="readme-loading">
+              Cargando README…
+            </div>
+            <div class="md-body" id="readme-content" style="display:none"></div>
+          </div>
+        </main>
+      </div>
+
     </div>
   </div>
 
   <div id="footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="../layout/layout.js"></script>
   <script src="../app.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('search');
-      const rows = document.querySelectorAll('.materia-row');
-      const noResultsRow = document.getElementById('no-results-row');
+    const DATA_URL = '../materias.json?v=' + Date.now();
+    const BASE_TITLE = 'LSI Tools';
+    let MATERIAS = [];
 
-      searchInput.addEventListener('input', e => {
-        const q = e.target.value.toLowerCase();
-        let hasResults = false;
+    // ── Helpers ──────────────────────────────────────────────────
+    const ICONS = { pdf: '📄', md: '📝', txt: '📃', jpg: '🖼', jpeg: '🖼', png: '🖼', gif: '🖼', svg: '🖼', zip: '🗜', rar: '🗜', pptx: '📊', ppt: '📊', docx: '📝', doc: '📝', xlsx: '📊', xls: '📊', mp4: '🎬', mp3: '🎵', py: '🐍', js: '📜', java: '☕', c: '🔧', cpp: '🔧', cs: '🔷', json: '{}', xml: '📋', html: '🌐' };
+    function getIcon(ext) { return ICONS[(ext || '').toLowerCase()] || '📎' }
 
-        rows.forEach(row => {
-          const text = row.textContent.toLowerCase();
-          if (text.includes(q)) {
-            row.style.display = '';
-            hasResults = true;
-          } else {
-            row.style.display = 'none';
+    function setMeta(title, desc, canonical) {
+      document.title = title;
+      const dm = document.getElementById('page-desc');
+      if (dm) dm.setAttribute('content', desc);
+      const cl = document.getElementById('canonical-link');
+      if (cl && canonical) cl.setAttribute('href', canonical);
+    }
+
+    // ── Fetch ─────────────────────────────────────────────────────
+    async function loadMaterias() {
+      const res = await fetch(DATA_URL);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      MATERIAS = await res.json();
+    }
+
+    // ── List view ─────────────────────────────────────────────────
+    function renderList(filter = '') {
+      const tbody = document.getElementById('results-body');
+      const q = filter.toLowerCase().trim();
+      const list = q ? MATERIAS.filter(m => m.nombre.toLowerCase().includes(q) || (m.slug || '').includes(q)) : MATERIAS;
+      if (!list.length) {
+        tbody.innerHTML = '<tr><td><div class="no-results">No se encontraron materias 🔍</div></td></tr>';
+        return;
+      }
+      tbody.innerHTML = list.map(m => `
+    <tr><td><button class="materia-link" onclick="openMateria('${m.slug}')">${m.nombre}</button></td></tr>
+  `).join('');
+    }
+
+    function showList() {
+      document.getElementById('detail-view').classList.remove('visible');
+      setTimeout(() => {
+        document.getElementById('detail-view').style.display = 'none';
+        document.getElementById('list-view').style.display = '';
+      }, 300);
+      setMeta(`Buscador de Materias — ${BASE_TITLE}`,
+        'Encontrá apuntes, parciales y guías de cualquier materia de LSI UNNE.',
+        'https://tobiager.github.io/UNNE-LSI/buscador/');
+      history.pushState({}, '', window.location.pathname);
+    }
+
+    // ── Detail view ───────────────────────────────────────────────
+    function showDetail(materia) {
+      document.getElementById('list-view').style.display = 'none';
+      const dv = document.getElementById('detail-view');
+      dv.style.display = 'block';   // ← explícito, no '' (que hereda display:none del CSS)
+      requestAnimationFrame(() => requestAnimationFrame(() => dv.classList.add('visible')));
+
+      setMeta(`Apuntes de ${materia.nombre} — ${BASE_TITLE}`,
+        `Recursos, apuntes y parciales de ${materia.nombre} — LSI UNNE.`,
+        materia.url_buscador);
+      history.pushState({ slug: materia.slug }, '', `${window.location.pathname}?materia=${materia.slug}`);
+
+      document.getElementById('detail-title').textContent = materia.nombre;
+      document.getElementById('btn-dl-all').href = materia.url_downgit || '#';
+      document.getElementById('btn-github').href = materia.url_github || '#';
+
+      // Sidebar tree
+      const tree = document.getElementById('sidebar-tree');
+      tree.innerHTML = materia.contenido && materia.contenido.length
+        ? renderTree(materia.contenido)
+        : '<li><span style="color:var(--muted);font-size:13px;padding:14px">Sin archivos listados</span></li>';
+
+      // README
+      loadReadme(materia);
+    }
+
+    function openMateria(slug) {
+      const m = MATERIAS.find(x => x.slug === slug);
+      if (m) showDetail(m);
+    }
+
+    // ── README ────────────────────────────────────────────────────
+    async function loadReadme(materia) {
+      let pbar = document.getElementById('top-pbar');
+      if (!pbar) {
+        pbar = document.createElement('div');
+        pbar.id = 'top-pbar';
+        pbar.className = 'top-progress-bar';
+        document.body.appendChild(pbar);
+      }
+      pbar.style.display = 'block';
+
+      const loading = document.getElementById('readme-loading');
+      const content = document.getElementById('readme-content');
+      loading.style.display = 'flex';
+      content.style.display = 'none';
+      content.innerHTML = '';
+
+      if (!materia.readme_raw) {
+        pbar.style.display = 'none';
+        loading.style.display = 'none';
+        content.style.display = 'block';
+        content.innerHTML = '<p style="color:var(--muted);font-size:13px">Esta materia no tiene README todavía. Explorá los archivos en el panel izquierdo.</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch(materia.readme_raw);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const md = await res.text();
+        pbar.style.display = 'none';
+        loading.style.display = 'none';
+        content.style.display = 'block';   // ← explícito
+        content.innerHTML = marked.parse(md);
+        // Fix relative image/link paths
+        content.querySelectorAll('a[href],img[src]').forEach(el => {
+          const attr = el.tagName === 'IMG' ? 'src' : 'href';
+          const val = el.getAttribute(attr);
+          if (val && !val.startsWith('http') && !val.startsWith('#') && !val.startsWith('mailto')) {
+            const base = materia.readme_blob.replace('/README.md', '');
+            el.setAttribute(attr, base + '/' + val);
+            if (el.tagName === 'A') { el.target = '_blank'; el.rel = 'noopener'; }
           }
         });
+      } catch (e) {
+        pbar.style.display = 'none';
+        loading.style.display = 'none';
+        content.style.display = 'block';
+        content.innerHTML = `<div class="error-msg">⚠ No se pudo cargar el README (${e.message}). <a href="${materia.readme_blob}" target="_blank" rel="noopener">Ver en GitHub →</a></div>`;
+      }
+    }
 
-        if (!hasResults) {
-          noResultsRow.style.display = '';
+    // ── Sidebar tree renderer ─────────────────────────────────────
+    function renderTree(items, depth = 0) {
+      return items.map(item => {
+        if (item.tipo === 'carpeta') {
+          const id = 'sf-' + Math.random().toString(36).slice(2);
+          const childrenHtml = item.hijos && item.hijos.length
+            ? `<ul class="tree-children" id="${id}">${renderTree(item.hijos, depth + 1)}</ul>` : '';
+          return `<li class="tree-item">
+        <div class="tree-row" onclick="toggleFolder('${id}',this)">
+          <span class="tree-icon">📁</span>
+          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>
+          ${item.hijos && item.hijos.length ? '<span class="tree-chevron">▶</span>' : ''}
+        </div>${childrenHtml}</li>`;
         } else {
-          noResultsRow.style.display = 'none';
+          const icon = getIcon(item.extension);
+          return `<li class="tree-item">
+        <div class="tree-row" onclick="openFile('${item.url_raw}','${item.url_blob}',this)">
+          <span class="tree-icon">${icon}</span>
+          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>
+        </div></li>`;
         }
-      });
+      }).join('');
+    }
+
+    function toggleFolder(id, row) {
+      const ul = document.getElementById(id);
+      if (!ul) return;
+      const open = ul.classList.toggle('open');
+      const ch = row.querySelector('.tree-chevron');
+      if (ch) ch.classList.toggle('open', open);
+      row.querySelector('.tree-icon').textContent = open ? '📂' : '📁';
+    }
+
+    function openFile(rawUrl, blobUrl, row) {
+      document.querySelectorAll('.tree-row.active').forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+      // For PDFs open in new tab; for others download
+      const ext = rawUrl.split('.').pop().toLowerCase();
+      const viewExts = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'mp4', 'webm'];
+      const target = viewExts.includes(ext) ? blobUrl : rawUrl;
+      window.open(target, '_blank', 'noopener');
+    }
+
+    // ── Back ──────────────────────────────────────────────────────
+    document.getElementById('btn-back').addEventListener('click', showList);
+    document.getElementById('search').addEventListener('input', e => renderList(e.target.value));
+    window.addEventListener('popstate', e => {
+      if (e.state && e.state.slug) openMateria(e.state.slug);
+      else showList();
     });
+
+    // ── Init ──────────────────────────────────────────────────────
+    (async () => {
+      try {
+        await loadMaterias();
+        renderList();
+
+        // Scroll reveal
+        const obs = new IntersectionObserver(
+          entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } }),
+          { threshold: .1, rootMargin: '0px 0px -30px 0px' }
+        );
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Deep-link
+        const slug = new URLSearchParams(window.location.search).get('materia');
+        if (slug) {
+          const m = MATERIAS.find(x => x.slug === slug);
+          if (m) { showDetail(m); return; }
+        }
+        showList();
+      } catch (err) {
+        document.getElementById('results-body').innerHTML =
+          `<tr><td><div class="no-results" style="color:#ff6b6b">Error al cargar materias: ${err.message}</div></td></tr>`;
+        console.error('[Buscador]', err);
+      }
+    })();
   </script>
   <script>
-    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
-    document.body.classList.add(savedTheme);
-
-    // ── SCROLL REVEAL ──
-    const revealObserver = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const t = localStorage.getItem('theme') || 'theme-dark';
+    document.body.classList.add(t);
   </script>
 </body>
 
