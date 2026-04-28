@@ -147,6 +147,49 @@
       display: block;
     }
 
+    @keyframes hero-reveal {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .hero-badge,
+    .hero h1,
+    .hero p,
+    .hero-actions,
+    .hero-stats {
+      opacity: 0;
+      animation: hero-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-badge {
+      animation-delay: 0.1s;
+    }
+
+    .hero h1 {
+      animation-delay: 0.25s;
+    }
+
+    .hero p {
+      animation-delay: 0.4s;
+    }
+
+    .hero-actions {
+      animation-delay: 0.55s;
+    }
+
+    .hero-stats {
+      animation-delay: 0.7s;
+    }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -865,7 +908,7 @@
         </div>
         <h3>Simulador de Avance</h3>
         <p>Trackeá tu progreso académico y planificá qué materias cursar el próximo cuatrimestre.</p>
-        <a href="#" class="card-link nav-link" data-hash="#simulador">Abrir simulador</a>
+        <a href="#" class="card-link nav-link" data-hash="/simulador/">Abrir simulador</a>
       </div>
 
       <div class="card tool-card reveal">
@@ -877,7 +920,7 @@
         </div>
         <h3>Buscador de Materias</h3>
         <p>Busca la materia de la que necesites el material.</p>
-        <a href="#" class="card-link nav-link" data-hash="#buscador">Buscar materias</a>
+        <a href="#" class="card-link nav-link" data-hash="/buscador/">Buscar materias</a>
       </div>
 
       <div class="card tool-card reveal">
@@ -889,7 +932,7 @@
         </div>
         <h3>Calendario 2026</h3>
         <p>Fechas de finales, inscripciones y eventos de la facultad.</p>
-        <a href="#" class="card-link nav-link" data-hash="#calendario">Ver calendario</a>
+        <a href="#" class="card-link nav-link" data-hash="/calendario/">Ver calendario</a>
       </div>
     </div>
   </section>
@@ -914,8 +957,7 @@
         </svg>
         Dar una estrella
       </a>
-      <a href="https://tobiager.github.io/UNNE-LSI/index.html#estado" target="_parent" class="btn-ghost btn"
-        id="viewState">
+      <a href="/UNNE-LSI/estado/" target="_parent" class="btn-ghost btn" id="viewState">
         Ver estado de carrera
       </a>
     </div>
@@ -945,17 +987,22 @@
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
 
-    // ── Parent navigation (works local + production) ───────────────
-    function navParent(hash) {
-      try { parent.location.hash = hash; }
-      catch (e) { location.href = 'index.html' + hash; }
+    // ── Detecta base (funciona en localhost y GitHub Pages) ───────────
+    const SITE_BASE = (() => {
+      try { if (parent !== window && parent.SITE_BASE !== undefined) return parent.SITE_BASE; } catch (e) { }
+      return location.pathname.startsWith('/UNNE-LSI') ? '/UNNE-LSI' : '';
+    })();
+
+    function navParent(url) {
+      try { parent.location.href = url; }
+      catch (e) { location.href = url; }
     }
 
-    // Card + section links
+    // Card + section links (data-hash guarda el path sin prefijo: "/simulador/" etc.)
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        navParent(link.dataset.hash);
+        navParent(SITE_BASE + link.dataset.hash);
       });
     });
 
@@ -966,13 +1013,13 @@
     if (stateHash) {
       viewBtn.addEventListener('click', e => {
         e.preventDefault();
-        navParent('#estado:' + stateHash);
+        navParent(SITE_BASE + '/estado/#' + stateHash);
       });
     } else {
       viewBtn.addEventListener('click', e => {
         e.preventDefault();
         if (parent.showAlert) parent.showAlert('No tenés un estado de carrera guardado. Crealo en el Simulador.');
-        navParent('#simulador');
+        navParent(SITE_BASE + '/simulador/');
       });
     }
 

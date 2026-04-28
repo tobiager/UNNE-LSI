@@ -22,7 +22,6 @@
       --footer-h: 48px;
     }
 
-    /* light theme compat */
     body.theme-light {
       --bg: #f8f9fa;
       --panel: #ffffff;
@@ -75,11 +74,25 @@
       color: var(--text);
     }
 
+    body:not(.theme-light)::before {
+      content: "";
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 60%);
+    }
+
     /* ── PAGE ── */
     .page-wrap {
       max-width: 860px;
       margin: 0 auto;
-      padding: 60px 24px 40px;
+      padding: 80px 24px 40px;
+      position: relative;
+      z-index: 1;
     }
 
     /* ── HERO HEADER ── */
@@ -87,14 +100,6 @@
       text-align: center;
       margin-bottom: 40px;
       position: relative;
-    }
-
-    .page-header::before {
-      content: "";
-      position: absolute;
-      inset: -40px -100px;
-      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 70%);
-      pointer-events: none;
     }
 
     .page-header>* {
@@ -241,23 +246,37 @@
         border-radius: 12px;
       }
     }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
-  <link rel="stylesheet" href="css/buscador.css">
+  <link rel="stylesheet" href="../css/buscador.css">
 </head>
 
 <body>
 
+  <div id="navbar"></div>
+
   <div class="page-wrap">
     <div class="page-header">
-      <h1>Buscador de materias</h1>
-      <p>Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
+      <h1 class="reveal">Buscador de materias</h1>
+      <p class="reveal">Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
     </div>
 
-    <div class="search-wrap">
+    <div class="search-wrap reveal">
       <input id="search" type="text" placeholder="Buscar materia..." autocomplete="off" />
     </div>
 
-    <div class="results-container">
+    <div class="results-container reveal">
       <table id="results">
         <tbody>
           <tr class="materia-row">
@@ -372,6 +391,9 @@
     </div>
   </div>
 
+  <div id="footer"></div>
+  <script src="../layout/layout.js"></script>
+  <script src="../app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('search');
@@ -403,6 +425,15 @@
   <script>
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
+
+    // ── SCROLL REVEAL ──
+    const revealObserver = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 </body>
 

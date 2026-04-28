@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #a6a6a6;
+      --accent: #0099ff;
+      --frosted: rgba(255, 255, 255, 0.03);
+      --frosted-border: rgba(255, 255, 255, 0.07);
+      --row-hover: rgba(255, 255, 255, 0.03);
+      --footer-h: 48px;
+    }
+
+    body.theme-light {
+      --bg: #f8f9fa;
+      --text: #111111;
+      --muted: #6b7280;
+      --frosted: rgba(255, 255, 255, 0.9);
+      --frosted-border: rgba(0, 0, 0, 0.08);
+      --row-hover: rgba(0, 0, 0, 0.02);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #333333 #000000;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0099ff;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
+      font-feature-settings: "cv11", "ss03";
+      padding-bottom: var(--footer-h);
+    }
+
+    body.theme-light {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body:not(.theme-light)::before {
+      content: "";
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 60%);
+    }
+
+    /* ── WRAPPER ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 24px 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .page-header>* {
+      position: relative;
+    }
+
+    /* ── HEADERS ── */
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    body.theme-light .page-header h1 {
+      color: var(--text);
+    }
+
+    .page-header .page-desc {
+      text-align: center;
+      color: #a6a6a6;
+      font-size: 14px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      text-align: center;
+      color: #ffffff;
+      margin: 60px 0 24px;
+      /* Corregido: más separación entre tablas */
+    }
+
+    body.theme-light h2 {
+      color: var(--text);
+    }
+
+    h3 {
+      font-weight: 600;
+      color: #0099ff;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      margin: 40px 0 16px;
+    }
+
+    p {
+      text-align: center;
+      color: #a6a6a6;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ── PDF BUTTONS ── */
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+      /* Corregido: botones más cómodos */
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      user-select: none;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    body.theme-light .btn {
+      background: #ffffff;
+      color: #111111;
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    /* ── TABLES ── */
+    section {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .table-wrap {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      margin-bottom: 12px;
+    }
+
+    body.theme-light .table-wrap {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 16px 20px;
+      /* Corregido: más espacio vertical para legibilidad */
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    body.theme-light th,
+    body.theme-light td {
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.theme-light th {
+      background: rgba(0, 0, 0, 0.03);
+      color: #111111;
+    }
+
+    td {
+      color: #a6a6a6;
+      letter-spacing: -0.1px;
+    }
+
+    td:first-child {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    body.theme-light td {
+      color: #6b7280;
+    }
+
+    body.theme-light td:first-child {
+      color: #111111;
+    }
+
+    tr:hover td {
+      background: var(--row-hover);
+    }
+
+    /* ── LISTS ── */
+    .list-wrap {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      list-style: none;
+    }
+
+    body.theme-light .list-wrap {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .list-wrap li {
+      padding: 14px 20px;
+      /* Corregido: más espacio en las listas */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #a6a6a6;
+      font-size: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    body.theme-light .list-wrap li {
+      color: #6b7280;
+      border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .list-wrap li:last-child {
+      border-bottom: none;
+    }
+
+    .list-wrap li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+      opacity: 0.8;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .wrap {
+        padding: 40px 16px 32px;
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar"></div>
+
+  <div class="page-wrap">
+
+    <div class="page-header">
+      <h1 class="reveal">Calendario</h1>
+      <p class="page-desc reveal">Consultá el cronograma completo en el documento oficial de la Facultad.</p>
+    </div>
+
+    <div class="btn-row reveal">
+      <a class="btn" href="https://exa.unne.edu.ar/alumnos/docs/2026/RES.%202025-944-CD-EXA.pdf" target="_blank"
+        rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+        </svg>
+        Descargar PDF oficial
+      </a>
+      <a class="btn" href="https://exa.unne.edu.ar/alumnos/docs/2026/RES.%202025-2498-D-EXA.pdf" target="_blank"
+        rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+        </svg>
+        Mesas de exámenes (PDF)
+      </a>
+    </div>
+
+    <section>
+      <h2 class="reveal">Turnos de exámenes</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fechas</th>
+              <th>Modalidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1°</td>
+              <td>23–27 de febrero</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>2°</td>
+              <td>9–13 de marzo</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>3°</td>
+              <td>23–31 de marzo</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>4°</td>
+              <td>4–29 de mayo</td>
+              <td>Mesa expandida</td>
+            </tr>
+            <tr>
+              <td>5°</td>
+              <td>29 de junio–3 de julio</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>6°</td>
+              <td>27–31 de julio</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>7°</td>
+              <td>31 de agosto–25 de septiembre</td>
+              <td>Mesa expandida</td>
+            </tr>
+            <tr>
+              <td>8°</td>
+              <td>5–30 de octubre</td>
+              <td>Mesa expandida</td>
+            </tr>
+            <tr>
+              <td>9°</td>
+              <td>23–27 de noviembre</td>
+              <td>Mesa comprimida</td>
+            </tr>
+            <tr>
+              <td>10°</td>
+              <td>15–22 de diciembre</td>
+              <td>Mesa comprimida</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="reveal">Calendario de clases</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <tbody>
+            <tr>
+              <th colspan="2">Cuatrimestres y bimestres</th>
+            </tr>
+            <tr>
+              <td>1º Cuatrimestre – 1º año</td>
+              <td>9 de marzo al 3 de julio</td>
+            </tr>
+            <tr>
+              <td>1º Cuatrimestre – 2º año en adelante</td>
+              <td>16 de marzo al 3 de julio</td>
+            </tr>
+            <tr>
+              <td>1º Bimestre</td>
+              <td>16 de marzo al 30 de abril</td>
+            </tr>
+            <tr>
+              <td>2º Bimestre</td>
+              <td>4 de mayo al 26 de junio</td>
+            </tr>
+            <tr>
+              <td>3º Bimestre</td>
+              <td>3 de agosto al 25 de septiembre</td>
+            </tr>
+            <tr>
+              <td>4º Bimestre</td>
+              <td>28 de septiembre al 19 de noviembre</td>
+            </tr>
+            <tr>
+              <td>1º Trimestre</td>
+              <td>9 de marzo al 29 de mayo</td>
+            </tr>
+            <tr>
+              <td>2º Trimestre</td>
+              <td>1 de junio al 21 de agosto</td>
+            </tr>
+            <tr>
+              <td>3º Trimestre</td>
+              <td>24 de agosto al 13 de noviembre</td>
+            </tr>
+            <tr>
+              <td>2º Cuatrimestre</td>
+              <td>3 de agosto al 19 de noviembre</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="reveal">Inscripción a cursado</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <tbody>
+            <tr>
+              <td>1º Cuatrimestre</td>
+              <td>16 al 31 de marzo</td>
+            </tr>
+            <tr>
+              <td>1º Bimestre</td>
+              <td>16 al 31 de marzo</td>
+            </tr>
+            <tr>
+              <td>2º Bimestre</td>
+              <td>4 al 8 de mayo</td>
+            </tr>
+            <tr>
+              <td>1º Trimestre</td>
+              <td>16 al 27 de marzo</td>
+            </tr>
+            <tr>
+              <td>2º Trimestre</td>
+              <td>1 al 5 de junio</td>
+            </tr>
+            <tr>
+              <td>2º Cuatrimestre</td>
+              <td>3 al 21 de agosto</td>
+            </tr>
+            <tr>
+              <td>3º Bimestre</td>
+              <td>3 al 7 de agosto</td>
+            </tr>
+            <tr>
+              <td>4º Bimestre</td>
+              <td>28 de septiembre al 2 de octubre</td>
+            </tr>
+            <tr>
+              <td>3º Trimestre</td>
+              <td>24 al 28 de agosto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="reveal">Receso e inscripciones especiales</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <tbody>
+            <tr>
+              <td>Receso de invierno</td>
+              <td>13 al 24 de julio</td>
+            </tr>
+            <tr>
+              <td>Reinscripción anual</td>
+              <td>2 de febrero al 31 de marzo / 22 de junio al 21 de agosto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="reveal">Feriados y asuetos 2026</h2>
+      <p>Resumen de feriados inamovibles, trasladables y días no laborables.</p>
+
+      <h3>Feriados Inamovibles</h3>
+      <ul class="list-wrap reveal">
+        <li>1 de enero – Año Nuevo</li>
+        <li>16 y 17 de febrero – Carnaval</li>
+        <li>24 de marzo – Memoria, Verdad y Justicia</li>
+        <li>2 de abril – Veterano y Caídos en Malvinas</li>
+        <li>3 de abril – Viernes Santo</li>
+        <li>1º de mayo – Día del Trabajador</li>
+        <li>25 de mayo – Revolución de Mayo</li>
+        <li>20 de junio – Belgrano</li>
+        <li>9 de julio – Independencia</li>
+        <li>8 de diciembre – Inmaculada Concepción</li>
+        <li>25 de diciembre – Navidad</li>
+      </ul>
+
+      <h3>Feriados Trasladables</h3>
+      <ul class="list-wrap reveal">
+        <li>17 de junio – Gral. Güemes</li>
+        <li>17 de agosto – Gral. San Martín</li>
+        <li>12 de octubre – Diversidad Cultural</li>
+        <li>20 de noviembre – Soberanía Nacional</li>
+      </ul>
+
+      <h3>Días No Laborables</h3>
+      <ul class="list-wrap reveal">
+        <li>3 de mayo – Fundación de Corrientes</li>
+        <li>16 de julio – Virgen de Itatí</li>
+        <li>17 de septiembre – Docente Universitario</li>
+        <li>21 de septiembre – Día del Estudiante</li>
+        <li>26 de noviembre – No Docente Universitario</li>
+        <li>14 de diciembre – Aniversario UNNE</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <div id="footer"></div>
+  <script src="../layout/layout.js"></script>
+  <script src="../app.js"></script>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'theme-dark';
+    document.body.classList.add(savedTheme);
+
+    const revealObserver = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+
+</html>
