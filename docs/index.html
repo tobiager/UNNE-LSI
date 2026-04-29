@@ -76,29 +76,23 @@
       --grad2: #e8f0fe;
     }
 
-    /* ── CUSTOM SCROLLBAR ── */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+    /* ── CUSTOM SCROLLBAR (desktop only — hidden on touch devices) ── */
+    @media (hover: hover) {
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #000000; }
+      ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #0099ff; }
+      * { scrollbar-width: thin; scrollbar-color: #333333 #000000; }
     }
 
-    ::-webkit-scrollbar-track {
-      background: #000000;
-    }
+    * { box-sizing: border-box; }
 
-    ::-webkit-scrollbar-thumb {
-      background: #333333;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0099ff;
-    }
-
-    * {
-      box-sizing: border-box;
-      scrollbar-width: thin;
-      scrollbar-color: #333333 #000000;
+    /* Lock the shell so it can never scroll — all scrolling lives inside
+       #content (the iframe). overscroll-behavior:none kills iOS rubber-band
+       bounce so swiping on the navbar area doesn't jolt the layout. */
+    html {
+      overflow: hidden;
+      overscroll-behavior: none;
     }
 
     body {
@@ -109,12 +103,10 @@
       font-feature-settings: "cv11";
       display: flex;
       flex-direction: column;
-      /* Use a stable height so mobile-Safari chrome-collapse can't resize the
-         body (and thus the iframe). overflow:hidden ensures the parent never
-         scrolls — all page scrolling happens inside #content. */
       height: 100vh;
-      height: 100svh;
+      height: 100svh; /* stable: doesn't grow when Safari chrome collapses */
       overflow: hidden;
+      overscroll-behavior: none;
       padding-bottom: var(--footer-h);
     }
 

@@ -68,26 +68,18 @@
                        svh/dvh, que se calculan incorrectamente en iframes
                        en mobile Safari cuando el contenedor cambia de tamaño */
       scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: #333333 #000000;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #000000;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #333333;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0099ff;
+    /* Custom scrollbar only on pointer devices — hidden on touch/mobile */
+    @media (hover: hover) {
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #333333 #000000;
+      }
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #000000; }
+      ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #0099ff; }
     }
 
     body {
@@ -113,14 +105,13 @@
       text-align: center;
       padding: 0 24px;
       position: relative;
-      /* 100vh fallback → 100dvh for browsers that support it.
-         Inside a stable iframe (parent: height:100svh; overflow:hidden) both
-         units resolve identically to the iframe's own viewport height — there
-         is no dynamic browser chrome *inside* the iframe. Using dvh/vh instead
-         of JS-computed variables eliminates timing and Safari clientHeight
-         bugs entirely. */
-      min-height: 100vh;
-      min-height: 100dvh;
+      /* min-height: 100% chains through body → html → iframe viewport.
+         Requires html { height:100% } and body { height:100% } so that the
+         percentage has a definite containing-block to resolve against.
+         This is safer than dvh/svh inside iframes: on Safari iOS those units
+         can resolve from the *parent* window's viewport instead of the
+         iframe's own viewport, making the hero taller than the visible area. */
+      min-height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
