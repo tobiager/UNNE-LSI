@@ -111,7 +111,9 @@
       text-align: center;
       padding: 0 24px;
       position: relative;
-      overflow: hidden;
+      /* No overflow:hidden — if min-height resolves incorrectly on mobile
+         Safari the hero would clip its own centered content. The ::before
+         gradient is inset:0 so it never overflows anyway. */
       min-height: var(--initial-vh, 100%);
       display: flex;
       flex-direction: column;
@@ -1038,7 +1040,11 @@
     // subsequent browser-chrome-collapse resize events are ignored.
     (function () {
       const setVh = () => {
-        const h = document.documentElement.clientHeight;
+        // window.innerHeight = iframe *viewport* height (what the user sees).
+        // document.documentElement.clientHeight is unsafe inside iframes on
+        // mobile Safari — it can return the full document scrollHeight instead
+        // of the viewport height, inflating the hero to thousands of pixels.
+        const h = window.innerHeight;
         if (h > 100) {
           document.documentElement.style.setProperty('--initial-vh', h + 'px');
         }
