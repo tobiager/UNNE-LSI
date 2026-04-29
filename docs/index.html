@@ -7,7 +7,9 @@
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.png">
   <link rel="manifest" href="site.webmanifest">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title id="page-title">Apuntes LSI UNNE — Licenciatura en Sistemas de Información</title>
   <meta name="description" id="page-desc"
     content="Repositorio colaborativo de apuntes, parciales resueltos y finales para la Licenciatura en Sistemas de Información (LSI) de la UNNE. Plan 2023 y 2009. Buscador de materias y simulador de avance." />
@@ -51,7 +53,7 @@
       --accent: #0099ff;
       --accent-glow: rgba(0, 153, 255, 0.15);
       --frosted: rgba(255, 255, 255, 0.1);
-      --footer-h: 48px;
+      --footer-h: calc(48px + env(safe-area-inset-bottom, 0px));
     }
 
     body.theme-dark {
@@ -107,7 +109,7 @@
       font-feature-settings: "cv11";
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 100dvh;
       padding-bottom: var(--footer-h);
     }
 
