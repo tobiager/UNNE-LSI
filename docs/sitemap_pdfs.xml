@@ -3571,6 +3571,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Contrato%20de%20Operaciones.pdf</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Material%20PFC%20TFA/formato%20ieee.pdf</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
