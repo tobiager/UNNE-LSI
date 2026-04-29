@@ -26384,10 +26384,10 @@
           },
           {
             "tipo": "archivo",
-            "nombre": "Presntacion.png",
+            "nombre": "Presentacion.png",
             "extension": "png",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Investigaciones%20Individuales/Presntacion.png",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Investigaciones%20Individuales/Presntacion.png",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Investigaciones%20Individuales/Presentacion.png",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Investigaciones%20Individuales/Presentacion.png",
             "keywords": [],
             "categorias": [],
             "categoria": null
@@ -26671,6 +26671,16 @@
                 "categoria": null
               }
             ]
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Contrato de Operaciones.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Contrato%20de%20Operaciones.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Contrato%20de%20Operaciones.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
           }
         ]
       },
