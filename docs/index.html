@@ -113,10 +113,19 @@
       padding-bottom: var(--footer-h);
     }
 
+    /* Pre-reserva el espacio del navbar para que el iframe no cambie de
+       altura cuando el navbar carga asíncronamente (evita el bug de render
+       inicial en mobile Safari donde svh/dvh se calculan con el alto
+       incorrecto del iframe). */
+    #navbar {
+      min-height: calc(68px + env(safe-area-inset-top, 0px));
+    }
+
     #content {
       flex: 1;
       border: none;
       width: 100%;
+      min-height: 0;
     }
 
     #alerts {
