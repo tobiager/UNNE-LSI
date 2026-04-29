@@ -25220,8 +25220,8 @@
         "Parcial": 50,
         "Examen": 1,
         "Resumen": 3,
-        "TP": 3,
-        "Guía": 3
+        "TP": 4,
+        "Guía": 4
       },
       "top_categorias": [
         "Parcial",
@@ -25974,10 +25974,10 @@
                 "hijos": [
                   {
                     "tipo": "archivo",
-                    "nombre": "Primer Parcial1.jpg",
+                    "nombre": "Primer Parcial Teorico 1.jpg",
                     "extension": "jpg",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial1.jpg",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial1.jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial%20Teorico%201.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial%20Teorico%201.jpg",
                     "keywords": [
                       "parcial"
                     ],
@@ -25988,10 +25988,10 @@
                   },
                   {
                     "tipo": "archivo",
-                    "nombre": "Primer Parcial2.jpg",
+                    "nombre": "Primer Parcial Teorico 2.jpg",
                     "extension": "jpg",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial2.jpg",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial2.jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial%20Teorico%202.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Primer%20Parcial%20Teorico%202.jpg",
                     "keywords": [
                       "parcial"
                     ],
@@ -26415,6 +26415,22 @@
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°2.pdf",
             "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°2.pdf",
+            "keywords": [
+              "guia",
+              "tp"
+            ],
+            "categorias": [
+              "TP",
+              "Guía"
+            ],
+            "categoria": "TP"
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "2026 GUIA DE TP N°3.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°3.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°3.pdf",
             "keywords": [
               "guia",
               "tp"
