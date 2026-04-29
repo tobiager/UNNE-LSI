@@ -1,4 +1,11 @@
 (function(){
+  // ── Service Worker (offline / PWA) ───────────────────────────
+  if ('serviceWorker' in navigator) {
+    const base = location.pathname.startsWith('/UNNE-LSI') ? '/UNNE-LSI' : '';
+    navigator.serviceWorker.register(base + '/sw.js', { scope: base + '/' })
+      .catch(() => {});
+  }
+
   function ensureLinkButtonLabels(root){
     try {
       const scope = root || document;
@@ -48,61 +55,55 @@
     ensureLinkButtonLabels(document);
   });
 
-  // ── GitHub Stars: fetch once, update everywhere ──────────────
+  // ── GitHub Stars: fetch once per day, cache in localStorage ─
   (() => {
     try {
+      const STARS_KEY = 'gh-stars';
+      const STARS_TS_KEY = 'gh-stars-ts';
+      const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 horas
+
       const fetchStars = async () => {
-        const cached = sessionStorage.getItem('gh-stars');
-        if (cached) {
-          console.log('[Stars] Valor en caché:', cached);
-          return cached;
-        }
-        const res = await fetch('https://api.github.com/repos/tobiager/UNNE-LSI');
+        const cached = localStorage.getItem(STARS_KEY);
+        const ts = parseInt(localStorage.getItem(STARS_TS_KEY) || '0', 10);
+        if (cached && Date.now() - ts < CACHE_TTL) return cached;
+
+        const res = await fetch('https://api.github.com/repos/tobiager/UNNE-LSI', {
+          headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+        // Si hay rate-limit, devolvemos el valor cacheado aunque sea viejo
+        if (res.status === 403 || res.status === 429) return cached || null;
         if (!res.ok) throw new Error(`API ${res.status}`);
         const data = await res.json();
         const count = String(data.stargazers_count);
-        console.log('[Stars] API devolvió:', count);
+        localStorage.setItem(STARS_KEY, count);
+        localStorage.setItem(STARS_TS_KEY, String(Date.now()));
         return count;
       };
 
-      const starsPromise = fetchStars().catch(e => {
-        console.warn('[Stars] Fetch falló:', e.message);
-        return null;
-      });
+      const starsPromise = fetchStars().catch(() => localStorage.getItem(STARS_KEY));
 
-      const applyStars = (doc, label) => {
+      const applyStars = (doc) => {
         if (!doc) return;
         starsPromise.then(count => {
           if (!count) return;
-          sessionStorage.setItem('gh-stars', count);
           try {
-            const els = doc.querySelectorAll('.gh-stars-dynamic');
-            console.log(`[Stars] ${label}: encontró ${els.length} elemento(s), aplicando ${count}`);
-            els.forEach(el => { el.textContent = count; });
+            doc.querySelectorAll('.gh-stars-dynamic').forEach(el => { el.textContent = count; });
           } catch (e) {}
         });
       };
 
-      // Apply to main document
-      applyStars(document, 'document');
+      applyStars(document);
+      document.addEventListener('navbarLoaded', () => applyStars(document));
 
-      // Apply when navbar loads (since navbar has a star count)
-      document.addEventListener('navbarLoaded', () => applyStars(document, 'document@navbarLoaded'));
-
-      // Apply to iframe — check readyState to handle already-loaded (cached) iframes
       const iframe = document.getElementById('content');
       if (iframe) {
         const tryIframe = () => {
           const doc = iframe.contentDocument;
-          if (doc && doc.readyState !== 'loading') {
-            applyStars(doc, 'iframe@ready');
-          }
+          if (doc && doc.readyState !== 'loading') applyStars(doc);
         };
         tryIframe();
-        iframe.addEventListener('load', () => applyStars(iframe.contentDocument, 'iframe@load'));
+        iframe.addEventListener('load', () => applyStars(iframe.contentDocument));
       }
-    } catch (e) {
-      console.error('[Stars] Error inesperado:', e);
-    }
+    } catch (e) {}
   })();
 })();

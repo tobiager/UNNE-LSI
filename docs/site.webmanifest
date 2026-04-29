@@ -1,6 +1,9 @@
 {
-  "name": "LSI Tools",
+  "name": "LSI Tools — Apuntes UNNE",
   "short_name": "LSI Tools",
+  "description": "Apuntes, parciales y guías para LSI en la UNNE. Funciona offline.",
+  "start_url": "/UNNE-LSI/buscador/",
+  "scope": "/UNNE-LSI/",
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.png",
@@ -15,5 +18,8 @@
   ],
   "theme_color": "#000000",
   "background_color": "#000000",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "es-AR",
+  "categories": ["education", "productivity"]
 }

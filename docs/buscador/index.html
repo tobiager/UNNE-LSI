@@ -30,6 +30,29 @@
     content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
   <meta name="twitter:image" id="tw-image"
     content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/banner.png" />
+  <!-- Schema.org: BreadcrumbList + WebSite base -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Buscador de materias — Apuntes LSI UNNE",
+    "description": "Buscá parciales, finales, resúmenes y guías de cualquier materia de la Licenciatura en Sistemas de Información UNNE.",
+    "url": "https://tobiager.github.io/UNNE-LSI/buscador/",
+    "inLanguage": "es-AR",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "LSI Tools — Apuntes UNNE",
+      "url": "https://tobiager.github.io/UNNE-LSI/"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tobiager.github.io/UNNE-LSI/" },
+        { "@type": "ListItem", "position": 2, "name": "Buscador de materias", "item": "https://tobiager.github.io/UNNE-LSI/buscador/" }
+      ]
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -173,20 +196,25 @@
       border-collapse: collapse
     }
 
-    #results td {
-      padding: 13px 20px;
+    #results tr {
+      display: flex;
+      align-items: center;
       border-bottom: 1px solid rgba(255, 255, 255, .05);
-      font-size: 14px;
-      color: var(--muted);
       transition: background .15s;
     }
 
-    #results tr:last-child td {
-      border-bottom: none
+    #results tr:last-child {
+      border-bottom: none;
     }
 
-    #results tr:hover td {
-      background: rgba(255, 255, 255, .03)
+    #results tr:hover {
+      background: rgba(255, 255, 255, .03);
+    }
+
+    #results td {
+      padding: 13px 20px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .materia-link {
@@ -213,6 +241,41 @@
       padding: 40px 20px;
       color: var(--muted);
       font-size: 14px
+    }
+
+    .mat-badges {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .mat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .mat-badge.has-content {
+      background: rgba(0,153,255,.08);
+      border-color: rgba(0,153,255,.2);
+      color: var(--accent);
+    }
+
+    #results td:first-child {
+      flex: 1;
+    }
+
+    #results td:last-child {
+      flex: 0 0 auto;
     }
 
     /* ── DETAIL: two-column layout ── */
@@ -266,60 +329,76 @@
       white-space: nowrap;
     }
 
+    /* ── ACTION BUTTONS — jerarquía: primario sólido / secundario outline ── */
+    .btn-github,
     .btn-dl-all {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 8px 18px;
       border-radius: 100px;
-      background: var(--accent2);
-      border: 1px solid rgba(0, 153, 255, .3);
-      color: var(--accent);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: #fff;
       font-size: 13px;
       font-weight: 600;
       font-family: inherit;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
       white-space: nowrap;
     }
 
+    .btn-github:hover,
     .btn-dl-all:hover {
-      background: rgba(0, 153, 255, .22);
-      transform: translateY(-1px)
+      background: #1aabff;
+      border-color: #1aabff;
+      transform: translateY(-1px);
     }
 
-    .btn-github {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      border-radius: 100px;
-      border: 1px solid rgba(0, 153, 255, .28);
-      background: rgba(0, 153, 255, .10);
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      font-family: inherit;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-      white-space: nowrap;
+    .btn-github:active,
+    .btn-dl-all:active {
+      transform: translateY(0);
     }
 
-    .btn-github:hover {
-      background: rgba(0, 153, 255, .16);
-      border-color: rgba(0, 153, 255, .40);
-      transform: translateY(-1px)
-    }
-
-    .btn-github:active {
-      transform: translateY(0)
-    }
-
-    .btn-github:focus-visible {
+    .btn-github:focus-visible,
+    .btn-dl-all:focus-visible {
       outline: 2px solid rgba(0, 153, 255, .55);
       outline-offset: 2px;
+    }
+
+    .btn-contribute {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1px solid rgba(0, 153, 255, .35);
+      background: transparent;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-contribute:hover {
+      background: rgba(0, 153, 255, .1);
+      border-color: rgba(0, 153, 255, .55);
+      transform: translateY(-1px);
+    }
+
+    .btn-contribute:active {
+      transform: translateY(0);
+    }
+
+    .btn-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     /* two columns */
@@ -388,12 +467,14 @@
       color: #a0a0a0;
       user-select: none;
       border-left: 2px solid transparent;
+      text-decoration: none;
     }
 
     .tree-row:hover {
       background: rgba(0, 153, 255, .05);
-      color: #fff;
+      color: var(--accent);
       border-left: 2px solid var(--accent);
+      text-decoration: none;
     }
 
     .tree-row.active {
@@ -672,6 +753,108 @@
       transform: translateY(0)
     }
 
+    /* ── SEO CONTENT SECTION ── */
+    .seo-section {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .seo-section summary {
+      padding: 12px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--panel);
+      transition: background .15s;
+    }
+
+    .seo-section summary:hover {
+      background: rgba(255,255,255,.04);
+    }
+
+    .seo-section summary::-webkit-details-marker { display: none; }
+
+    .seo-section summary::after {
+      content: '▶';
+      font-size: 9px;
+      color: var(--muted);
+      margin-left: auto;
+      transition: transform .2s;
+    }
+
+    .seo-section[open] summary::after {
+      transform: rotate(90deg);
+    }
+
+    .seo-body {
+      padding: 20px 24px 24px;
+    }
+
+    .seo-category {
+      margin-bottom: 20px;
+    }
+
+    .seo-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .seo-category h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .seo-category h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    .seo-file-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .seo-file-list a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      transition: color .15s, background .15s, border-color .15s;
+      display: inline-block;
+      max-width: 320px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .seo-file-list a:hover {
+      color: var(--accent);
+      background: rgba(0,153,255,.06);
+      border-color: rgba(0,153,255,.2);
+    }
+
     @media(max-width:700px) {
       .explorer {
         grid-template-columns: 1fr
@@ -692,6 +875,102 @@
 
       .detail-topbar {
         flex-wrap: wrap
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* ─ Page ─ */
+      .page-wrap {
+        padding: 52px 12px 20px;
+      }
+
+      /* ─ Header ─ */
+      .page-header {
+        margin-bottom: 20px;
+      }
+
+      /* ─ Search ─ */
+      #search {
+        max-width: 100%;
+      }
+
+      /* ─ List: compact rows ─ */
+      #results td {
+        padding: 9px 10px;
+      }
+
+      #results td:first-child {
+        width: 55%;
+      }
+
+      /* ─ Badges: ocultar texto, mostrar solo ícono + número ─ */
+      .badge-label {
+        display: none;
+      }
+
+      .mat-badge {
+        padding: 2px 5px;
+        gap: 1px;
+      }
+
+      .mat-badges {
+        gap: 3px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+      }
+
+      /* ─ Detail topbar: reordenar en 2 filas ─ */
+      .detail-topbar {
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+
+      .btn-back {
+        order: 1;
+        padding: 7px 12px;
+        font-size: 12px;
+      }
+
+      /* Título en segunda fila, ancho completo */
+      .detail-title {
+        order: 10;
+        flex: 0 0 100%;
+        white-space: normal;
+        overflow: visible;
+        font-size: 18px;
+        letter-spacing: -0.5px;
+        line-height: 1.25;
+      }
+
+      /* Botones de acción: ícono solo, compactos, alineados a la derecha */
+      .btn-github {
+        order: 2;
+        margin-left: auto;
+        padding: 8px 10px;
+        gap: 0;
+      }
+
+      .btn-dl-all {
+        order: 2;
+        padding: 8px 10px;
+        gap: 0;
+      }
+
+      .btn-contribute {
+        order: 2;
+        padding: 8px 10px;
+        gap: 0;
+      }
+
+      /* Ocultar etiquetas de texto en botones de acción */
+      .btn-label {
+        display: none;
+      }
+
+      /* ─ Readme ─ */
+      .readme-panel {
+        padding: 14px 12px;
+        min-height: auto;
       }
     }
   </style>
@@ -729,8 +1008,18 @@
       <div class="detail-topbar">
         <button class="btn-back" id="btn-back">← Volver</button>
         <h2 class="detail-title" id="detail-title">—</h2>
-        <a class="btn-github" id="btn-github" href="#" target="_blank" rel="noopener" title="Abrir la carpeta de la materia en GitHub" aria-label="Abrir carpeta en GitHub">📁 Ver carpeta en GitHub ↗</a>
-        <a class="btn-dl-all" id="btn-dl-all" href="#" target="_blank" rel="noopener">⬇ Descargar todo</a>
+        <a class="btn-github" id="btn-github" href="#" target="_blank" rel="noopener" title="Ver carpeta en GitHub" aria-label="Ver carpeta en GitHub">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span class="btn-label">Ver carpeta</span>
+        </a>
+        <a class="btn-dl-all" id="btn-dl-all" href="#" target="_blank" rel="noopener" title="Descargar todo">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="btn-label">Descargar todo</span>
+        </a>
+        <a class="btn-contribute" id="btn-contribute" href="#" target="_blank" rel="noopener" title="Aportar material" aria-label="Aportar material">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span class="btn-label">Aportar</span>
+        </a>
       </div>
 
       <div class="explorer">
@@ -750,6 +1039,15 @@
             </div>
             <div class="md-body" id="readme-content" style="display:none"></div>
           </div>
+
+          <!-- Listado de archivos indexable por Google -->
+          <details class="seo-section" id="seo-section" style="display:none">
+            <summary>
+              <span>📂</span>
+              <span id="seo-section-label">Archivos disponibles</span>
+            </summary>
+            <div class="seo-body" id="seo-body"></div>
+          </details>
         </main>
       </div>
 
@@ -761,7 +1059,9 @@
   <script src="../layout/layout.js"></script>
   <script src="../app.js"></script>
   <script>
-    const DATA_URL = '../materias.json?v=' + Date.now();
+    // Sin version string: el SW hace network-first para materias.json (siempre fresco online).
+    // Para usuarios sin SW, GitHub Pages sirve con ETag/Last-Modified (revalida en cada visita).
+    const DATA_URL = '../materias.json';
     const BASE_TITLE = 'LSI Tools';
     let MATERIAS = [];
 
@@ -781,6 +1081,58 @@
       guia: 'Guía',
       tp: 'TP',
       examen: 'Examen'
+    };
+
+    // Títulos y descripciones SEO por keyword — orientados a intent de búsqueda
+    const KW_TITLE_SUFFIX = {
+      final:   '— Finales Resueltos UNNE LSI',
+      parcial: '— Parciales Resueltos UNNE LSI',
+      resumen: '— Resúmenes y Apuntes UNNE LSI',
+      guia:    '— Guías de TPs UNNE LSI',
+      tp:      '— Trabajos Prácticos UNNE LSI',
+      examen:  '— Exámenes Resueltos UNNE LSI'
+    };
+
+    const KW_DESC = {
+      final:   n => `Finales resueltos de ${n} para la Licenciatura en Sistemas de Información (LSI) en la UNNE. Material académico colaborativo y actualizado.`,
+      parcial: n => `Parciales resueltos de ${n} para LSI UNNE. Exámenes de años anteriores con soluciones y modelos de preguntas.`,
+      resumen: n => `Resúmenes y apuntes de ${n} para LSI UNNE. Material de estudio colaborativo redactado por estudiantes que ya aprobaron.`,
+      guia:    n => `Guías de Trabajos Prácticos de ${n} para LSI UNNE. Ejercicios resueltos paso a paso y metodologías para aprobar.`,
+      tp:      n => `TPs resueltos de ${n} para LSI en la UNNE. Trabajos prácticos, ejercicios y ejemplos de código.`,
+      examen:  n => `Exámenes resueltos de ${n} para LSI UNNE. Modelos de parciales y finales con soluciones detalladas.`
+    };
+
+    // Mapeo de abreviaturas y nombres alternativos → nombre canonical de la materia
+    const ALIAS_MAP = {
+      'bd1': 'bases-de-datos-1',
+      'bd2': 'bases-de-datos-2',
+      'bdd1': 'bases-de-datos-1',
+      'bdd2': 'bases-de-datos-2',
+      'aed1': 'algoritmo-y-estructura-de-datos-1',
+      'aed2': 'algoritmo-y-estructura-de-datos-2',
+      'algo1': 'algoritmo-y-estructura-de-datos-1',
+      'algo2': 'algoritmo-y-estructura-de-datos-2',
+      'poo': 'programacion-orientada-a-objetos',
+      'is1': 'ingenieria-de-software-1',
+      'is2': 'ingenieria-de-software-2',
+      'isi': 'ingenieria-de-software-1',
+      'isii': 'ingenieria-de-software-2',
+      'so': 'sistemas-operativos',
+      'pye': 'probabilidad-y-estadistica',
+      'lymc': 'logica-y-matematica-computacional',
+      'pyl': 'paradigmas-y-lenguajes',
+      'arq': 'arquitectura-de-computadoras',
+      'admin': 'administracion-y-gestion-de-organizaciones',
+      'aygo': 'administracion-y-gestion-de-organizaciones',
+      'cd1': 'comunicacion-de-datos-1',
+      'eco': 'economia-aplicada',
+      'syo': 'sistemas-y-organizaciones',
+      'tc': 'teoria-de-la-computacion',
+      'ingles': 'ingles-tecnico',
+      'calcu': 'calculo',
+      'tp1': 'taller-de-programacion-1',
+      'tp2': 'taller-de-programacion-2',
+      'alge': 'algebra'
     };
 
     let ACTIVE_KW = null;
@@ -847,7 +1199,6 @@
       const cl = document.getElementById('canonical-link');
       if (cl && canonical) cl.setAttribute('href', canonical);
 
-      // Update OG/Twitter if tags exist
       const setOg = (id, value) => {
         const el = document.getElementById(id);
         if (el && value) el.setAttribute('content', value);
@@ -857,6 +1208,151 @@
       setOg('og-url', canonical);
       setOg('tw-title', title);
       setOg('tw-desc', desc);
+    }
+
+    function injectCourseSchema(materia, activeKw) {
+      let el = document.getElementById('ld-course');
+      if (!el) {
+        el = document.createElement('script');
+        el.id = 'ld-course';
+        el.type = 'application/ld+json';
+        document.head.appendChild(el);
+      }
+      const kwLabel = activeKw && KW_TO_LABEL[activeKw] ? KW_TO_LABEL[activeKw] : null;
+      const desc = kwLabel
+        ? `${kwLabel} de ${materia.nombre} — Licenciatura en Sistemas de Información UNNE. Material académico colaborativo.`
+        : `Apuntes, parciales resueltos y material de estudio de ${materia.nombre} para LSI en la UNNE.`;
+      const hasParts = materia.seo && materia.seo.top_categorias && materia.seo.top_categorias.length > 0;
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": materia.nombre,
+        "description": desc,
+        "url": materia.url_buscador,
+        "inLanguage": "es-AR",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "UNNE — Licenciatura en Sistemas de Información",
+          "url": "https://tobiager.github.io/UNNE-LSI/"
+        },
+        "educationalLevel": "University",
+        "teaches": materia.nombre,
+        "isAccessibleForFree": true,
+        "courseMode": "online",
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "inLanguage": "es-AR"
+        }
+      };
+      if (hasParts) {
+        schema.about = materia.seo.top_categorias.map(cat => ({
+          "@type": "Thing",
+          "name": cat + " de " + materia.nombre
+        }));
+      }
+      el.textContent = JSON.stringify(schema);
+    }
+
+    function removeCourseSchema() {
+      const el = document.getElementById('ld-course');
+      if (el) el.remove();
+    }
+
+    // ── Limpieza de nombres de archivo para texto legible ─────────
+    function cleanFileName(nombre, matNombre) {
+      const ext = /\.[a-z0-9]{1,5}$/i;
+      return (nombre || '')
+        .replace(ext, '')
+        .replace(/[-_]/g, ' ')
+        .replace(/\(\d+\)/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/^\s+|\s+$/g, '');
+    }
+
+    const CAT_H3 = {
+      Final:   n => `Finales de ${n}`,
+      Parcial: n => `Parciales de ${n}`,
+      Resumen: n => `Resúmenes y Apuntes de ${n}`,
+      TP:      n => `Trabajos Prácticos de ${n}`,
+      Examen:  n => `Exámenes de ${n}`,
+      Guía:    n => `Guías de ${n}`
+    };
+
+    const CAT_H4 = {
+      Final:   'Finales — LSI UNNE',
+      Parcial: 'Parciales Resueltos — LSI UNNE',
+      Resumen: 'Material de Estudio — LSI UNNE',
+      TP:      'Trabajos Prácticos — LSI UNNE',
+      Examen:  'Exámenes Resueltos — LSI UNNE',
+      Guía:    'Guías — LSI UNNE'
+    };
+
+    // ── Sección de archivos indexable por Google ──────────────────
+    function renderSemanticContent(materia) {
+      const section = document.getElementById('seo-section');
+      const body = document.getElementById('seo-body');
+      const label = document.getElementById('seo-section-label');
+      if (!section || !body) return;
+
+      // Recolectar archivos planos agrupados por categoría primaria
+      const groups = {};
+      let totalFiles = 0;
+
+      function collectFiles(items) {
+        (items || []).forEach(item => {
+          if (item.tipo === 'archivo') {
+            const cat = item.categoria || 'Material';
+            if (!groups[cat]) groups[cat] = [];
+            groups[cat].push(item);
+            totalFiles++;
+          } else if (item.tipo === 'carpeta' && item.hijos) {
+            collectFiles(item.hijos);
+          }
+        });
+      }
+      collectFiles(materia.contenido);
+
+      if (totalFiles === 0) {
+        section.style.display = 'none';
+        return;
+      }
+
+      // Orden de categorías por relevancia de búsqueda
+      const CAT_ORDER = ['Parcial', 'Final', 'Resumen', 'TP', 'Examen', 'Guía'];
+      const sortedCats = [...new Set([
+        ...CAT_ORDER.filter(c => groups[c]),
+        ...Object.keys(groups).filter(c => !CAT_ORDER.includes(c))
+      ])];
+
+      let html = '';
+      for (const cat of sortedCats) {
+        const files = groups[cat];
+        const h3Text = (CAT_H3[cat] ? CAT_H3[cat](materia.nombre) : `${cat} de ${materia.nombre}`);
+        const h4Text = CAT_H4[cat] || `${cat} — LSI UNNE`;
+        html += `<div class="seo-category">
+          <h3>${h3Text}</h3>
+          <h4>${h4Text}</h4>
+          <ul class="seo-file-list">`;
+        for (const f of files) {
+          const display = cleanFileName(f.nombre, materia.nombre);
+          // Usar url_blob (página de GitHub) como href indexable
+          const href = f.url_blob || f.url_raw || '#';
+          html += `<li><a href="${href}" target="_blank" rel="noopener">${display}</a></li>`;
+        }
+        html += '</ul></div>';
+      }
+
+      body.innerHTML = html;
+      if (label) label.textContent = `${totalFiles} archivos disponibles`;
+      section.style.display = '';
+    }
+
+    function clearSemanticContent() {
+      const section = document.getElementById('seo-section');
+      const body = document.getElementById('seo-body');
+      if (section) section.style.display = 'none';
+      if (body) body.innerHTML = '';
     }
 
     // ── Fetch ─────────────────────────────────────────────────────
@@ -884,9 +1380,21 @@
         tbody.innerHTML = '<tr><td><div class="no-results">No se encontraron materias 🔍</div></td></tr>';
         return;
       }
-      tbody.innerHTML = list.map(m => `
-    <tr><td><button class="materia-link" onclick="openMateria('${m.slug}')">${m.nombre}</button></td></tr>
-  `).join('');
+      const CAT_ICON = { Final: '📝', Parcial: '📋', Resumen: '📖', TP: '🔧', Examen: '📑', Guía: '📚' };
+      tbody.innerHTML = list.map(m => {
+        const cats = (m.seo && m.seo.categorias) ? m.seo.categorias : {};
+        const topCats = (m.seo && m.seo.top_categorias) ? m.seo.top_categorias.slice(0, 3) : [];
+        const badges = topCats.map(cat => {
+          const count = cats[cat] || 0;
+          const icon = CAT_ICON[cat] || '📄';
+          const countHtml = count > 0 ? `<span class="badge-count"> · ${count}</span>` : '';
+          return `<span class="mat-badge has-content">${icon}<span class="badge-label"> ${cat}</span>${countHtml}</span>`;
+        }).join('');
+        return `<tr>
+          <td><button class="materia-link" onclick="openMateria('${m.slug}')">${m.nombre}</button></td>
+          <td><div class="mat-badges">${badges}</div></td>
+        </tr>`;
+      }).join('');
     }
 
     function showList() {
@@ -899,6 +1407,8 @@
       setMeta(`Buscador de materias — Apuntes LSI UNNE`,
         'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido.',
         'https://tobiager.github.io/UNNE-LSI/buscador/');
+      removeCourseSchema();
+      clearSemanticContent();
       history.pushState({}, '', window.location.pathname);
     }
 
@@ -913,17 +1423,23 @@
       if (ACTIVE_KW && !KW_TO_LABEL[ACTIVE_KW]) ACTIVE_KW = null;
 
       const kwLabel = ACTIVE_KW && KW_TO_LABEL[ACTIVE_KW] ? KW_TO_LABEL[ACTIVE_KW] : null;
+
+      // Título orientado a búsqueda: "[KW] de [Materia] — UNNE LSI | Resueltos"
       const title = kwLabel
-        ? `${kwLabel} de ${materia.nombre} — ${BASE_TITLE}`
-        : `Apuntes de ${materia.nombre} — ${BASE_TITLE}`;
-      const desc = kwLabel
-        ? `Apuntes LSI UNNE de Sistemas: ${kwLabel.toLowerCase()}, guías y recursos de ${materia.nombre}.`
-        : `Apuntes LSI UNNE de Sistemas: recursos, parciales y material de estudio de ${materia.nombre}.`;
+        ? `${kwLabel} de ${materia.nombre} ${KW_TITLE_SUFFIX[ACTIVE_KW] || '— UNNE LSI'}`
+        : `${materia.nombre} UNNE LSI — Parciales, Finales y Apuntes Resueltos`;
+
+      // Descripción rica en términos de búsqueda con intención de estudio
+      const desc = ACTIVE_KW && KW_DESC[ACTIVE_KW]
+        ? KW_DESC[ACTIVE_KW](materia.nombre)
+        : `Parciales resueltos, finales, resúmenes y guías de TPs de ${materia.nombre}. Material colaborativo para LSI en la UNNE — Plan 2023 y 2009.`;
+
       const canonical = ACTIVE_KW
         ? `https://tobiager.github.io/UNNE-LSI/buscador/?materia=${materia.slug}&kw=${ACTIVE_KW}`
         : materia.url_buscador;
 
       setMeta(title, desc, canonical);
+      injectCourseSchema(materia, ACTIVE_KW);
       const nextUrl = ACTIVE_KW
         ? `${window.location.pathname}?materia=${materia.slug}&kw=${ACTIVE_KW}`
         : `${window.location.pathname}?materia=${materia.slug}`;
@@ -933,6 +1449,19 @@
       document.getElementById('btn-dl-all').href = materia.url_downgit || '#';
       document.getElementById('btn-github').href = materia.url_github || '#';
 
+      // Contribución rápida: genera Issue pre-llenado en GitHub
+      const contributeBody = encodeURIComponent(
+        `## Aporte para: ${materia.nombre}\n\n` +
+        `**Tipo de material:** (parcial / final / resumen / TP / otro)\n\n` +
+        `**Descripción:** \n\n` +
+        `**Adjunto / link al archivo:** \n\n` +
+        `---\n_Aporte enviado desde LSI Tools_`
+      );
+      const contributeTitle = encodeURIComponent(`[Aporte] ${materia.nombre}`);
+      const contributeLabels = encodeURIComponent('nueva-materia-aporte');
+      document.getElementById('btn-contribute').href =
+        `https://github.com/tobiager/UNNE-LSI/issues/new?title=${contributeTitle}&body=${contributeBody}&labels=${contributeLabels}`;
+
       // Sidebar tree
       const tree = document.getElementById('sidebar-tree');
       tree.innerHTML = materia.contenido && materia.contenido.length
@@ -941,6 +1470,9 @@
 
       // README
       loadReadme(materia);
+
+      // Sección semántica indexable por Google
+      renderSemanticContent(materia);
     }
 
     function openMateria(slug, opts = {}) {
@@ -1032,11 +1564,20 @@
           const icon = getIcon(item.extension);
           const match = kw && Array.isArray(item.keywords) && item.keywords.includes(kw);
           const badge = match && KW_TO_BADGE[kw] ? `<span class="kw-badge">${KW_TO_BADGE[kw]}</span>` : '';
+          // Archivos como <a> real: crawlable por Google, con comportamiento JS preservado
+          const ext = (item.extension || '').toLowerCase();
+          const viewExts = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'mp4', 'webm'];
+          const href = viewExts.includes(ext) ? (item.url_blob || item.url_raw) : (item.url_raw || item.url_blob);
+          const safeRaw = (item.url_raw || '').replace(/'/g, '%27');
+          const safeBlob = (item.url_blob || '').replace(/'/g, '%27');
           return `<li class="tree-item">
-        <div class="tree-row ${match ? 'match' : ''}" onclick="openFile('${item.url_raw}','${item.url_blob}',this)">
+        <a href="${href}" target="_blank" rel="noopener"
+           class="tree-row ${match ? 'match' : ''}"
+           onclick="event.preventDefault(); openFile('${safeRaw}','${safeBlob}',this)"
+           title="${item.nombre}">
           <span class="tree-icon">${icon}</span>
-          <span class="tree-label" title="${item.nombre}">${item.nombre}</span>${badge}
-        </div></li>`;
+          <span class="tree-label">${item.nombre}</span>${badge}
+        </a></li>`;
         }
       }).join('');
     }
@@ -1047,7 +1588,8 @@
       const open = ul.classList.toggle('open');
       const ch = row.querySelector('.tree-chevron');
       if (ch) ch.classList.toggle('open', open);
-      row.querySelector('.tree-icon').textContent = open ? '📂' : '📁';
+      const icon = row.querySelector('.tree-icon');
+      if (icon) icon.textContent = open ? '📂' : '📁';
     }
 
     function openFile(rawUrl, blobUrl, row) {
@@ -1067,8 +1609,17 @@
     searchInput.addEventListener('input', e => renderList(e.target.value));
     searchInput.addEventListener('keydown', e => {
       if (e.key !== 'Enter') return;
-      const q = e.target.value || '';
+      const q = (e.target.value || '').trim();
       const kw = detectKwFromQuery(q);
+
+      // Verificar si el query completo (sin kw) es un alias conocido
+      const qNorm = normalizeText(q).split(' ').filter(t => !Object.values(KW_TO_LABEL).map(normalizeText).includes(t)).join(' ').trim();
+      const aliasSlug = ALIAS_MAP[qNorm] || ALIAS_MAP[normalizeText(q)];
+      if (aliasSlug) {
+        const m = MATERIAS.find(x => x.slug === aliasSlug);
+        if (m) { openMateria(m.slug, { kw }); return; }
+      }
+
       const ranked = MATERIAS
         .map(m => ({ m, score: scoreMateria(m, q) }))
         .sort((a, b) => b.score - a.score);
