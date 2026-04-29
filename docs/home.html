@@ -96,7 +96,9 @@
       font-family: "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
       line-height: 1.6;
-      min-height: 100%;
+      /* height (not min-height) gives a *definite* containing-block height so
+         that .hero { min-height: 100% } resolves correctly as a fallback. */
+      height: 100%;
     }
 
     /* ── DIVIDER ── */
@@ -111,10 +113,14 @@
       text-align: center;
       padding: 0 24px;
       position: relative;
-      /* No overflow:hidden — if min-height resolves incorrectly on mobile
-         Safari the hero would clip its own centered content. The ::before
-         gradient is inset:0 so it never overflows anyway. */
-      min-height: var(--initial-vh, 100%);
+      /* 100vh fallback → 100dvh for browsers that support it.
+         Inside a stable iframe (parent: height:100svh; overflow:hidden) both
+         units resolve identically to the iframe's own viewport height — there
+         is no dynamic browser chrome *inside* the iframe. Using dvh/vh instead
+         of JS-computed variables eliminates timing and Safari clientHeight
+         bugs entirely. */
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1033,26 +1039,6 @@
   </section>
 
   <script>
-    // ── Lock hero height so mobile-Safari chrome-collapse can't expand it ──
-    // Set --initial-vh once from the real iframe viewport height.
-    // Called on load AND after the first resize (fired by layout.js when the
-    // parent navbar finishes loading). The { once: true } listener ensures
-    // subsequent browser-chrome-collapse resize events are ignored.
-    (function () {
-      const setVh = () => {
-        // window.innerHeight = iframe *viewport* height (what the user sees).
-        // document.documentElement.clientHeight is unsafe inside iframes on
-        // mobile Safari — it can return the full document scrollHeight instead
-        // of the viewport height, inflating the hero to thousands of pixels.
-        const h = window.innerHeight;
-        if (h > 100) {
-          document.documentElement.style.setProperty('--initial-vh', h + 'px');
-        }
-      };
-      setVh();
-      window.addEventListener('resize', setVh, { once: true });
-    })();
-
     // ── Theme ──────────────────────────────────────────────────────
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
