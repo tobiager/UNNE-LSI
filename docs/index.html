@@ -87,8 +87,9 @@
 
     * { box-sizing: border-box; }
 
-    /* Shell never scrolls — all scrolling lives inside #content. */
     html {
+      height: 100vh;
+      height: 100dvh;
       overflow: hidden;
       overscroll-behavior: none;
     }
@@ -99,29 +100,28 @@
       color: #ffffff;
       font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv11";
-      /* Grid row sizes are computed synchronously before the iframe renders,
-         so home.html's percentage chain (html/body/hero height: 100%) always
-         resolves to the correct viewport height — even on mobile Safari. */
+      height: 100vh;
+      height: 100dvh;
       display: grid;
       grid-template-rows: calc(68px + env(safe-area-inset-top, 0px)) 1fr;
-      height: 100vh;
-      height: 100svh;
       overflow: hidden;
       overscroll-behavior: none;
       padding-bottom: var(--footer-h);
     }
 
     #navbar {
+      z-index: 100;
       min-height: calc(68px + env(safe-area-inset-top, 0px));
     }
 
+    /* Explicit calc avoids height:100% not propagating grid-track size to the
+       iframe's internal viewport on hard refresh in Safari/Chrome mobile. */
     #content {
-      border: none;
+      display: block;
       width: 100%;
-      /* height: 100% = grid row's 1fr value. Without this explicit height the
-         browser may not propagate the layout size to the iframe's viewport,
-         breaking percentage heights inside home.html. */
-      height: 100%;
+      height: calc(100vh  - calc(68px + env(safe-area-inset-top, 0px)) - var(--footer-h));
+      height: calc(100dvh - calc(68px + env(safe-area-inset-top, 0px)) - var(--footer-h));
+      border: none;
       min-height: 0;
     }
 

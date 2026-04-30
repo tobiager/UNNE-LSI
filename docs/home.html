@@ -132,6 +132,14 @@
       z-index: 1;
     }
 
+    /* On mobile, justify-content:center with overflowing content shifts the
+       start position above the viewport. Use flex-start so content begins
+       at the top of hero-body and the css/index.css padding creates the
+       visual breathing room. */
+    @media (max-width: 600px) {
+      .hero-body { justify-content: flex-start; }
+    }
+
     /* ── SCROLL HINT ── */
     @keyframes bounce-down {
 
@@ -194,27 +202,20 @@
     .hero-actions,
     .hero-stats {
       opacity: 0;
-      animation: hero-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: hero-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .hero-badge {
-      animation-delay: 0.1s;
-    }
+    .hero-badge   { animation-delay: 0.05s; }
+    .hero h1      { animation-delay: 0.12s; }
+    .hero p       { animation-delay: 0.18s; }
+    .hero-actions { animation-delay: 0.24s; }
+    .hero-stats   { animation-delay: 0.30s; }
 
-    .hero h1 {
-      animation-delay: 0.25s;
-    }
-
-    .hero p {
-      animation-delay: 0.4s;
-    }
-
-    .hero-actions {
-      animation-delay: 0.55s;
-    }
-
-    .hero-stats {
-      animation-delay: 0.7s;
+    @media (prefers-reduced-motion: reduce) {
+      .hero-badge, .hero h1, .hero p, .hero-actions, .hero-stats {
+        opacity: 1;
+        animation: none;
+      }
     }
 
     .hero-badge {

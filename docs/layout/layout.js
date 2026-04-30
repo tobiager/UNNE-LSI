@@ -14,12 +14,6 @@ async function loadComponent(id, url) {
         a.setAttribute('href', SITE_BASE + a.getAttribute('href').slice('/UNNE-LSI'.length));
       });
       document.dispatchEvent(new Event('navbarLoaded'));
-      // Fuerza al iframe a recalcular su viewport para que unidades como
-      // svh/dvh reflejen el alto correcto (sin el navbar vacío inicial).
-      const iframe = document.getElementById('content');
-      if (iframe && iframe.contentWindow) {
-        try { iframe.contentWindow.dispatchEvent(new Event('resize')); } catch (_) {}
-      }
     }
     if (id === 'footer') {
       const updateFooterHeight = () => {
