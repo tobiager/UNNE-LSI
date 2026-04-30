@@ -87,9 +87,7 @@
 
     * { box-sizing: border-box; }
 
-    /* Lock the shell so it can never scroll — all scrolling lives inside
-       #content (the iframe). overscroll-behavior:none kills iOS rubber-band
-       bounce so swiping on the navbar area doesn't jolt the layout. */
+    /* Shell never scrolls — all scrolling lives inside #content. */
     html {
       overflow: hidden;
       overscroll-behavior: none;
@@ -101,33 +99,29 @@
       color: #ffffff;
       font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv11";
-      display: flex;
-      flex-direction: column;
+      /* Grid row sizes are computed synchronously before the iframe renders,
+         so home.html's percentage chain (html/body/hero height: 100%) always
+         resolves to the correct viewport height — even on mobile Safari. */
+      display: grid;
+      grid-template-rows: calc(68px + env(safe-area-inset-top, 0px)) 1fr;
       height: 100vh;
-      height: 100svh; /* stable: doesn't grow when Safari chrome collapses */
+      height: 100svh;
       overflow: hidden;
       overscroll-behavior: none;
       padding-bottom: var(--footer-h);
     }
 
-    /* Pre-reserva el espacio del navbar para que el iframe no cambie de
-       altura cuando el navbar carga asíncronamente (evita el bug de render
-       inicial en mobile Safari donde svh/dvh se calculan con el alto
-       incorrecto del iframe). */
     #navbar {
       min-height: calc(68px + env(safe-area-inset-top, 0px));
     }
 
     #content {
-      flex: 1;
       border: none;
       width: 100%;
-      /* height: 0 + flex: 1 gives the iframe a *definite* computed height via
-         the flex algorithm, which is what Safari needs to size the iframe
-         viewport correctly (without this, Safari can report the iframe's
-         clientHeight as the full document scroll-height instead of the
-         visible viewport height). */
-      height: 0;
+      /* height: 100% = grid row's 1fr value. Without this explicit height the
+         browser may not propagate the layout size to the iframe's viewport,
+         breaking percentage heights inside home.html. */
+      height: 100%;
       min-height: 0;
     }
 
@@ -185,8 +179,6 @@
   <script>
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
-
-
 
     // ── Sync SEO meta with iframe (same-origin) ───────────────────
     (() => {
