@@ -54,6 +54,8 @@
       --accent-glow: rgba(0, 153, 255, 0.15);
       --frosted: rgba(255, 255, 255, 0.1);
       --footer-h: calc(48px + env(safe-area-inset-bottom, 0px));
+      /* nav-bar inner height (68px) + status-bar area on notch/island devices */
+      --nav-h: calc(68px + env(safe-area-inset-top, 0px));
     }
 
     body.theme-dark {
@@ -114,14 +116,17 @@
       z-index: 100;
     }
 
-    /* flex:1 fills remaining space; height:100% gives Safari a concrete pixel
-       value to propagate as the iframe's internal viewport on first paint;
+    /* flex:1 fills remaining space; the explicit height gives Safari a concrete
+       pixel value for the iframe's internal viewport — using 100% was wrong
+       because it resolved against the body's content area (100dvh - footer-h),
+       not the flex-allocated space (100dvh - nav-h - footer-h), causing home.html
+       to think its viewport was taller than it actually is.
        min-height:0 prevents flexbox from using the iframe's intrinsic 300px. */
     #content {
       flex: 1;
       display: block;
       width: 100%;
-      height: 100%;
+      height: calc(100dvh - var(--nav-h) - var(--footer-h));
       border: none;
       min-height: 0;
     }
