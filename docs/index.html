@@ -102,25 +102,26 @@
       font-feature-settings: "cv11";
       height: 100vh;
       height: 100dvh;
-      display: grid;
-      grid-template-rows: calc(68px + env(safe-area-inset-top, 0px)) 1fr;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       overscroll-behavior: none;
       padding-bottom: var(--footer-h);
     }
 
     #navbar {
+      flex-shrink: 0;
       z-index: 100;
-      min-height: calc(68px + env(safe-area-inset-top, 0px));
     }
 
-    /* Explicit calc avoids height:100% not propagating grid-track size to the
-       iframe's internal viewport on hard refresh in Safari/Chrome mobile. */
+    /* flex:1 fills remaining space; height:100% gives Safari a concrete pixel
+       value to propagate as the iframe's internal viewport on first paint;
+       min-height:0 prevents flexbox from using the iframe's intrinsic 300px. */
     #content {
+      flex: 1;
       display: block;
       width: 100%;
-      height: calc(100vh  - calc(68px + env(safe-area-inset-top, 0px)) - var(--footer-h));
-      height: calc(100dvh - calc(68px + env(safe-area-inset-top, 0px)) - var(--footer-h));
+      height: 100%;
       border: none;
       min-height: 0;
     }

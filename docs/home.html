@@ -66,6 +66,7 @@
     html {
       height: 100%;
       scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
     }
 
     /* Custom scrollbar only on pointer devices — hidden on touch/mobile */
@@ -101,6 +102,7 @@
       text-align: center;
       padding: 0 24px;
       position: relative;
+      overflow: hidden;
       /* 100% chains through body → html → iframe viewport height.
          dvh/svh are intentionally avoided: inside iframes, Safari iOS
          resolves them from the parent window, not the iframe's viewport. */
@@ -108,6 +110,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      scroll-snap-align: start;
     }
 
     /* subtle ambient glow behind hero */
@@ -202,14 +205,14 @@
     .hero-actions,
     .hero-stats {
       opacity: 0;
-      animation: hero-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: hero-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .hero-badge   { animation-delay: 0.05s; }
-    .hero h1      { animation-delay: 0.12s; }
-    .hero p       { animation-delay: 0.18s; }
-    .hero-actions { animation-delay: 0.24s; }
-    .hero-stats   { animation-delay: 0.30s; }
+    .hero-badge   { animation-delay: 0.1s; }
+    .hero h1      { animation-delay: 0.25s; }
+    .hero p       { animation-delay: 0.4s; }
+    .hero-actions { animation-delay: 0.55s; }
+    .hero-stats   { animation-delay: 0.7s; }
 
     @media (prefers-reduced-motion: reduce) {
       .hero-badge, .hero h1, .hero p, .hero-actions, .hero-stats {
