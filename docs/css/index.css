@@ -3,7 +3,7 @@
 @media (max-width: 600px) {
   body { font-size: 14px; }
 
-  .hero { padding: 64px 16px 52px; }
+  .hero { padding: 32px 16px 20px; }
   .section { padding: 52px 16px; }
   .community { padding: 52px 16px; }
 
@@ -11,4 +11,10 @@
   .btn-primary,
   .btn-secondary,
   .btn-ghost { width: 100%; justify-content: center; }
+}
+
+/* PWA standalone on small screens: further compress the hero
+   since the navbar is taller (safe-area-inset-top included) */
+@media (display-mode: standalone) and (max-width: 600px) {
+  .hero { padding: 20px 16px 12px; }
 }

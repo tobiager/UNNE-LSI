@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/lsi.png">
   <link rel="manifest" href="site.webmanifest">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -764,6 +764,13 @@
       .hero h1 {
         letter-spacing: -2px;
       }
+
+      /* Reduce inner-hero spacing so all content fits the iframe viewport
+         on mobile Safari (both browser and PWA). css/index.css sets the hero
+         padding (32px top / 20px bottom); these reductions save ~52px more. */
+      .hero-badge   { margin-bottom: 20px; }
+      .hero p       { margin: 0 auto 24px; }
+      .hero-actions { margin-bottom: 32px; }
 
       .cards {
         grid-template-columns: 1fr;
