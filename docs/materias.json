@@ -25217,7 +25217,7 @@
         "tp"
       ],
       "categorias": {
-        "Parcial": 50,
+        "Parcial": 54,
         "Examen": 1,
         "Resumen": 3,
         "TP": 4,
@@ -25999,6 +25999,62 @@
                       "Parcial"
                     ],
                     "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Recuperatorio Practico 1.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Practico%201.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Practico%201.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Recuperatorio Practico 2.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Practico%202.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Practico%202.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Recuperatorio Teorico 1.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Teorico%201.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Teorico%201.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Recuperatorio Teorico 2.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Teorico%202.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Primer%20Parcial/Recuperatorio%20Teorico%202.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
                   }
                 ]
               }
@@ -26163,6 +26219,36 @@
               "Resumen"
             ],
             "categoria": "Resumen"
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Comparativa de Arquitecturas de Software.xlsx",
+            "extension": "xlsx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Software_Architecture_Atlas 1.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Software_Architecture_Atlas%201.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Software_Architecture_Atlas%201.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Software_Architecture_Atlas 2.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Software_Architecture_Atlas%202.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Software_Architecture_Atlas%202.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
           }
         ]
       },
