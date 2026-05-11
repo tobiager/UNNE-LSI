@@ -57,37 +57,42 @@
       --card-ring-hover: rgba(0, 153, 255, 0.3) 0px 0px 0px 1px;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    *::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
     }
 
     html {
       height: 100%;
-      scroll-behavior: smooth;
-      scroll-snap-type: y proximity;
-    }
-
-    /* Custom scrollbar only on pointer devices — hidden on touch/mobile */
-    @media (hover: hover) {
-      html {
-        scrollbar-width: thin;
-        scrollbar-color: #333333 #000000;
-      }
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
-      ::-webkit-scrollbar-track { background: #000000; }
-      ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #0099ff; }
+      overflow: hidden !important;
     }
 
     body {
-      background: #000000;
+      background: transparent !important;
       color: #ffffff;
       font-family: "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
       line-height: 1.6;
       height: 100%;
+      overflow: hidden !important;
+    }
+
+    #scroll-root {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
     }
 
     /* ── DIVIDER ── */
@@ -102,7 +107,8 @@
       text-align: center;
       padding: 0 24px;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      /* clip horizontal only — vertical overflow lets content breathe on small screens */
       /* 100% chains through body → html → iframe viewport height.
          dvh/svh are intentionally avoided: inside iframes, Safari iOS
          resolves them from the parent window, not the iframe's viewport. */
@@ -110,17 +116,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      scroll-snap-align: start;
     }
 
-    /* subtle ambient glow behind hero */
+    /* ambient glow is now provided by the parent shell (index.html #ambient-glow) */
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0, 153, 255, 0.06), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      display: none;
     }
 
     /* hero content wrapper — takes all available space, centers children */
@@ -140,7 +140,9 @@
        at the top of hero-body and the css/index.css padding creates the
        visual breathing room. */
     @media (max-width: 600px) {
-      .hero-body { justify-content: flex-start; }
+      .hero-body {
+        justify-content: flex-start;
+      }
     }
 
     /* ── SCROLL HINT ── */
@@ -188,14 +190,12 @@
     @keyframes hero-reveal {
       0% {
         opacity: 0;
-        transform: translateY(40px);
-        filter: blur(8px);
+        transform: translateY(20px);
       }
 
       100% {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0);
       }
     }
 
@@ -205,17 +205,37 @@
     .hero-actions,
     .hero-stats {
       opacity: 0;
-      animation: hero-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: hero-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .hero-badge   { animation-delay: 0.1s; }
-    .hero h1      { animation-delay: 0.25s; }
-    .hero p       { animation-delay: 0.4s; }
-    .hero-actions { animation-delay: 0.55s; }
-    .hero-stats   { animation-delay: 0.7s; }
+    /* Tighter stagger — all content visible within ~500ms */
+    .hero-badge {
+      animation-delay: 0.05s;
+    }
+
+    .hero h1 {
+      animation-delay: 0.13s;
+    }
+
+    .hero p {
+      animation-delay: 0.21s;
+    }
+
+    .hero-actions {
+      animation-delay: 0.29s;
+    }
+
+    .hero-stats {
+      animation-delay: 0.37s;
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-badge, .hero h1, .hero p, .hero-actions, .hero-stats {
+
+      .hero-badge,
+      .hero h1,
+      .hero p,
+      .hero-actions,
+      .hero-stats {
         opacity: 1;
         animation: none;
       }
@@ -253,6 +273,8 @@
       max-width: 780px;
       margin-left: auto;
       margin-right: auto;
+      overflow-wrap: break-word;
+      /* prevents single-line overflow before Inter loads */
     }
 
     .hero p {
@@ -472,16 +494,6 @@
       position: relative;
     }
 
-    /* subtle blue radial glow behind each section */
-    .section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 153, 255, 0.03), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .section>* {
       position: relative;
       z-index: 1;
@@ -631,15 +643,6 @@
       overflow: hidden;
     }
 
-    .community::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0, 153, 255, 0.04), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .community>* {
       position: relative;
       z-index: 1;
@@ -768,9 +771,17 @@
       /* Reduce inner-hero spacing so all content fits the iframe viewport
          on mobile Safari (both browser and PWA). css/index.css sets the hero
          padding (32px top / 20px bottom); these reductions save ~52px more. */
-      .hero-badge   { margin-bottom: 20px; }
-      .hero p       { margin: 0 auto 24px; }
-      .hero-actions { margin-bottom: 32px; }
+      .hero-badge {
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        margin: 0 auto 24px;
+      }
+
+      .hero-actions {
+        margin-bottom: 32px;
+      }
 
       .cards {
         grid-template-columns: 1fr;
@@ -802,25 +813,21 @@
       }
     }
 
-    @media (display-mode: standalone) {
-      .section        { padding: 52px 24px; }
-      .community      { padding: 52px 24px; }
-      .hero-badge     { margin-bottom: 20px; }
-      .hero p         { margin: 0 auto 28px; }
-      .hero-actions   { margin-bottom: 36px; }
-      .section-subtitle { margin: 0 auto 32px; }
-      .cards          { gap: 10px; }
-    }
-
     @media (display-mode: standalone) and (max-width: 600px) {
-      .section   { padding: 40px 16px; }
-      .community { padding: 40px 16px; }
+      .section {
+        padding: 40px 16px;
+      }
+
+      .community {
+        padding: 40px 16px;
+      }
     }
   </style>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/index.css?v=1.1.0">
 </head>
 
 <body>
+<div id="scroll-root">
 
   <!-- ── HERO ── -->
   <section class="hero">
@@ -1033,6 +1040,8 @@
     </div>
   </section>
 
+</div><!-- #scroll-root -->
+
   <script>
     // ── Theme ──────────────────────────────────────────────────────
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
@@ -1100,7 +1109,7 @@
         }
       });
     };
-    document.addEventListener('scroll', revealFallback, { passive: true });
+    document.getElementById('scroll-root').addEventListener('scroll', revealFallback, { passive: true });
     window.addEventListener('resize', revealFallback, { passive: true });
 
     // ── Smooth scroll for "Ver Herramientas" ──────────────────────

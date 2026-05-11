@@ -99,13 +99,13 @@
     body:not(.theme-light)::before {
       content: "";
       position: fixed;
-      top: 68px;
+      top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      height: 50vh;
       pointer-events: none;
       z-index: 0;
-      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, 0.05), transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 153, 255, 0.15), transparent 75%);
     }
 
     /* ── WRAPPER ── */
@@ -647,8 +647,8 @@
   </div>
 
   <div id="footer"></div>
-  <script src="../layout/layout.js"></script>
-  <script src="../app.js"></script>
+  <script src="../layout/layout.js?v=1.1.1"></script>
+  <script src="../app.js?v=1.1.1"></script>
   <script>
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);

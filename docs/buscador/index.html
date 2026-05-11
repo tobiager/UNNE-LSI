@@ -113,13 +113,13 @@
     body::before {
       content: "";
       position: fixed;
-      top: 68px;
+      top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      height: 50vh;
       pointer-events: none;
       z-index: 0;
-      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0, 153, 255, .05), transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 153, 255, 0.15), transparent 75%);
     }
 
     /* ── PAGE ── */
@@ -438,6 +438,7 @@
 
     .sidebar-tree {
       overflow-y: auto;
+      overflow-x: hidden;
       flex: 1;
     }
 
@@ -1061,8 +1062,8 @@
 
   <div id="footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="../layout/layout.js"></script>
-  <script src="../app.js"></script>
+  <script src="../layout/layout.js?v=1.1.1"></script>
+  <script src="../app.js?v=1.1.1"></script>
   <script>
     // Sin version string: el SW hace network-first para materias.json (siempre fresco online).
     // Para usuarios sin SW, GitHub Pages sirve con ETag/Last-Modified (revalida en cada visita).

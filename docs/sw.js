@@ -1,41 +1,45 @@
-const CACHE = 'lsi-tools-v1';
-const PRECACHE = [
+const CACHE_NAME = 'lsi-cache-v1.1.0';
+
+// Core shell: cached at install for offline baseline.
+// HTML routes use NetworkFirst so new markup is always fetched when online.
+const SHELL = [
   '/UNNE-LSI/',
+  '/UNNE-LSI/home.html',
   '/UNNE-LSI/buscador/',
   '/UNNE-LSI/simulador/',
   '/UNNE-LSI/calendario/',
-  '/UNNE-LSI/materias.json',
-  '/UNNE-LSI/css/index.css',
-  '/UNNE-LSI/css/buscador.css',
-  '/UNNE-LSI/layout/layout.js',
-  '/UNNE-LSI/app.js',
   '/UNNE-LSI/navbar/navbar.html',
   '/UNNE-LSI/footer/footer.html',
-  '/UNNE-LSI/home.html',
+  '/UNNE-LSI/materias.json',
 ];
 
+// ── Install: skip waiting so new SW activates immediately ────────────────────
 self.addEventListener('install', e => {
   self.skipWaiting();
-  // Cachear individualmente: un fallo no cancela el resto
   e.waitUntil(
-    caches.open(CACHE).then(cache =>
-      Promise.allSettled(PRECACHE.map(url => cache.add(url).catch(() => {})))
+    caches.open(CACHE_NAME).then(cache =>
+      Promise.allSettled(SHELL.map(url => cache.add(url).catch(() => {})))
     )
   );
 });
 
+// ── Activate: delete every old cache, then claim all clients ─────────────────
 self.addEventListener('activate', e => {
   e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    caches.keys()
+      .then(keys => Promise.all(
+        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      ))
+      .then(() => self.clients.claim())
   );
 });
 
+// ── Fetch ────────────────────────────────────────────────────────────────────
 self.addEventListener('fetch', e => {
-  const url = new URL(e.request.url);
+  const { request } = e;
+  const url = new URL(request.url);
 
-  // Solo cachear requests del mismo origen o assets de GitHub
+  // Pass through requests to unrecognized origins
   if (url.origin !== self.location.origin &&
       !url.hostname.includes('githubusercontent.com') &&
       !url.hostname.includes('fonts.googleapis.com') &&
@@ -43,31 +47,40 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Network-first para materias.json (datos frescos cuando hay red)
-  if (url.pathname.includes('materias.json')) {
+  // NetworkFirst for HTML and JSON — always serve fresh content when online,
+  // fall back to cache only when offline.
+  const isHTML = request.mode === 'navigate' ||
+                 url.pathname.endsWith('.html') ||
+                 /\/UNNE-LSI\/(buscador|simulador|calendario|estado)?\/?$/.test(url.pathname);
+  const isData = url.pathname.endsWith('.json');
+
+  if (isHTML || isData) {
     e.respondWith(
-      fetch(e.request)
+      fetch(request)
         .then(res => {
-          const clone = res.clone();
-          caches.open(CACHE).then(cache => cache.put(e.request, clone));
+          if (res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then(c => c.put(request, clone));
+          }
           return res;
         })
-        .catch(() => caches.match(e.request))
+        .catch(() => caches.match(request))
     );
     return;
   }
 
-  // Cache-first para el resto (fuentes, CSS, JS, HTML de páginas)
+  // CacheFirst for everything else: versioned CSS/JS (?v=...), fonts, images.
+  // Versioned URLs are naturally cache-busted since they're different keys.
   e.respondWith(
-    caches.match(e.request).then(cached => {
+    caches.match(request).then(cached => {
       if (cached) return cached;
-      return fetch(e.request).then(res => {
+      return fetch(request).then(res => {
         if (res.ok) {
           const clone = res.clone();
-          caches.open(CACHE).then(cache => cache.put(e.request, clone));
+          caches.open(CACHE_NAME).then(c => c.put(request, clone));
         }
         return res;
-      });
+      }).catch(() => Response.error());
     })
   );
 });

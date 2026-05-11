@@ -8,6 +8,7 @@
   <link rel="manifest" href="site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title id="page-title">Apuntes LSI UNNE — Licenciatura en Sistemas de Información</title>
@@ -55,7 +56,7 @@
       --frosted: rgba(255, 255, 255, 0.1);
       --footer-h: calc(48px + env(safe-area-inset-bottom, 0px));
       /* nav-bar inner height (68px) + status-bar area on notch/island devices */
-      --nav-h: calc(68px + env(safe-area-inset-top, 0px));
+      --nav-h: calc(68px + env(safe-area-inset-top, 20px));
     }
 
     body.theme-dark {
@@ -78,37 +79,45 @@
       --grad2: #e8f0fe;
     }
 
-    /* ── CUSTOM SCROLLBAR (desktop only — hidden on touch devices) ── */
-    @media (hover: hover) {
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
-      ::-webkit-scrollbar-track { background: #000000; }
-      ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #0099ff; }
-      * { scrollbar-width: thin; scrollbar-color: #333333 #000000; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    *::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
     }
 
-    * { box-sizing: border-box; }
-
     html {
-      height: 100vh;
+      overflow: hidden !important;
       height: 100dvh;
-      overflow: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
       overscroll-behavior: none;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
     }
 
     body {
+      overflow: hidden !important;
+      height: 100dvh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
       margin: 0;
+      padding: 0;
       background: #000000;
       color: #ffffff;
       font: 15px/1.6 "Inter", -apple-system, system-ui, sans-serif;
       font-feature-settings: "cv11";
-      height: 100vh;
-      height: 100dvh;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
       overscroll-behavior: none;
       padding-bottom: var(--footer-h);
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
     }
 
     #navbar {
@@ -116,19 +125,20 @@
       z-index: 100;
     }
 
-    /* flex:1 fills remaining space; the explicit height gives Safari a concrete
-       pixel value for the iframe's internal viewport — using 100% was wrong
-       because it resolved against the body's content area (100dvh - footer-h),
-       not the flex-allocated space (100dvh - nav-h - footer-h), causing home.html
-       to think its viewport was taller than it actually is.
-       min-height:0 prevents flexbox from using the iframe's intrinsic 300px. */
+    /* flex:1 fills all remaining space after navbar; the explicit height gives
+       the iframe a concrete viewport value for Safari.
+       overflow:hidden prevents iframe's internal scrollbar from leaking to parent. */
     #content {
       flex: 1;
-      display: block;
-      width: 100%;
-      height: calc(100dvh - var(--nav-h) - var(--footer-h));
-      border: none;
+      display: block !important;
+      width: 100% !important;
+      height: calc(100dvh - var(--footer-h));
+      border: none !important;
+      margin: 0 !important;
+      padding: 0;
       min-height: 0;
+      overflow: hidden;
+      background: transparent;
     }
 
     #alerts {
@@ -170,18 +180,32 @@
       white-space: nowrap;
       border: 0;
     }
+
+    /* Ambient glow — fixed to viewport top, never scrolls.
+       z-index 5: above iframe (auto), below alerts (20) and navbar (100). */
+    #ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60vh;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0, 153, 255, 0.15), transparent 75%);
+      pointer-events: none;
+      z-index: 5;
+    }
   </style>
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/index.css?v=1.1.0">
 </head>
 
 <body>
+  <div id="ambient-glow" aria-hidden="true"></div>
   <div id="navbar"></div>
   <h1 class="sr-only">Apuntes LSI UNNE — Sistemas</h1>
-  <iframe id="content" src="home.html"></iframe>
+  <iframe id="content" src="home.html" allowtransparency="true"></iframe>
   <div id="alerts"></div>
   <div id="footer"></div>
-  <script src="layout/layout.js"></script>
-  <script src="app.js"></script>
+  <script src="layout/layout.js?v=1.1.0"></script>
+  <script src="app.js?v=1.1.0"></script>
   <script>
     const savedTheme = localStorage.getItem('theme') || 'theme-dark';
     document.body.classList.add(savedTheme);
