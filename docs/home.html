@@ -1111,6 +1111,20 @@
     document.getElementById('scroll-root').addEventListener('scroll', revealFallback, { passive: true });
     window.addEventListener('resize', revealFallback, { passive: true });
 
+    // Run immediately and after paint so elements in initial viewport are revealed
+    // without needing scroll (fixes iOS Safari IntersectionObserver inside iframes)
+    revealFallback();
+    setTimeout(revealFallback, 200);
+
+    // Fallback: ensure hero elements are visible if CSS animations didn't run
+    // (can happen when the iframe rendering context is not fully active on iOS Safari)
+    setTimeout(() => {
+      document.querySelectorAll('.hero-badge, .hero h1, .hero p, .hero-actions, .hero-stats').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }, 1200);
+
     // ── Smooth scroll for "Ver Herramientas" ──────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {

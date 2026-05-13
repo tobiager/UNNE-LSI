@@ -89,6 +89,7 @@
 
     html {
       overflow: hidden !important;
+      height: 100vh;
       height: 100dvh;
       width: 100%;
       margin: 0;
@@ -100,11 +101,9 @@
 
     body {
       overflow: hidden !important;
+      height: 100vh;
       height: 100dvh;
       width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
       margin: 0;
       padding: 0;
       background: #000000;
@@ -131,6 +130,7 @@
       flex: 1;
       display: block !important;
       width: 100% !important;
+      height: calc(100vh - var(--footer-h));
       height: calc(100dvh - var(--footer-h));
       border: none !important;
       margin: 0 !important;
