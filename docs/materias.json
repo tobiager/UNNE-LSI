@@ -25220,8 +25220,8 @@
         "Parcial": 54,
         "Examen": 1,
         "Resumen": 3,
-        "TP": 4,
-        "Guía": 4
+        "TP": 5,
+        "Guía": 5
       },
       "top_categorias": [
         "Parcial",
@@ -26529,6 +26529,22 @@
           },
           {
             "tipo": "archivo",
+            "nombre": "2026 GUIA DE TP N°4.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°4.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°4.pdf",
+            "keywords": [
+              "guia",
+              "tp"
+            ],
+            "categorias": [
+              "TP",
+              "Guía"
+            ],
+            "categoria": "TP"
+          },
+          {
+            "tipo": "archivo",
             "nombre": "2026-GUIA DE TP N°1.pdf",
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026-GUIA%20DE%20TP%20N°1.pdf",
@@ -26558,6 +26574,36 @@
               "Guía"
             ],
             "categoria": "TP"
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Contrato de Operaciones.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/Contrato%20de%20Operaciones.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/Contrato%20de%20Operaciones.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Ejemplo Calc Pruebas Unitarias.docx.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/Ejemplo%20Calc%20Pruebas%20Unitarias.docx.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/Ejemplo%20Calc%20Pruebas%20Unitarias.docx.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Ejemplo de caso de prueba.xlsx",
+            "extension": "xlsx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/Ejemplo%20de%20caso%20de%20prueba.xlsx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/Ejemplo%20de%20caso%20de%20prueba.xlsx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
           }
         ]
       },
@@ -26773,16 +26819,6 @@
                 "categoria": null
               }
             ]
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "Contrato de Operaciones.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Contrato%20de%20Operaciones.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Contrato%20de%20Operaciones.pdf",
-            "keywords": [],
-            "categorias": [],
-            "categoria": null
           }
         ]
       },
