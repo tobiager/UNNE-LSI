@@ -21575,7 +21575,7 @@
         "parcial"
       ],
       "categorias": {
-        "Parcial": 8,
+        "Parcial": 12,
         "Examen": 1
       },
       "top_categorias": [
@@ -21686,11 +21686,10 @@
             "categoria": "Parcial",
             "hijos": [
               {
-                "tipo": "archivo",
-                "nombre": "Repaso integrativo para el examen parcial.pdf",
-                "extension": "pdf",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Repaso%20integrativo%20para%20el%20examen%20parcial.pdf",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Repaso%20integrativo%20para%20el%20examen%20parcial.pdf",
+                "tipo": "carpeta",
+                "nombre": "Primer Parcial",
+                "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial",
+                "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial",
                 "keywords": [
                   "examen",
                   "parcial"
@@ -21699,49 +21698,138 @@
                   "Parcial",
                   "Examen"
                 ],
-                "categoria": "Parcial"
+                "categoria": "Parcial",
+                "hijos": [
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Repaso integrativo para el examen parcial.pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Repaso%20integrativo%20para%20el%20examen%20parcial.pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Repaso%20integrativo%20para%20el%20examen%20parcial.pdf",
+                    "keywords": [
+                      "examen",
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial",
+                      "Examen"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "M.1. Flujos financieros (09-04-25).pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/M.1.%20Flujos%20financieros%20(09-04-25).pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/M.1.%20Flujos%20financieros%20(09-04-25).pdf",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Multiple Choice Modulo 1.pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Multiple%20Choice%20Modulo%201.pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Multiple%20Choice%20Modulo%201.pdf",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Multiplechoice Modulo 1 (respuestas).pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Multiplechoice%20Modulo%201%20(respuestas).pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Multiplechoice%20Modulo%201%20(respuestas).pdf",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  }
+                ]
               },
               {
-                "tipo": "archivo",
-                "nombre": "M.1. Flujos financieros (09-04-25).pdf",
-                "extension": "pdf",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/M.1.%20Flujos%20financieros%20(09-04-25).pdf",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/M.1.%20Flujos%20financieros%20(09-04-25).pdf",
+                "tipo": "carpeta",
+                "nombre": "Segundo Parcial",
+                "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial",
+                "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial",
                 "keywords": [
                   "parcial"
                 ],
                 "categorias": [
                   "Parcial"
                 ],
-                "categoria": "Parcial"
-              },
-              {
-                "tipo": "archivo",
-                "nombre": "Multiple Choice Modulo 1.pdf",
-                "extension": "pdf",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Multiple%20Choice%20Modulo%201.pdf",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Multiple%20Choice%20Modulo%201.pdf",
-                "keywords": [
-                  "parcial"
-                ],
-                "categorias": [
-                  "Parcial"
-                ],
-                "categoria": "Parcial"
-              },
-              {
-                "tipo": "archivo",
-                "nombre": "Multiplechoice Modulo 1 (respuestas).pdf",
-                "extension": "pdf",
-                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Multiplechoice%20Modulo%201%20(respuestas).pdf",
-                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Multiplechoice%20Modulo%201%20(respuestas).pdf",
-                "keywords": [
-                  "parcial"
-                ],
-                "categorias": [
-                  "Parcial"
-                ],
-                "categoria": "Parcial"
+                "categoria": "Parcial",
+                "hijos": [
+                  {
+                    "tipo": "archivo",
+                    "nombre": "1. Ejercicios para el análisis financiero del proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "2. Modelos ágiles del Plan de Negocios (CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Ejercicios de evaluación de proyectos_aa2312bc969d558dcc57160a288111f4.xlsx",
+                    "extension": "xlsx",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Ejercicios%20de%20evaluación%20de%20proyectos_aa2312bc969d558dcc57160a288111f4.xlsx",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Ejercicios%20de%20evaluación%20de%20proyectos_aa2312bc969d558dcc57160a288111f4.xlsx",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
+                    "extension": "docx",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  }
+                ]
               }
             ]
           }
@@ -26819,6 +26907,16 @@
                 "categoria": null
               }
             ]
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "T5_Ejemplos.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/T5_Ejemplos.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/T5_Ejemplos.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
           }
         ]
       },
