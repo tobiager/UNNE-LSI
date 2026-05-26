@@ -21618,7 +21618,7 @@
         "parcial"
       ],
       "categorias": {
-        "Parcial": 12,
+        "Parcial": 13,
         "Examen": 3
       },
       "top_categorias": [
@@ -21866,10 +21866,24 @@
                   },
                   {
                     "tipo": "archivo",
-                    "nombre": "Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
+                    "nombre": "Preguntas_Verdadero_Falso_Modulos_2_y_3.docx",
                     "extension": "docx",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3_3a07bdb582fa539b6fdb4517b4ed2cd6.docx",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3.docx",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Preguntas_Verdadero_Falso_Modulos_2_y_3.docx",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "Respuestas_Preguntas_Verdadero_Falso_Modulos_2_y_3.pdf",
+                    "extension": "pdf",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Respuestas_Preguntas_Verdadero_Falso_Modulos_2_y_3.pdf",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Respuestas_Preguntas_Verdadero_Falso_Modulos_2_y_3.pdf",
                     "keywords": [
                       "parcial"
                     ],
@@ -21969,6 +21983,16 @@
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Formulero%20de%20Economía.pdf",
             "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/Formulero%20de%20Economía.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Guia_Formulas_Economia_Aplicada.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Guia_Formulas_Economia_Aplicada.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/Guia_Formulas_Economia_Aplicada.pdf",
             "keywords": [],
             "categorias": [],
             "categoria": null

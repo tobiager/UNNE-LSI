@@ -2769,6 +2769,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/Respuestas_Preguntas_Verdadero_Falso_Modulos_2_y_3.pdf</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto.pdf</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -2800,6 +2806,12 @@
   </url>
   <url>
     <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Formulero%20de%20Economía.pdf</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Guia_Formulas_Economia_Aplicada.pdf</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
