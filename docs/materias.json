@@ -9711,6 +9711,16 @@
                     "keywords": [],
                     "categorias": [],
                     "categoria": null
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "WhatsApp Unknown 2023-04-03 at 6.22.21 PM.zip",
+                    "extension": "zip",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Arquitectura%20de%20computadoras/Material/Tema%202/ejercicios/WhatsApp%20Unknown%202023-04-03%20at%206.22.21%20PM.zip",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Arquitectura%20de%20computadoras/Material/Tema%202/ejercicios/WhatsApp%20Unknown%202023-04-03%20at%206.22.21%20PM.zip",
+                    "keywords": [],
+                    "categorias": [],
+                    "categoria": null
                   }
                 ]
               },
@@ -10390,7 +10400,7 @@
       "categorias": {
         "Parcial": 84,
         "Examen": 2,
-        "TP": 45
+        "TP": 46
       },
       "top_categorias": [
         "Parcial",
@@ -12448,10 +12458,10 @@
                   },
                   {
                     "tipo": "archivo",
-                    "nombre": "TP3.10.SQL",
+                    "nombre": "TP3.10.sql",
                     "extension": "sql",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.SQL",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.SQL",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.sql",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/SQL/TP3.10.sql",
                     "keywords": [
                       "tp"
                     ],
@@ -12629,6 +12639,20 @@
                     "categoria": "TP"
                   }
                 ]
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Grupo39-TP3.rar",
+                "extension": "rar",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/Practica/TP3/Grupo39-TP3.rar",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Bases%20de%20Datos%201/Practica/TP3/Grupo39-TP3.rar",
+                "keywords": [
+                  "tp"
+                ],
+                "categorias": [
+                  "TP"
+                ],
+                "categoria": "TP"
               },
               {
                 "tipo": "archivo",
@@ -19002,6 +19026,26 @@
           },
           {
             "tipo": "archivo",
+            "nombre": "Derivadas-Diferencial.zip",
+            "extension": "zip",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/Apuntes%20y%20fotos/Derivadas-Diferencial.zip",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/Apuntes%20y%20fotos/Derivadas-Diferencial.zip",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Funciones-Limites-Continuidad.zip",
+            "extension": "zip",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/Apuntes%20y%20fotos/Funciones-Limites-Continuidad.zip",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/Apuntes%20y%20fotos/Funciones-Limites-Continuidad.zip",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
             "nombre": "Límite por derecha y por izquierda (Demo).pdf",
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/Apuntes%20y%20fotos/Límite%20por%20derecha%20y%20por%20izquierda%20(Demo).pdf",
@@ -21123,7 +21167,7 @@
         "tp"
       ],
       "categorias": {
-        "Parcial": 11,
+        "Parcial": 13,
         "TP": 3
       },
       "top_categorias": [
@@ -21145,6 +21189,49 @@
         ],
         "categoria": "Parcial",
         "hijos": [
+          {
+            "tipo": "carpeta",
+            "nombre": "2026",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Comunicacion%20de%20datos%201/parciales/2026",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Comunicacion%20de%20datos%201/parciales/2026",
+            "keywords": [
+              "parcial"
+            ],
+            "categorias": [
+              "Parcial"
+            ],
+            "categoria": "Parcial",
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "Cuestionario Primer Parcial Practico.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Comunicacion%20de%20datos%201/parciales/2026/Cuestionario%20Primer%20Parcial%20Practico.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Comunicacion%20de%20datos%201/parciales/2026/Cuestionario%20Primer%20Parcial%20Practico.pdf",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Cuestionario Primer Parcial Teorico.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Comunicacion%20de%20datos%201/parciales/2026/Cuestionario%20Primer%20Parcial%20Teorico.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Comunicacion%20de%20datos%201/parciales/2026/Cuestionario%20Primer%20Parcial%20Teorico.pdf",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial"
+              }
+            ]
+          },
           {
             "tipo": "archivo",
             "nombre": "1er parcial practica.pdf",
@@ -21576,7 +21663,7 @@
       ],
       "categorias": {
         "Parcial": 12,
-        "Examen": 1
+        "Examen": 3
       },
       "top_categorias": [
         "Parcial",
@@ -21702,6 +21789,22 @@
                 "hijos": [
                   {
                     "tipo": "archivo",
+                    "nombre": "EXTRAORDINARIO PRIMER EXAMEN PARCIAL 2025.docx",
+                    "extension": "docx",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/EXTRAORDINARIO%20PRIMER%20EXAMEN%20PARCIAL%202025.docx",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/EXTRAORDINARIO%20PRIMER%20EXAMEN%20PARCIAL%202025.docx",
+                    "keywords": [
+                      "examen",
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial",
+                      "Examen"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
                     "nombre": "Repaso integrativo para el examen parcial.pdf",
                     "extension": "pdf",
                     "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Primer%20Parcial/Repaso%20integrativo%20para%20el%20examen%20parcial.pdf",
@@ -21766,38 +21869,28 @@
                 "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial",
                 "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial",
                 "keywords": [
+                  "examen",
                   "parcial"
                 ],
                 "categorias": [
-                  "Parcial"
+                  "Parcial",
+                  "Examen"
                 ],
                 "categoria": "Parcial",
                 "hijos": [
                   {
                     "tipo": "archivo",
-                    "nombre": "1. Ejercicios para el análisis financiero del proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
-                    "extension": "pdf",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto_bd953f3d4685d30aed9b9abe6198d82d.pdf",
+                    "nombre": "EXAMEN EXTRAORDINARIO SEGUNDO PARCIAL.docx",
+                    "extension": "docx",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/EXAMEN%20EXTRAORDINARIO%20SEGUNDO%20PARCIAL.docx",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/EXAMEN%20EXTRAORDINARIO%20SEGUNDO%20PARCIAL.docx",
                     "keywords": [
+                      "examen",
                       "parcial"
                     ],
                     "categorias": [
-                      "Parcial"
-                    ],
-                    "categoria": "Parcial"
-                  },
-                  {
-                    "tipo": "archivo",
-                    "nombre": "2. Modelos ágiles del Plan de Negocios (CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
-                    "extension": "pdf",
-                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
-                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Modelos%20repaso/Segundo%20Parcial/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
-                    "keywords": [
-                      "parcial"
-                    ],
-                    "categorias": [
-                      "Parcial"
+                      "Parcial",
+                      "Examen"
                     ],
                     "categoria": "Parcial"
                   },
@@ -21846,6 +21939,66 @@
         "hijos": [
           {
             "tipo": "archivo",
+            "nombre": "1. Ejercicios para el análisis financiero del proyecto.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/1.%20Ejercicios%20para%20el%20análisis%20financiero%20del%20proyecto.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "1. EL ESTUDIO DE MERCADO_v1 (22-04-26).pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/1.%20EL%20ESTUDIO%20DE%20MERCADO_v1%20(22-04-26).pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/1.%20EL%20ESTUDIO%20DE%20MERCADO_v1%20(22-04-26).pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "2. LA FIJACIÓN DE PRECIOS Y LOS FLUJOS FIANCIEROS (29-04-26).pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/2.%20LA%20FIJACIÓN%20DE%20PRECIOS%20Y%20LOS%20FLUJOS%20FIANCIEROS%20(29-04-26).pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/2.%20LA%20FIJACIÓN%20DE%20PRECIOS%20Y%20LOS%20FLUJOS%20FIANCIEROS%20(29-04-26).pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "2. MÓDULO 2 - Actividades (29-04-26) .docx",
+            "extension": "docx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/2.%20MÓDULO%202%20-%20Actividades%20(29-04-26)%20.docx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/2.%20MÓDULO%202%20-%20Actividades%20(29-04-26)%20.docx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "3. EL ANÁLISIS ECONÓMICO FINANCIERO (06 y 13-05-26).pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/3.%20EL%20ANÁLISIS%20ECONÓMICO%20FINANCIERO%20(06%20y%2013-05-26).pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/3.%20EL%20ANÁLISIS%20ECONÓMICO%20FINANCIERO%20(06%20y%2013-05-26).pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Actividades 1 y 2 del MÓDULO 2 (22-04-26).docx",
+            "extension": "docx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Actividades%201%20y%202%20del%20MÓDULO%202%20(22-04-26).docx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/Actividades%201%20y%202%20del%20MÓDULO%202%20(22-04-26).docx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
             "nombre": "Apuntes de Economía.pdf",
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Apuntes%20de%20Economía.pdf",
@@ -21863,6 +22016,26 @@
             "keywords": [],
             "categorias": [],
             "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Módulo marketing (1).pptx",
+            "extension": "pptx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Módulo%20marketing%20(1).pptx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/Módulo%20marketing%20(1).pptx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Módulo marketing.pptx",
+            "extension": "pptx",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Apuntes/Módulo%20marketing.pptx",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Apuntes/Módulo%20marketing.pptx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
           }
         ]
       },
@@ -21875,6 +22048,16 @@
         "categorias": [],
         "categoria": null,
         "hijos": [
+          {
+            "tipo": "archivo",
+            "nombre": "2. Modelos ágiles del Plan de Negocios (CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Filminas/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Filminas/2.%20Modelos%20ágiles%20del%20Plan%20de%20Negocios%20(CANVAS)_fb5981263943063c5ac03caa6f9d58ee.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
           {
             "tipo": "archivo",
             "nombre": "Modulo 1.pdf",
@@ -21915,6 +22098,26 @@
             "categorias": [],
             "categoria": null,
             "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "2. SOLUCIÓN DE ACTIVIDADES (29-04-26).pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Practica/Resueltos/2.%20SOLUCIÓN%20DE%20ACTIVIDADES%20(29-04-26).pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Practica/Resueltos/2.%20SOLUCIÓN%20DE%20ACTIVIDADES%20(29-04-26).pdf",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Ejercicios de evaluación de proyectos.xlsx",
+                "extension": "xlsx",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Practica/Resueltos/Ejercicios%20de%20evaluación%20de%20proyectos.xlsx",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Practica/Resueltos/Ejercicios%20de%20evaluación%20de%20proyectos.xlsx",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
               {
                 "tipo": "archivo",
                 "nombre": "PRÁCTICO 4 - REPASO INTEGRAL.pdf",
@@ -26145,6 +26348,20 @@
                     "categoria": "Parcial"
                   }
                 ]
+              },
+              {
+                "tipo": "carpeta",
+                "nombre": "Segundo Parcial",
+                "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Segundo%20Parcial",
+                "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Parciales/2026/Segundo%20Parcial",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial",
+                "hijos": []
               }
             ]
           },
@@ -32570,6 +32787,16 @@
                 "extension": "pdf",
                 "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Tabla%20Normal%20Estándar.pdf",
                 "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Tabla%20Normal%20Estándar.pdf",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Teoría-20231106.zip",
+                "extension": "zip",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Teoría-20231106.zip",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Material%20Viejo/Teoria/Teoría-20231106.zip",
                 "keywords": [],
                 "categorias": [],
                 "categoria": null
