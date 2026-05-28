@@ -21618,7 +21618,7 @@
         "parcial"
       ],
       "categorias": {
-        "Parcial": 13,
+        "Parcial": 15,
         "Examen": 3
       },
       "top_categorias": [
@@ -21703,6 +21703,49 @@
                 "extension": "jpg",
                 "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Primer%20Parcial/Primer%20Parcial%202026.jpg",
                 "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Primer%20Parcial/Primer%20Parcial%202026.jpg",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial"
+              }
+            ]
+          },
+          {
+            "tipo": "carpeta",
+            "nombre": "Segundo Parcial",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial",
+            "keywords": [
+              "parcial"
+            ],
+            "categorias": [
+              "Parcial"
+            ],
+            "categoria": "Parcial",
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "Segundo Parcial 2026 - 2.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial/Segundo%20Parcial%202026%20-%202.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial/Segundo%20Parcial%202026%20-%202.jpg",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Segundo Parcial 2026.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial/Segundo%20Parcial%202026.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Economia%20Aplicada/Parciales/Segundo%20Parcial/Segundo%20Parcial%202026.jpg",
                 "keywords": [
                   "parcial"
                 ],
@@ -25491,8 +25534,8 @@
         "Parcial": 54,
         "Examen": 1,
         "Resumen": 3,
-        "TP": 5,
-        "Guía": 5
+        "TP": 6,
+        "Guía": 6
       },
       "top_categorias": [
         "Parcial",
@@ -26493,6 +26536,16 @@
           },
           {
             "tipo": "archivo",
+            "nombre": "Anexo Patrones de Diseño_7c31af22d7922ff310a55c15a_250624_141117.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Anexo%20Patrones%20de%20Diseño_7c31af22d7922ff310a55c15a_250624_141117.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Anexo%20Patrones%20de%20Diseño_7c31af22d7922ff310a55c15a_250624_141117.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
             "nombre": "Comparativa de Arquitecturas de Software.xlsx",
             "extension": "xlsx",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
@@ -26767,11 +26820,10 @@
         "categoria": null,
         "hijos": [
           {
-            "tipo": "archivo",
-            "nombre": "2026 GUIA DE TP N°2.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°2.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°2.pdf",
+            "tipo": "carpeta",
+            "nombre": "GUIAS",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS",
             "keywords": [
               "guia",
               "tp"
@@ -26780,71 +26832,105 @@
               "TP",
               "Guía"
             ],
-            "categoria": "TP"
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "2026 GUIA DE TP N°3.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°3.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°3.pdf",
-            "keywords": [
-              "guia",
-              "tp"
-            ],
-            "categorias": [
-              "TP",
-              "Guía"
-            ],
-            "categoria": "TP"
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "2026 GUIA DE TP N°4.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°4.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026%20GUIA%20DE%20TP%20N°4.pdf",
-            "keywords": [
-              "guia",
-              "tp"
-            ],
-            "categorias": [
-              "TP",
-              "Guía"
-            ],
-            "categoria": "TP"
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "2026-GUIA DE TP N°1.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/2026-GUIA%20DE%20TP%20N°1.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/2026-GUIA%20DE%20TP%20N°1.pdf",
-            "keywords": [
-              "guia",
-              "tp"
-            ],
-            "categorias": [
-              "TP",
-              "Guía"
-            ],
-            "categoria": "TP"
-          },
-          {
-            "tipo": "archivo",
-            "nombre": "GUIA DE TP N° 0.pdf",
-            "extension": "pdf",
-            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIA%20DE%20TP%20N°%200.pdf",
-            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIA%20DE%20TP%20N°%200.pdf",
-            "keywords": [
-              "guia",
-              "tp"
-            ],
-            "categorias": [
-              "TP",
-              "Guía"
-            ],
-            "categoria": "TP"
+            "categoria": "Guía",
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "2026 GUIA DE TP N°2.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°2.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°2.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "2026 GUIA DE TP N°3.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°3.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°3.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "2026 GUIA DE TP N°4.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°4.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026%20GUIA%20DE%20TP%20N°4.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "2026- GUIA DE TP N°5.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026-%20GUIA%20DE%20TP%20N°5.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026-%20GUIA%20DE%20TP%20N°5.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "2026-GUIA DE TP N°1.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026-GUIA%20DE%20TP%20N°1.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/2026-GUIA%20DE%20TP%20N°1.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "GUIA DE TP N° 0.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/GUIA%20DE%20TP%20N°%200.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Practica/GUIAS/GUIA%20DE%20TP%20N°%200.pdf",
+                "keywords": [
+                  "guia",
+                  "tp"
+                ],
+                "categorias": [
+                  "TP",
+                  "Guía"
+                ],
+                "categoria": "TP"
+              }
+            ]
           },
           {
             "tipo": "archivo",
@@ -27093,6 +27179,26 @@
           },
           {
             "tipo": "archivo",
+            "nombre": "EjemploFlujograma.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/EjemploFlujograma.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/EjemploFlujograma.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Mejora_Propuesta.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Mejora_Propuesta.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Mejora_Propuesta.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
             "nombre": "T5_Ejemplos.pdf",
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/T5_Ejemplos.pdf",
@@ -27189,6 +27295,16 @@
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Anexo_B_-_Manual_de_Instalacion_y_Configuracion.pdf",
             "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Anexo_B_-_Manual_de_Instalacion_y_Configuracion.pdf",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Estructura del Proyecto Integrador ISII 2026.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Estructura%20del%20Proyecto%20Integrador%20ISII%202026.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Trabajo%20de%20Campo/Estructura%20del%20Proyecto%20Integrador%20ISII%202026.pdf",
             "keywords": [],
             "categorias": [],
             "categoria": null
