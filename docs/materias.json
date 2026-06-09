@@ -25531,7 +25531,7 @@
         "tp"
       ],
       "categorias": {
-        "Parcial": 54,
+        "Parcial": 57,
         "Examen": 1,
         "Resumen": 3,
         "TP": 6,
@@ -26202,6 +26202,34 @@
                   },
                   {
                     "tipo": "archivo",
+                    "nombre": "PHOTO-2026-05-30-15-55-46.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2025/Segundo%20Parcial/PHOTO-2026-05-30-15-55-46.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2025/Segundo%20Parcial/PHOTO-2026-05-30-15-55-46.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
+                    "nombre": "PHOTO-2026-05-30-15-56-32.jpg",
+                    "extension": "jpg",
+                    "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2025/Segundo%20Parcial/PHOTO-2026-05-30-15-56-32.jpg",
+                    "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/2025/Segundo%20Parcial/PHOTO-2026-05-30-15-56-32.jpg",
+                    "keywords": [
+                      "parcial"
+                    ],
+                    "categorias": [
+                      "Parcial"
+                    ],
+                    "categoria": "Parcial"
+                  },
+                  {
+                    "tipo": "archivo",
                     "nombre": "Primera_instancia.jfif",
                     "extension": "jfif",
                     "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/2025/Segundo%20Parcial/Primera_instancia.jfif",
@@ -26484,6 +26512,20 @@
                   "Parcial"
                 ],
                 "categoria": "Parcial"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "ISII_Seg_ParcialTeorico.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Parciales/otros/ISII_Seg_ParcialTeorico.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Parciales/otros/ISII_Seg_ParcialTeorico.pdf",
+                "keywords": [
+                  "parcial"
+                ],
+                "categorias": [
+                  "Parcial"
+                ],
+                "categoria": "Parcial"
               }
             ]
           }
@@ -26550,6 +26592,16 @@
             "extension": "xlsx",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
             "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "ResumeISII.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/ResumeISII.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/ResumeISII.pdf",
             "keywords": [],
             "categorias": [],
             "categoria": null
