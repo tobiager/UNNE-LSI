@@ -25531,9 +25531,9 @@
         "tp"
       ],
       "categorias": {
-        "Parcial": 57,
+        "Parcial": 58,
         "Examen": 1,
-        "Resumen": 3,
+        "Resumen": 9,
         "TP": 6,
         "Guía": 6
       },
@@ -26548,6 +26548,20 @@
         "hijos": [
           {
             "tipo": "archivo",
+            "nombre": "Repaso segundo parcial.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Repaso%20segundo%20parcial.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Repaso%20segundo%20parcial.pdf",
+            "keywords": [
+              "parcial"
+            ],
+            "categorias": [
+              "Parcial"
+            ],
+            "categoria": "Parcial"
+          },
+          {
+            "tipo": "archivo",
             "nombre": "Resumen Primer Parcial Ing2.pdf",
             "extension": "pdf",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Resumen%20Primer%20Parcial%20Ing2.pdf",
@@ -26592,6 +26606,16 @@
             "extension": "xlsx",
             "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
             "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Comparativa%20de%20Arquitecturas%20de%20Software.xlsx",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null
+          },
+          {
+            "tipo": "archivo",
+            "nombre": "Larman, Uml y Patrones 2da Edición -Cap. 3 al 15.pdf",
+            "extension": "pdf",
+            "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Larman,%20Uml%20y%20Patrones%202da%20Edición%20-Cap.%203%20al%2015.pdf",
+            "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Apuntes/Larman,%20Uml%20y%20Patrones%202da%20Edición%20-Cap.%203%20al%2015.pdf",
             "keywords": [],
             "categorias": [],
             "categoria": null
@@ -27021,10 +27045,113 @@
         "nombre": "Teoria",
         "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Teoria",
         "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Teoria",
-        "keywords": [],
-        "categorias": [],
+        "keywords": [
+          "resumen"
+        ],
+        "categorias": [
+          "Resumen"
+        ],
         "categoria": null,
         "hijos": [
+          {
+            "tipo": "carpeta",
+            "nombre": "Resumen",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen",
+            "keywords": [
+              "resumen"
+            ],
+            "categorias": [
+              "Resumen"
+            ],
+            "categoria": "Resumen",
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 4.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%204.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%204.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 5.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%205.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%205.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 6.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%206.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%206.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 7.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%207.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%207.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 8.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%208.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%208.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "resumen tema 9.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%209.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Ingenieria%20de%20Software%202/Teoria/Resumen/resumen%20tema%209.pdf",
+                "keywords": [
+                  "resumen"
+                ],
+                "categorias": [
+                  "Resumen"
+                ],
+                "categoria": "Resumen"
+              }
+            ]
+          },
           {
             "tipo": "carpeta",
             "nombre": "Complementario",
