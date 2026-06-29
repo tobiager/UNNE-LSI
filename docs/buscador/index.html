@@ -6,9 +6,9 @@
   <link rel="apple-touch-icon" href="/UNNE-LSI/assets/lsi.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title id="page-title">Buscador de materias — Apuntes LSI UNNE</title>
+  <title id="page-title">Materias — Apuntes LSI UNNE</title>
   <meta name="description" id="page-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/buscador/" id="canonical-link" />
 
@@ -16,9 +16,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="UNNE-LSI" />
-  <meta property="og:title" id="og-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta property="og:title" id="og-title" content="Materias — Apuntes LSI UNNE" />
   <meta property="og:description" id="og-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
   <meta property="og:url" id="og-url" content="https://tobiager.github.io/UNNE-LSI/buscador/" />
   <meta property="og:image" id="og-image"
     content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/banner.png" />
@@ -26,9 +26,9 @@
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" id="tw-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta name="twitter:title" id="tw-title" content="Materias — Apuntes LSI UNNE" />
   <meta name="twitter:description" id="tw-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
   <meta name="twitter:image" id="tw-image"
     content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/banner.png" />
   <!-- Schema.org: BreadcrumbList + WebSite base -->
@@ -36,7 +36,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Buscador de materias — Apuntes LSI UNNE",
+    "name": "Materias — Apuntes LSI UNNE",
     "description": "Buscá parciales, finales, resúmenes y guías de cualquier materia de la Licenciatura en Sistemas de Información UNNE.",
     "url": "https://tobiager.github.io/UNNE-LSI/buscador/",
     "inLanguage": "es-AR",
@@ -49,7 +49,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tobiager.github.io/UNNE-LSI/" },
-        { "@type": "ListItem", "position": 2, "name": "Buscador de materias", "item": "https://tobiager.github.io/UNNE-LSI/buscador/" }
+        { "@type": "ListItem", "position": 2, "name": "Materias", "item": "https://tobiager.github.io/UNNE-LSI/buscador/" }
       ]
     }
   }
@@ -992,7 +992,7 @@
     <!-- ── LIST VIEW ── -->
     <div id="list-view">
       <div class="page-header">
-        <h1 class="reveal">Buscador de materias</h1>
+        <h1 class="reveal">Materias</h1>
         <p class="reveal">Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
       </div>
       <div class="search-wrap reveal">
@@ -1411,8 +1411,8 @@
         document.getElementById('list-view').style.display = '';
       }, 300);
       ACTIVE_KW = null;
-      setMeta(`Buscador de materias — Apuntes LSI UNNE`,
-        'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido.',
+      setMeta(`Materias — Apuntes LSI UNNE`,
+        'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia.',
         'https://tobiager.github.io/UNNE-LSI/buscador/');
       removeCourseSchema();
       clearSemanticContent();
@@ -1667,7 +1667,7 @@
       } catch (err) {
         document.getElementById('results-body').innerHTML =
           `<tr><td><div class="no-results" style="color:#ff6b6b">Error al cargar materias: ${err.message}</div></td></tr>`;
-        console.error('[Buscador]', err);
+        console.error('[Materias]', err);
       }
     })();
   </script>
