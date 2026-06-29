@@ -896,9 +896,9 @@
         max-width: 100%;
       }
 
-      /* ─ List: compact rows ─ */
+      /* ─ List: compact rows (mín 44px de altura táctil) ─ */
       #results td {
-        padding: 9px 10px;
+        padding: 12px 10px;
       }
 
       #results td:first-child {
@@ -931,6 +931,7 @@
         order: 1;
         padding: 7px 12px;
         font-size: 12px;
+        min-height: 44px;
       }
 
       /* Título en segunda fila, ancho completo */
@@ -950,18 +951,27 @@
         margin-left: auto;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       .btn-dl-all {
         order: 2;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       .btn-contribute {
         order: 2;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       /* Ocultar etiquetas de texto en botones de acción */
