@@ -2,7 +2,7 @@
   "name": "LSI Tools — Apuntes UNNE",
   "short_name": "LSI Tools",
   "description": "Apuntes, parciales y guías para LSI en la UNNE. Funciona offline.",
-  "start_url": "/UNNE-LSI/",
+  "start_url": "/UNNE-LSI/materias/",
   "scope": "/UNNE-LSI/",
   "icons": [
     {
