@@ -95,9 +95,7 @@ the folder with any static file server (e.g. `python -m http.server` from
 
 ## Conventions
 
-- **Language:** all content (README, comments, commit messages in history,
-  issue/PR templates) is in **Spanish (Argentina)**. Keep new content in
-  Spanish unless the user asks otherwise.
+- **Language:** most user-facing repo content (README, course notes, issue/PR templates) is in **Spanish (Argentina)**. Keep new user-facing content in Spanish unless the user asks otherwise; this AI guide may be in English.
 - **Licensing:** notes/guides/summaries are CC BY-NC-SA 4.0; code/templates are
   MIT (`LICENSE`). Don't add copyrighted material (scanned books, full papers).
 - **File types:** prefer `.md` for notes; for code use clear extensions
