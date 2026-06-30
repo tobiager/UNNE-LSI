@@ -27,7 +27,7 @@ GITHUB_TREE  = "https://github.com/tobiager/UNNE-LSI/tree/main"
 
 STATIC_PAGES = [
     {"url": f"{BASE_URL}/",           "priority": "1.0", "changefreq": "weekly"},
-    {"url": f"{BASE_URL}/buscador/",  "priority": "0.9", "changefreq": "weekly"},
+    {"url": f"{BASE_URL}/materias/",  "priority": "0.9", "changefreq": "weekly"},
     {"url": f"{BASE_URL}/simulador/", "priority": "0.7", "changefreq": "monthly"},
     {"url": f"{BASE_URL}/calendario/","priority": "0.7", "changefreq": "weekly"},
     {"url": f"{BASE_URL}/estado/",    "priority": "0.7", "changefreq": "monthly"},
@@ -245,7 +245,7 @@ def build_materia(folder: Path) -> dict:
     return {
         "nombre":       folder.name,
         "slug":         slug,
-        "url_buscador": f"{BASE_URL}/buscador/?materia={slug}",
+        "url_materias": f"{BASE_URL}/materias/?materia={slug}",
         "url_github":   f"{GITHUB_TREE}/{encoded}",
         "url_downgit":  f"https://downgit.github.io/#/home?url={GITHUB_TREE}/{encoded}",
         "readme_raw":   f"{GITHUB_RAW}/{encoded}/README.md" if has_readme else None,
@@ -310,19 +310,19 @@ def generate_sitemap(materias: list):
 
         lines += [
             '  <url>',
-            f'    <loc>{xml_escape_loc(m["url_buscador"])}</loc>',
+            f'    <loc>{xml_escape_loc(m["url_materias"])}</loc>',
             f'    <lastmod>{today}</lastmod>',
             '    <changefreq>weekly</changefreq>',
             f'    <priority>{base_priority}</priority>',
             '  </url>',
         ]
 
-        # Deep-links SEO por keyword: /buscador/?materia=...&kw=final
+        # Deep-links SEO por keyword: /materias/?materia=...&kw=final
         # (no cambia la UX: solo habilita indexación por términos)
         for kw in sorted(seo_keywords):
             if kw not in SEO_KEYWORDS:
                 continue
-            url = f"{BASE_URL}/buscador/?materia={m['slug']}&kw={kw}"
+            url = f"{BASE_URL}/materias/?materia={m['slug']}&kw={kw}"
             pr = "0.9" if kw == "final" else "0.85"
             lines += [
                 '  <url>',
@@ -408,7 +408,7 @@ def generate_pdf_sitemap(materias: list):
 
 
 def generate_robots():
-    """Genera robots.txt asegurando que /buscador/ no esté bloqueado y que el sitemap sea visible."""
+    """Genera robots.txt asegurando que /materias/ no esté bloqueado y que el sitemap sea visible."""
     lines = [
         "User-agent: Googlebot",
         "Allow: /",

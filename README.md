@@ -133,7 +133,7 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 - **planes/** → Info detallada de cada plan vigente.
 - **meta/** → Archivos auxiliares para correlatividades/planes.
 - **scripts/** → Scripts internos (p. ej. generación de `docs/*.json`).
-- **docs/** → Sitio estático (GitHub Pages) y recursos web (buscador, calendario, simulador).
+- **docs/** → Sitio estático (GitHub Pages) y recursos web (materias, calendario, simulador).
 - **assets/** → Imágenes/banners/stickers usados en el repo.
 - **.github/** → Configuración de GitHub (issues/PR templates, workflows, etc.).
 - **mkdocs.yml** → Configuración para generar documentación con MkDocs.

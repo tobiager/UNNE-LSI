@@ -1,11 +1,11 @@
-const CACHE_NAME = 'lsi-cache-v1.2.0';
+const CACHE_NAME = 'lsi-cache-v1.3.0';
 
 // Core shell: cached at install for offline baseline.
 // HTML routes use NetworkFirst so new markup is always fetched when online.
 const SHELL = [
   '/UNNE-LSI/',
   '/UNNE-LSI/home.html',
-  '/UNNE-LSI/buscador/',
+  '/UNNE-LSI/materias/',
   '/UNNE-LSI/simulador/',
   '/UNNE-LSI/calendario/',
   '/UNNE-LSI/navbar/navbar.html',
@@ -58,7 +58,7 @@ self.addEventListener('fetch', e => {
   // fall back to cache only when offline.
   const isHTML = request.mode === 'navigate' ||
                  url.pathname.endsWith('.html') ||
-                 /\/UNNE-LSI\/(buscador|simulador|calendario|estado)?\/?$/.test(url.pathname);
+                 /\/UNNE-LSI\/(materias|simulador|calendario|estado)?\/?$/.test(url.pathname);
   const isData = url.pathname.endsWith('.json') || url.pathname.endsWith('.webmanifest');
 
   if (isHTML || isData) {
