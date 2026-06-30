@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lsi-cache-v1.3.0';
+const CACHE_NAME = 'lsi-cache-v1.4.0';
 
 // Core shell: cached at install for offline baseline.
 // HTML routes use NetworkFirst so new markup is always fetched when online.

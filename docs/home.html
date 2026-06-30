@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+  <script>document.documentElement.classList.add('js-anim');</script>
   <link rel="icon" href="/UNNE-LSI/assets/lsi.png" type="image/png">
   <link rel="apple-touch-icon" href="/UNNE-LSI/assets/lsi.png">
   <link rel="manifest" href="site.webmanifest">
@@ -198,43 +199,44 @@
       }
     }
 
-    .hero-badge,
-    .hero h1,
-    .hero p,
-    .hero-actions,
-    .hero-stats {
+    /* Animation only active when JS added .js-anim; without it elements are visible by default */
+    .js-anim .hero-badge,
+    .js-anim .hero h1,
+    .js-anim .hero p,
+    .js-anim .hero-actions,
+    .js-anim .hero-stats {
       opacity: 0;
       animation: hero-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* Tighter stagger — all content visible within ~500ms */
-    .hero-badge {
+    .js-anim .hero-badge {
       animation-delay: 0.05s;
     }
 
-    .hero h1 {
+    .js-anim .hero h1 {
       animation-delay: 0.13s;
     }
 
-    .hero p {
+    .js-anim .hero p {
       animation-delay: 0.21s;
     }
 
-    .hero-actions {
+    .js-anim .hero-actions {
       animation-delay: 0.29s;
     }
 
-    .hero-stats {
+    .js-anim .hero-stats {
       animation-delay: 0.37s;
     }
 
     @media (prefers-reduced-motion: reduce) {
 
-      .hero-badge,
-      .hero h1,
-      .hero p,
-      .hero-actions,
-      .hero-stats {
+      .js-anim .hero-badge,
+      .js-anim .hero h1,
+      .js-anim .hero p,
+      .js-anim .hero-actions,
+      .js-anim .hero-stats {
         opacity: 1;
         animation: none;
       }
@@ -1116,14 +1118,12 @@
     revealFallback();
     setTimeout(revealFallback, 200);
 
-    // Fallback: ensure hero elements are visible if CSS animations didn't run
-    // (can happen when the iframe rendering context is not fully active on iOS Safari)
-    setTimeout(() => {
-      document.querySelectorAll('.hero-badge, .hero h1, .hero p, .hero-actions, .hero-stats').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
-    }, 1200);
+    // Fallback: remove .js-anim so elements revert to default opacity:1 if animations didn't run
+    // (iOS Safari inside iframes throttles both animations and setTimeout)
+    setTimeout(() => document.documentElement.classList.remove('js-anim'), 1000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) document.documentElement.classList.remove('js-anim');
+    });
 
     // ── Smooth scroll for "Ver Herramientas" ──────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
