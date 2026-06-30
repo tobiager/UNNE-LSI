@@ -1,16 +1,23 @@
-const CACHE_NAME = 'lsi-cache-v1.1.0';
+const CACHE_NAME = 'lsi-cache-v1.3.0';
 
 // Core shell: cached at install for offline baseline.
 // HTML routes use NetworkFirst so new markup is always fetched when online.
 const SHELL = [
   '/UNNE-LSI/',
   '/UNNE-LSI/home.html',
-  '/UNNE-LSI/buscador/',
+  '/UNNE-LSI/materias/',
   '/UNNE-LSI/simulador/',
   '/UNNE-LSI/calendario/',
   '/UNNE-LSI/navbar/navbar.html',
   '/UNNE-LSI/footer/footer.html',
   '/UNNE-LSI/materias.json',
+  '/UNNE-LSI/site.webmanifest',
+  '/UNNE-LSI/assets/icons/icon-192.png',
+  '/UNNE-LSI/assets/icons/icon-512.png',
+  '/UNNE-LSI/assets/lsi.png',
+  '/UNNE-LSI/css/index.css',
+  '/UNNE-LSI/app.js',
+  '/UNNE-LSI/layout/layout.js',
 ];
 
 // ── Install: skip waiting so new SW activates immediately ────────────────────
@@ -51,8 +58,8 @@ self.addEventListener('fetch', e => {
   // fall back to cache only when offline.
   const isHTML = request.mode === 'navigate' ||
                  url.pathname.endsWith('.html') ||
-                 /\/UNNE-LSI\/(buscador|simulador|calendario|estado)?\/?$/.test(url.pathname);
-  const isData = url.pathname.endsWith('.json');
+                 /\/UNNE-LSI\/(materias|simulador|calendario|estado)?\/?$/.test(url.pathname);
+  const isData = url.pathname.endsWith('.json') || url.pathname.endsWith('.webmanifest');
 
   if (isHTML || isData) {
     e.respondWith(

@@ -4,31 +4,32 @@
 <head>
   <link rel="icon" href="/UNNE-LSI/assets/lsi.png" type="image/png">
   <link rel="apple-touch-icon" href="/UNNE-LSI/assets/lsi.png">
+  <link rel="manifest" href="/UNNE-LSI/site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title id="page-title">Buscador de materias — Apuntes LSI UNNE</title>
+  <title id="page-title">Materias — Apuntes LSI UNNE</title>
   <meta name="description" id="page-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/buscador/" id="canonical-link" />
+  <link rel="canonical" href="https://tobiager.github.io/UNNE-LSI/materias/" id="canonical-link" />
 
   <!-- Open Graph (Facebook/WhatsApp/Discord) -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="UNNE-LSI" />
-  <meta property="og:title" id="og-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta property="og:title" id="og-title" content="Materias — Apuntes LSI UNNE" />
   <meta property="og:description" id="og-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
-  <meta property="og:url" id="og-url" content="https://tobiager.github.io/UNNE-LSI/buscador/" />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
+  <meta property="og:url" id="og-url" content="https://tobiager.github.io/UNNE-LSI/materias/" />
   <meta property="og:image" id="og-image"
     content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/banner.png" />
   <meta property="og:image:alt" content="LSI Tools — Repositorio UNNE" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" id="tw-title" content="Buscador de materias — Apuntes LSI UNNE" />
+  <meta name="twitter:title" id="tw-title" content="Materias — Apuntes LSI UNNE" />
   <meta name="twitter:description" id="tw-desc"
-    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido." />
+    content="Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia." />
   <meta name="twitter:image" id="tw-image"
     content="https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/assets/banner.png" />
   <!-- Schema.org: BreadcrumbList + WebSite base -->
@@ -36,9 +37,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Buscador de materias — Apuntes LSI UNNE",
+    "name": "Materias — Apuntes LSI UNNE",
     "description": "Buscá parciales, finales, resúmenes y guías de cualquier materia de la Licenciatura en Sistemas de Información UNNE.",
-    "url": "https://tobiager.github.io/UNNE-LSI/buscador/",
+    "url": "https://tobiager.github.io/UNNE-LSI/materias/",
     "inLanguage": "es-AR",
     "isPartOf": {
       "@type": "WebSite",
@@ -49,7 +50,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tobiager.github.io/UNNE-LSI/" },
-        { "@type": "ListItem", "position": 2, "name": "Buscador de materias", "item": "https://tobiager.github.io/UNNE-LSI/buscador/" }
+        { "@type": "ListItem", "position": 2, "name": "Materias", "item": "https://tobiager.github.io/UNNE-LSI/materias/" }
       ]
     }
   }
@@ -896,9 +897,9 @@
         max-width: 100%;
       }
 
-      /* ─ List: compact rows ─ */
+      /* ─ List: compact rows (mín 44px de altura táctil) ─ */
       #results td {
-        padding: 9px 10px;
+        padding: 12px 10px;
       }
 
       #results td:first-child {
@@ -931,6 +932,7 @@
         order: 1;
         padding: 7px 12px;
         font-size: 12px;
+        min-height: 44px;
       }
 
       /* Título en segunda fila, ancho completo */
@@ -950,18 +952,27 @@
         margin-left: auto;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       .btn-dl-all {
         order: 2;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       .btn-contribute {
         order: 2;
         padding: 8px 10px;
         gap: 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: center;
       }
 
       /* Ocultar etiquetas de texto en botones de acción */
@@ -992,7 +1003,7 @@
     <!-- ── LIST VIEW ── -->
     <div id="list-view">
       <div class="page-header">
-        <h1 class="reveal">Buscador de materias</h1>
+        <h1 class="reveal">Materias</h1>
         <p class="reveal">Encontrá apuntes, parciales y guías de cualquier materia de la carrera.</p>
       </div>
       <div class="search-wrap reveal">
@@ -1235,7 +1246,7 @@
         "@type": "Course",
         "name": materia.nombre,
         "description": desc,
-        "url": materia.url_buscador,
+        "url": materia.url_materias,
         "inLanguage": "es-AR",
         "provider": {
           "@type": "EducationalOrganization",
@@ -1411,9 +1422,9 @@
         document.getElementById('list-view').style.display = '';
       }, 300);
       ACTIVE_KW = null;
-      setMeta(`Buscador de materias — Apuntes LSI UNNE`,
-        'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia con un buscador rápido.',
-        'https://tobiager.github.io/UNNE-LSI/buscador/');
+      setMeta(`Materias — Apuntes LSI UNNE`,
+        'Apuntes LSI UNNE de Sistemas: buscá parciales, finales, resúmenes y guías por materia.',
+        'https://tobiager.github.io/UNNE-LSI/materias/');
       removeCourseSchema();
       clearSemanticContent();
       history.pushState({}, '', window.location.pathname);
@@ -1442,8 +1453,8 @@
         : `Parciales resueltos, finales, resúmenes y guías de TPs de ${materia.nombre}. Material colaborativo para LSI en la UNNE — Plan 2023 y 2009.`;
 
       const canonical = ACTIVE_KW
-        ? `https://tobiager.github.io/UNNE-LSI/buscador/?materia=${materia.slug}&kw=${ACTIVE_KW}`
-        : materia.url_buscador;
+        ? `https://tobiager.github.io/UNNE-LSI/materias/?materia=${materia.slug}&kw=${ACTIVE_KW}`
+        : materia.url_materias;
 
       setMeta(title, desc, canonical);
       injectCourseSchema(materia, ACTIVE_KW);
@@ -1667,7 +1678,7 @@
       } catch (err) {
         document.getElementById('results-body').innerHTML =
           `<tr><td><div class="no-results" style="color:#ff6b6b">Error al cargar materias: ${err.message}</div></td></tr>`;
-        console.error('[Buscador]', err);
+        console.error('[Materias]', err);
       }
     })();
   </script>

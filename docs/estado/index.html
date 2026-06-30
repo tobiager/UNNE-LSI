@@ -4,6 +4,7 @@
 <head>
     <link rel="icon" href="/UNNE-LSI/assets/lsi.png" type="image/png">
     <link rel="apple-touch-icon" href="/UNNE-LSI/assets/lsi.png">
+    <link rel="manifest" href="/UNNE-LSI/site.webmanifest">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estado de carrera — LSI UNNE</title>
@@ -489,6 +490,16 @@
             .grid {
                 grid-template-columns: 1fr;
             }
+
+            .back-link {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        @media (display-mode: standalone) {
+            .page-wrap { padding-top: 44px; }
         }
 
         /* ── SCROLL REVEAL ── */

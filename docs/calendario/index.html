@@ -4,6 +4,7 @@
 <head>
   <link rel="icon" href="/UNNE-LSI/assets/lsi.png" type="image/png">
   <link rel="apple-touch-icon" href="/UNNE-LSI/assets/lsi.png">
+  <link rel="manifest" href="/UNNE-LSI/site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calendario académico 2026 — LSI UNNE</title>
@@ -237,7 +238,8 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 16px;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
       margin-bottom: 12px;
     }
@@ -355,7 +357,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      .wrap {
+      .page-wrap {
         padding: 40px 16px 32px;
       }
 
@@ -370,7 +372,16 @@
       }
 
       .btn {
+        min-height: 44px;
         justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      th,
+      td {
+        padding: 12px 12px;
+        font-size: 13px;
       }
     }
 
