@@ -2,7 +2,7 @@
   {
     "nombre": "Administracion y Gestion de Organizaciones",
     "slug": "administracion-y-gestion-de-organizaciones",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=administracion-y-gestion-de-organizaciones",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=administracion-y-gestion-de-organizaciones",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Administracion%20y%20Gestion%20de%20Organizaciones",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Administracion%20y%20Gestion%20de%20Organizaciones",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Administracion%20y%20Gestion%20de%20Organizaciones/README.md",
@@ -2455,7 +2455,7 @@
   {
     "nombre": "Algebra",
     "slug": "algebra",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=algebra",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=algebra",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algebra",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algebra",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Algebra/README.md",
@@ -3135,7 +3135,7 @@
   {
     "nombre": "Algoritmo y Estructura de datos 1",
     "slug": "algoritmo-y-estructura-de-datos-1",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=algoritmo-y-estructura-de-datos-1",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=algoritmo-y-estructura-de-datos-1",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%201",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%201",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%201/README.md",
@@ -6145,7 +6145,7 @@
   {
     "nombre": "Algoritmo y Estructura de datos 2",
     "slug": "algoritmo-y-estructura-de-datos-2",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=algoritmo-y-estructura-de-datos-2",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=algoritmo-y-estructura-de-datos-2",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%202",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%202",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Algoritmo%20y%20Estructura%20de%20datos%202/README.md",
@@ -8049,7 +8049,7 @@
   {
     "nombre": "Arquitectura de computadoras",
     "slug": "arquitectura-de-computadoras",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=arquitectura-de-computadoras",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=arquitectura-de-computadoras",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Arquitectura%20de%20computadoras",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Arquitectura%20de%20computadoras",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Arquitectura%20de%20computadoras/README.md",
@@ -10376,7 +10376,7 @@
   {
     "nombre": "Bases de Datos 1",
     "slug": "bases-de-datos-1",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=bases-de-datos-1",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=bases-de-datos-1",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Bases%20de%20Datos%201",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Bases%20de%20Datos%201",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%201/README.md",
@@ -13435,7 +13435,7 @@
   {
     "nombre": "Bases de Datos 2",
     "slug": "bases-de-datos-2",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=bases-de-datos-2",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=bases-de-datos-2",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Bases%20de%20Datos%202",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Bases%20de%20Datos%202",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Bases%20de%20Datos%202/README.md",
@@ -15177,7 +15177,7 @@
   {
     "nombre": "Calculo",
     "slug": "calculo",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=calculo",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=calculo",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/README.md",
@@ -21112,7 +21112,7 @@
   {
     "nombre": "Comunicacion de datos 1",
     "slug": "comunicacion-de-datos-1",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=comunicacion-de-datos-1",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=comunicacion-de-datos-1",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Comunicacion%20de%20datos%201",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Comunicacion%20de%20datos%201",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Comunicacion%20de%20datos%201/README.md",
@@ -21607,7 +21607,7 @@
   {
     "nombre": "Economia Aplicada",
     "slug": "economia-aplicada",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=economia-aplicada",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=economia-aplicada",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Economia%20Aplicada",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Economia%20Aplicada/README.md",
@@ -22190,7 +22190,7 @@
   {
     "nombre": "Ingenieria de Software 1",
     "slug": "ingenieria-de-software-1",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=ingenieria-de-software-1",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=ingenieria-de-software-1",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%201",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%201",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%201/README.md",
@@ -25517,7 +25517,7 @@
   {
     "nombre": "Ingenieria de Software 2",
     "slug": "ingenieria-de-software-2",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=ingenieria-de-software-2",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=ingenieria-de-software-2",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingenieria%20de%20Software%202",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingenieria%20de%20Software%202/README.md",
@@ -27545,7 +27545,7 @@
   {
     "nombre": "Ingles Tecnico",
     "slug": "ingles-tecnico",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=ingles-tecnico",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=ingles-tecnico",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingles%20Tecnico",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Ingles%20Tecnico",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Ingles%20Tecnico/README.md",
@@ -28102,7 +28102,7 @@
   {
     "nombre": "Logica y Matematica Computacional",
     "slug": "logica-y-matematica-computacional",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=logica-y-matematica-computacional",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=logica-y-matematica-computacional",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Logica%20y%20Matematica%20Computacional",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Logica%20y%20Matematica%20Computacional",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Logica%20y%20Matematica%20Computacional/README.md",
@@ -28644,7 +28644,7 @@
   {
     "nombre": "Paradigmas y Lenguajes",
     "slug": "paradigmas-y-lenguajes",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=paradigmas-y-lenguajes",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=paradigmas-y-lenguajes",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Paradigmas%20y%20Lenguajes",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Paradigmas%20y%20Lenguajes",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Paradigmas%20y%20Lenguajes/README.md",
@@ -30744,7 +30744,7 @@
   {
     "nombre": "Probabilidad y Estadistica",
     "slug": "probabilidad-y-estadistica",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=probabilidad-y-estadistica",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=probabilidad-y-estadistica",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Probabilidad%20y%20Estadistica",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Probabilidad%20y%20Estadistica",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/README.md",
@@ -33559,7 +33559,7 @@
   {
     "nombre": "Programacion Orientada a Objetos",
     "slug": "programacion-orientada-a-objetos",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=programacion-orientada-a-objetos",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=programacion-orientada-a-objetos",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Programacion%20Orientada%20a%20Objetos",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Programacion%20Orientada%20a%20Objetos",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Programacion%20Orientada%20a%20Objetos/README.md",
@@ -53261,7 +53261,7 @@
   {
     "nombre": "Sistemas Operativos",
     "slug": "sistemas-operativos",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=sistemas-operativos",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=sistemas-operativos",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Sistemas%20Operativos",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Sistemas%20Operativos",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Sistemas%20Operativos/README.md",
@@ -54563,7 +54563,7 @@
   {
     "nombre": "Sistemas y Organizaciones",
     "slug": "sistemas-y-organizaciones",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=sistemas-y-organizaciones",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=sistemas-y-organizaciones",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Sistemas%20y%20Organizaciones",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Sistemas%20y%20Organizaciones",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Sistemas%20y%20Organizaciones/README.md",
@@ -54801,7 +54801,7 @@
   {
     "nombre": "Taller de Programacion 1",
     "slug": "taller-de-programacion-1",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=taller-de-programacion-1",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=taller-de-programacion-1",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Taller%20de%20Programacion%201",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Taller%20de%20Programacion%201",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Taller%20de%20Programacion%201/README.md",
@@ -54867,7 +54867,7 @@
   {
     "nombre": "Taller de Programacion 2",
     "slug": "taller-de-programacion-2",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=taller-de-programacion-2",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=taller-de-programacion-2",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Taller%20de%20Programacion%202",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Taller%20de%20Programacion%202",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Taller%20de%20Programacion%202/README.md",
@@ -59904,7 +59904,7 @@
   {
     "nombre": "Teoria de la Computacion",
     "slug": "teoria-de-la-computacion",
-    "url_buscador": "https://tobiager.github.io/UNNE-LSI/buscador/?materia=teoria-de-la-computacion",
+    "url_materias": "https://tobiager.github.io/UNNE-LSI/materias/?materia=teoria-de-la-computacion",
     "url_github": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Teoria%20de%20la%20Computacion",
     "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Teoria%20de%20la%20Computacion",
     "readme_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Teoria%20de%20la%20Computacion/README.md",

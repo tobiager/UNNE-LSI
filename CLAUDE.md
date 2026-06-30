@@ -8,7 +8,7 @@ A personal, non-official knowledge base for the **Licenciatura en Sistemas de
 Información (LSI)** at FaCENA–UNNE (Corrientes, Argentina). It holds course
 notes, practicals, old exams, and study tips organized by subject (`Materias/`),
 plus a small static website (GitHub Pages) with a course-progress tracker
-(simulador), a search tool (buscador), and a calendar.
+(simulador), a subject browser (materias), and a calendar.
 
 There is no application backend and no test suite. The "code" is: content
 (Markdown/PDF/images per subject), a couple of Python build scripts that
@@ -23,7 +23,7 @@ site in `docs/`.
 ├── planes/          # Study plan details (2009.md, 2023.md) + official plan PDFs
 ├── meta/            # mapping-planes.yaml (subject↔plan correlatives) + build_materias_index.py
 ├── scripts/         # build_data.py — generates docs/materias.json, sitemaps, robots.txt
-├── docs/            # GitHub Pages site (served as-is, no bundler): home, buscador, simulador, calendario, estado
+├── docs/            # GitHub Pages site (served as-is, no bundler): home, materias, simulador, calendario, estado
 ├── assets/          # Images/banners used in README and the site
 ├── .github/         # Issue/PR templates + deploy.yml workflow
 ├── mkdocs.yml        # Optional MkDocs config (Materias nav, planes, calendario, simulador)
@@ -40,7 +40,7 @@ Each subject folder is independent and conventionally contains:
 ### `docs/` (the static site, deployed via GitHub Pages)
 - Plain HTML/CSS/JS — no framework, no build step, no `package.json`.
 - `home.html` / `index.html` — landing page.
-- `buscador/` — search across `materias.json`.
+- `materias/` — subject browser; search across `materias.json`.
 - `simulador/` — course-progress simulator (plan selection, subject status, notes; persisted in the browser's LocalStorage, exportable/importable as JSON).
 - `calendario/`, `estado/` — calendar and status pages.
 - `navbar/navbar.html`, `footer/footer.html`, `layout/layout.js` — shared chrome injected at runtime into pages.
