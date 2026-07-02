@@ -1,0 +1,12 @@
+1.Estadística descriptiva en intervalos: calcular media, mediana y moda, explicar cada una.
+2.Porbabilidad condicional de eventos dependientes o independientes.
+3.Variables aleatorias continuas, función de densidad y distribución, sacar k, calcular esperanza o varianza.
+4. Modelos probabilísticos. Casi siempre distribución normal. Intervalo de confianza. Chi cuadrado y eso.
+5. Test de hipótesis.
+
+Para libres el 1 pidió datos agrupados por intervalos, completar la tabla de frecuencias,  identificar variable, tipo, unidad de medida, etc. Hacer un gráfico acorde, hallar e interpretar media mediana y moda, dos preguntas de las que se contestan mirando la tablita. El 2 probabilidad condicional, 3 lo de hallar k, funcion de distribución, esperanza, y probabilidad que sea mayor a un valor. El 4 intervalos de confianza, hallar n para que el error sea menor a un valor dado, intervalo para la varianza. El 5 test de hipótesis para proporcion, no pidió lo de error tipo 2
+
+Multiplicar entre sí las marginales en el contexto de estadísticas y probabilidades se refiere al proceso de calcular la probabilidad conjunta de dos eventos independientes mediante la multiplicación de sus probabilidades marginales individuales. Este proceso se basa en el concepto fundamental de la regla del producto en la teoría de la probabilidad.
+
+Por ejemplo, si tienes dos eventos A y B, y quieres encontrar la probabilidad de que ambos ocurran (A y B), y además sabes las probabilidades individuales de A y B (llamadas marginales), puedes utilizar la multiplicación de estas probabilidades marginales para encontrar la probabilidad conjunta de ambos eventos. Esto es especialmente útil en situaciones donde los eventos son independientes entre sí.
+
