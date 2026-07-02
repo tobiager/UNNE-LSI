@@ -20587,6 +20587,100 @@
       },
       {
         "tipo": "carpeta",
+        "nombre": "fotos demostraciones 2026",
+        "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20demostraciones%202026",
+        "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20demostraciones%202026",
+        "keywords": [],
+        "categorias": [],
+        "categoria": null,
+        "hijos": [
+          {
+            "tipo": "carpeta",
+            "nombre": "unidad 1",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null,
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "WhatsApp Image 2026-03-19 at 21.34.02 (1).jpeg",
+                "extension": "jpeg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(1).jpeg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(1).jpeg",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "WhatsApp Image 2026-03-19 at 21.34.02 (3).jpeg",
+                "extension": "jpeg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(3).jpeg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/fotos%20demostraciones%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(3).jpeg",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "carpeta",
+        "nombre": "fotos ejemplos 2026",
+        "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20ejemplos%202026",
+        "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20ejemplos%202026",
+        "keywords": [],
+        "categorias": [],
+        "categoria": null,
+        "hijos": [
+          {
+            "tipo": "carpeta",
+            "nombre": "unidad 1",
+            "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201",
+            "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201",
+            "keywords": [],
+            "categorias": [],
+            "categoria": null,
+            "hijos": [
+              {
+                "tipo": "archivo",
+                "nombre": "WhatsApp Image 2026-03-19 at 21.34.01.jpeg",
+                "extension": "jpeg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.01.jpeg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.01.jpeg",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "WhatsApp Image 2026-03-19 at 21.34.02 (2).jpeg",
+                "extension": "jpeg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(2).jpeg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02%20(2).jpeg",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "WhatsApp Image 2026-03-19 at 21.34.02.jpeg",
+                "extension": "jpeg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02.jpeg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Calculo/fotos%20ejemplos%202026/unidad%201/WhatsApp%20Image%202026-03-19%20at%2021.34.02.jpeg",
+                "keywords": [],
+                "categorias": [],
+                "categoria": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "carpeta",
         "nombre": "Libros",
         "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/Libros",
         "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Calculo/Libros",
@@ -30757,8 +30851,8 @@
         "tp"
       ],
       "categorias": {
-        "Final": 54,
-        "Examen": 6,
+        "Final": 66,
+        "Examen": 7,
         "Parcial": 68,
         "TP": 11
       },
@@ -30856,10 +30950,12 @@
             "url_tree": "https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres",
             "url_downgit": "https://downgit.github.io/#/home?url=https://github.com/tobiager/UNNE-LSI/tree/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres",
             "keywords": [
+              "examen",
               "final"
             ],
             "categorias": [
-              "Final"
+              "Final",
+              "Examen"
             ],
             "categoria": "Final",
             "hijos": [
@@ -30977,10 +31073,180 @@
               },
               {
                 "tipo": "archivo",
+                "nombre": "Examen libre del 2024-03-07.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen%20libre%20del%202024-03-07.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen%20libre%20del%202024-03-07.jpg",
+                "keywords": [
+                  "examen",
+                  "final"
+                ],
+                "categorias": [
+                  "Final",
+                  "Examen"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Examen_Libre  - 16_12_21.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen_Libre%20%20-%2016_12_21.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen_Libre%20%20-%2016_12_21.pdf",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Examen_libre_prob_17-02-2022.pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen_libre_prob_17-02-2022.pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Examen_libre_prob_17-02-2022.pdf",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
                 "nombre": "final_libre_pye_lsi_26022026.pdf",
                 "extension": "pdf",
                 "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/final_libre_pye_lsi_26022026.pdf",
                 "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/final_libre_pye_lsi_26022026.pdf",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Imagen de WhatsApp 2024-03-12 a las 17.40.33_adbea7db.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-12%20a%20las%2017.40.33_adbea7db.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-12%20a%20las%2017.40.33_adbea7db.jpg",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Imagen de WhatsApp 2024-03-12 a las 17.40.34_a0df10fe.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-12%20a%20las%2017.40.34_a0df10fe.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-12%20a%20las%2017.40.34_a0df10fe.jpg",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Imagen de WhatsApp 2024-03-13 a las 14.59.26_c5bbeccb.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2014.59.26_c5bbeccb.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2014.59.26_c5bbeccb.jpg",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Imagen de WhatsApp 2024-03-13 a las 15.03.49_df4ed53c.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2015.03.49_df4ed53c.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2015.03.49_df4ed53c.jpg",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Imagen de WhatsApp 2024-03-13 a las 15.09.34_249a4585.jpg",
+                "extension": "jpg",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2015.09.34_249a4585.jpg",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Imagen%20de%20WhatsApp%202024-03-13%20a%20las%2015.09.34_249a4585.jpg",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Lo que toman libre.txt",
+                "extension": "txt",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Lo%20que%20toman%20libre.txt",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Lo%20que%20toman%20libre.txt",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Probabilidad y Estadistica para Ingenieria y Ciencias (Solucionario) - Devore (1).pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Probabilidad%20y%20Estadistica%20para%20Ingenieria%20y%20Ciencias%20(Solucionario)%20-%20Devore%20(1).pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Probabilidad%20y%20Estadistica%20para%20Ingenieria%20y%20Ciencias%20(Solucionario)%20-%20Devore%20(1).pdf",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "Probabilidad y Estadística - Devore - 7ma Edición (1).pdf",
+                "extension": "pdf",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Probabilidad%20y%20Estadística%20-%20Devore%20-%207ma%20Edición%20(1).pdf",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/Probabilidad%20y%20Estadística%20-%20Devore%20-%207ma%20Edición%20(1).pdf",
+                "keywords": [
+                  "final"
+                ],
+                "categorias": [
+                  "Final"
+                ],
+                "categoria": "Final"
+              },
+              {
+                "tipo": "archivo",
+                "nombre": "un problema de estadística-png.png",
+                "extension": "png",
+                "url_raw": "https://raw.githubusercontent.com/tobiager/UNNE-LSI/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/un%20problema%20de%20estadística-png.png",
+                "url_blob": "https://github.com/tobiager/UNNE-LSI/blob/main/Materias/Probabilidad%20y%20Estadistica/Finales/Libres/un%20problema%20de%20estadística-png.png",
                 "keywords": [
                   "final"
                 ],
