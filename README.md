@@ -431,7 +431,7 @@ Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes 
 
 ## ⭐ Historia de Estrellas
 
-[![Star History Chart](https://api.star-history.com/svg?repos=tobiager/UNNE-LSI&type=Date)](https://star-history.com/#tobiager/UNNE-LSI&Date)
+[![Star History Chart](https://api.star-history.com/chart?repos=tobiager/UNNE-LSI&type=date&legend=top-left)](https://www.star-history.com/?repos=tobiager%2FUNNE-LSI&type=date&legend=top-left)
 
 <p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Para que le sirva a alguien más.</b></p>
 
