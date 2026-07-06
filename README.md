@@ -45,7 +45,7 @@
   <p>
     <a href="#-índice-rápido">Índice Rápido</a> ✦
     <a href="./CONTRIBUTING.md">Cómo Contribuir</a> ✦
-    <a href="#-simulador-de-avance-web">Simulador de Avance</a> ✦
+    <a href="#-sitio-web">Sitio Web</a> ✦
     <a href="./Materias">Materias</a> ✦
     <a href="https://github.com/tobiager/UNNE-LSI/issues/new/choose">Sugerir/Reportar</a>
   </p>
@@ -72,7 +72,7 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 - [ Instalación y uso local](#-instalación-y-uso-local)
 - [ Si no sabés cómo usar GitHub](#-si-no-sabés-cómo-usar-github)
 - [ Planes de estudio](#-planes-de-estudio)
-- [ Simulador de Avance (web)](#-simulador-de-avance-web)
+- [ Sitio Web](#-sitio-web)
 - [ Materias](#-materias)
 - [ Tips de cursada](#-tips-de-cursada)
 - [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)
@@ -199,13 +199,13 @@ Si te interesa entender cómo funciona Git/GitHub y clonar el repo como desarrol
 
 ---
 
-## 🧪 Simulador de avance (web)
+## 🌐 Sitio Web
 
 <div align="center">
-  <a href="https://tobiager.github.io/UNNE-LSI/index.html#simulador">
-    <img src="./assets/banner-simulador.jpeg" alt="Simulador de Avance LSI — Web" width="1200">
+  <a href="https://unne-lsi-web.vercel.app/">
+    <img src="./assets/web/inicio1.jpeg" alt="LSI UNNE — Sitio Web" width="1200">
   </a>
-  
+
 <!-- Imagen de badges: derecha en desktop, centrada en móvil -->
 <picture>
   <!-- Desktop (mínimo 768px): flota a la derecha -->
@@ -220,10 +220,39 @@ Si te interesa entender cómo funciona Git/GitHub y clonar el repo como desarrol
 
 </div>
 
-> [!IMPORTANT]  
-> Gestioná tu cursada desde el navegador: **elegí plan, marcá estados, guardá notas** y generá **badges** para tu README.
+> [!IMPORTANT]
+> 👉 **[unne-lsi-web.vercel.app](https://unne-lsi-web.vercel.app/)** — la versión web de este repositorio: navegá las materias, armá tu cursada con el simulador y consultá el calendario académico, todo desde el navegador (sin clonar nada).
 
-###  ¿Qué podés hacer?
+El sitio tiene cuatro secciones principales: **Inicio**, **Materias**, **Simulador de avance** y **Calendario**. A continuación un repaso de cada una con capturas reales.
+
+### 🏠 Inicio
+
+Landing page con acceso rápido a todo el contenido del repositorio y a las demás secciones del sitio.
+
+<p align="center">
+  <img src="./assets/web/inicio2.jpeg" alt="Inicio — sitio web LSI UNNE" width="900"><br/>
+  <img src="./assets/web/inicio3.jpeg" alt="Inicio — sitio web LSI UNNE (detalle)" width="900">
+</p>
+
+### 📚 Materias
+
+Buscador y navegador de todas las materias del repositorio: filtrá por nombre, plan o año y accedé directo a los apuntes, prácticos y parciales de cada una.
+
+<p align="center">
+  <img src="./assets/web/materias1.jpeg" alt="Buscador de materias" width="900"><br/>
+  <img src="./assets/web/materias2.jpeg" alt="Buscador de materias — detalle" width="900">
+</p>
+
+### 🧪 Simulador de avance
+
+<p align="center">
+  <img src="./assets/web/simulador1.jpeg" alt="Simulador de avance — vista general" width="900"><br/>
+  <img src="./assets/web/simulador2.jpeg" alt="Simulador de avance — progreso por año" width="900">
+</p>
+
+Gestioná tu cursada desde el navegador: **elegí plan, marcá estados, guardá notas** y generá **badges** para tu README.
+
+**¿Qué podés hacer?**
 - **Elegir plan**: 2009 o 2023.
 - Marcar cada materia como **No**, **En curso**, **Regular** o **Aprobada**.
 - **Guardar notas** (final/promo) y ver observaciones (p. ej., “Promocionada con 9”).
@@ -236,26 +265,24 @@ Si te interesa entender cómo funciona Git/GitHub y clonar el repo como desarrol
 > [!NOTE]
 >  Los datos se guardan **localmente** en tu navegador (LocalStorage). Si cambiás de dispositivo/navegador, usá **Exportar JSON** e **Importar JSON**.
 
-###  Cómo usarlo
-1. Entrá al <a href="https://tobiager.github.io/UNNE-LSI/simulador/">Simulador</a> 
-2. Elegí tu **Plan** (2009 / 2023).  
-3. Marcá el **estado** de cada materia y cargá **notas** si corresponde.  
-4. Tocá **Guardar** para persistir tu avance en el navegador.  
-5. (Opcional) **Exportá JSON** para respaldar o mover tu progreso a otra PC.  
+**Cómo usarlo:**
+1. Entrá a <a href="https://unne-lsi-web.vercel.app/simulador/">Simulador</a>.
+2. Elegí tu **Plan** (2009 / 2023).
+3. Marcá el **estado** de cada materia y cargá **notas** si corresponde.
+4. Tocá **Guardar** para persistir tu avance en el navegador.
+5. (Opcional) **Exportá JSON** para respaldar o mover tu progreso a otra PC.
 6. Usá **Copiar badge – Año** o **Copiar badge – %** y pegalo en cualquier README/Markdown.
 
 > [!TIP]
 > Con **Link de estado** podés compartir tu avance exacto (ideal para CV/portfolio).
-<!-- Opcional: agregá capturas del simulador en /assets y descomentá estas líneas
+
+### 📅 Calendario
+
+Calendario académico con fechas relevantes de la cursada (inicio/fin de cuatrimestres, mesas de examen, etc.).
+
 <p align="center">
-  <img src="./assets/simulador-cursada.png" alt="Simulador — vista de cursada" width="900"><br/>
-  <em>Vista de cursada y progreso por año.</em>
+  <img src="./assets/web/calendario.jpeg" alt="Calendario académico" width="900">
 </p>
-<p align="center">
-  <img src="./assets/simulador-estado.png" alt="Simulador — estado de carrera" width="900"><br/>
-  <em>Estado de carrera con % y listado por año.</em>
-</p>
--->
 
 ---
 
