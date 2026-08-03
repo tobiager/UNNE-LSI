@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/UML-02569B?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Metodologías%20Ágiles-FF6600?style=for-the-badge"/>
    <img src="https://img.shields.io/badge/UNNE-Informática-blue?style=for-the-badge"/>
-   <img src="https://img.shields.io/badge/Estado-Cursando-yellow?style=for-the-badge"/>
+   <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2026-blue?style=for-the-badge"/>
 </p>
 

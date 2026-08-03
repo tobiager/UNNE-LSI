@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/UNNE-Econom%C3%ADa%20Aplicada-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Estado-Cursando-yellow?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Estado-%20completado-greenlight?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Cursada-2026-blue?style=for-the-badge"/>
 </p>
 

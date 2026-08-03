@@ -70,10 +70,10 @@ Este espacio **NO es oficial**, pero vas a encontrar **apuntes, prácticos, guí
 - [ Sobre la carrera](#-sobre-la-carrera)
 - [ Estructura del repositorio](#-estructura-del-repositorio)
 - [ Instalación y uso local](#-instalación-y-uso-local)
-- [ Si no sabés cómo usar GitHub](#-si-no-sabés-cómo-usar-github)
-- [ Planes de estudio](#-planes-de-estudio)
+- [ Si no sabes como usar GitHub](#-si-no-sabes-como-usar-github)
 - [ Sitio Web](#-sitio-web)
 - [ Materias](#-materias)
+- [ Ayudas y recursos](#-ayudas-y-recursos)
 - [ Tips de cursada](#-tips-de-cursada)
 - [ Cómo contribuir](#%EF%B8%8F-cómo-contribuir)
 - [ Licencia](#-licencia)
@@ -91,6 +91,17 @@ La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 año
 - **Planes:** 2009 (en extinción) y 2023 (nuevo).  
 - **Modalidad:** presencial y virtual, con materias cuatrimestrales.  
 - **Perfil del egresado:** desarrollo de software, gestión de proyectos, docencia e investigación.   
+
+**Planes de estudio:**
+
+<p>
+  <a href="./planes/2009.md">
+    <img src="https://img.shields.io/badge/Plan-2009-008CFF?style=for-the-badge&labelColor=0a0a0a" alt="Plan 2009"/>
+  </a>
+  <a href="./planes/2023.md">
+    <img src="https://img.shields.io/badge/Plan-2023-008CFF?style=for-the-badge&labelColor=0a0a0a" alt="Plan 2023"/>
+  </a>
+</p>
 
 ---
 
@@ -117,26 +128,24 @@ Esa variedad hace que cada estudiante pueda descubrir en qué área se siente m�
 ```text
 .
 ├── Materias/              # apuntes, prácticas y consejos por materia
+├── Ayudas/                # recursos generales: videos, cheat sheets, herramientas de IA, etc.
 ├── planes/                # planes 2009 y 2023 detallados
 ├── meta/                  # correlatividades, mapeos y utilidades auxiliares
-├── scripts/               # scripts para generar/actualizar datos
-├── docs/                  # sitio estático (GitHub Pages) y visualizaciones
+├── docs/                  # datos (JSON) que consume el sitio web
 ├── assets/                # imágenes usadas en el repo
-├── .github/               # configs del repo (templates/workflows)
-├── mkdocs.yml             # configuración de MkDocs
+├── .github/               # configs del repo (templates de issues/PR, etc.)
 ├── CONTRIBUTING.md        # cómo contribuir
 ├── LICENSE                # licencias del repositorio
 └── README.md              # este archivo
 ```
 
 - **Materias/** → Cada carpeta tiene un `README.md` con apuntes, prácticos y consejos.
+- **Ayudas/** → Videos, cheat sheets y otros materiales que no son de una materia puntual.
 - **planes/** → Info detallada de cada plan vigente.
 - **meta/** → Archivos auxiliares para correlatividades/planes.
-- **scripts/** → Scripts internos (p. ej. generación de `docs/*.json`).
-- **docs/** → Sitio estático (GitHub Pages) y recursos web (materias, calendario, simulador).
+- **docs/** → Datos (`plans.json`) que alimenta el [sitio web](https://unne-lsi-web.vercel.app/).
 - **assets/** → Imágenes/banners/stickers usados en el repo.
-- **.github/** → Configuración de GitHub (issues/PR templates, workflows, etc.).
-- **mkdocs.yml** → Configuración para generar documentación con MkDocs.
+- **.github/** → Configuración de GitHub (issues/PR templates, etc.).
 - **CONTRIBUTING.md** → Guía para colaborar con el proyecto.
 - **LICENSE** → Licencia del repositorio.
 
@@ -153,14 +162,7 @@ cd UNNE-LSI
 cd "Materias/Algoritmo y Estructura de datos 1"
 ```
 
-Para generar y previsualizar la documentación del sitio:
-
-```bash
-pip install mkdocs mkdocs-material
-mkdocs serve
-```
-
-## ❓ ¿No sabés cómo usar GitHub?
+## ❓ Si no sabes como usar GitHub
 
 <details>
 <summary>📥 Descarga rápida (recomendado — sin cuenta y sin Git)</summary>
@@ -286,47 +288,6 @@ Calendario académico con fechas relevantes de la cursada (inicio/fin de cuatrim
 
 ---
 
-## 📜 Planes de estudio
-
-La carrera se dicta bajo dos planes vigentes:
-
-<p>
-  <a href="./planes/2009.md">
-    <img src="https://img.shields.io/badge/Plan-2009-64748B?style=for-the-badge" alt="Plan 2009"/>
-  </a>
-  <a href="./planes/2023.md">
-    <img src="https://img.shields.io/badge/Plan-2023-22C55E?style=for-the-badge" alt="Plan 2023"/>
-  </a>
-</p>
-
-### 📌 Plan 2009 — Orden de cursada
-
-- **1° año:** AED I, Álgebra, AED II, Lógica, SyO  
-- **2° año:** Paradigmas, Arquitectura, Cálculo, POO, SO, Adm. y Gestión  
-- **3° año:** Taller I, Comunicaciones, Ing. de Software I, Taller II, Probabilidad y Estadística, Bases de Datos I, Inglés Técnico Informático.
-- **4° año:** Ing. de Software II, Economía, Teoría de la Computación, Redes, Bases de Datos II, Métodos Computacionales.
-- **5° año:** Proyecto Final, Auditoría y Seguridad, Optativas I–III  
-
->  Al aprobar 3° año + Inglés Técnico se obtiene el título intermedio de **Analista Programador Universitario (APU)**.  
-
- Ver detalle completo: [planes/2009.md](./planes/2009.md)  
-
----
-
-### 📌 Plan 2023 — Orden de cursada
-
-- **1° año:** AED I, Álgebra, AED II, Lógica, SyO  
-- **2° año:** Paradigmas, Arquitectura, Cálculo, POO, SO, Bases de Datos I  
-- **3° año:** Programación Web, Comunicaciones, Ing. de Software I, Probabilidad y Estadística, Programación Avanzada, Ing. de Software II  
-- **4° año:** IA, Teoría de la Computación, Redes, Ing. de Software III, Bases de Datos II, Métodos Computacionales, Análisis de Organizaciones y Procesos  
-- **5° año:** Auditoría y Seguridad, Emprendedorismo, Optativa I, Introducción a Ciencia de Datos, Aspectos Profesionales y Sociales, Optativa II, Proyecto Integrador de Carrera  
-
->  Al aprobar 3° año + Inglés se obtiene el título de **Analista Programador Universitario (APU)**.  
-
- Ver detalle completo: [planes/2023.md](./planes/2023.md)
-
----
-
 ## 📚 Materias
 
 Listado de materias con enlaces a sus carpetas y el estado actual.
@@ -356,6 +317,15 @@ Listado de materias con enlaces a sus carpetas y el estado actual.
 - [Taller de Programación II](./Materias/Taller%20de%20Programacion%202/) 
 - [Teoría de la Computación](./Materias/Teoria%20de%20la%20Computacion/)
 
+
+---
+
+## 🧰 Ayudas y recursos
+
+Videos, cheat sheets, herramientas de IA y otros materiales que no son
+apuntes de una materia puntual pero sirven para toda la carrera.
+
+👉 Ver [Ayudas/](./Ayudas/)
 
 ---
 
@@ -428,10 +398,6 @@ Si este repositorio te fue útil, ayudame compartiéndolo con otros estudiantes 
 <p align="center">
   <img src="./assets/estrella.png" alt="estrella" height="300"/>
 </p>
-
-## ⭐ Historia de Estrellas
-
-[![Star History Chart](https://api.star-history.com/chart?repos=tobiager/UNNE-LSI&type=date&legend=top-left)](https://www.star-history.com/?repos=tobiager%2FUNNE-LSI&type=date&legend=top-left)
 
 <p align="center"><b>❤️🐔 Hecho con pasión y dedicación por Tobias — Para que le sirva a alguien más.</b></p>
 
