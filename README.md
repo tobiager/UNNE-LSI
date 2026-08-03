@@ -95,10 +95,10 @@ La **Licenciatura en Sistemas de Información (LSI)** es una carrera de **5 año
 **Planes de estudio:**
 
 <p>
-  <a href="./planes/2009.md">
+  <a href="./planes/Plan LSI Final-10112009.pdf">
     <img src="https://img.shields.io/badge/Plan-2009-008CFF?style=for-the-badge&labelColor=0a0a0a" alt="Plan 2009"/>
   </a>
-  <a href="./planes/2023.md">
+  <a href="./planes/Plan-Lic.-Sistemas-2023.pdf">
     <img src="https://img.shields.io/badge/Plan-2023-008CFF?style=for-the-badge&labelColor=0a0a0a" alt="Plan 2023"/>
   </a>
 </p>
