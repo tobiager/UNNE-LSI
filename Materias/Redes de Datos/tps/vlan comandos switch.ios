@@ -1,0 +1,16 @@
+vlan 10
+name datacenter
+vlan 50
+name administracion
+vlan 100
+name gerencia
+vlan 200
+name invitados
+vlan 300
+name infraestructura
+vlan 400
+name sistemas
+vlan 500
+name deposito
+vlan 600
+name test

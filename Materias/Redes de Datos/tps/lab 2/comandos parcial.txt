@@ -1,0 +1,86 @@
+1. Crear una cuenta de usuario llamada uLU
+
+Debes reemplazar LU por tu número de libreta.
+Ejemplo: si tu libreta es 123, el usuario sería u123.
+Comando:
+
+sudo useradd -m u123
+
+
+-m crea automáticamente el home del usuario (/home/u123).
+
+2. Asignarle la contraseña "Pass.user1"
+echo "u123:Pass.user1" | sudo chpasswd
+
+3. Verificar que la cuenta tenga el home generado y mostrarlo
+ls -ld /home/u123
+
+
+Deberías ver que existe la carpeta y pertenece al usuario.
+
+4. Asignar a la carpeta home permiso 700
+sudo chmod 700 /home/u123
+ls -ld /home/u123
+
+
+Así solo el usuario podrá entrar a su home.
+
+5. Obtener la MAC de la interfaz de red Linux y guardarla en un archivo
+ip link show
+
+
+Copias la dirección MAC (formato xx:xx:xx:xx:xx:xx).
+Luego la guardas en /home/u123/mac.txt:
+
+ip link show > /home/u123/mac.txt
+
+6. Obtener la MAC de la interfaz activa del SO anfitrión
+
+En la máquina física (Windows/Linux host), revisa con:
+
+En Windows: ipconfig /all
+
+En Linux: ip link show
+
+Anotas la MAC y la guardas en otro archivo o la muestras en el documento.
+
+7. Configurar una página en Apache
+
+Instalar Apache (si no está):
+
+sudo apt install apache2 -y
+
+
+Crear la carpeta y archivo:
+
+sudo mkdir -p /var/www/html/u123/parcial1
+echo "código a bajar desde \\\\192.168.200.6\\ScsiSsd\\redes_samba (texto-p1.html)" | sudo tee /var/www/html/u123/parcial1/index.html
+
+
+Configurar que escuche en el puerto 8098/tcp:
+
+Edita /etc/apache2/ports.conf y agrega:
+
+Listen 8098
+
+
+Crea un VirtualHost en /etc/apache2/sites-available/u123.conf:
+
+<VirtualHost *:8098>
+    DocumentRoot /var/www/html/u123/parcial1
+</VirtualHost>
+
+
+Activar el sitio:
+
+sudo a2ensite u123.conf
+sudo systemctl reload apache2
+
+8. Verificar desde el navegador
+
+En tu navegador (desde la notebook host), accede a:
+
+http://IP_DE_TU_VM:8098
+
+
+Debe mostrar la página creada.

@@ -1,0 +1,21 @@
+clase RIP: https://youtu.be/Y_YN46dLCCw
+clase bgp: https://www.youtube.com/watch?v=7_F5cedxT3Q&list=PLgUC6NcYWSXTbogBVMtyGM6PpKqRaLmnZ&index=22
+(router 100)
+router bgp 100
+network 192.168.0.0 mask 255.255.255.0
+neighbor (ip que conozco): neighbor 10.0.1.2 remote-as 200
+neighbor 10.0.2.2 remote-as 300
+
+(router 200)
+route bgp 200
+network 192.168.1.0 mask 255.255.255.0
+neighbor 10.0.1.1 remote-as 100
+neighbor 10.0.3.1 remote-as 300
+
+(router 300)
+router bgp 300
+network 192.168.3.0 mask 255.255.255.0
+neighbor 10.0.2.1 remote-as 100
+neighbor 10.0.3.2 remote-as 200
+
+show ip route (muestra B)

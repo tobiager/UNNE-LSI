@@ -1,0 +1,42 @@
+###############################################
+# 1. Cantidad de registros tomados para Xlugar
+###############################################
+grep -c "Xlugar" registro_sin_cabecera.txt
+
+###############################################
+# 2. La cantidad de registros de una lectura diaria
+#    (ejemplo para el día 22092025)
+###############################################
+grep -c "^22092025" registro_sin_cabecera.txt
+
+###############################################
+# 3. El número de registros SIN lectura (faltante en TMAX o TMIN)
+#    -> usar el archivo original sin cabecera
+###############################################
+awk '($2 == "" || $3 == "") {count++} END{print count}' registro_sin_cabecera.txt
+
+###############################################
+# 4. La fecha en que se registró la mayor temperatura para Xlugar
+###############################################
+awk '$0 ~ /Xlugar/ && $2 > max {max=$2; fecha=$1} END{print fecha, max}' registros_completos.txt
+
+###############################################
+# 5. La menor temperatura registrada en Xlugar
+###############################################
+awk '$0 ~ /Xlugar/ && ($3 < min || min=="") {min=$3} END{print min}' registros_completos.txt
+
+###############################################
+# 6. El Promedio de temperatura máxima registrado en Xlugar
+###############################################
+awk '$0 ~ /Xlugar/ {sum+=$2; n++} END{if(n>0) print sum/n}' registros_completos.txt
+
+###############################################
+# 7. El Promedio de temperatura mínima registrado en Xlugar
+###############################################
+awk '$0 ~ /Xlugar/ {sum+=$3; n++} END{if(n>0) print sum/n}' registros_completos.txt
+
+###############################################
+# 8. Los registros de temperatura obtenidos en Xlugar
+#    ordenados por TMAX de mayor a menor
+###############################################
+grep "Xlugar" registros_completos.txt | sort -k2,2nr > "Xlugar-menor-a-mayor.txt"

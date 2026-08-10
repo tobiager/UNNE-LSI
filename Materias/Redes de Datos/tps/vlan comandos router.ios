@@ -1,0 +1,86 @@
+ip dhcp excluded-address 192.168.10.1 192.168.10.99
+ip dhcp excluded-address 192.168.50.1 192.168.50.99
+ip dhcp excluded-address 192.168.20.1 192.168.20.99
+ip dhcp excluded-address 192.168.30.1 192.168.30.99
+ip dhcp excluded-address 192.168.40.1 192.168.40.99
+ip dhcp excluded-address 192.168.60.1 192.168.60.99
+ip dhcp excluded-address 192.168.55.1 192.168.55.99
+ip dhcp excluded-address 192.168.100.1 192.168.100.99
+
+ip dhcp pool 10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 172.16.10.100
+ip dhcp pool 50
+ network 192.168.50.0 255.255.255.0
+ default-router 192.168.50.1
+ dns-server 172.16.10.100
+ip dhcp pool 100
+ network 192.168.100.0 255.255.255.0
+ default-router 192.168.100.1
+ dns-server 172.16.10.100
+ip dhcp pool 200
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 172.16.10.100
+ip dhcp pool 300
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.1
+ dns-server 172.16.10.100
+ip dhcp pool 400
+ network 192.168.40.0 255.255.255.0
+ default-router 192.168.40.1
+ dns-server 172.16.10.100
+ip dhcp pool 500
+ network 192.168.55.0 255.255.255.0
+ default-router 192.168.55.1
+ dns-server 172.16.10.100
+ip dhcp pool 600
+ network 192.168.60.0 255.255.255.0
+ default-router 192.168.60.1
+ dns-server 172.16.10.100
+
+
+
+ interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+
+interface GigabitEthernet0/0.50
+ encapsulation dot1Q 50
+ ip address 192.168.50.1 255.255.255.0
+
+interface GigabitEthernet0/0.100
+ encapsulation dot1Q 100
+ ip address 192.168.100.1 255.255.255.0
+
+interface GigabitEthernet0/0.200
+ encapsulation dot1Q 200
+ ip address 192.168.20.1 255.255.255.0
+
+interface GigabitEthernet0/0.300
+ encapsulation dot1Q 300
+ ip address 192.168.30.1 255.255.255.0
+
+interface GigabitEthernet0/0.400
+ encapsulation dot1Q 400
+ ip address 192.168.40.1 255.255.255.0
+
+interface GigabitEthernet0/0.500
+ encapsulation dot1Q 500
+ ip address 192.168.55.1 255.255.255.0
+
+interface GigabitEthernet0/0.600
+ encapsulation dot1Q 600
+ ip address 192.168.60.1 255.255.255.0
+
+interface Serial1/0
+ ip address 10.0.1.1 255.255.255.0
+
+
+ip route 0.0.0.0 0.0.0.0 Serial1/0 

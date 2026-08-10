@@ -1,0 +1,6 @@
+con el archivo escribir comandos Linux con los comandos SORT, AWK, GREP, CAT lograr:
+
+1. cantidad de clases asistidas por usted
+2. mes en el que asistió a mayor cantidad de clases
+3. promedio de tiempo en que se asistió por clase
+4. cantidad de registros incompletos asociados a usted
