@@ -24,21 +24,4 @@ Ejemplares de Redes de computadores : un enfoque descendente basado en internet
 10-012609    681.3 K96 2a ej.1    Hemeroteca    Sala
 10-012610    681.3 K96 2a ej.2    Hemeroteca    Sala
 
-TRABAJO DE CAMPO. Relevamiento de Infraestructura informática.
-
-    Trabajo individual y/o grupal.
-    Observación del ambiente informático, que concentre un número no menor a 25 hosts (computadoras y servidores) conectados en red.
-    Se debe registrar: la topología de red, topología de edificios enlazados, distribución de centros de cableado y forma de interconexión, características de la instalación eléctrica soporte, de dispositivos de conexión de red, parametrización TCP-IP utilizada, acceso a Internet.
-    Elaborar la documentación mediante herramienta MS VISIO, conteniendo un índice. Se debe proponer: mejoras técnicas y de metodologías sugerido por el estudiante.
-    Exposición y justificación del trabajo en clase expositiva, ante representantes de los sitios relevados.
-
-TRABAJO de Investigación en GRUPO.
-
-Exposición y documentación de trabajos.
-Posibles propuestas:
-- Despliegue de Telefonía IP con Asterisk.
-- Autenticación LDAP con MS Active Directory. Modificación de aplicación incorporando funcionalidades para autenticación LDAP. OAuth0
-- Autenticación LDAP con Linux OpenLDAP.  Modificación de aplicación incorporando funcionalidades para autenticación LDAP.
-- Solución de energía para un Datacenter.
-- Monitoreo de servicios de Red.
-- Arquitectura basada en Microservicios.
+https://drive.google.com/drive/u/0/folders/1kYaYok7Sz5gawdwaQ8iDamsd-zUUpyJ3
