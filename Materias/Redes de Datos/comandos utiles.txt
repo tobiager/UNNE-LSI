@@ -1,6 +1,0 @@
-nslookup
-ping
-netstat -nao
-hostname
-tracert
-telnet

@@ -1,0 +1,8 @@
+[Split networks]
+Network:	10.10.0.0/18
+Network:	10.10.64.0/18
+Network:	10.10.128.0/18
+Network:	10.10.192.0/18
+
+Total:  	4
+Hosts/Net:	16382

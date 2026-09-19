@@ -1,0 +1,8 @@
+Full Network:	fd0b:a336:4e7d:0000:0000:0000:0000:0000/48
+Network:	fd0b:a336:4e7d::/48
+Netmask:	ffff:ffff:ffff:: = 48
+
+Address space:	Unique Local Unicast
+HostMin:	fd0b:a336:4e7d::
+HostMax:	fd0b:a336:4e7d:ffff:ffff:ffff:ffff:ffff
+Hosts/Net:	2^(80) = 1208925819614629174706176

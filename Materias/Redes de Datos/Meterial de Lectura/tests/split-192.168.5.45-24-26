@@ -1,0 +1,8 @@
+[Split networks]
+Network:	192.168.5.0/26
+Network:	192.168.5.64/26
+Network:	192.168.5.128/26
+Network:	192.168.5.192/26
+
+Total:  	4
+Hosts/Net:	62
