@@ -1,0 +1,12 @@
+2do Parcial Teorico 2024
+
+hola lucass, perdoname que recien te respondo. 
+la verdad que no pidio casi nada de demostraciones en los parciales. 
+en el segundo lo unico que me pidio fue la demostracion de por que en distribuciones muestrales la media muestral era igual a la media poblac (que te ocupaba un solo renglon literal) y del primer parcial tengo la foto asi que te mandoo
+
+No creo que usen esto para el final regular porque es la mitad digamos pero. 
+1) un problema y te pedía que asocies con un modelo probabilístico y justifiques por qué (poisson era). 
+2) te daba otro problema (geométrico era) y que asocies con modelo defina supuestos y justifiques. Después una función lineal expresada en dólares y que le calcules la media y varianza. 
+Y después tenías una colección de 35 clientes con distribución geometríca y aproximar a una normal para calcular la probabilidad de que no se que con más de 200 llamadas
+3) definición de muestra aleatoria. Demostración de la esperanza de x raya. Definir estimador de máxima verosimilitud y estimación y mencionar sus diferencias 
+4) te daba un problema y describir los pasos para resolver usando un test de hipótesis
