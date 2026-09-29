@@ -1,0 +1,24 @@
+Definición de "heterogéneas" en el contexto de redes
+Razón y enfoque:
+La palabra "heterogéneas" aparece en el documento en el contexto de la interconexión de redes y la arquitectura de Internet. Para definirla correctamente, es importante considerar cómo se utiliza en el texto y qué implica para el funcionamiento de las redes.
+Definición:
+En el contexto de redes, "heterogéneas" se refiere a redes que son diferentes entre sí en cuanto a su tecnología, arquitectura, hardware, protocolos o métodos de conexión. Es decir, son redes que no son iguales ni uniformes, sino que presentan diversidad en sus componentes y funcionamiento.
+Ejemplo y aplicación:
+El documento menciona que el internetworking consiste en unir redes de computadoras físicamente independientes y heterogéneas para que funcionen como un sistema de comunicación lógico único y unificado.Por ejemplo, una red cableada de alta velocidad en una empresa y una red inalámbrica doméstica son redes heterogéneas porque utilizan tecnologías y configuraciones distintas.
+Importancia:
+La capacidad de Internet para integrar redes heterogéneas es fundamental, ya que permite la interoperabilidad y la comunicación entre sistemas muy diferentes, ocultando los detalles técnicos y facilitando el desarrollo de aplicaciones portables y compatibles.
+Resumen breve:
+"Heterogéneas" en redes significa que las redes son diversas en tecnología, arquitectura o funcionamiento, y la interconexión de redes heterogéneas es la base de Internet.
+
+
+Definición de "arquitectónico" en el contexto de redes
+Enfoque y razonamiento:
+Para definir "arquitectónico" en el contexto de redes, es fundamental considerar cómo se utiliza este término en el documento, especialmente en relación con la interconexión de redes y la estructura de Internet.
+Definición contextual:
+"Arquitectónico" se refiere al conjunto de principios, conceptos y estructuras que definen cómo se organiza, diseña y conecta un sistema de redes de computadoras.En el documento, el "concepto arquitectónico" de internetworking implica unir redes independientes y heterogéneas para que funcionen como un sistema lógico único y unificado, ocultando los detalles técnicos y permitiendo la interoperabilidad.
+Ejemplo aplicado:
+La arquitectura de Internet no depende de una sola tecnología, sino que integra múltiples tecnologías de hardware y protocolos bajo un diseño común, permitiendo que diferentes redes cooperen y se comuniquen de manera transparente.
+Importancia:
+El enfoque arquitectónico permite que Internet sea escalable, flexible y compatible con una gran variedad de tecnologías y dispositivos, facilitando el desarrollo de aplicaciones portables y la integración de nuevos servicios.
+Resumen breve:
+En el contexto de redes, "arquitectónico" hace referencia al diseño global y a la estructura organizativa que permite la integración y funcionamiento conjunto de diferentes redes y tecnologías bajo un mismo sistema.

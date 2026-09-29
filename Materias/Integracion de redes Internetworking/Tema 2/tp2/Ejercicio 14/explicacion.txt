@@ -1,0 +1,3 @@
+CODE observado:CODE 0x03 (junto con TYPE 0x03, correspondiente a Destination Unreachable: Port Unreachable).  
+
+Por qué UDP necesita de ICMP para reportar este tipo de error: UDP es un protocolo no orientado a conexión que no cuenta con mecanismos de control ni señalización propios en su encabezado. Cuando un datagrama llega a un puerto cerrado (sin aplicación escuchando), UDP no puede responder por sí mismo a nivel de transporte, por lo que recurre a la capa de red para que ICMP genere y envíe el mensaje de error (Port Unreachable) de vuelta al emisor.

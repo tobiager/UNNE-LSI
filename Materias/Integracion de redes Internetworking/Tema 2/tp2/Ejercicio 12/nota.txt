@@ -1,0 +1,1 @@
+no se puede realizar porque no se puede eliminar el paquete en transito

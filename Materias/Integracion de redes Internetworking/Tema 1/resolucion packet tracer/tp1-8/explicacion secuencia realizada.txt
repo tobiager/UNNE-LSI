@@ -1,0 +1,5 @@
+se inicio la comprobación de ping desde pc0 a pc1, luego se corto el cable, en la consola lanzo host de destino inalcanzable y se cancelo el panel de simulación.
+Luego se probo sin la simulación y al volver a encender el adaptador serial el ping se reanuda sin problemas.
+Luego se verifico los eventos de la simulación probándolo con el cable desconectado.
+en la captura 5 se puede ver el numero de secuencia con el paquete original enviado por el emisor
+en la captura 6 se ve el numero de secuencia 0 con en el paquete retornado por el router al fallar.

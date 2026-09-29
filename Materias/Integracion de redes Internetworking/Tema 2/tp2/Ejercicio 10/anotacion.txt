@@ -1,0 +1,3 @@
+En la lista de eventos se observa que sale un único paquete desde R1 hacia R2, pero en el dispositivo R2 el evento ICMP se multiplica en 3 envíos consecutivos hacia R3 para cruzar el enlace con MTU de 500 bytes.
+
+*Por incompatibilidad de un comando que solicita la consigna la segunda parte del ejercicio no se puede realizar*
