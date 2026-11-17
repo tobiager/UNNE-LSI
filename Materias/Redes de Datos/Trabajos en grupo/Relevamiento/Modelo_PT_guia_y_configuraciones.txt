@@ -1,0 +1,2066 @@
+MODELO PACKET TRACER - RELEVAMIENTO DGI PODER JUDICIAL DE CORRIENTES
+Redes de Datos - UNNE FaCENA - 2026 - Grupo 5
+============================================================================
+
+ARCHIVO: Modelo_DGI_PoderJudicial.pkt (Packet Tracer 9.0.1.0858) - 33 equipos, 37 enlaces.
+Es el modelo unificado del grupo: combina el modelo reducido de topologia Cisco
+(VLAN por funcion del datacenter, VTP, servidor publico vs privado, localidades
+remotas con DHCP) con la redundancia relevada (dos firewalls con HSRP, dos ISP,
+cores con EtherChannel, accesos con doble uplink, WAN MPLS simulada).
+
+COMO ABRIRLO
+1. Abrir el .pkt en Packet Tracer 9.0.1 o superior.
+2. Esperar ~1 minuto (o "Fast Forward Time" varias veces) para que converjan
+   OSPF, STP, HSRP, EtherChannel, VTP y DHCP.
+3. Si algun equipo aparece sin configuracion (por ejemplo en otra version de PT):
+   enable / copy startup-config running-config, o pegar su bloque de la seccion
+   CONFIGURACIONES y luego "write memory". Contrasena de enable: DGIpj2026
+   (la consola no pide contrasena; el acceso remoto es solo SSH con usuario admin).
+
+EQUIPOS POR SITIO
+  Internet .......... ISP1, ISP2 (2911), SW-INTERNET, SRV-INTERNET (web + DNS), PC-EXTERNO
+  Datacenter ........ FW1-DGI y FW2-DGI (2911: firewall/borde con HSRP, NAT, ACL)
+                      SW-DC-CORE1 / SW-DC-CORE2 (2960, EtherChannel LACP, VTP server/cliente)
+                      SW-DC-ACC1 / SW-DC-ACC2 (2960, doble uplink a ambos cores)
+                      SRV-PRIVADO (AD/DNS), SRV-PUBLICO (web), SRV-PREPROD, SRV-LAB
+                      PC-ADMIN, PC-USUARIO, PC-WIFI
+  Capital (campus) .. SW-TRIBUNALES + PC (enlace de fibra propia desde CORE2)
+                      SW-EDIF-RADIO + PC (radioenlace desde CORE1, modelado como Ethernet)
+  WAN MPLS .......... PE-CAPITAL, PE-GOYA, PE-STOME (routers del proveedor, OSPF area 0)
+  Goya .............. R-GOYA (DHCP), SW-GOYA, PC-GOYA-ADM, PC-GOYA-USR
+  Santo Tome ........ R-STOME (DHCP), SW-STOME, PC-STOME-ADM, PC-STOME-USR
+
+DIRECCIONAMIENTO (valores de ejemplo: la DGI no informo los rangos reales)
+  Esquema 10.L.V.0/24  L = sitio (0 datacenter/Capital, 2 Goya, 4 Santo Tome), V = VLAN
+  Datacenter (gateway = VIP HSRP .1, FW1 .2, FW2 .3):
+    VLAN 10 WIFI               10.0.10.0/24   PC-WIFI 10.0.10.10
+    VLAN 30 SERV-PRIVADOS      10.0.30.0/24   SRV-PRIVADO 10.0.30.10 (AD/DNS)
+    VLAN 40 SERV-PUBLICOS      10.0.40.0/24   SRV-PUBLICO 10.0.40.10 (NAT estatico 200.1.1.5 / 200.2.2.5)
+    VLAN 50 ADMINISTRACION     10.0.50.0/24   PC-ADMIN 10.0.50.10
+    VLAN 60 USUARIOS-LAGRANA   10.0.60.0/24   PC-USUARIO 10.0.60.10
+    VLAN 61 USR-TRIBUNALES     10.0.61.0/24   PC-TRIBUNALES 10.0.61.10
+    VLAN 62 USR-EDIF-RADIO     10.0.62.0/24   PC-EDIF-RADIO 10.0.62.10
+    VLAN 70 SERV-PREPROD       10.0.70.0/24   SRV-PREPROD 10.0.70.10
+    VLAN 80 SERV-LABORATORIO   10.0.80.0/24   SRV-LAB 10.0.80.10
+    VLAN 99 GESTION            10.0.99.0/24   switches .11 a .22
+  Localidades (DHCP en el router, .10 en adelante; DNS 10.0.30.10):
+    Goya        VLAN 50 10.2.50.0/24   VLAN 60 10.2.60.0/24
+    Santo Tome  VLAN 50 10.4.50.0/24   VLAN 60 10.4.60.0/24
+  WAN: FW1-PE 172.16.1.0/30, FW2-PE 172.16.1.4/30, PE-CAP/PE-GOYA 172.16.0.0/30,
+       PE-GOYA/PE-STOME 172.16.0.4/30, PE-GOYA/R-GOYA 172.16.2.0/30, PE-STOME/R-STOME 172.16.4.0/30
+  Loopbacks / router-id: FW1 1.1.1.1, FW2 1.1.1.2, R-GOYA 2.2.2.2, R-STOME 4.4.4.4, PE 9.9.9.x
+  Internet: FW1-ISP1 200.1.1.0/29, FW2-ISP2 200.2.2.0/29, red publica 200.0.0.0/24
+  DNS: SRV-PRIVADO resuelve www.pjcorrientes.gob.ar -> 10.0.40.10, intranet.pjcorrientes.gob.ar -> 10.0.30.10
+       y www.internet.com -> 200.0.0.10 (el DNS de PT no reenvia consultas, por eso el registro externo);
+       SRV-INTERNET resuelve www.pjcorrientes.gob.ar -> 200.1.1.5 y www.internet.com -> 200.0.0.10
+
+VTP (dominio dgi-corrientes, version 1)
+  SW-DC-CORE1 servidor; SW-DC-CORE2, SW-DC-ACC1, SW-DC-ACC2, SW-TRIBUNALES y SW-EDIF-RADIO clientes.
+  SW-GOYA y SW-STOME en modo transparente (VLAN 50 y 60 locales; no comparten capa 2 con el datacenter).
+  Raiz STP: SW-DC-CORE1 (prioridad 4096), respaldo SW-DC-CORE2 (8192).
+
+ENLACES (37) - origen puerto <-> destino puerto [cable]
+  ISP1           G0/1   <-> SW-INTERNET    Fa0/1   [directo]
+  ISP2           G0/1   <-> SW-INTERNET    Fa0/2   [directo]
+  SRV-INTERNET   G0     <-> SW-INTERNET    Fa0/3   [directo]
+  PC-EXTERNO     Fa0    <-> SW-INTERNET    Fa0/4   [directo]
+  FW1-DGI        G0/0   <-> ISP1           G0/0    [cruzado]
+  FW2-DGI        G0/0   <-> ISP2           G0/0    [cruzado]
+  FW1-DGI        G0/1   <-> SW-DC-CORE1    Fa0/21  [directo]
+  FW2-DGI        G0/1   <-> SW-DC-CORE2    Fa0/21  [directo]
+  FW1-DGI        G0/2   <-> PE-CAPITAL     G0/0    [cruzado]
+  FW2-DGI        G0/2   <-> PE-CAPITAL     G0/1    [cruzado]
+  SW-DC-CORE1    G0/1   <-> SW-DC-CORE2    G0/1    [cruzado - Po1]
+  SW-DC-CORE1    G0/2   <-> SW-DC-CORE2    G0/2    [cruzado - Po1]
+  SW-DC-ACC1     Fa0/23 <-> SW-DC-CORE1    Fa0/23  [cruzado]
+  SW-DC-ACC1     Fa0/24 <-> SW-DC-CORE2    Fa0/23  [cruzado]
+  SW-DC-ACC2     Fa0/23 <-> SW-DC-CORE1    Fa0/24  [cruzado]
+  SW-DC-ACC2     Fa0/24 <-> SW-DC-CORE2    Fa0/24  [cruzado]
+  SW-EDIF-RADIO  Fa0/24 <-> SW-DC-CORE1    Fa0/22  [cruzado - radioenlace]
+  SW-TRIBUNALES  Fa0/24 <-> SW-DC-CORE2    Fa0/22  [cruzado - fibra]
+  SRV-PRIVADO    G0     <-> SW-DC-ACC1     Fa0/1   [directo]
+  SRV-PUBLICO    G0     <-> SW-DC-ACC1     Fa0/2   [directo]
+  SRV-PREPROD    G0     <-> SW-DC-ACC1     Fa0/3   [directo]
+  SRV-LAB        G0     <-> SW-DC-ACC1     Fa0/4   [directo]
+  PC-ADMIN       Fa0    <-> SW-DC-ACC2     Fa0/1   [directo]
+  PC-USUARIO     Fa0    <-> SW-DC-ACC2     Fa0/2   [directo]
+  PC-WIFI        Fa0    <-> SW-DC-ACC2     Fa0/3   [directo]
+  PC-TRIBUNALES  Fa0    <-> SW-TRIBUNALES  Fa0/1   [directo]
+  PC-EDIF-RADIO  Fa0    <-> SW-EDIF-RADIO  Fa0/1   [directo]
+  PE-CAPITAL     G0/2   <-> PE-GOYA        G0/0    [cruzado]
+  PE-GOYA        G0/2   <-> PE-STOME       G0/0    [cruzado]
+  PE-GOYA        G0/1   <-> R-GOYA         G0/0    [cruzado]
+  PE-STOME       G0/1   <-> R-STOME        G0/0    [cruzado]
+  R-GOYA         G0/1   <-> SW-GOYA        Fa0/24  [directo - trunk]
+  R-STOME        G0/1   <-> SW-STOME       Fa0/24  [directo - trunk]
+  PC-GOYA-ADM    Fa0    <-> SW-GOYA        Fa0/1   [directo]
+  PC-GOYA-USR    Fa0    <-> SW-GOYA        Fa0/2   [directo]
+  PC-STOME-ADM   Fa0    <-> SW-STOME       Fa0/1   [directo]
+  PC-STOME-USR   Fa0    <-> SW-STOME       Fa0/2   [directo]
+
+SIMPLIFICACIONES RESPECTO DE LA RED REAL (decirlo en la defensa)
+  - Los FortiGate se representan con routers 2911 (NAT, ACL, HSRP). PT no tiene FortiGate.
+  - 4 ISP reales -> 2 en el modelo. 36 localidades -> 2 (Goya y Santo Tome).
+  - La MPLS de Telecom se simula con 3 routers PE en OSPF area 0; los tuneles IPsec no se modelan.
+  - El stack de cores Aruba se representa con 2 switches 2960 unidos por EtherChannel LACP.
+  - El radioenlace y la fibra entre edificios de Capital se modelan con cables Ethernet.
+  - 802.1X no esta disponible en los switches de PT; se usa port security + BPDU guard.
+  - Wi-Fi: se representa con una PC en la VLAN 10 (sin access point).
+
+PRUEBAS (capturar pantalla de cada una para el informe)
+  P1 DHCP y alcance WAN: PC-GOYA-USR > IP Configuration = DHCP -> toma 10.2.60.x.
+     Web Browser -> http://www.pjcorrientes.gob.ar (10.0.40.10) y ping 10.0.30.10.
+  P2 NAT a Internet: PC-STOME-USR (DHCP) -> Web Browser www.internet.com.
+     En FW1: show ip nat translations
+  P3 Servidor publico vs privado: PC-EXTERNO -> Web Browser http://www.pjcorrientes.gob.ar
+     (resuelve 200.1.1.5, NAT estatico hacia SRV-PUBLICO) responde. ping 10.0.30.10 falla:
+     los servidores privados no se publican.
+  P4 Redundancia de salida (HSRP + OSPF): FW1 "show standby brief" (Active).
+     PC-USUARIO: ping -t 200.0.0.10. Apagar ISP1 G0/0. FW2 pasa a Active (track G0/0)
+     y el ping se recupera por ISP2. En PE-CAPITAL: show ip route 0.0.0.0
+  P5 Segmentacion: PC-USUARIO ping 10.0.50.10 -> falla (ACL PROTEGE-ADMIN);
+     PC-ADMIN ping 10.0.60.10 -> responde. PC-WIFI y SRV-LAB ping 10.0.30.10 -> fallan
+     (ACL PROTEGE-PRIVADOS). show access-lists en FW1.
+  P6 EtherChannel: SW-DC-CORE1 show etherchannel summary (Po1 SU). Quitar el cable
+     Gi0/1 entre cores: PC-ADMIN sigue respondiendo.
+  P7 Doble uplink (RSTP): SW-DC-ACC2 show spanning-tree vlan 50 (Fa0/24 alternativo).
+     Apagar Fa0/23 en ACC2: Fa0/24 pasa a forwarding y el servicio sigue.
+  P8 Ruteo y VTP: R-STOME show ip ospf neighbor / show ip route ospf (redes 10.x y O*E2).
+     SW-DC-ACC1 show vtp status (dominio dgi-corrientes, VLANs aprendidas de CORE1).
+
+============================================================================
+CONFIGURACIONES (running-config de cada equipo, tal como estan en el .pkt)
+============================================================================
+
+####################  FW1-DGI  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname FW1-DGI
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524X6R6-
+!
+!
+spanning-tree mode pvst
+!
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description Internet - ISP1
+ ip address 200.1.1.2 255.255.255.248
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Trunk a SW-DC-CORE (redes del datacenter)
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.10
+ description VLAN10 WIFI
+ encapsulation dot1Q 10
+ ip address 10.0.10.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 10 ip 10.0.10.1
+ standby 10 priority 110
+ standby 10 preempt
+ standby 10 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.30
+ description VLAN30 SERV-PRIVADOS
+ encapsulation dot1Q 30
+ ip address 10.0.30.2 255.255.255.0
+ ip nat inside
+ ip access-group PROTEGE-PRIVADOS out
+ standby version 2
+ standby 30 ip 10.0.30.1
+ standby 30 priority 110
+ standby 30 preempt
+ standby 30 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.40
+ description VLAN40 SERV-PUBLICOS
+ encapsulation dot1Q 40
+ ip address 10.0.40.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 40 ip 10.0.40.1
+ standby 40 priority 110
+ standby 40 preempt
+ standby 40 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.50
+ description VLAN50 ADMINISTRACION
+ encapsulation dot1Q 50
+ ip address 10.0.50.2 255.255.255.0
+ ip nat inside
+ ip access-group PROTEGE-ADMIN out
+ standby version 2
+ standby 50 ip 10.0.50.1
+ standby 50 priority 110
+ standby 50 preempt
+ standby 50 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.60
+ description VLAN60 USUARIOS-LAGRANA
+ encapsulation dot1Q 60
+ ip address 10.0.60.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 60 ip 10.0.60.1
+ standby 60 priority 110
+ standby 60 preempt
+ standby 60 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.61
+ description VLAN61 USR-TRIBUNALES
+ encapsulation dot1Q 61
+ ip address 10.0.61.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 61 ip 10.0.61.1
+ standby 61 priority 110
+ standby 61 preempt
+ standby 61 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.62
+ description VLAN62 USR-EDIF-RADIO
+ encapsulation dot1Q 62
+ ip address 10.0.62.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 62 ip 10.0.62.1
+ standby 62 priority 110
+ standby 62 preempt
+ standby 62 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.70
+ description VLAN70 SERV-PREPROD
+ encapsulation dot1Q 70
+ ip address 10.0.70.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 70 ip 10.0.70.1
+ standby 70 priority 110
+ standby 70 preempt
+ standby 70 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.80
+ description VLAN80 SERV-LABORATORIO
+ encapsulation dot1Q 80
+ ip address 10.0.80.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 80 ip 10.0.80.1
+ standby 80 priority 110
+ standby 80 preempt
+ standby 80 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.99
+ description VLAN99 GESTION
+ encapsulation dot1Q 99
+ ip address 10.0.99.2 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 99 ip 10.0.99.1
+ standby 99 priority 110
+ standby 99 preempt
+ standby 99 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/2
+ description WAN MPLS - PE Capital
+ ip address 172.16.1.2 255.255.255.252
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/1.10
+ passive-interface GigabitEthernet0/1.30
+ passive-interface GigabitEthernet0/1.40
+ passive-interface GigabitEthernet0/1.50
+ passive-interface GigabitEthernet0/1.60
+ passive-interface GigabitEthernet0/1.61
+ passive-interface GigabitEthernet0/1.62
+ passive-interface GigabitEthernet0/1.70
+ passive-interface GigabitEthernet0/1.80
+ passive-interface GigabitEthernet0/1.99
+ network 10.0.0.0 0.0.255.255 area 0
+ network 172.16.1.0 0.0.0.3 area 0
+ network 1.1.1.1 0.0.0.0 area 0
+ default-information originate metric 10
+!
+ip classless
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+ip nat inside source static 10.0.40.10 200.1.1.5
+ip route 0.0.0.0 0.0.0.0 200.1.1.1 
+!
+ip flow-export version 9
+!
+access-list 1 remark NAT - redes internas del Poder Judicial
+access-list 1 permit 10.0.0.0 0.255.255.255
+ip access-list extended PROTEGE-ADMIN
+ permit icmp any any echo-reply
+ permit tcp any any established
+ deny ip 10.0.10.0 0.0.0.255 any
+ deny ip 10.0.60.0 0.0.3.255 any
+ deny ip 10.2.60.0 0.0.0.255 any
+ deny ip 10.4.60.0 0.0.0.255 any
+ permit ip any any
+ip access-list extended PROTEGE-PRIVADOS
+ permit icmp any any echo-reply
+ permit tcp any any established
+ deny ip 10.0.10.0 0.0.0.255 any
+ deny ip 10.0.80.0 0.0.0.255 any
+ permit ip any any
+!
+logging 10.0.30.10
+snmp-server community PJ-MONITOREO RO
+username admin secret DGIpj2026
+ip domain-name pjcorrientes.gob.ar
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  FW2-DGI  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname FW2-DGI
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX152403D5-
+!
+!
+spanning-tree mode pvst
+!
+interface Loopback0
+ ip address 1.1.1.2 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description Internet - ISP2
+ ip address 200.2.2.2 255.255.255.248
+ ip nat outside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Trunk a SW-DC-CORE (redes del datacenter)
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.10
+ description VLAN10 WIFI
+ encapsulation dot1Q 10
+ ip address 10.0.10.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 10 ip 10.0.10.1
+ standby 10 priority 100
+ standby 10 preempt
+ standby 10 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.30
+ description VLAN30 SERV-PRIVADOS
+ encapsulation dot1Q 30
+ ip address 10.0.30.3 255.255.255.0
+ ip nat inside
+ ip access-group PROTEGE-PRIVADOS out
+ standby version 2
+ standby 30 ip 10.0.30.1
+ standby 30 priority 100
+ standby 30 preempt
+ standby 30 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.40
+ description VLAN40 SERV-PUBLICOS
+ encapsulation dot1Q 40
+ ip address 10.0.40.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 40 ip 10.0.40.1
+ standby 40 priority 100
+ standby 40 preempt
+ standby 40 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.50
+ description VLAN50 ADMINISTRACION
+ encapsulation dot1Q 50
+ ip address 10.0.50.3 255.255.255.0
+ ip nat inside
+ ip access-group PROTEGE-ADMIN out
+ standby version 2
+ standby 50 ip 10.0.50.1
+ standby 50 priority 100
+ standby 50 preempt
+ standby 50 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.60
+ description VLAN60 USUARIOS-LAGRANA
+ encapsulation dot1Q 60
+ ip address 10.0.60.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 60 ip 10.0.60.1
+ standby 60 priority 100
+ standby 60 preempt
+ standby 60 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.61
+ description VLAN61 USR-TRIBUNALES
+ encapsulation dot1Q 61
+ ip address 10.0.61.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 61 ip 10.0.61.1
+ standby 61 priority 100
+ standby 61 preempt
+ standby 61 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.62
+ description VLAN62 USR-EDIF-RADIO
+ encapsulation dot1Q 62
+ ip address 10.0.62.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 62 ip 10.0.62.1
+ standby 62 priority 100
+ standby 62 preempt
+ standby 62 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.70
+ description VLAN70 SERV-PREPROD
+ encapsulation dot1Q 70
+ ip address 10.0.70.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 70 ip 10.0.70.1
+ standby 70 priority 100
+ standby 70 preempt
+ standby 70 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.80
+ description VLAN80 SERV-LABORATORIO
+ encapsulation dot1Q 80
+ ip address 10.0.80.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 80 ip 10.0.80.1
+ standby 80 priority 100
+ standby 80 preempt
+ standby 80 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/1.99
+ description VLAN99 GESTION
+ encapsulation dot1Q 99
+ ip address 10.0.99.3 255.255.255.0
+ ip nat inside
+ standby version 2
+ standby 99 ip 10.0.99.1
+ standby 99 priority 100
+ standby 99 preempt
+ standby 99 track GigabitEthernet0/0 20
+!
+interface GigabitEthernet0/2
+ description WAN MPLS - PE Capital
+ ip address 172.16.1.6 255.255.255.252
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 1.1.1.2
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/1.10
+ passive-interface GigabitEthernet0/1.30
+ passive-interface GigabitEthernet0/1.40
+ passive-interface GigabitEthernet0/1.50
+ passive-interface GigabitEthernet0/1.60
+ passive-interface GigabitEthernet0/1.61
+ passive-interface GigabitEthernet0/1.62
+ passive-interface GigabitEthernet0/1.70
+ passive-interface GigabitEthernet0/1.80
+ passive-interface GigabitEthernet0/1.99
+ network 10.0.0.0 0.0.255.255 area 0
+ network 172.16.1.4 0.0.0.3 area 0
+ network 1.1.1.2 0.0.0.0 area 0
+ default-information originate metric 50
+!
+ip classless
+ip nat inside source list 1 interface GigabitEthernet0/0 overload
+ip nat inside source static 10.0.40.10 200.2.2.5
+ip route 0.0.0.0 0.0.0.0 200.2.2.1 
+!
+ip flow-export version 9
+!
+access-list 1 remark NAT - redes internas del Poder Judicial
+access-list 1 permit 10.0.0.0 0.255.255.255
+ip access-list extended PROTEGE-ADMIN
+ permit icmp any any echo-reply
+ permit tcp any any established
+ deny ip 10.0.10.0 0.0.0.255 any
+ deny ip 10.0.60.0 0.0.3.255 any
+ deny ip 10.2.60.0 0.0.0.255 any
+ deny ip 10.4.60.0 0.0.0.255 any
+ permit ip any any
+ip access-list extended PROTEGE-PRIVADOS
+ permit icmp any any echo-reply
+ permit tcp any any established
+ deny ip 10.0.10.0 0.0.0.255 any
+ deny ip 10.0.80.0 0.0.0.255 any
+ permit ip any any
+!
+logging 10.0.30.10
+snmp-server community PJ-MONITOREO RO
+username admin secret DGIpj2026
+ip domain-name pjcorrientes.gob.ar
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  ISP1  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ISP1
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524V02T-
+!
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ description Cliente Poder Judicial
+ ip address 200.1.1.1 255.255.255.248
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Internet
+ ip address 200.0.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 200.2.2.0 255.255.255.248 200.0.0.2 
+!
+ip flow-export version 9
+!
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  ISP2  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ISP2
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524UJC4-
+!
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ description Cliente Poder Judicial
+ ip address 200.2.2.1 255.255.255.248
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Internet
+ ip address 200.0.0.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 200.1.1.0 255.255.255.248 200.0.0.1 
+!
+ip flow-export version 9
+!
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  PE-CAPITAL  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname PE-CAPITAL
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX152414HQ-
+!
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ description Cliente PJ - FW1
+ ip address 172.16.1.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Cliente PJ - FW2
+ ip address 172.16.1.5 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description Backbone - PE Goya
+ ip address 172.16.0.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 9.9.9.1
+ log-adjacency-changes
+ network 172.16.1.0 0.0.0.3 area 0
+ network 172.16.1.4 0.0.0.3 area 0
+ network 172.16.0.0 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  PE-GOYA  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname PE-GOYA
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524XJJW-
+!
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ description Backbone - PE Capital
+ ip address 172.16.0.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Cliente PJ - Goya
+ ip address 172.16.2.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description Backbone - PE Santo Tome
+ ip address 172.16.0.5 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 9.9.9.2
+ log-adjacency-changes
+ network 172.16.0.0 0.0.0.3 area 0
+ network 172.16.2.0 0.0.0.3 area 0
+ network 172.16.0.4 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  PE-STOME  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname PE-STOME
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524T6S1-
+!
+!
+spanning-tree mode pvst
+!
+interface GigabitEthernet0/0
+ description Backbone - PE Goya
+ ip address 172.16.0.6 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Cliente PJ - Santo Tome
+ ip address 172.16.4.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 9.9.9.4
+ log-adjacency-changes
+ network 172.16.0.4 0.0.0.3 area 0
+ network 172.16.4.0 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  R-GOYA  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-GOYA
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX15240XF7-
+!
+ip dhcp excluded-address 10.2.50.1 10.2.50.9
+!
+ip dhcp pool GOYA-ADMIN
+ network 10.2.50.0 255.255.255.0
+ default-router 10.2.50.1
+ dns-server 10.0.30.10
+!
+ip dhcp excluded-address 10.2.60.1 10.2.60.9
+!
+ip dhcp pool GOYA-USUARIOS
+ network 10.2.60.0 255.255.255.0
+ default-router 10.2.60.1
+ dns-server 10.0.30.10
+!
+!
+spanning-tree mode pvst
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description WAN MPLS - PE Goya
+ ip address 172.16.2.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Trunk a SW local
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.50
+ description VLAN50 ADMINISTRACION
+ encapsulation dot1Q 50
+ ip address 10.2.50.1 255.255.255.0
+!
+interface GigabitEthernet0/1.60
+ description VLAN60 USUARIOS
+ encapsulation dot1Q 60
+ ip address 10.2.60.1 255.255.255.0
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 2.2.2.2
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/1.50
+ passive-interface GigabitEthernet0/1.60
+ network 10.2.0.0 0.0.255.255 area 0
+ network 172.16.2.0 0.0.0.3 area 0
+ network 2.2.2.2 0.0.0.0 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+logging 10.0.30.10
+snmp-server community PJ-MONITOREO RO
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  R-STOME  ####################
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-STOME
+!
+enable secret DGIpj2026
+!
+no ip cef
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524Q9RJ-
+!
+ip dhcp excluded-address 10.4.50.1 10.4.50.9
+!
+ip dhcp pool STOME-ADMIN
+ network 10.4.50.0 255.255.255.0
+ default-router 10.4.50.1
+ dns-server 10.0.30.10
+!
+ip dhcp excluded-address 10.4.60.1 10.4.60.9
+!
+ip dhcp pool STOME-USUARIOS
+ network 10.4.60.0 255.255.255.0
+ default-router 10.4.60.1
+ dns-server 10.0.30.10
+!
+!
+spanning-tree mode pvst
+!
+interface Loopback0
+ ip address 4.4.4.4 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description WAN MPLS - PE Santo Tome
+ ip address 172.16.4.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description Trunk a SW local
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.50
+ description VLAN50 ADMINISTRACION
+ encapsulation dot1Q 50
+ ip address 10.4.50.1 255.255.255.0
+!
+interface GigabitEthernet0/1.60
+ description VLAN60 USUARIOS
+ encapsulation dot1Q 60
+ ip address 10.4.60.1 255.255.255.0
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 4.4.4.4
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/1.50
+ passive-interface GigabitEthernet0/1.60
+ network 10.4.0.0 0.0.255.255 area 0
+ network 172.16.4.0 0.0.0.3 area 0
+ network 4.4.4.4 0.0.0.0 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+logging 10.0.30.10
+snmp-server community PJ-MONITOREO RO
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+end
+
+####################  SW-INTERNET  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-INTERNET
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-DC-CORE1  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-DC-CORE1
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 1,10,30,40,50,60,61,62,70,80,99 priority 4096
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+ switchport mode trunk
+!
+interface FastEthernet0/22
+ switchport mode trunk
+!
+interface FastEthernet0/23
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.11 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-DC-CORE2  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-DC-CORE2
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 1,10,30,40,50,60,61,62,70,80,99 priority 8192
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+ switchport mode trunk
+!
+interface FastEthernet0/22
+ switchport mode trunk
+!
+interface FastEthernet0/23
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet0/2
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.12 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-DC-ACC1  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-DC-ACC1
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ switchport access vlan 70
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ switchport access vlan 80
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.13 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-DC-ACC2  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-DC-ACC2
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 60
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.14 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-TRIBUNALES  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-TRIBUNALES
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 61
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.21 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-EDIF-RADIO  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-EDIF-RADIO
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 62
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 10.0.99.22 255.255.255.0
+!
+ip default-gateway 10.0.99.1
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-GOYA  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-GOYA
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 60
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  SW-STOME  ####################
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW-STOME
+!
+ip domain-name pjcorrientes.gob.ar
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/2
+ switchport access vlan 60
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+banner motd ^CAcceso restringido - Poder Judicial de Corrientes - DGI^C
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+
+####################  HOSTS  ####################
+SRV-INTERNET    200.0.0.10/24  gw 200.0.0.1   DNS 200.0.0.10
+PC-EXTERNO      200.0.0.20/24  gw 200.0.0.1   DNS 200.0.0.10
+SRV-PRIVADO     10.0.30.10/24  gw 10.0.30.1   DNS 10.0.30.10
+SRV-PUBLICO     10.0.40.10/24  gw 10.0.40.1   DNS 10.0.30.10
+SRV-PREPROD     10.0.70.10/24  gw 10.0.70.1   DNS 10.0.30.10
+SRV-LAB         10.0.80.10/24  gw 10.0.80.1   DNS 10.0.30.10
+PC-ADMIN        10.0.50.10/24  gw 10.0.50.1   DNS 10.0.30.10
+PC-USUARIO      10.0.60.10/24  gw 10.0.60.1   DNS 10.0.30.10
+PC-WIFI         10.0.10.10/24  gw 10.0.10.1   DNS 10.0.30.10
+PC-EDIF-RADIO   10.0.62.10/24  gw 10.0.62.1   DNS 10.0.30.10
+PC-TRIBUNALES   10.0.61.10/24  gw 10.0.61.1   DNS 10.0.30.10
+PC-GOYA-ADM     DHCP   DNS por DHCP
+PC-GOYA-USR     DHCP   DNS por DHCP
+PC-STOME-ADM    DHCP   DNS por DHCP
+PC-STOME-USR    DHCP   DNS por DHCP

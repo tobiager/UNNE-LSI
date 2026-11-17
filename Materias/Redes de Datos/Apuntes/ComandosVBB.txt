@@ -1,0 +1,311 @@
+DESCARGAR ARCHIVO RÁPIDO EN EXAMEN POR SCP: 
+
+Desde Powershell:
+scp "C:\Users\milot\Downloads\asistenciac4.csv" milo@192.168.1.91:~/ O DEPENDIENDO DE LA IP QUE TENGA EN ESE MOMENTO
+
+Desde Putty:
+scp "C:\Users\milot\Downloads\registro_temperatura365d_smn.txt" milo@192.168.1.3:~/  
+
+___________________________________________________________________
+
+=====================================================================
+ COMANDOS LINUX PARA TRABAJAR CON UN CSV / TXT  (para el examen)
+=====================================================================
+
+ANTES DE EMPEZAR (leer una vez)
+  - Cambiá "archivo.csv" por el nombre real de tu archivo.
+  - Los ejemplos usan este CSV de comas:
+        columna 1 = LU
+        columna 2 = APELLIDO
+        columna 3 = NOMBRE
+        columna 4 = FECHA (dd/mm/aaaa)
+        columna 5 = ASISTENCIAS
+    Mirá TU archivo con "head -5 archivo.csv" y ajustá los números de
+    columna ($4, $5, -f4, etc.) a como esté ordenado el tuyo.
+  - En awk: $1 es la columna 1, $2 la columna 2, y así. $0 es la línea.
+  - -F, significa "el separador es la coma". Si es punto y coma: -F';'
+  - NR>1 en awk salta la primera línea (el encabezado).
+  - $5!="" descarta las filas donde ese dato está vacío.
+
+
+=====================================================================
+ 1. ABRIR EL ARCHIVO (copiarlo desde tu PC a la MV)
+=====================================================================
+
+Desde PowerShell de tu PC (NO desde PuTTY):
+
+  scp "C:\RUTA\archivo.csv" USUARIO@IP_DE_LA_MV:~/
+      Copia el archivo de tu PC a la carpeta personal de la MV.
+      Te pide la contraseña de la MV. Si PuTTY usa un puerto distinto
+      de 22, agregá  -P PUERTO  justo después de scp.
+
+  pscp "C:\RUTA\archivo.csv" USUARIO@IP_DE_LA_MV:~/
+      Lo mismo, pero con el programa de PuTTY (si scp no funciona).
+
+Desde la consola de la MV (PuTTY):
+
+  ip -4 a
+      Muestra la IP de la MV (línea "inet", ignorá la interfaz "lo").
+
+  pwd
+      Muestra en qué carpeta estás.
+
+  ls
+      Lista los archivos de la carpeta. Tiene que aparecer el tuyo.
+
+  cd carpeta
+      Entra a una carpeta.   cd ..   vuelve una carpeta atrás.
+
+  file archivo.csv
+      Dice la codificación y si tiene finales de línea de Windows (CRLF).
+
+  tr -d '\r' < archivo.csv > limpio.csv
+      Crea una copia sin los finales de línea de Windows (CRLF).
+      Después trabajá con limpio.csv.
+
+
+=====================================================================
+ 2. VER EL ARCHIVO  (cat, less, head, tail, sed)
+=====================================================================
+
+  cat archivo.csv
+      Muestra todo el archivo de una vez.
+
+  cat -n archivo.csv
+      Muestra todo el archivo con el número de cada línea.
+
+  less archivo.csv
+      Muestra el archivo paginado. Flechas para moverte, q para salir.
+
+  head -n 10 archivo.csv
+      Muestra las primeras 10 líneas.
+
+  tail -n 10 archivo.csv
+      Muestra las últimas 10 líneas.
+
+  tail -n +2 archivo.csv
+      Muestra todo menos el encabezado (desde la línea 2).
+
+  sed -n '5,10p' archivo.csv
+      Muestra solo de la línea 5 a la 10.
+
+  wc -l archivo.csv
+      Cuenta cuántas líneas tiene el archivo (incluye el encabezado).
+
+
+=====================================================================
+ 3. FILTRAR POR FECHA O AÑO  (grep, awk)
+=====================================================================
+
+  grep '/2024' archivo.csv
+      Muestra las líneas del año 2024.
+
+  grep '/11/2024' archivo.csv
+      Muestra las líneas de noviembre de 2024.
+
+  grep '19/11/2024' archivo.csv
+      Muestra las líneas de un día puntual.
+
+  grep -c '19/11/2024' archivo.csv
+      Cuenta cuántas líneas tienen esa fecha (-c = contar).
+
+  awk -F, '$4=="19/11/2024"' archivo.csv
+      Muestra las filas cuya columna 4 es exactamente esa fecha.
+
+  awk -F, '$4 ~ /\/2024$/' archivo.csv
+      Muestra las filas cuya fecha (columna 4) termina en /2024.
+
+  awk -F, '$4 ~ /\/11\/2024$/' archivo.csv
+      Muestra las filas de noviembre de 2024 (columna 4).
+
+
+=====================================================================
+ 4. FILTRAR POR APELLIDO / NOMBRE  (grep, awk)
+=====================================================================
+
+  grep -i 'garcia lopez' archivo.csv
+      Busca los dos apellidos juntos (-i ignora mayúsculas/minúsculas).
+
+  grep -i 'juan' archivo.csv | grep -i 'garcia'
+      Busca nombre Y apellido (el segundo grep filtra lo del primero).
+
+  grep -E 'PEREZ|SOSA' archivo.csv
+      Muestra las líneas con PEREZ o con SOSA (-E permite usar el "o" |).
+
+  awk -F, '$2=="GARCIA LOPEZ"' archivo.csv
+      Muestra las filas cuyo apellido (columna 2) es exactamente ese.
+
+  awk -F, '$2=="GARCIA LOPEZ" && $3=="JUAN"' archivo.csv
+      Apellido Y nombre exactos (&& significa "y"; || significa "o").
+
+awk -F, '$2=="RODRIGUEZ ANTORENA, MILO TAHIEL" && $3=="TU NOMBRE" && $4 ~ /\/2026$/ && $5!="" {s+=$5} END{print s}' archivo.csv
+
+ 	Filtrar por nombre2, apellido3, fecha de este año4 y  hacer un conteo de cantidad de asistencias5
+=====================================================================
+ 5. CONTAR  (wc, awk, cut, sort, uniq)
+=====================================================================
+
+  tail -n +2 archivo.csv | wc -l
+      Cuenta las filas de datos (sin el encabezado).
+
+  awk -F, 'NR>1 && $5>10' archivo.csv | wc -l
+      Cuenta cuántas filas tienen la columna 5 mayor a 10.
+
+  awk -F, 'NR>1 && $5!=""' archivo.csv | wc -l
+      Cuenta cuántas filas tienen la columna 5 cargada (no vacía).
+
+  cut -d, -f1 archivo.csv | tail -n +2 | sort | uniq -c
+      Cuenta cuántas veces aparece cada valor de la columna 1.
+
+  grep -c '19/11/2024' archivo.csv
+      Cuenta las muestras de un día.
+
+
+=====================================================================
+ 6. MÁXIMO, MÍNIMO Y PROMEDIO  (awk, sort)
+=====================================================================
+
+  awk -F, 'NR>1 && $5!="" {if(n==0||$5>mx)mx=$5; n++} END{print mx}' archivo.csv
+      Máximo de la columna 5.
+
+  awk -F, 'NR>1 && $5!="" {if(n==0||$5<mn)mn=$5; n++} END{print mn}' archivo.csv
+      Mínimo de la columna 5.
+
+  awk -F, 'NR>1 && $5!="" {s+=$5; n++} END{print s/n}' archivo.csv
+      Promedio de la columna 5.
+
+  awk -F, '$4=="19/11/2024" && $5!="" {if(n==0||$5>mx)mx=$5; n++} END{print mx}' archivo.csv
+      Máximo de la columna 5 solo para el día 19/11/2024.
+
+  awk -F, 'NR>1 && $5!="" {s[$1]+=$5; c[$1]++} END{for(k in s) print k, s[k]/c[k]}' archivo.csv
+      Promedio de la columna 5 por cada valor de la columna 1 (por LU).
+
+  awk -F, 'NR>1 && $5!="" {s[$1]+=$5; c[$1]++} END{for(k in s) if(s[k]/c[k]>10) print k, s[k]/c[k]}' archivo.csv
+      Igual que el anterior, pero solo los de promedio mayor a 10.
+
+  tail -n +2 archivo.csv | sort -t, -k5 -n -r | head -1
+      Fila con el valor más alto de la columna 5 (atajo; no descarta vacíos).
+      Para el más bajo, cambiá  head -1  por  tail -1 .
+      (sort: -t, separador coma | -k5 columna 5 | -n numérico | -r de mayor a menor)
+
+
+=====================================================================
+ 7. MOSTRAR SOLO ALGUNAS COLUMNAS  (cut, awk, sort)
+=====================================================================
+
+  cut -d, -f4,5 archivo.csv
+      Muestra solo las columnas 4 y 5 (-d, = separador coma).
+
+  cut -d, -f1,4,5 archivo.csv
+      Muestra solo las columnas 1, 4 y 5.
+
+  awk -F, '{print $1, $4, $5}' archivo.csv
+      Lo mismo con awk, separando las columnas con espacio.
+
+  awk -F, '{print $4","$5}' archivo.csv
+      Con awk, separando las columnas con coma.
+
+  awk -F, '$4=="19/11/2024" {print $1","$4","$5}' archivo.csv
+      Filtra un día y muestra solo LU, fecha y asistencias.
+
+  tail -n +2 archivo.csv | sort -t, -k4
+      Muestra el archivo ordenado por la columna 4 (como texto).
+
+  tail -n +2 archivo.csv | sort -t, -k5 -n
+      Muestra el archivo ordenado por la columna 5 (como número).
+
+
+=====================================================================
+ 8. EJEMPLOS TIPO EXAMEN
+=====================================================================
+
+  grep -c '19/11/2024' archivo.csv
+      Cuántas muestras se tomaron el 19/11/2024.
+
+  awk -F, 'NR>1 {split($4,d,"/"); m[d[2]"/"d[3]]++} END{for(k in m) print k, m[k]}' archivo.csv | sort -k2 -nr | head -1
+      Mes con más registros (split parte la fecha: d[1] día, d[2] mes, d[3] año).
+
+  awk -F, 'NR>1 && $5>10' archivo.csv | wc -l
+      Cantidad de mediciones mayores a 10.
+
+  awk -F, 'NR>1 && $5!="" && $5<8 {print $1}' archivo.csv | sort -u
+      Qué LU tienen valores menores a 8 (sort -u saca los repetidos).
+
+  awk -F, 'NR>1 && $5==""' archivo.csv
+      Muestra los registros incompletos (sin el valor de la columna 5).
+
+  awk -F, '$1==1001 && $5!="" {s+=$5; n++} END{print "1001", s/n}' archivo.csv
+      Promedio de un LU puntual (acá, el LU 1001).
+
+
+=====================================================================
+ 9. ARCHIVO DEL SMN (ancho fijo, separado por espacios)
+=====================================================================
+ Este archivo (registro_temperatura365d_smn.txt) es distinto:
+   - Los datos empiezan en la línea 4 (las 3 primeras son encabezado).
+   - Sin -F, awk separa por espacios: $1 = FECHA (ddmmaaaa), $2 = TMAX,
+     $3 = TMIN. El nombre de la estación viene después.
+   - $2 ~ /^-?[0-9.]+$/ significa "$2 es un número" (descarta vacíos).
+   - Si tiene CRLF, primero: tr -d '\r' < registro_temperatura365d_smn.txt > limpio.txt
+
+  tail -n +4 limpio.txt
+      Muestra todo menos las 3 líneas de encabezado.
+
+  grep -i 'ushuaia' limpio.txt
+      Muestra las líneas de la estación USHUAIA.
+
+  grep -c '^13092025' limpio.txt
+      Cuenta las filas del 13/09/2025 (^ = al comienzo de la línea).
+
+  awk 'NR>3 && substr($1,5,4)=="2025"' limpio.txt
+      Muestra las filas del año 2025 (substr toma el año de la fecha).
+
+  awk 'NR>3 && $2 ~ /^-?[0-9.]+$/ {if(n++==0||$2>mx)mx=$2} END{print mx}' limpio.txt
+      TMAX máxima.
+
+  awk 'NR>3 && $3 ~ /^-?[0-9.]+$/ {if(n++==0||$3<mn)mn=$3} END{print mn}' limpio.txt
+      TMIN mínima.
+
+  awk 'NR>3 && $2 ~ /^-?[0-9.]+$/ {s+=$2; n++} END{printf "%.2f\n", s/n}' limpio.txt
+      Promedio de TMAX, con 2 decimales.
+
+  cut -c1-8,10-14 limpio.txt
+      Muestra solo la fecha (caracteres 1 a 8) y TMAX (10 a 14).
+
+
+=====================================================================
+ 10. REFERENCIA RÁPIDA
+=====================================================================
+
+  ls / cd / pwd        Ver archivos / cambiar de carpeta / ver dónde estás
+  cat / less           Ver todo el archivo / verlo paginado (q para salir)
+  head / tail          Ver el principio / el final (-n 10 = 10 líneas)
+  wc -l                Contar líneas
+  grep                 Filtrar líneas que contienen un texto
+                       (-i sin mayúsculas, -c contar, -E varias opciones con |)
+  cut -d, -f           Mostrar solo ciertas columnas
+  awk -F, '...'        Filtrar por columna, máximo, mínimo, promedio, conteos
+  sort                 Ordenar (-t, separador, -k columna, -n número, -r inverso, -u sin repetidos)
+  uniq -c              Contar repetidos (siempre después de sort)
+  sed -n 'a,bp'        Mostrar de la línea a hasta la b
+  tr -d '\r'           Quitar los saltos de línea de Windows
+  |  (pipe)            Pasa la salida de un comando al siguiente
+  >  (redirección)     Guarda la salida en un archivo (ej: ... > resultado.txt)
+_____________________________________________________________--
+
+2DO PARCIAL COMANDOS 
+
+
+# 1. Cantidad de clases asistidas 
+awk -F';' '$2=="RODRÍGUEZ" && $5!=""' asistenciac4.csv | wc -l // Aparte tb verifiqué mediante mail ya que es único y comparé si daba el mismo resultado por apellido y estaba ok.
+
+# 2. Mes en el que asististe a mayor cantidad de clases y su cantidad (extrae el mes de la fecha en columna 5)
+awk -F';' '$3 ~ /milotahiel.r@gmail.com/ && NR>1 {split($5,d,"/"); m[d[2]]++} END{for(k in m) print k, m[k]}' asistenciac4.csv | sort -k2 -nr | head -1
+
+# 3. Semanas transcurridas entre primera y última asistencia (columna 5)
+FECHA_INICIO=$(awk -F';' '$3 ~ /milotahiel.r@gmail.com/ && $5!="" {print $5}' asistenciac4.csv | head -1)
+FECHA_FIN=$(awk -F';' '$3 ~ /milotahiel.r@gmail.com/ && $5!="" {print $5}' asistenciac4.csv | tail -1)
+echo $(( ($(date -d "$FECHA_FIN" +%s) - $(date -d "$FECHA_INICIO" +%s)) / (60*60*24*7) ))
+
+# 4. Cantidad de registros incompletos asociados a mí
+awk -F';' '$3 ~ /milotahiel.r@gmail.com/ && ($5=="" || $4=="")' asistenciac4.csv | wc -l
